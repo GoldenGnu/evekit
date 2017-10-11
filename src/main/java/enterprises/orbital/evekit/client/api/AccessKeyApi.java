@@ -1,22 +1,22 @@
 package enterprises.orbital.evekit.client.api;
 
-import enterprises.orbital.evekit.client.invoker.ApiException;
-import enterprises.orbital.evekit.client.invoker.ApiClient;
-import enterprises.orbital.evekit.client.invoker.Configuration;
-import enterprises.orbital.evekit.client.invoker.Pair;
+import enterprises.orbital.evekit.client.ApiException;
+import enterprises.orbital.evekit.client.ApiClient;
+import enterprises.orbital.evekit.client.Configuration;
+import enterprises.orbital.evekit.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import enterprises.orbital.evekit.client.model.ServiceError;
 import enterprises.orbital.evekit.client.model.KeyInfo;
 import enterprises.orbital.evekit.client.model.MaskList;
+import enterprises.orbital.evekit.client.model.ServiceError;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-01T15:58:15.972+02:00")
+
 public class AccessKeyApi {
   private ApiClient apiClient;
 

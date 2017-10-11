@@ -1,32 +1,32 @@
 package enterprises.orbital.evekit.client.api;
 
-import enterprises.orbital.evekit.client.invoker.ApiException;
-import enterprises.orbital.evekit.client.invoker.ApiClient;
-import enterprises.orbital.evekit.client.invoker.Configuration;
-import enterprises.orbital.evekit.client.invoker.Pair;
+import enterprises.orbital.evekit.client.ApiException;
+import enterprises.orbital.evekit.client.ApiClient;
+import enterprises.orbital.evekit.client.Configuration;
+import enterprises.orbital.evekit.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
-import enterprises.orbital.evekit.client.model.ServiceError;
 import enterprises.orbital.evekit.client.model.AccountBalance;
 import enterprises.orbital.evekit.client.model.Asset;
 import enterprises.orbital.evekit.client.model.Blueprint;
 import enterprises.orbital.evekit.client.model.Bookmark;
-import enterprises.orbital.evekit.client.model.ContactLabel;
 import enterprises.orbital.evekit.client.model.Contact;
+import enterprises.orbital.evekit.client.model.ContactLabel;
+import enterprises.orbital.evekit.client.model.Contract;
 import enterprises.orbital.evekit.client.model.ContractBid;
 import enterprises.orbital.evekit.client.model.ContractItem;
-import enterprises.orbital.evekit.client.model.Contract;
 import enterprises.orbital.evekit.client.model.FacWarStats;
 import enterprises.orbital.evekit.client.model.IndustryJob;
-import enterprises.orbital.evekit.client.model.WalletJournal;
+import enterprises.orbital.evekit.client.model.Kill;
 import enterprises.orbital.evekit.client.model.KillAttacker;
 import enterprises.orbital.evekit.client.model.KillItem;
 import enterprises.orbital.evekit.client.model.KillVictim;
-import enterprises.orbital.evekit.client.model.Kill;
 import enterprises.orbital.evekit.client.model.Location;
 import enterprises.orbital.evekit.client.model.MarketOrder;
+import enterprises.orbital.evekit.client.model.ServiceError;
 import enterprises.orbital.evekit.client.model.Standing;
+import enterprises.orbital.evekit.client.model.WalletJournal;
 import enterprises.orbital.evekit.client.model.WalletTransaction;
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-01T15:58:15.972+02:00")
+
 public class CommonApi {
   private ApiClient apiClient;
 
@@ -65,7 +65,7 @@ public class CommonApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param accountID Account ID selector (optional, default to { any: true })
    * @param accountKey Account key selector (optional, default to { any: true })
-   * @return List<AccountBalance>
+   * @return List&lt;AccountBalance&gt;
    * @throws ApiException if fails to make API call
    */
   public List<AccountBalance> getAccountBalance(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String accountID, String accountKey) throws ApiException {
@@ -132,7 +132,7 @@ public class CommonApi {
    * @param singleton Asset is singleton selector (optional, default to { any: true })
    * @param rawQuantity Asset raw quantity selector (optional, default to { any: true })
    * @param container Asset container selector (optional, default to { any: true })
-   * @return List<Asset>
+   * @return List&lt;Asset&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Asset> getAssets(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String locationID, String typeID, String quantity, String flag, String singleton, String rawQuantity, String container) throws ApiException {
@@ -206,7 +206,7 @@ public class CommonApi {
    * @param timeEfficiency Blueprint time efficiency selector (optional, default to { any: true })
    * @param materialEfficiency Blueprint material efficiency selector (optional, default to { any: true })
    * @param runs Blueprint runs selector (optional, default to { any: true })
-   * @return List<Blueprint>
+   * @return List&lt;Blueprint&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Blueprint> getBlueprints(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String locationID, String typeID, String typeName, String flagID, String quantity, String timeEfficiency, String materialEfficiency, String runs) throws ApiException {
@@ -286,7 +286,7 @@ public class CommonApi {
    * @param z Bookmark z coordinate selector (optional, default to { any: true })
    * @param memo Bookmark memo selector (optional, default to { any: true })
    * @param note Bookmark note selector (optional, default to { any: true })
-   * @return List<Bookmark>
+   * @return List&lt;Bookmark&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Bookmark> getBookmarks(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String folderID, String folderName, String folderCreatorID, String bookmarkID, String bookmarkCreatorID, String created, String itemID, String typeID, String locationID, String x, String y, String z, String memo, String note) throws ApiException {
@@ -360,7 +360,7 @@ public class CommonApi {
    * @param list Contact list selector (optional, default to { any: true })
    * @param labelID Contact label ID selector (optional, default to { any: true })
    * @param name Contact label name selector (optional, default to { any: true })
-   * @return List<ContactLabel>
+   * @return List&lt;ContactLabel&gt;
    * @throws ApiException if fails to make API call
    */
   public List<ContactLabel> getContactLabels(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String list, String labelID, String name) throws ApiException {
@@ -427,7 +427,7 @@ public class CommonApi {
    * @param contactTypeID Contact type ID selector (optional, default to { any: true })
    * @param inWatchlist Contact in watch list selector (optional, default to { any: true })
    * @param labelMask Contact label mask selector (optional, default to { any: true })
-   * @return List<Contact>
+   * @return List&lt;Contact&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Contact> getContacts(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String list, String contactID, String contactName, String standing, String contactTypeID, String inWatchlist, String labelMask) throws ApiException {
@@ -496,7 +496,7 @@ public class CommonApi {
    * @param bidderID Contract bid bidder ID selector (optional, default to { any: true })
    * @param dateBid Contract bid date selector (optional, default to { any: true })
    * @param amount Contract bid amount selector (optional, default to { any: true })
-   * @return List<ContractBid>
+   * @return List&lt;ContractBid&gt;
    * @throws ApiException if fails to make API call
    */
   public List<ContractBid> getContractBids(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String bidID, String contractID, String bidderID, String dateBid, String amount) throws ApiException {
@@ -565,7 +565,7 @@ public class CommonApi {
    * @param rawQuantity Contract item raw quantity selector (optional, default to { any: true })
    * @param singleton Contract item singleton selector (optional, default to { any: true })
    * @param included Contract item included selector (optional, default to { any: true })
-   * @return List<ContractItem>
+   * @return List&lt;ContractItem&gt;
    * @throws ApiException if fails to make API call
    */
   public List<ContractItem> getContractItems(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String contractID, String recordID, String typeID, String quantity, String rawQuantity, String singleton, String included) throws ApiException {
@@ -651,7 +651,7 @@ public class CommonApi {
    * @param collateral Contract collateral value selector (optional, default to { any: true })
    * @param buyout Contract buyout price selector (optional, default to { any: true })
    * @param volume Contract volume selector (optional, default to { any: true })
-   * @return List<Contract>
+   * @return List&lt;Contract&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Contract> getContracts(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String contractID, String issuerID, String issuerCorpID, String assigneeID, String acceptorID, String startStationID, String endStationID, String type, String status, String title, String forCorp, String availability, String dateIssued, String dateExpired, String dateAccepted, String numDays, String dateCompleted, String price, String reward, String collateral, String buyout, String volume) throws ApiException {
@@ -742,7 +742,7 @@ public class CommonApi {
    * @param victoryPointsLastWeek Faction war statistics victory points last week selector (optional, default to { any: true })
    * @param victoryPointsTotal Faction war statistics victory points total selector (optional, default to { any: true })
    * @param victoryPointsYesterday Faction war statistics victory points yesterday selector (optional, default to { any: true })
-   * @return List<FacWarStats>
+   * @return List&lt;FacWarStats&gt;
    * @throws ApiException if fails to make API call
    */
   public List<FacWarStats> getFacWarStats(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String currentRank, String enlisted, String factionID, String factionName, String highestRank, String killsLastWeek, String killsTotal, String killsYesterday, String pilots, String victoryPointsLastWeek, String victoryPointsTotal, String victoryPointsYesterday) throws ApiException {
@@ -839,7 +839,7 @@ public class CommonApi {
    * @param completedDate Industry job completed date selector (optional, default to { any: true })
    * @param completedCharacterID Industry job completed character ID selector (optional, default to { any: true })
    * @param successfulRuns Industry job successful runs selector (optional, default to { any: true })
-   * @return List<IndustryJob>
+   * @return List&lt;IndustryJob&gt;
    * @throws ApiException if fails to make API call
    */
   public List<IndustryJob> getIndustryJobs(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String jobID, String installerID, String installerName, String facilityID, String solarSystemID, String solarSystemName, String stationID, String activityID, String blueprintID, String blueprintTypeID, String blueprintTypeName, String blueprintLocationID, String outputLocationID, String runs, String cost, String teamID, String licensedRuns, String probability, String productTypeID, String productTypeName, String status, String timeInSeconds, String startDate, String endDate, String pauseDate, String completedDate, String completedCharacterID, String successfulRuns) throws ApiException {
@@ -941,7 +941,7 @@ public class CommonApi {
    * @param taxAmount Journal entry tax amount selector (optional, default to { any: true })
    * @param owner1TypeID First owner type ID selector (optional, default to { any: true })
    * @param owner2TypeID Second owner type ID selector (optional, default to { any: true })
-   * @return List<WalletJournal>
+   * @return List&lt;WalletJournal&gt;
    * @throws ApiException if fails to make API call
    */
   public List<WalletJournal> getJournalEntries(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String accountKey, String refID, String date, String refTypeID, String ownerName1, String ownerID1, String ownerName2, String ownerID2, String argName1, String argID1, String amount, String balance, String reason, String taxReceiverID, String taxAmount, String owner1TypeID, String owner2TypeID) throws ApiException {
@@ -1029,7 +1029,7 @@ public class CommonApi {
    * @param shipTypeID Kill attacker ship type ID selector (optional, default to { any: true })
    * @param weaponTypeID Kill attacker weapon type ID selector (optional, default to { any: true })
    * @param finalBlow Kill attacker final blow selector (optional, default to { any: true })
-   * @return List<KillAttacker>
+   * @return List&lt;KillAttacker&gt;
    * @throws ApiException if fails to make API call
    */
   public List<KillAttacker> getKillAttackers(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String killID, String attackerCharacterID, String allianceID, String allianceName, String attackerCharacterName, String attackerCorporationID, String attackerCorporationName, String damageDone, String factionID, String factionName, String securityStatus, String shipTypeID, String weaponTypeID, String finalBlow) throws ApiException {
@@ -1108,7 +1108,7 @@ public class CommonApi {
    * @param singleton Kill item singleton selector (optional, default to { any: true })
    * @param sequence Kill item sequence selector (optional, default to { any: true })
    * @param containerSequence Kill item container sequence selector (optional, default to { any: true })
-   * @return List<KillItem>
+   * @return List&lt;KillItem&gt;
    * @throws ApiException if fails to make API call
    */
   public List<KillItem> getKillItems(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String killID, String typeID, String flag, String qtyDestroyed, String qtyDropped, String singleton, String sequence, String containerSequence) throws ApiException {
@@ -1184,7 +1184,7 @@ public class CommonApi {
    * @param factionID Kill victim faction ID selector (optional, default to { any: true })
    * @param factionName Kill victim faction name selector (optional, default to { any: true })
    * @param shipTypeID Kill victim ship type ID selector (optional, default to { any: true })
-   * @return List<KillVictim>
+   * @return List&lt;KillVictim&gt;
    * @throws ApiException if fails to make API call
    */
   public List<KillVictim> getKillVictims(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String killID, String allianceID, String allianceName, String killCharacterID, String killCharacterName, String killCorporationID, String killCorporationName, String damageTaken, String factionID, String factionName, String shipTypeID) throws ApiException {
@@ -1256,7 +1256,7 @@ public class CommonApi {
    * @param killTime Kill time selector (optional, default to { any: true })
    * @param moonID Kill moon ID selector (optional, default to { any: true })
    * @param solarSystemID Kill solar system ID selector (optional, default to { any: true })
-   * @return List<Kill>
+   * @return List&lt;Kill&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Kill> getKills(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String killID, String killTime, String moonID, String solarSystemID) throws ApiException {
@@ -1322,7 +1322,7 @@ public class CommonApi {
    * @param x Location X position selector (optional, default to { any: true })
    * @param y Location Y position selector (optional, default to { any: true })
    * @param z Location Z position selector (optional, default to { any: true })
-   * @return List<Location>
+   * @return List&lt;Location&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Location> getLocations(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String itemName, String x, String y, String z) throws ApiException {
@@ -1399,7 +1399,7 @@ public class CommonApi {
    * @param typeID Market order type ID selector (optional, default to { any: true })
    * @param volEntered Market order volume entered selector (optional, default to { any: true })
    * @param volRemaining Market order volume remaining selector (optional, default to { any: true })
-   * @return List<MarketOrder>
+   * @return List&lt;MarketOrder&gt;
    * @throws ApiException if fails to make API call
    */
   public List<MarketOrder> getMarketOrders(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String orderID, String accountKey, String bid, String charID, String duration, String escrow, String issued, String minVolume, String orderState, String price, String orderRange, String stationID, String typeID, String volEntered, String volRemaining) throws ApiException {
@@ -1475,7 +1475,7 @@ public class CommonApi {
    * @param fromID Standing from ID selector (optional, default to { any: true })
    * @param fromName Standing from name selector (optional, default to { any: true })
    * @param standing Standing value selector (optional, default to { any: true })
-   * @return List<Standing>
+   * @return List&lt;Standing&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Standing> getStandings(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String standingEntity, String fromID, String fromName, String standing) throws ApiException {
@@ -1553,7 +1553,7 @@ public class CommonApi {
    * @param clientTypeID Client type ID selector (optional, default to { any: true })
    * @param characterID Character ID selector (optional, default to { any: true })
    * @param characterName Character name selector (optional, default to { any: true })
-   * @return List<WalletTransaction>
+   * @return List&lt;WalletTransaction&gt;
    * @throws ApiException if fails to make API call
    */
   public List<WalletTransaction> getWalletTransactions(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String accountKey, String transactionID, String date, String quantity, String typeName, String typeID, String price, String clientID, String clientName, String stationID, String stationName, String transactionType, String transactionFor, String journalTransactionID, String clientTypeID, String characterID, String characterName) throws ApiException {

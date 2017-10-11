@@ -1,0 +1,11 @@
+{
+  "groupId":"enterprises.orbital.evekit",
+  "artifactId":"evekit",
+  "invokerPackage":"enterprises.orbital.evekit.client",
+  "apiPackage":"enterprises.orbital.evekit.client.api",
+  "modelPackage":"enterprises.orbital.evekit.client.model",
+  "library":"jersey2",
+  "serializableModel":"true",
+  "hideGenerationTimestamp":"true",
+  "dateLibrary":"java8"
+}

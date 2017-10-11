@@ -1,41 +1,41 @@
 package enterprises.orbital.evekit.client.api;
 
-import enterprises.orbital.evekit.client.invoker.ApiException;
-import enterprises.orbital.evekit.client.invoker.ApiClient;
-import enterprises.orbital.evekit.client.invoker.Configuration;
-import enterprises.orbital.evekit.client.invoker.Pair;
+import enterprises.orbital.evekit.client.ApiException;
+import enterprises.orbital.evekit.client.ApiClient;
+import enterprises.orbital.evekit.client.Configuration;
+import enterprises.orbital.evekit.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
 import enterprises.orbital.evekit.client.model.AccountStatus;
-import enterprises.orbital.evekit.client.model.ServiceError;
-import enterprises.orbital.evekit.client.model.CharacterSheetBalance;
 import enterprises.orbital.evekit.client.model.CalendarEventAttendee;
-import enterprises.orbital.evekit.client.model.ChatChannelMember;
-import enterprises.orbital.evekit.client.model.ChatChannel;
-import enterprises.orbital.evekit.client.model.CharacterSheet;
-import enterprises.orbital.evekit.client.model.CharacterSheetClone;
 import enterprises.orbital.evekit.client.model.CharacterContactNotification;
-import enterprises.orbital.evekit.client.model.Implant;
-import enterprises.orbital.evekit.client.model.JumpCloneImplant;
-import enterprises.orbital.evekit.client.model.JumpClone;
-import enterprises.orbital.evekit.client.model.CharacterSheetJump;
-import enterprises.orbital.evekit.client.model.CharacterMailMessageBody;
 import enterprises.orbital.evekit.client.model.CharacterMailMessage;
-import enterprises.orbital.evekit.client.model.MailingList;
+import enterprises.orbital.evekit.client.model.CharacterMailMessageBody;
 import enterprises.orbital.evekit.client.model.CharacterMedal;
-import enterprises.orbital.evekit.client.model.CharacterNotificationBody;
 import enterprises.orbital.evekit.client.model.CharacterNotification;
+import enterprises.orbital.evekit.client.model.CharacterNotificationBody;
+import enterprises.orbital.evekit.client.model.CharacterRole;
+import enterprises.orbital.evekit.client.model.CharacterSheet;
+import enterprises.orbital.evekit.client.model.CharacterSheetBalance;
+import enterprises.orbital.evekit.client.model.CharacterSheetClone;
+import enterprises.orbital.evekit.client.model.CharacterSheetJump;
+import enterprises.orbital.evekit.client.model.CharacterSkill;
+import enterprises.orbital.evekit.client.model.CharacterSkillInTraining;
+import enterprises.orbital.evekit.client.model.CharacterTitle;
+import enterprises.orbital.evekit.client.model.ChatChannel;
+import enterprises.orbital.evekit.client.model.ChatChannelMember;
+import enterprises.orbital.evekit.client.model.Implant;
+import enterprises.orbital.evekit.client.model.JumpClone;
+import enterprises.orbital.evekit.client.model.JumpCloneImplant;
+import enterprises.orbital.evekit.client.model.MailingList;
 import enterprises.orbital.evekit.client.model.PlanetaryColony;
 import enterprises.orbital.evekit.client.model.PlanetaryLink;
 import enterprises.orbital.evekit.client.model.PlanetaryPin;
 import enterprises.orbital.evekit.client.model.PlanetaryRoute;
 import enterprises.orbital.evekit.client.model.ResearchAgent;
-import enterprises.orbital.evekit.client.model.CharacterRole;
-import enterprises.orbital.evekit.client.model.CharacterSkill;
+import enterprises.orbital.evekit.client.model.ServiceError;
 import enterprises.orbital.evekit.client.model.SkillInQueue;
-import enterprises.orbital.evekit.client.model.CharacterSkillInTraining;
-import enterprises.orbital.evekit.client.model.CharacterTitle;
 import enterprises.orbital.evekit.client.model.UpcomingCalendarEvent;
 
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-01T15:58:15.972+02:00")
+
 public class CharacterApi {
   private ApiClient apiClient;
 
@@ -77,7 +77,7 @@ public class CharacterApi {
    * @param logonCount Account status logon count selector (optional, default to { any: true })
    * @param logonMinutes Account status logon minutes selector (optional, default to { any: true })
    * @param multiCharacterTraining Account status multi-character training selector (optional, default to { any: true })
-   * @return List<AccountStatus>
+   * @return List&lt;AccountStatus&gt;
    * @throws ApiException if fails to make API call
    */
   public List<AccountStatus> getAccountStatus(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String paidUntil, String createDate, String logonCount, String logonMinutes, String multiCharacterTraining) throws ApiException {
@@ -140,7 +140,7 @@ public class CharacterApi {
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param balance Balance selector (optional, default to { any: true })
-   * @return List<CharacterSheetBalance>
+   * @return List&lt;CharacterSheetBalance&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterSheetBalance> getBalances(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String balance) throws ApiException {
@@ -202,7 +202,7 @@ public class CharacterApi {
    * @param characterID Attending character ID selector (optional, default to { any: true })
    * @param characterName Attending character name selector (optional, default to { any: true })
    * @param response Attendee response selector (optional, default to { any: true })
-   * @return List<CalendarEventAttendee>
+   * @return List&lt;CalendarEventAttendee&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CalendarEventAttendee> getCalendarEventAttendees(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String eventID, String characterID, String characterName, String response) throws ApiException {
@@ -269,7 +269,7 @@ public class CharacterApi {
    * @param accessorName Member accessor name selector (optional, default to { any: true })
    * @param untilWhen Member restriction \&quot;until when\&quot; date selector (optional, default to { any: true })
    * @param reason Member restriction reason selector (optional, default to { any: true })
-   * @return List<ChatChannelMember>
+   * @return List&lt;ChatChannelMember&gt;
    * @throws ApiException if fails to make API call
    */
   public List<ChatChannelMember> getChannelMembers(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String channelID, String category, String accessorID, String accessorName, String untilWhen, String reason) throws ApiException {
@@ -339,7 +339,7 @@ public class CharacterApi {
    * @param comparisonKey Channel comparison key selector (optional, default to { any: true })
    * @param hasPassword Channel has password selector (optional, default to { any: true })
    * @param motd Channel Message of the Day selector (optional, default to { any: true })
-   * @return List<ChatChannel>
+   * @return List&lt;ChatChannel&gt;
    * @throws ApiException if fails to make API call
    */
   public List<ChatChannel> getChannels(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String channelID, String ownerID, String ownerName, String displayName, String comparisonKey, String hasPassword, String motd) throws ApiException {
@@ -429,7 +429,7 @@ public class CharacterApi {
    * @param freeRespecs Free respecs selector (optional, default to { any: true })
    * @param freeSkillPoints Free skill points selector (optional, default to { any: true })
    * @param remoteStationDate Remote station date selector (optional, default to { any: true })
-   * @return List<CharacterSheet>
+   * @return List&lt;CharacterSheet&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterSheet> getCharacterSheets(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String characterID, String name, String corporationID, String corporationName, String race, String doB, String bloodlineID, String bloodline, String ancestryID, String ancestry, String gender, String allianceName, String allianceID, String factionName, String factionID, String intelligence, String memory, String charisma, String perception, String willpower, String homeStationID, String lastRespecDate, String lastTimedRespec, String freeRespecs, String freeSkillPoints, String remoteStationDate) throws ApiException {
@@ -513,7 +513,7 @@ public class CharacterApi {
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param cloneJumpDate Clone jump date selector (optional, default to { any: true })
-   * @return List<CharacterSheetClone>
+   * @return List&lt;CharacterSheetClone&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterSheetClone> getCloneJumpTimers(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String cloneJumpDate) throws ApiException {
@@ -576,7 +576,7 @@ public class CharacterApi {
    * @param senderName Contact notification sender name selector (optional, default to { any: true })
    * @param sentDate Contact notification send date selector (optional, default to { any: true })
    * @param messageData Contact notification message data selector (optional, default to { any: true })
-   * @return List<CharacterContactNotification>
+   * @return List&lt;CharacterContactNotification&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterContactNotification> getContactNotifications(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String notificationID, String senderID, String senderName, String sentDate, String messageData) throws ApiException {
@@ -640,7 +640,7 @@ public class CharacterApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param typeID Implant type ID selector (optional, default to { any: true })
    * @param typeName Implant type name selector (optional, default to { any: true })
-   * @return List<Implant>
+   * @return List&lt;Implant&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Implant> getImplants(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String typeID, String typeName) throws ApiException {
@@ -702,7 +702,7 @@ public class CharacterApi {
    * @param jumpCloneID Jump clone ID selector (optional, default to { any: true })
    * @param typeID Implant type ID selector (optional, default to { any: true })
    * @param typeName Implant type name selector (optional, default to { any: true })
-   * @return List<JumpCloneImplant>
+   * @return List&lt;JumpCloneImplant&gt;
    * @throws ApiException if fails to make API call
    */
   public List<JumpCloneImplant> getJumpCloneImplants(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String jumpCloneID, String typeID, String typeName) throws ApiException {
@@ -766,7 +766,7 @@ public class CharacterApi {
    * @param typeID Jump clone type ID selector (optional, default to { any: true })
    * @param locationID Jump clone location ID selector (optional, default to { any: true })
    * @param cloneName Clone name selector selector (optional, default to { any: true })
-   * @return List<JumpClone>
+   * @return List&lt;JumpClone&gt;
    * @throws ApiException if fails to make API call
    */
   public List<JumpClone> getJumpClones(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String jumpCloneID, String typeID, String locationID, String cloneName) throws ApiException {
@@ -830,7 +830,7 @@ public class CharacterApi {
    * @param jumpActivation Jump activation selector (optional, default to { any: true })
    * @param jumpFatigue Jump fatigue selector (optional, default to { any: true })
    * @param jumpLastUpdate Jump last update time selector (optional, default to { any: true })
-   * @return List<CharacterSheetJump>
+   * @return List&lt;CharacterSheetJump&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterSheetJump> getJumpTimers(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String jumpActivation, String jumpFatigue, String jumpLastUpdate) throws ApiException {
@@ -893,7 +893,7 @@ public class CharacterApi {
    * @param messageID Mail message ID selector (optional, default to { any: true })
    * @param retrieved Mail message body retrieved selector (optional, default to { any: true })
    * @param body Mail message body selector (optional, default to { any: true })
-   * @return List<CharacterMailMessageBody>
+   * @return List&lt;CharacterMailMessageBody&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterMailMessageBody> getMailMessageBodies(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String messageID, String retrieved, String body) throws ApiException {
@@ -963,7 +963,7 @@ public class CharacterApi {
    * @param toListID Message destination list ID selector (optional, default to { any: true })
    * @param msgRead Message read selector (optional, default to { any: true })
    * @param senderTypeID Message sender type ID selector (optional, default to { any: true })
-   * @return List<CharacterMailMessage>
+   * @return List&lt;CharacterMailMessage&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterMailMessage> getMailMessages(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String messageID, String senderID, String senderName, String toCharacterID, String sentDate, String title, String toCorpOrAllianceID, String toListID, String msgRead, String senderTypeID) throws ApiException {
@@ -1032,7 +1032,7 @@ public class CharacterApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param displayName Mailing list display name selector (optional, default to { any: true })
    * @param listID Mailing list ID selector (optional, default to { any: true })
-   * @return List<MailingList>
+   * @return List&lt;MailingList&gt;
    * @throws ApiException if fails to make API call
    */
   public List<MailingList> getMailingLists(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String displayName, String listID) throws ApiException {
@@ -1099,7 +1099,7 @@ public class CharacterApi {
    * @param issuerID Issuer ID selector (optional, default to { any: true })
    * @param reason Medal award reason selector (optional, default to { any: true })
    * @param status Medal status selector (optional, default to { any: true })
-   * @return List<CharacterMedal>
+   * @return List&lt;CharacterMedal&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterMedal> getMedals(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String description, String medalID, String title, String corporationID, String issued, String issuerID, String reason, String status) throws ApiException {
@@ -1168,7 +1168,7 @@ public class CharacterApi {
    * @param retrieved Body retrieved selector (optional, default to { any: true })
    * @param text Notification text selector (optional, default to { any: true })
    * @param missing Notification missing selector (optional, default to { any: true })
-   * @return List<CharacterNotificationBody>
+   * @return List&lt;CharacterNotificationBody&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterNotificationBody> getNotificationBodies(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String notificationID, String retrieved, String text, String missing) throws ApiException {
@@ -1234,7 +1234,7 @@ public class CharacterApi {
    * @param senderID Notification sender ID selector (optional, default to { any: true })
    * @param sentDate Notification send date selector (optional, default to { any: true })
    * @param msgRead Notification read selector (optional, default to { any: true })
-   * @return List<CharacterNotification>
+   * @return List&lt;CharacterNotification&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterNotification> getNotifications(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String notificationID, String typeID, String senderID, String sentDate, String msgRead) throws ApiException {
@@ -1307,7 +1307,7 @@ public class CharacterApi {
    * @param lastUpdate Colony last update selector (optional, default to { any: true })
    * @param upgradeLevel Colony upgrade level selector (optional, default to { any: true })
    * @param numberOfPins Colony number of pins selector (optional, default to { any: true })
-   * @return List<PlanetaryColony>
+   * @return List&lt;PlanetaryColony&gt;
    * @throws ApiException if fails to make API call
    */
   public List<PlanetaryColony> getPlanetaryColonies(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String planetID, String solarSystemID, String solarSystemName, String planetName, String planetTypeID, String planetTypeName, String ownerID, String ownerName, String lastUpdate, String upgradeLevel, String numberOfPins) throws ApiException {
@@ -1379,7 +1379,7 @@ public class CharacterApi {
    * @param sourcePinID Link source pin ID selector (optional, default to { any: true })
    * @param destinationPinID Link destination pin ID selector (optional, default to { any: true })
    * @param linkLevel Link level selector (optional, default to { any: true })
-   * @return List<PlanetaryLink>
+   * @return List&lt;PlanetaryLink&gt;
    * @throws ApiException if fails to make API call
    */
   public List<PlanetaryLink> getPlanetaryLinks(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String planetID, String sourcePinID, String destinationPinID, String linkLevel) throws ApiException {
@@ -1455,7 +1455,7 @@ public class CharacterApi {
    * @param contentQuantity Pin content quantity selector (optional, default to { any: true })
    * @param longitude Pin longitude selector (optional, default to { any: true })
    * @param latitude Pin latitude selector (optional, default to { any: true })
-   * @return List<PlanetaryPin>
+   * @return List&lt;PlanetaryPin&gt;
    * @throws ApiException if fails to make API call
    */
   public List<PlanetaryPin> getPlanetaryPins(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String planetID, String pinID, String typeID, String typeName, String schematicID, String lastLaunchTime, String cycleTime, String quantityPerCycle, String installTime, String expiryTime, String contentTypeID, String contentTypeName, String contentQuantity, String longitude, String latitude) throws ApiException {
@@ -1539,7 +1539,7 @@ public class CharacterApi {
    * @param waypoint3 Route waypoint 3 selector (optional, default to { any: true })
    * @param waypoint4 Route waypoint 4 selector (optional, default to { any: true })
    * @param waypoint5 Route waypoint 5 selector (optional, default to { any: true })
-   * @return List<PlanetaryRoute>
+   * @return List&lt;PlanetaryRoute&gt;
    * @throws ApiException if fails to make API call
    */
   public List<PlanetaryRoute> getPlanetaryRoutes(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String planetID, String routeID, String sourcePinID, String destinationPinID, String contentTypeID, String contentTypeName, String quantity, String waypoint1, String waypoint2, String waypoint3, String waypoint4, String waypoint5) throws ApiException {
@@ -1614,7 +1614,7 @@ public class CharacterApi {
    * @param remainderPoints Agent remainder points selector (optional, default to { any: true })
    * @param researchStartDate Agent research start date selector (optional, default to { any: true })
    * @param skillTypeID Agent skill type ID selector (optional, default to { any: true })
-   * @return List<ResearchAgent>
+   * @return List&lt;ResearchAgent&gt;
    * @throws ApiException if fails to make API call
    */
   public List<ResearchAgent> getResearchAgents(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String agentID, String currentPoints, String pointsPerDay, String remainderPoints, String researchStartDate, String skillTypeID) throws ApiException {
@@ -1680,7 +1680,7 @@ public class CharacterApi {
    * @param roleCategory Role category selector (optional, default to { any: true })
    * @param roleID Role ID selector (optional, default to { any: true })
    * @param roleName Role name selector (optional, default to { any: true })
-   * @return List<CharacterRole>
+   * @return List&lt;CharacterRole&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterRole> getRoles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String roleCategory, String roleID, String roleName) throws ApiException {
@@ -1744,7 +1744,7 @@ public class CharacterApi {
    * @param level Skill level selector (optional, default to { any: true })
    * @param skillpoints Skill points selector (optional, default to { any: true })
    * @param published Published skill selector (optional, default to { any: true })
-   * @return List<CharacterSkill>
+   * @return List&lt;CharacterSkill&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterSkill> getSkills(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String typeID, String level, String skillpoints, String published) throws ApiException {
@@ -1812,7 +1812,7 @@ public class CharacterApi {
    * @param startSP Starting skill points selector (optional, default to { any: true })
    * @param startTime Training start time selector (optional, default to { any: true })
    * @param typeID Skill type ID selector (optional, default to { any: true })
-   * @return List<SkillInQueue>
+   * @return List&lt;SkillInQueue&gt;
    * @throws ApiException if fails to make API call
    */
   public List<SkillInQueue> getSkillsInQueue(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String endSP, String endTime, String level, String queuePosition, String startSP, String startTime, String typeID) throws ApiException {
@@ -1884,7 +1884,7 @@ public class CharacterApi {
    * @param trainingDestinationSP Training destination skill points selector (optional, default to { any: true })
    * @param trainingToLevel Training to level selector (optional, default to { any: true })
    * @param skillTypeID Skill type ID selector (optional, default to { any: true })
-   * @return List<CharacterSkillInTraining>
+   * @return List&lt;CharacterSkillInTraining&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterSkillInTraining> getSkillsInTraining(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String skillInTraining, String currentTrainingQueueTime, String trainingStartTime, String trainingEndTime, String trainingStartSP, String trainingDestinationSP, String trainingToLevel, String skillTypeID) throws ApiException {
@@ -1951,7 +1951,7 @@ public class CharacterApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param titleID Character title ID selector (optional, default to { any: true })
    * @param titleName Character title name selector (optional, default to { any: true })
-   * @return List<CharacterTitle>
+   * @return List&lt;CharacterTitle&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CharacterTitle> getTitles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String titleID, String titleName) throws ApiException {
@@ -2020,7 +2020,7 @@ public class CharacterApi {
    * @param response Response text selector (optional, default to { any: true })
    * @param important Important flag selector (optional, default to { any: true })
    * @param ownerTypeID Event owner type ID selector (optional, default to { any: true })
-   * @return List<UpcomingCalendarEvent>
+   * @return List&lt;UpcomingCalendarEvent&gt;
    * @throws ApiException if fails to make API call
    */
   public List<UpcomingCalendarEvent> getUpcomingCalendarEvents(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String duration, String eventDate, String eventID, String eventText, String eventTitle, String ownerID, String ownerName, String response, String important, String ownerTypeID) throws ApiException {

@@ -1,40 +1,40 @@
 package enterprises.orbital.evekit.client.api;
 
-import enterprises.orbital.evekit.client.invoker.ApiException;
-import enterprises.orbital.evekit.client.invoker.ApiClient;
-import enterprises.orbital.evekit.client.invoker.Configuration;
-import enterprises.orbital.evekit.client.invoker.Pair;
+import enterprises.orbital.evekit.client.ApiException;
+import enterprises.orbital.evekit.client.ApiClient;
+import enterprises.orbital.evekit.client.Configuration;
+import enterprises.orbital.evekit.client.Pair;
 
 import javax.ws.rs.core.GenericType;
 
 import enterprises.orbital.evekit.client.model.ContainerLog;
-import enterprises.orbital.evekit.client.model.ServiceError;
 import enterprises.orbital.evekit.client.model.CorporationMedal;
+import enterprises.orbital.evekit.client.model.CorporationMemberMedal;
 import enterprises.orbital.evekit.client.model.CorporationSheet;
 import enterprises.orbital.evekit.client.model.CorporationTitle;
 import enterprises.orbital.evekit.client.model.CustomsOffice;
 import enterprises.orbital.evekit.client.model.Division;
 import enterprises.orbital.evekit.client.model.Facility;
 import enterprises.orbital.evekit.client.model.Fuel;
-import enterprises.orbital.evekit.client.model.CorporationMemberMedal;
 import enterprises.orbital.evekit.client.model.MemberSecurity;
 import enterprises.orbital.evekit.client.model.MemberSecurityLog;
 import enterprises.orbital.evekit.client.model.MemberTracking;
-import enterprises.orbital.evekit.client.model.OutpostServiceDetail;
 import enterprises.orbital.evekit.client.model.Outpost;
+import enterprises.orbital.evekit.client.model.OutpostServiceDetail;
 import enterprises.orbital.evekit.client.model.Role;
 import enterprises.orbital.evekit.client.model.SecurityRole;
 import enterprises.orbital.evekit.client.model.SecurityTitle;
+import enterprises.orbital.evekit.client.model.ServiceError;
 import enterprises.orbital.evekit.client.model.Shareholder;
-import enterprises.orbital.evekit.client.model.StarbaseDetail;
 import enterprises.orbital.evekit.client.model.Starbase;
+import enterprises.orbital.evekit.client.model.StarbaseDetail;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2017-04-01T15:58:15.972+02:00")
+
 public class CorporationApi {
   private ApiClient apiClient;
 
@@ -76,7 +76,7 @@ public class CorporationApi {
    * @param passwordType Corporation container log password type selector (optional, default to { any: true })
    * @param quantity Corporation container log quantity selector (optional, default to { any: true })
    * @param typeID Corporation container log type ID selector (optional, default to { any: true })
-   * @return List<ContainerLog>
+   * @return List&lt;ContainerLog&gt;
    * @throws ApiException if fails to make API call
    */
   public List<ContainerLog> getContainerLogs(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String logTime, String action, String actorID, String actorName, String flag, String itemID, String itemTypeID, String locationID, String newConfiguration, String oldConfiguration, String passwordType, String quantity, String typeID) throws ApiException {
@@ -151,7 +151,7 @@ public class CorporationApi {
    * @param title Corporation medal title selector (optional, default to { any: true })
    * @param created Corporation medal created date selector (optional, default to { any: true })
    * @param creatorID Corporation medal creator ID selector (optional, default to { any: true })
-   * @return List<CorporationMedal>
+   * @return List&lt;CorporationMedal&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CorporationMedal> getCorporationMedals(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String medalID, String description, String title, String created, String creatorID) throws ApiException {
@@ -235,7 +235,7 @@ public class CorporationApi {
    * @param taxRate Corporation tax rate selector (optional, default to { any: true })
    * @param ticker Corporation ticker selector (optional, default to { any: true })
    * @param url Corporation URL selector (optional, default to { any: true })
-   * @return List<CorporationSheet>
+   * @return List&lt;CorporationSheet&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CorporationSheet> getCorporationSheet(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String allianceID, String allianceName, String ceoID, String ceoName, String corporationID, String corporationName, String description, String logoColor1, String logoColor2, String logoColor3, String logoGraphicID, String logoShape1, String logoShape2, String logoShape3, String memberCount, String memberLimit, String shares, String stationID, String stationName, String taxRate, String ticker, String url) throws ApiException {
@@ -324,7 +324,7 @@ public class CorporationApi {
    * @param rolesAtBase Corporation title roles at base selector (optional, default to { any: true })
    * @param rolesAtHQ Corporation title roles at HQ selector (optional, default to { any: true })
    * @param rolesAtOther Corporation title roles at other selector (optional, default to { any: true })
-   * @return List<CorporationTitle>
+   * @return List&lt;CorporationTitle&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CorporationTitle> getCorporationTitles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String titleID, String titleName, String grantableRoles, String grantableRolesAtBase, String grantableRolesAtHQ, String grantableRolesAtOther, String roles, String rolesAtBase, String rolesAtHQ, String rolesAtOther) throws ApiException {
@@ -405,7 +405,7 @@ public class CorporationApi {
    * @param taxRateStandingNeutral Customs office tax rate standing neutral selector (optional, default to { any: true })
    * @param taxRateStandingBad Customs office tax rate standing bad selector (optional, default to { any: true })
    * @param taxRateStandingHorrible Customs office tax rate standing horrible selector (optional, default to { any: true })
-   * @return List<CustomsOffice>
+   * @return List&lt;CustomsOffice&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CustomsOffice> getCustomsOffices(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String solarSystemID, String solarSystemName, String reinforceHour, String allowAlliance, String allowStandings, String standingLevel, String taxRateAlliance, String taxRateCorp, String taxRateStandingHigh, String taxRateStandingGood, String taxRateStandingNeutral, String taxRateStandingBad, String taxRateStandingHorrible) throws ApiException {
@@ -479,7 +479,7 @@ public class CorporationApi {
    * @param wallet Division wallet indicator selector (optional, default to { any: true })
    * @param accountKey Division account key selector (optional, default to { any: true })
    * @param description Division description selector (optional, default to { any: true })
-   * @return List<Division>
+   * @return List&lt;Division&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Division> getDivisions(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String wallet, String accountKey, String description) throws ApiException {
@@ -548,7 +548,7 @@ public class CorporationApi {
    * @param regionName Facility region name selector (optional, default to { any: true })
    * @param starbaseModifier Facility starbase modifier selector (optional, default to { any: true })
    * @param tax Facility tax selector (optional, default to { any: true })
-   * @return List<Facility>
+   * @return List&lt;Facility&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Facility> getFacilities(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String facilityID, String typeID, String typeName, String solarSystemID, String solarSystemName, String regionID, String regionName, String starbaseModifier, String tax) throws ApiException {
@@ -617,7 +617,7 @@ public class CorporationApi {
    * @param itemID Fuel item ID selector (optional, default to { any: true })
    * @param typeID Fuel type ID selector (optional, default to { any: true })
    * @param quantity Fuel quantity selector (optional, default to { any: true })
-   * @return List<Fuel>
+   * @return List&lt;Fuel&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Fuel> getFuel(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String typeID, String quantity) throws ApiException {
@@ -683,7 +683,7 @@ public class CorporationApi {
    * @param issuerID Member medal issuer ID selector (optional, default to { any: true })
    * @param reason Member medal reason selector (optional, default to { any: true })
    * @param status Member medal status selector (optional, default to { any: true })
-   * @return List<CorporationMemberMedal>
+   * @return List&lt;CorporationMemberMedal&gt;
    * @throws ApiException if fails to make API call
    */
   public List<CorporationMemberMedal> getMemberMedals(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String medalID, String characterID, String issued, String issuerID, String reason, String status) throws ApiException {
@@ -757,7 +757,7 @@ public class CorporationApi {
    * @param rolesAtHQ Member security roles at HQ selector (optional, default to { any: true })
    * @param rolesAtOther Member security roles at other selector (optional, default to { any: true })
    * @param titles Member security titles selector (optional, default to { any: true })
-   * @return List<MemberSecurity>
+   * @return List&lt;MemberSecurity&gt;
    * @throws ApiException if fails to make API call
    */
   public List<MemberSecurity> getMemberSecurity(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String characterID, String name, String grantableRoles, String grantableRolesAtBase, String grantableRolesAtHQ, String grantableRolesAtOther, String roles, String rolesAtBase, String rolesAtHQ, String rolesAtOther, String titles) throws ApiException {
@@ -833,7 +833,7 @@ public class CorporationApi {
    * @param roleLocationType Member security log role location type selector (optional, default to { any: true })
    * @param oldRoles Member security log old roles selector (optional, default to { any: true })
    * @param newRoles Member security log new roles selector (optional, default to { any: true })
-   * @return List<MemberSecurityLog>
+   * @return List&lt;MemberSecurityLog&gt;
    * @throws ApiException if fails to make API call
    */
   public List<MemberSecurityLog> getMemberSecurityLog(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String changeTime, String changedCharacterID, String changedCharacterName, String issuerID, String issuerName, String roleLocationType, String oldRoles, String newRoles) throws ApiException {
@@ -912,7 +912,7 @@ public class CorporationApi {
    * @param shipTypeID Member ship type ID selector (optional, default to { any: true })
    * @param startDateTime Member start time selector (optional, default to { any: true })
    * @param title Member title selector (optional, default to { any: true })
-   * @return List<MemberTracking>
+   * @return List&lt;MemberTracking&gt;
    * @throws ApiException if fails to make API call
    */
   public List<MemberTracking> getMemberTracking(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String characterID, String base, String baseID, String grantableRoles, String location, String locationID, String logoffDateTime, String logonDateTime, String name, String roles, String shipType, String shipTypeID, String startDateTime, String title) throws ApiException {
@@ -989,7 +989,7 @@ public class CorporationApi {
    * @param minStanding Outpost service minimum standing selector (optional, default to { any: true })
    * @param surchargePerBadStanding Outpost service surcharge per bad standing selector (optional, default to { any: true })
    * @param discountPerGoodStanding Outpost service discount per good standing selector (optional, default to { any: true })
-   * @return List<OutpostServiceDetail>
+   * @return List&lt;OutpostServiceDetail&gt;
    * @throws ApiException if fails to make API call
    */
   public List<OutpostServiceDetail> getOutpostServiceDetails(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String stationID, String serviceName, String ownerID, String minStanding, String surchargePerBadStanding, String discountPerGoodStanding) throws ApiException {
@@ -1065,7 +1065,7 @@ public class CorporationApi {
    * @param x Outpost x coordinate selector (optional, default to { any: true })
    * @param y Outpost y coordinate selector (optional, default to { any: true })
    * @param z Outpost z coordinate selector (optional, default to { any: true })
-   * @return List<Outpost>
+   * @return List&lt;Outpost&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Outpost> getOutposts(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String stationID, String ownerID, String stationName, String solarSystemID, String dockingCostPerShipVolume, String officeRentalCost, String stationTypeID, String reprocessingEfficiency, String reprocessingStationTake, String standingOwnerID, String x, String y, String z) throws ApiException {
@@ -1138,7 +1138,7 @@ public class CorporationApi {
    * @param roleID Corporation tile role ID selector (optional, default to { any: true })
    * @param roleDescription Corporation title role description selector (optional, default to { any: true })
    * @param roleName Corporation title role name selector (optional, default to { any: true })
-   * @return List<Role>
+   * @return List&lt;Role&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Role> getRoles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String roleID, String roleDescription, String roleName) throws ApiException {
@@ -1200,7 +1200,7 @@ public class CorporationApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param roleID Security role ID selector (optional, default to { any: true })
    * @param roleName Security role name selector (optional, default to { any: true })
-   * @return List<SecurityRole>
+   * @return List&lt;SecurityRole&gt;
    * @throws ApiException if fails to make API call
    */
   public List<SecurityRole> getSecurityRoles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String roleID, String roleName) throws ApiException {
@@ -1261,7 +1261,7 @@ public class CorporationApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param titleID Security title ID selector (optional, default to { any: true })
    * @param titleName Security title name selector (optional, default to { any: true })
-   * @return List<SecurityTitle>
+   * @return List&lt;SecurityTitle&gt;
    * @throws ApiException if fails to make API call
    */
   public List<SecurityTitle> getSecurityTitles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String titleID, String titleName) throws ApiException {
@@ -1326,7 +1326,7 @@ public class CorporationApi {
    * @param shareholderCorporationName Shareholder corporation name selector (optional, default to { any: true })
    * @param shareholderName Shareholder name selector (optional, default to { any: true })
    * @param shares Shareholder shares selector (optional, default to { any: true })
-   * @return List<Shareholder>
+   * @return List&lt;Shareholder&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Shareholder> getShareholders(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String shareholderID, String isCorporation, String shareholderCorporationID, String shareholderCorporationName, String shareholderName, String shares) throws ApiException {
@@ -1406,7 +1406,7 @@ public class CorporationApi {
    * @param onStandingDropStanding Starbase details standing for standing drop selector (optional, default to { any: true })
    * @param onStatusDropEnabled Starbase details on status drop enabled selector (optional, default to { any: true })
    * @param onStatusDropStanding Starbase details standing for status drop selector (optional, default to { any: true })
-   * @return List<StarbaseDetail>
+   * @return List&lt;StarbaseDetail&gt;
    * @throws ApiException if fails to make API call
    */
   public List<StarbaseDetail> getStarbaseDetails(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String state, String stateTimestamp, String onlineTimestamp, String usageFlags, String deployFlags, String allowAllianceMembers, String allowCorporationMembers, String useStandingsFrom, String onAggressionEnabled, String onAggressionStanding, String onCorporationWarEnabled, String onCorporationWarStanding, String onStandingDropEnabled, String onStandingDropStanding, String onStatusDropEnabled, String onStatusDropStanding) throws ApiException {
@@ -1488,7 +1488,7 @@ public class CorporationApi {
    * @param stateTimestamp Starbase state timestamp selector (optional, default to { any: true })
    * @param typeID Starbase type ID selector (optional, default to { any: true })
    * @param standingOwnerID Starbase standing owner ID selector (optional, default to { any: true })
-   * @return List<Starbase>
+   * @return List&lt;Starbase&gt;
    * @throws ApiException if fails to make API call
    */
   public List<Starbase> getStarbases(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String locationID, String moonID, String onlineTimestamp, String state, String stateTimestamp, String typeID, String standingOwnerID) throws ApiException {
