@@ -18,9 +18,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -68,13 +68,13 @@ public class MemberSecurityLog implements Serializable {
   private List<Long> newRoles = new ArrayList<Long>();
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("changeTimeDate")
-  private OffsetDateTime changeTimeDate = null;
+  private DateTime changeTimeDate = null;
 
   public MemberSecurityLog cid(Long cid) {
     this.cid = cid;
@@ -302,7 +302,7 @@ public class MemberSecurityLog implements Serializable {
     this.newRoles = newRoles;
   }
 
-  public MemberSecurityLog lifeStartDate(OffsetDateTime lifeStartDate) {
+  public MemberSecurityLog lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -312,15 +312,15 @@ public class MemberSecurityLog implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public MemberSecurityLog lifeEndDate(OffsetDateTime lifeEndDate) {
+  public MemberSecurityLog lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -330,15 +330,15 @@ public class MemberSecurityLog implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public MemberSecurityLog changeTimeDate(OffsetDateTime changeTimeDate) {
+  public MemberSecurityLog changeTimeDate(DateTime changeTimeDate) {
     this.changeTimeDate = changeTimeDate;
     return this;
   }
@@ -348,11 +348,11 @@ public class MemberSecurityLog implements Serializable {
    * @return changeTimeDate
   **/
   @ApiModelProperty(example = "null", value = "changeTime Date")
-  public OffsetDateTime getChangeTimeDate() {
+  public DateTime getChangeTimeDate() {
     return changeTimeDate;
   }
 
-  public void setChangeTimeDate(OffsetDateTime changeTimeDate) {
+  public void setChangeTimeDate(DateTime changeTimeDate) {
     this.changeTimeDate = changeTimeDate;
   }
 

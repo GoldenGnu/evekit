@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -84,19 +84,19 @@ public class MemberTracking implements Serializable {
   private String title = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("logoffDateTimeDate")
-  private OffsetDateTime logoffDateTimeDate = null;
+  private DateTime logoffDateTimeDate = null;
 
   @JsonProperty("logonDateTimeDate")
-  private OffsetDateTime logonDateTimeDate = null;
+  private DateTime logonDateTimeDate = null;
 
   @JsonProperty("startDateTimeDate")
-  private OffsetDateTime startDateTimeDate = null;
+  private DateTime startDateTimeDate = null;
 
   public MemberTracking cid(Long cid) {
     this.cid = cid;
@@ -422,7 +422,7 @@ public class MemberTracking implements Serializable {
     this.title = title;
   }
 
-  public MemberTracking lifeStartDate(OffsetDateTime lifeStartDate) {
+  public MemberTracking lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -432,15 +432,15 @@ public class MemberTracking implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public MemberTracking lifeEndDate(OffsetDateTime lifeEndDate) {
+  public MemberTracking lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -450,15 +450,15 @@ public class MemberTracking implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public MemberTracking logoffDateTimeDate(OffsetDateTime logoffDateTimeDate) {
+  public MemberTracking logoffDateTimeDate(DateTime logoffDateTimeDate) {
     this.logoffDateTimeDate = logoffDateTimeDate;
     return this;
   }
@@ -468,15 +468,15 @@ public class MemberTracking implements Serializable {
    * @return logoffDateTimeDate
   **/
   @ApiModelProperty(example = "null", value = "logoffDateTime Date")
-  public OffsetDateTime getLogoffDateTimeDate() {
+  public DateTime getLogoffDateTimeDate() {
     return logoffDateTimeDate;
   }
 
-  public void setLogoffDateTimeDate(OffsetDateTime logoffDateTimeDate) {
+  public void setLogoffDateTimeDate(DateTime logoffDateTimeDate) {
     this.logoffDateTimeDate = logoffDateTimeDate;
   }
 
-  public MemberTracking logonDateTimeDate(OffsetDateTime logonDateTimeDate) {
+  public MemberTracking logonDateTimeDate(DateTime logonDateTimeDate) {
     this.logonDateTimeDate = logonDateTimeDate;
     return this;
   }
@@ -486,15 +486,15 @@ public class MemberTracking implements Serializable {
    * @return logonDateTimeDate
   **/
   @ApiModelProperty(example = "null", value = "logonDateTime Date")
-  public OffsetDateTime getLogonDateTimeDate() {
+  public DateTime getLogonDateTimeDate() {
     return logonDateTimeDate;
   }
 
-  public void setLogonDateTimeDate(OffsetDateTime logonDateTimeDate) {
+  public void setLogonDateTimeDate(DateTime logonDateTimeDate) {
     this.logonDateTimeDate = logonDateTimeDate;
   }
 
-  public MemberTracking startDateTimeDate(OffsetDateTime startDateTimeDate) {
+  public MemberTracking startDateTimeDate(DateTime startDateTimeDate) {
     this.startDateTimeDate = startDateTimeDate;
     return this;
   }
@@ -504,11 +504,11 @@ public class MemberTracking implements Serializable {
    * @return startDateTimeDate
   **/
   @ApiModelProperty(example = "null", value = "startDateTime Date")
-  public OffsetDateTime getStartDateTimeDate() {
+  public DateTime getStartDateTimeDate() {
     return startDateTimeDate;
   }
 
-  public void setStartDateTimeDate(OffsetDateTime startDateTimeDate) {
+  public void setStartDateTimeDate(DateTime startDateTimeDate) {
     this.startDateTimeDate = startDateTimeDate;
   }
 

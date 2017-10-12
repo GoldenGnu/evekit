@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -57,13 +57,13 @@ public class CorporationMedal implements Serializable {
   private Long creatorID = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("createdDate")
-  private OffsetDateTime createdDate = null;
+  private DateTime createdDate = null;
 
   public CorporationMedal cid(Long cid) {
     this.cid = cid;
@@ -227,7 +227,7 @@ public class CorporationMedal implements Serializable {
     this.creatorID = creatorID;
   }
 
-  public CorporationMedal lifeStartDate(OffsetDateTime lifeStartDate) {
+  public CorporationMedal lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -237,15 +237,15 @@ public class CorporationMedal implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CorporationMedal lifeEndDate(OffsetDateTime lifeEndDate) {
+  public CorporationMedal lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -255,15 +255,15 @@ public class CorporationMedal implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public CorporationMedal createdDate(OffsetDateTime createdDate) {
+  public CorporationMedal createdDate(DateTime createdDate) {
     this.createdDate = createdDate;
     return this;
   }
@@ -273,11 +273,11 @@ public class CorporationMedal implements Serializable {
    * @return createdDate
   **/
   @ApiModelProperty(example = "null", value = "created Date")
-  public OffsetDateTime getCreatedDate() {
+  public DateTime getCreatedDate() {
     return createdDate;
   }
 
-  public void setCreatedDate(OffsetDateTime createdDate) {
+  public void setCreatedDate(DateTime createdDate) {
     this.createdDate = createdDate;
   }
 

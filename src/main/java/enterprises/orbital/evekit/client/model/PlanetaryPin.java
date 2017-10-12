@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -87,19 +87,19 @@ public class PlanetaryPin implements Serializable {
   private Double latitude = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("lastLaunchTimeDate")
-  private OffsetDateTime lastLaunchTimeDate = null;
+  private DateTime lastLaunchTimeDate = null;
 
   @JsonProperty("installTimeDate")
-  private OffsetDateTime installTimeDate = null;
+  private DateTime installTimeDate = null;
 
   @JsonProperty("expiryTimeDate")
-  private OffsetDateTime expiryTimeDate = null;
+  private DateTime expiryTimeDate = null;
 
   public PlanetaryPin cid(Long cid) {
     this.cid = cid;
@@ -443,7 +443,7 @@ public class PlanetaryPin implements Serializable {
     this.latitude = latitude;
   }
 
-  public PlanetaryPin lifeStartDate(OffsetDateTime lifeStartDate) {
+  public PlanetaryPin lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -453,15 +453,15 @@ public class PlanetaryPin implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public PlanetaryPin lifeEndDate(OffsetDateTime lifeEndDate) {
+  public PlanetaryPin lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -471,15 +471,15 @@ public class PlanetaryPin implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public PlanetaryPin lastLaunchTimeDate(OffsetDateTime lastLaunchTimeDate) {
+  public PlanetaryPin lastLaunchTimeDate(DateTime lastLaunchTimeDate) {
     this.lastLaunchTimeDate = lastLaunchTimeDate;
     return this;
   }
@@ -489,15 +489,15 @@ public class PlanetaryPin implements Serializable {
    * @return lastLaunchTimeDate
   **/
   @ApiModelProperty(example = "null", value = "lastLaunchTime Date")
-  public OffsetDateTime getLastLaunchTimeDate() {
+  public DateTime getLastLaunchTimeDate() {
     return lastLaunchTimeDate;
   }
 
-  public void setLastLaunchTimeDate(OffsetDateTime lastLaunchTimeDate) {
+  public void setLastLaunchTimeDate(DateTime lastLaunchTimeDate) {
     this.lastLaunchTimeDate = lastLaunchTimeDate;
   }
 
-  public PlanetaryPin installTimeDate(OffsetDateTime installTimeDate) {
+  public PlanetaryPin installTimeDate(DateTime installTimeDate) {
     this.installTimeDate = installTimeDate;
     return this;
   }
@@ -507,15 +507,15 @@ public class PlanetaryPin implements Serializable {
    * @return installTimeDate
   **/
   @ApiModelProperty(example = "null", value = "installTime Date")
-  public OffsetDateTime getInstallTimeDate() {
+  public DateTime getInstallTimeDate() {
     return installTimeDate;
   }
 
-  public void setInstallTimeDate(OffsetDateTime installTimeDate) {
+  public void setInstallTimeDate(DateTime installTimeDate) {
     this.installTimeDate = installTimeDate;
   }
 
-  public PlanetaryPin expiryTimeDate(OffsetDateTime expiryTimeDate) {
+  public PlanetaryPin expiryTimeDate(DateTime expiryTimeDate) {
     this.expiryTimeDate = expiryTimeDate;
     return this;
   }
@@ -525,11 +525,11 @@ public class PlanetaryPin implements Serializable {
    * @return expiryTimeDate
   **/
   @ApiModelProperty(example = "null", value = "expiryTime Date")
-  public OffsetDateTime getExpiryTimeDate() {
+  public DateTime getExpiryTimeDate() {
     return expiryTimeDate;
   }
 
-  public void setExpiryTimeDate(OffsetDateTime expiryTimeDate) {
+  public void setExpiryTimeDate(DateTime expiryTimeDate) {
     this.expiryTimeDate = expiryTimeDate;
   }
 

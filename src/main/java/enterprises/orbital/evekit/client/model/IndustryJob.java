@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -127,22 +127,22 @@ public class IndustryJob implements Serializable {
   private Integer successfulRuns = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("startDateDate")
-  private OffsetDateTime startDateDate = null;
+  private DateTime startDateDate = null;
 
   @JsonProperty("endDateDate")
-  private OffsetDateTime endDateDate = null;
+  private DateTime endDateDate = null;
 
   @JsonProperty("pauseDateDate")
-  private OffsetDateTime pauseDateDate = null;
+  private DateTime pauseDateDate = null;
 
   @JsonProperty("completedDateDate")
-  private OffsetDateTime completedDateDate = null;
+  private DateTime completedDateDate = null;
 
   public IndustryJob cid(Long cid) {
     this.cid = cid;
@@ -720,7 +720,7 @@ public class IndustryJob implements Serializable {
     this.successfulRuns = successfulRuns;
   }
 
-  public IndustryJob lifeStartDate(OffsetDateTime lifeStartDate) {
+  public IndustryJob lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -730,15 +730,15 @@ public class IndustryJob implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public IndustryJob lifeEndDate(OffsetDateTime lifeEndDate) {
+  public IndustryJob lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -748,15 +748,15 @@ public class IndustryJob implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public IndustryJob startDateDate(OffsetDateTime startDateDate) {
+  public IndustryJob startDateDate(DateTime startDateDate) {
     this.startDateDate = startDateDate;
     return this;
   }
@@ -766,15 +766,15 @@ public class IndustryJob implements Serializable {
    * @return startDateDate
   **/
   @ApiModelProperty(example = "null", value = "startDate Date")
-  public OffsetDateTime getStartDateDate() {
+  public DateTime getStartDateDate() {
     return startDateDate;
   }
 
-  public void setStartDateDate(OffsetDateTime startDateDate) {
+  public void setStartDateDate(DateTime startDateDate) {
     this.startDateDate = startDateDate;
   }
 
-  public IndustryJob endDateDate(OffsetDateTime endDateDate) {
+  public IndustryJob endDateDate(DateTime endDateDate) {
     this.endDateDate = endDateDate;
     return this;
   }
@@ -784,15 +784,15 @@ public class IndustryJob implements Serializable {
    * @return endDateDate
   **/
   @ApiModelProperty(example = "null", value = "endDate Date")
-  public OffsetDateTime getEndDateDate() {
+  public DateTime getEndDateDate() {
     return endDateDate;
   }
 
-  public void setEndDateDate(OffsetDateTime endDateDate) {
+  public void setEndDateDate(DateTime endDateDate) {
     this.endDateDate = endDateDate;
   }
 
-  public IndustryJob pauseDateDate(OffsetDateTime pauseDateDate) {
+  public IndustryJob pauseDateDate(DateTime pauseDateDate) {
     this.pauseDateDate = pauseDateDate;
     return this;
   }
@@ -802,15 +802,15 @@ public class IndustryJob implements Serializable {
    * @return pauseDateDate
   **/
   @ApiModelProperty(example = "null", value = "pauseDate Date")
-  public OffsetDateTime getPauseDateDate() {
+  public DateTime getPauseDateDate() {
     return pauseDateDate;
   }
 
-  public void setPauseDateDate(OffsetDateTime pauseDateDate) {
+  public void setPauseDateDate(DateTime pauseDateDate) {
     this.pauseDateDate = pauseDateDate;
   }
 
-  public IndustryJob completedDateDate(OffsetDateTime completedDateDate) {
+  public IndustryJob completedDateDate(DateTime completedDateDate) {
     this.completedDateDate = completedDateDate;
     return this;
   }
@@ -820,11 +820,11 @@ public class IndustryJob implements Serializable {
    * @return completedDateDate
   **/
   @ApiModelProperty(example = "null", value = "completedDate Date")
-  public OffsetDateTime getCompletedDateDate() {
+  public DateTime getCompletedDateDate() {
     return completedDateDate;
   }
 
-  public void setCompletedDateDate(OffsetDateTime completedDateDate) {
+  public void setCompletedDateDate(DateTime completedDateDate) {
     this.completedDateDate = completedDateDate;
   }
 

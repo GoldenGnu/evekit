@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -54,13 +54,13 @@ public class Kill implements Serializable {
   private Long solarSystemID = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("killTimeDate")
-  private OffsetDateTime killTimeDate = null;
+  private DateTime killTimeDate = null;
 
   public Kill cid(Long cid) {
     this.cid = cid;
@@ -206,7 +206,7 @@ public class Kill implements Serializable {
     this.solarSystemID = solarSystemID;
   }
 
-  public Kill lifeStartDate(OffsetDateTime lifeStartDate) {
+  public Kill lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -216,15 +216,15 @@ public class Kill implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public Kill lifeEndDate(OffsetDateTime lifeEndDate) {
+  public Kill lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -234,15 +234,15 @@ public class Kill implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public Kill killTimeDate(OffsetDateTime killTimeDate) {
+  public Kill killTimeDate(DateTime killTimeDate) {
     this.killTimeDate = killTimeDate;
     return this;
   }
@@ -252,11 +252,11 @@ public class Kill implements Serializable {
    * @return killTimeDate
   **/
   @ApiModelProperty(example = "null", value = "killTime Date")
-  public OffsetDateTime getKillTimeDate() {
+  public DateTime getKillTimeDate() {
     return killTimeDate;
   }
 
-  public void setKillTimeDate(OffsetDateTime killTimeDate) {
+  public void setKillTimeDate(DateTime killTimeDate) {
     this.killTimeDate = killTimeDate;
   }
 

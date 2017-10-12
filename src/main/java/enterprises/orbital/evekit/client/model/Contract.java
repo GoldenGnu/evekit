@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -109,22 +109,22 @@ public class Contract implements Serializable {
   private Double volume = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("dateIssuedDate")
-  private OffsetDateTime dateIssuedDate = null;
+  private DateTime dateIssuedDate = null;
 
   @JsonProperty("dateExpiredDate")
-  private OffsetDateTime dateExpiredDate = null;
+  private DateTime dateExpiredDate = null;
 
   @JsonProperty("dateAcceptedDate")
-  private OffsetDateTime dateAcceptedDate = null;
+  private DateTime dateAcceptedDate = null;
 
   @JsonProperty("dateCompletedDate")
-  private OffsetDateTime dateCompletedDate = null;
+  private DateTime dateCompletedDate = null;
 
   public Contract cid(Long cid) {
     this.cid = cid;
@@ -594,7 +594,7 @@ public class Contract implements Serializable {
     this.volume = volume;
   }
 
-  public Contract lifeStartDate(OffsetDateTime lifeStartDate) {
+  public Contract lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -604,15 +604,15 @@ public class Contract implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public Contract lifeEndDate(OffsetDateTime lifeEndDate) {
+  public Contract lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -622,15 +622,15 @@ public class Contract implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public Contract dateIssuedDate(OffsetDateTime dateIssuedDate) {
+  public Contract dateIssuedDate(DateTime dateIssuedDate) {
     this.dateIssuedDate = dateIssuedDate;
     return this;
   }
@@ -640,15 +640,15 @@ public class Contract implements Serializable {
    * @return dateIssuedDate
   **/
   @ApiModelProperty(example = "null", value = "dateIssued Date")
-  public OffsetDateTime getDateIssuedDate() {
+  public DateTime getDateIssuedDate() {
     return dateIssuedDate;
   }
 
-  public void setDateIssuedDate(OffsetDateTime dateIssuedDate) {
+  public void setDateIssuedDate(DateTime dateIssuedDate) {
     this.dateIssuedDate = dateIssuedDate;
   }
 
-  public Contract dateExpiredDate(OffsetDateTime dateExpiredDate) {
+  public Contract dateExpiredDate(DateTime dateExpiredDate) {
     this.dateExpiredDate = dateExpiredDate;
     return this;
   }
@@ -658,15 +658,15 @@ public class Contract implements Serializable {
    * @return dateExpiredDate
   **/
   @ApiModelProperty(example = "null", value = "dateExpired Date")
-  public OffsetDateTime getDateExpiredDate() {
+  public DateTime getDateExpiredDate() {
     return dateExpiredDate;
   }
 
-  public void setDateExpiredDate(OffsetDateTime dateExpiredDate) {
+  public void setDateExpiredDate(DateTime dateExpiredDate) {
     this.dateExpiredDate = dateExpiredDate;
   }
 
-  public Contract dateAcceptedDate(OffsetDateTime dateAcceptedDate) {
+  public Contract dateAcceptedDate(DateTime dateAcceptedDate) {
     this.dateAcceptedDate = dateAcceptedDate;
     return this;
   }
@@ -676,15 +676,15 @@ public class Contract implements Serializable {
    * @return dateAcceptedDate
   **/
   @ApiModelProperty(example = "null", value = "dateAccepted Date")
-  public OffsetDateTime getDateAcceptedDate() {
+  public DateTime getDateAcceptedDate() {
     return dateAcceptedDate;
   }
 
-  public void setDateAcceptedDate(OffsetDateTime dateAcceptedDate) {
+  public void setDateAcceptedDate(DateTime dateAcceptedDate) {
     this.dateAcceptedDate = dateAcceptedDate;
   }
 
-  public Contract dateCompletedDate(OffsetDateTime dateCompletedDate) {
+  public Contract dateCompletedDate(DateTime dateCompletedDate) {
     this.dateCompletedDate = dateCompletedDate;
     return this;
   }
@@ -694,11 +694,11 @@ public class Contract implements Serializable {
    * @return dateCompletedDate
   **/
   @ApiModelProperty(example = "null", value = "dateCompleted Date")
-  public OffsetDateTime getDateCompletedDate() {
+  public DateTime getDateCompletedDate() {
     return dateCompletedDate;
   }
 
-  public void setDateCompletedDate(OffsetDateTime dateCompletedDate) {
+  public void setDateCompletedDate(DateTime dateCompletedDate) {
     this.dateCompletedDate = dateCompletedDate;
   }
 

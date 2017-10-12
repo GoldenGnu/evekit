@@ -18,9 +18,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -77,10 +77,10 @@ public class MemberSecurity implements Serializable {
   private List<Long> titles = new ArrayList<Long>();
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   public MemberSecurity cid(Long cid) {
     this.cid = cid;
@@ -397,7 +397,7 @@ public class MemberSecurity implements Serializable {
     this.titles = titles;
   }
 
-  public MemberSecurity lifeStartDate(OffsetDateTime lifeStartDate) {
+  public MemberSecurity lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -407,15 +407,15 @@ public class MemberSecurity implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public MemberSecurity lifeEndDate(OffsetDateTime lifeEndDate) {
+  public MemberSecurity lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -425,11 +425,11 @@ public class MemberSecurity implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 

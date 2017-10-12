@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -78,13 +78,13 @@ public class FacWarStats implements Serializable {
   private Integer victoryPointsYesterday = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("enlistedDate")
-  private OffsetDateTime enlistedDate = null;
+  private DateTime enlistedDate = null;
 
   public FacWarStats cid(Long cid) {
     this.cid = cid;
@@ -374,7 +374,7 @@ public class FacWarStats implements Serializable {
     this.victoryPointsYesterday = victoryPointsYesterday;
   }
 
-  public FacWarStats lifeStartDate(OffsetDateTime lifeStartDate) {
+  public FacWarStats lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -384,15 +384,15 @@ public class FacWarStats implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public FacWarStats lifeEndDate(OffsetDateTime lifeEndDate) {
+  public FacWarStats lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -402,15 +402,15 @@ public class FacWarStats implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public FacWarStats enlistedDate(OffsetDateTime enlistedDate) {
+  public FacWarStats enlistedDate(DateTime enlistedDate) {
     this.enlistedDate = enlistedDate;
     return this;
   }
@@ -420,11 +420,11 @@ public class FacWarStats implements Serializable {
    * @return enlistedDate
   **/
   @ApiModelProperty(example = "null", value = "enlisted Date")
-  public OffsetDateTime getEnlistedDate() {
+  public DateTime getEnlistedDate() {
     return enlistedDate;
   }
 
-  public void setEnlistedDate(OffsetDateTime enlistedDate) {
+  public void setEnlistedDate(DateTime enlistedDate) {
     this.enlistedDate = enlistedDate;
   }
 

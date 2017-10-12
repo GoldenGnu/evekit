@@ -18,9 +18,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -59,16 +59,16 @@ public class AccountStatus implements Serializable {
   private List<Long> multiCharacterTraining = new ArrayList<Long>();
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("paidUntilDate")
-  private OffsetDateTime paidUntilDate = null;
+  private DateTime paidUntilDate = null;
 
   @JsonProperty("createDateDate")
-  private OffsetDateTime createDateDate = null;
+  private DateTime createDateDate = null;
 
   public AccountStatus cid(Long cid) {
     this.cid = cid;
@@ -237,7 +237,7 @@ public class AccountStatus implements Serializable {
     this.multiCharacterTraining = multiCharacterTraining;
   }
 
-  public AccountStatus lifeStartDate(OffsetDateTime lifeStartDate) {
+  public AccountStatus lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -247,15 +247,15 @@ public class AccountStatus implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public AccountStatus lifeEndDate(OffsetDateTime lifeEndDate) {
+  public AccountStatus lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -265,15 +265,15 @@ public class AccountStatus implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public AccountStatus paidUntilDate(OffsetDateTime paidUntilDate) {
+  public AccountStatus paidUntilDate(DateTime paidUntilDate) {
     this.paidUntilDate = paidUntilDate;
     return this;
   }
@@ -283,15 +283,15 @@ public class AccountStatus implements Serializable {
    * @return paidUntilDate
   **/
   @ApiModelProperty(example = "null", value = "paidUntil Date")
-  public OffsetDateTime getPaidUntilDate() {
+  public DateTime getPaidUntilDate() {
     return paidUntilDate;
   }
 
-  public void setPaidUntilDate(OffsetDateTime paidUntilDate) {
+  public void setPaidUntilDate(DateTime paidUntilDate) {
     this.paidUntilDate = paidUntilDate;
   }
 
-  public AccountStatus createDateDate(OffsetDateTime createDateDate) {
+  public AccountStatus createDateDate(DateTime createDateDate) {
     this.createDateDate = createDateDate;
     return this;
   }
@@ -301,11 +301,11 @@ public class AccountStatus implements Serializable {
    * @return createDateDate
   **/
   @ApiModelProperty(example = "null", value = "createDate Date")
-  public OffsetDateTime getCreateDateDate() {
+  public DateTime getCreateDateDate() {
     return createDateDate;
   }
 
-  public void setCreateDateDate(OffsetDateTime createDateDate) {
+  public void setCreateDateDate(DateTime createDateDate) {
     this.createDateDate = createDateDate;
   }
 

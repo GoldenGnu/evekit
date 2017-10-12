@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -94,13 +94,13 @@ public class WalletJournal implements Serializable {
   private Integer owner2TypeID = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("dateDate")
-  private OffsetDateTime dateDate = null;
+  private DateTime dateDate = null;
 
   public WalletJournal cid(Long cid) {
     this.cid = cid;
@@ -480,7 +480,7 @@ public class WalletJournal implements Serializable {
     this.owner2TypeID = owner2TypeID;
   }
 
-  public WalletJournal lifeStartDate(OffsetDateTime lifeStartDate) {
+  public WalletJournal lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -490,15 +490,15 @@ public class WalletJournal implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public WalletJournal lifeEndDate(OffsetDateTime lifeEndDate) {
+  public WalletJournal lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -508,15 +508,15 @@ public class WalletJournal implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public WalletJournal dateDate(OffsetDateTime dateDate) {
+  public WalletJournal dateDate(DateTime dateDate) {
     this.dateDate = dateDate;
     return this;
   }
@@ -526,11 +526,11 @@ public class WalletJournal implements Serializable {
    * @return dateDate
   **/
   @ApiModelProperty(example = "null", value = "date Date")
-  public OffsetDateTime getDateDate() {
+  public DateTime getDateDate() {
     return dateDate;
   }
 
-  public void setDateDate(OffsetDateTime dateDate) {
+  public void setDateDate(DateTime dateDate) {
     this.dateDate = dateDate;
   }
 

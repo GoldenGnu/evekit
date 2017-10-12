@@ -7,5 +7,5 @@
   "library":"jersey2",
   "serializableModel":"true",
   "hideGenerationTimestamp":"true",
-  "dateLibrary":"java8"
+  "dateLibrary":"joda"
 }

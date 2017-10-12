@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -60,13 +60,13 @@ public class ResearchAgent implements Serializable {
   private Integer skillTypeID = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("researchStartDateDate")
-  private OffsetDateTime researchStartDateDate = null;
+  private DateTime researchStartDateDate = null;
 
   public ResearchAgent cid(Long cid) {
     this.cid = cid;
@@ -248,7 +248,7 @@ public class ResearchAgent implements Serializable {
     this.skillTypeID = skillTypeID;
   }
 
-  public ResearchAgent lifeStartDate(OffsetDateTime lifeStartDate) {
+  public ResearchAgent lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -258,15 +258,15 @@ public class ResearchAgent implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public ResearchAgent lifeEndDate(OffsetDateTime lifeEndDate) {
+  public ResearchAgent lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -276,15 +276,15 @@ public class ResearchAgent implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public ResearchAgent researchStartDateDate(OffsetDateTime researchStartDateDate) {
+  public ResearchAgent researchStartDateDate(DateTime researchStartDateDate) {
     this.researchStartDateDate = researchStartDateDate;
     return this;
   }
@@ -294,11 +294,11 @@ public class ResearchAgent implements Serializable {
    * @return researchStartDateDate
   **/
   @ApiModelProperty(example = "null", value = "researchStartDate Date")
-  public OffsetDateTime getResearchStartDateDate() {
+  public DateTime getResearchStartDateDate() {
     return researchStartDateDate;
   }
 
-  public void setResearchStartDateDate(OffsetDateTime researchStartDateDate) {
+  public void setResearchStartDateDate(DateTime researchStartDateDate) {
     this.researchStartDateDate = researchStartDateDate;
   }
 

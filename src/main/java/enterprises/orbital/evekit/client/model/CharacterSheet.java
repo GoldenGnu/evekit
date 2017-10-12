@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -120,22 +120,22 @@ public class CharacterSheet implements Serializable {
   private Long remoteStationDate = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("doBDate")
-  private OffsetDateTime doBDate = null;
+  private DateTime doBDate = null;
 
   @JsonProperty("lastRespecDateDate")
-  private OffsetDateTime lastRespecDateDate = null;
+  private DateTime lastRespecDateDate = null;
 
   @JsonProperty("lastTimedRespecDate")
-  private OffsetDateTime lastTimedRespecDate = null;
+  private DateTime lastTimedRespecDate = null;
 
   @JsonProperty("remoteStationDateDate")
-  private OffsetDateTime remoteStationDateDate = null;
+  private DateTime remoteStationDateDate = null;
 
   public CharacterSheet cid(Long cid) {
     this.cid = cid;
@@ -677,7 +677,7 @@ public class CharacterSheet implements Serializable {
     this.remoteStationDate = remoteStationDate;
   }
 
-  public CharacterSheet lifeStartDate(OffsetDateTime lifeStartDate) {
+  public CharacterSheet lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -687,15 +687,15 @@ public class CharacterSheet implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterSheet lifeEndDate(OffsetDateTime lifeEndDate) {
+  public CharacterSheet lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -705,15 +705,15 @@ public class CharacterSheet implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public CharacterSheet doBDate(OffsetDateTime doBDate) {
+  public CharacterSheet doBDate(DateTime doBDate) {
     this.doBDate = doBDate;
     return this;
   }
@@ -723,15 +723,15 @@ public class CharacterSheet implements Serializable {
    * @return doBDate
   **/
   @ApiModelProperty(example = "null", value = "doB Date")
-  public OffsetDateTime getDoBDate() {
+  public DateTime getDoBDate() {
     return doBDate;
   }
 
-  public void setDoBDate(OffsetDateTime doBDate) {
+  public void setDoBDate(DateTime doBDate) {
     this.doBDate = doBDate;
   }
 
-  public CharacterSheet lastRespecDateDate(OffsetDateTime lastRespecDateDate) {
+  public CharacterSheet lastRespecDateDate(DateTime lastRespecDateDate) {
     this.lastRespecDateDate = lastRespecDateDate;
     return this;
   }
@@ -741,15 +741,15 @@ public class CharacterSheet implements Serializable {
    * @return lastRespecDateDate
   **/
   @ApiModelProperty(example = "null", value = "lastRespecDate Date")
-  public OffsetDateTime getLastRespecDateDate() {
+  public DateTime getLastRespecDateDate() {
     return lastRespecDateDate;
   }
 
-  public void setLastRespecDateDate(OffsetDateTime lastRespecDateDate) {
+  public void setLastRespecDateDate(DateTime lastRespecDateDate) {
     this.lastRespecDateDate = lastRespecDateDate;
   }
 
-  public CharacterSheet lastTimedRespecDate(OffsetDateTime lastTimedRespecDate) {
+  public CharacterSheet lastTimedRespecDate(DateTime lastTimedRespecDate) {
     this.lastTimedRespecDate = lastTimedRespecDate;
     return this;
   }
@@ -759,15 +759,15 @@ public class CharacterSheet implements Serializable {
    * @return lastTimedRespecDate
   **/
   @ApiModelProperty(example = "null", value = "lastTimedRespec Date")
-  public OffsetDateTime getLastTimedRespecDate() {
+  public DateTime getLastTimedRespecDate() {
     return lastTimedRespecDate;
   }
 
-  public void setLastTimedRespecDate(OffsetDateTime lastTimedRespecDate) {
+  public void setLastTimedRespecDate(DateTime lastTimedRespecDate) {
     this.lastTimedRespecDate = lastTimedRespecDate;
   }
 
-  public CharacterSheet remoteStationDateDate(OffsetDateTime remoteStationDateDate) {
+  public CharacterSheet remoteStationDateDate(DateTime remoteStationDateDate) {
     this.remoteStationDateDate = remoteStationDateDate;
     return this;
   }
@@ -777,11 +777,11 @@ public class CharacterSheet implements Serializable {
    * @return remoteStationDateDate
   **/
   @ApiModelProperty(example = "null", value = "remoteStationDate Date")
-  public OffsetDateTime getRemoteStationDateDate() {
+  public DateTime getRemoteStationDateDate() {
     return remoteStationDateDate;
   }
 
-  public void setRemoteStationDateDate(OffsetDateTime remoteStationDateDate) {
+  public void setRemoteStationDateDate(DateTime remoteStationDateDate) {
     this.remoteStationDateDate = remoteStationDateDate;
   }
 

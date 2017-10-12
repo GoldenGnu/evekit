@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -58,13 +58,13 @@ public class ContractBid implements Serializable {
   private BigDecimal amount = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("dateBidDate")
-  private OffsetDateTime dateBidDate = null;
+  private DateTime dateBidDate = null;
 
   public ContractBid cid(Long cid) {
     this.cid = cid;
@@ -228,7 +228,7 @@ public class ContractBid implements Serializable {
     this.amount = amount;
   }
 
-  public ContractBid lifeStartDate(OffsetDateTime lifeStartDate) {
+  public ContractBid lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -238,15 +238,15 @@ public class ContractBid implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public ContractBid lifeEndDate(OffsetDateTime lifeEndDate) {
+  public ContractBid lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -256,15 +256,15 @@ public class ContractBid implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public ContractBid dateBidDate(OffsetDateTime dateBidDate) {
+  public ContractBid dateBidDate(DateTime dateBidDate) {
     this.dateBidDate = dateBidDate;
     return this;
   }
@@ -274,11 +274,11 @@ public class ContractBid implements Serializable {
    * @return dateBidDate
   **/
   @ApiModelProperty(example = "null", value = "dateBid Date")
-  public OffsetDateTime getDateBidDate() {
+  public DateTime getDateBidDate() {
     return dateBidDate;
   }
 
-  public void setDateBidDate(OffsetDateTime dateBidDate) {
+  public void setDateBidDate(DateTime dateBidDate) {
     this.dateBidDate = dateBidDate;
   }
 

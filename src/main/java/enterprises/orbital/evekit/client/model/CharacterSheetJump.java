@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -51,19 +51,19 @@ public class CharacterSheetJump implements Serializable {
   private Long jumpLastUpdate = null;
 
   @JsonProperty("lifeStartDate")
-  private OffsetDateTime lifeStartDate = null;
+  private DateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private OffsetDateTime lifeEndDate = null;
+  private DateTime lifeEndDate = null;
 
   @JsonProperty("jumpActivationDate")
-  private OffsetDateTime jumpActivationDate = null;
+  private DateTime jumpActivationDate = null;
 
   @JsonProperty("jumpFatigueDate")
-  private OffsetDateTime jumpFatigueDate = null;
+  private DateTime jumpFatigueDate = null;
 
   @JsonProperty("jumpLastUpdateDate")
-  private OffsetDateTime jumpLastUpdateDate = null;
+  private DateTime jumpLastUpdateDate = null;
 
   public CharacterSheetJump cid(Long cid) {
     this.cid = cid;
@@ -191,7 +191,7 @@ public class CharacterSheetJump implements Serializable {
     this.jumpLastUpdate = jumpLastUpdate;
   }
 
-  public CharacterSheetJump lifeStartDate(OffsetDateTime lifeStartDate) {
+  public CharacterSheetJump lifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -201,15 +201,15 @@ public class CharacterSheetJump implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public OffsetDateTime getLifeStartDate() {
+  public DateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
+  public void setLifeStartDate(DateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterSheetJump lifeEndDate(OffsetDateTime lifeEndDate) {
+  public CharacterSheetJump lifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -219,15 +219,15 @@ public class CharacterSheetJump implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public OffsetDateTime getLifeEndDate() {
+  public DateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
+  public void setLifeEndDate(DateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public CharacterSheetJump jumpActivationDate(OffsetDateTime jumpActivationDate) {
+  public CharacterSheetJump jumpActivationDate(DateTime jumpActivationDate) {
     this.jumpActivationDate = jumpActivationDate;
     return this;
   }
@@ -237,15 +237,15 @@ public class CharacterSheetJump implements Serializable {
    * @return jumpActivationDate
   **/
   @ApiModelProperty(example = "null", value = "jumpActivation Date")
-  public OffsetDateTime getJumpActivationDate() {
+  public DateTime getJumpActivationDate() {
     return jumpActivationDate;
   }
 
-  public void setJumpActivationDate(OffsetDateTime jumpActivationDate) {
+  public void setJumpActivationDate(DateTime jumpActivationDate) {
     this.jumpActivationDate = jumpActivationDate;
   }
 
-  public CharacterSheetJump jumpFatigueDate(OffsetDateTime jumpFatigueDate) {
+  public CharacterSheetJump jumpFatigueDate(DateTime jumpFatigueDate) {
     this.jumpFatigueDate = jumpFatigueDate;
     return this;
   }
@@ -255,15 +255,15 @@ public class CharacterSheetJump implements Serializable {
    * @return jumpFatigueDate
   **/
   @ApiModelProperty(example = "null", value = "jumpFatigue Date")
-  public OffsetDateTime getJumpFatigueDate() {
+  public DateTime getJumpFatigueDate() {
     return jumpFatigueDate;
   }
 
-  public void setJumpFatigueDate(OffsetDateTime jumpFatigueDate) {
+  public void setJumpFatigueDate(DateTime jumpFatigueDate) {
     this.jumpFatigueDate = jumpFatigueDate;
   }
 
-  public CharacterSheetJump jumpLastUpdateDate(OffsetDateTime jumpLastUpdateDate) {
+  public CharacterSheetJump jumpLastUpdateDate(DateTime jumpLastUpdateDate) {
     this.jumpLastUpdateDate = jumpLastUpdateDate;
     return this;
   }
@@ -273,11 +273,11 @@ public class CharacterSheetJump implements Serializable {
    * @return jumpLastUpdateDate
   **/
   @ApiModelProperty(example = "null", value = "jumpLastUpdate Date")
-  public OffsetDateTime getJumpLastUpdateDate() {
+  public DateTime getJumpLastUpdateDate() {
     return jumpLastUpdateDate;
   }
 
-  public void setJumpLastUpdateDate(OffsetDateTime jumpLastUpdateDate) {
+  public void setJumpLastUpdateDate(DateTime jumpLastUpdateDate) {
     this.jumpLastUpdateDate = jumpLastUpdateDate;
   }
 
