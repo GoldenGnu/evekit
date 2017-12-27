@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 
 /**
@@ -63,16 +63,16 @@ public class SkillInQueue implements Serializable {
   private Integer typeID = null;
 
   @JsonProperty("lifeStartDate")
-  private DateTime lifeStartDate = null;
+  private OffsetDateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private DateTime lifeEndDate = null;
+  private OffsetDateTime lifeEndDate = null;
 
   @JsonProperty("endTimeDate")
-  private DateTime endTimeDate = null;
+  private OffsetDateTime endTimeDate = null;
 
   @JsonProperty("startTimeDate")
-  private DateTime startTimeDate = null;
+  private OffsetDateTime startTimeDate = null;
 
   public SkillInQueue cid(Long cid) {
     this.cid = cid;
@@ -272,7 +272,7 @@ public class SkillInQueue implements Serializable {
     this.typeID = typeID;
   }
 
-  public SkillInQueue lifeStartDate(DateTime lifeStartDate) {
+  public SkillInQueue lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -282,15 +282,15 @@ public class SkillInQueue implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public DateTime getLifeStartDate() {
+  public OffsetDateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(DateTime lifeStartDate) {
+  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public SkillInQueue lifeEndDate(DateTime lifeEndDate) {
+  public SkillInQueue lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -300,15 +300,15 @@ public class SkillInQueue implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public DateTime getLifeEndDate() {
+  public OffsetDateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(DateTime lifeEndDate) {
+  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public SkillInQueue endTimeDate(DateTime endTimeDate) {
+  public SkillInQueue endTimeDate(OffsetDateTime endTimeDate) {
     this.endTimeDate = endTimeDate;
     return this;
   }
@@ -318,15 +318,15 @@ public class SkillInQueue implements Serializable {
    * @return endTimeDate
   **/
   @ApiModelProperty(example = "null", value = "endTime Date")
-  public DateTime getEndTimeDate() {
+  public OffsetDateTime getEndTimeDate() {
     return endTimeDate;
   }
 
-  public void setEndTimeDate(DateTime endTimeDate) {
+  public void setEndTimeDate(OffsetDateTime endTimeDate) {
     this.endTimeDate = endTimeDate;
   }
 
-  public SkillInQueue startTimeDate(DateTime startTimeDate) {
+  public SkillInQueue startTimeDate(OffsetDateTime startTimeDate) {
     this.startTimeDate = startTimeDate;
     return this;
   }
@@ -336,11 +336,11 @@ public class SkillInQueue implements Serializable {
    * @return startTimeDate
   **/
   @ApiModelProperty(example = "null", value = "startTime Date")
-  public DateTime getStartTimeDate() {
+  public OffsetDateTime getStartTimeDate() {
     return startTimeDate;
   }
 
-  public void setStartTimeDate(DateTime startTimeDate) {
+  public void setStartTimeDate(OffsetDateTime startTimeDate) {
     this.startTimeDate = startTimeDate;
   }
 

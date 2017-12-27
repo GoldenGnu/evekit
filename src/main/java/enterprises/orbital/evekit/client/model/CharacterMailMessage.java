@@ -18,9 +18,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 import java.io.Serializable;
 
 /**
@@ -74,13 +74,13 @@ public class CharacterMailMessage implements Serializable {
   private Integer senderTypeID = null;
 
   @JsonProperty("lifeStartDate")
-  private DateTime lifeStartDate = null;
+  private OffsetDateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private DateTime lifeEndDate = null;
+  private OffsetDateTime lifeEndDate = null;
 
   @JsonProperty("sentDateDate")
-  private DateTime sentDateDate = null;
+  private OffsetDateTime sentDateDate = null;
 
   public CharacterMailMessage cid(Long cid) {
     this.cid = cid;
@@ -344,7 +344,7 @@ public class CharacterMailMessage implements Serializable {
     this.senderTypeID = senderTypeID;
   }
 
-  public CharacterMailMessage lifeStartDate(DateTime lifeStartDate) {
+  public CharacterMailMessage lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -354,15 +354,15 @@ public class CharacterMailMessage implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public DateTime getLifeStartDate() {
+  public OffsetDateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(DateTime lifeStartDate) {
+  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterMailMessage lifeEndDate(DateTime lifeEndDate) {
+  public CharacterMailMessage lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -372,15 +372,15 @@ public class CharacterMailMessage implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public DateTime getLifeEndDate() {
+  public OffsetDateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(DateTime lifeEndDate) {
+  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public CharacterMailMessage sentDateDate(DateTime sentDateDate) {
+  public CharacterMailMessage sentDateDate(OffsetDateTime sentDateDate) {
     this.sentDateDate = sentDateDate;
     return this;
   }
@@ -390,11 +390,11 @@ public class CharacterMailMessage implements Serializable {
    * @return sentDateDate
   **/
   @ApiModelProperty(example = "null", value = "sentDate Date")
-  public DateTime getSentDateDate() {
+  public OffsetDateTime getSentDateDate() {
     return sentDateDate;
   }
 
-  public void setSentDateDate(DateTime sentDateDate) {
+  public void setSentDateDate(OffsetDateTime sentDateDate) {
     this.sentDateDate = sentDateDate;
   }
 

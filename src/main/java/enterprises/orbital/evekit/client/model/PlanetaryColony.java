@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 
 /**
@@ -75,13 +75,13 @@ public class PlanetaryColony implements Serializable {
   private Integer numberOfPins = null;
 
   @JsonProperty("lifeStartDate")
-  private DateTime lifeStartDate = null;
+  private OffsetDateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private DateTime lifeEndDate = null;
+  private OffsetDateTime lifeEndDate = null;
 
   @JsonProperty("lastUpdateDate")
-  private DateTime lastUpdateDate = null;
+  private OffsetDateTime lastUpdateDate = null;
 
   public PlanetaryColony cid(Long cid) {
     this.cid = cid;
@@ -353,7 +353,7 @@ public class PlanetaryColony implements Serializable {
     this.numberOfPins = numberOfPins;
   }
 
-  public PlanetaryColony lifeStartDate(DateTime lifeStartDate) {
+  public PlanetaryColony lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -363,15 +363,15 @@ public class PlanetaryColony implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public DateTime getLifeStartDate() {
+  public OffsetDateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(DateTime lifeStartDate) {
+  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public PlanetaryColony lifeEndDate(DateTime lifeEndDate) {
+  public PlanetaryColony lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -381,15 +381,15 @@ public class PlanetaryColony implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public DateTime getLifeEndDate() {
+  public OffsetDateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(DateTime lifeEndDate) {
+  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public PlanetaryColony lastUpdateDate(DateTime lastUpdateDate) {
+  public PlanetaryColony lastUpdateDate(OffsetDateTime lastUpdateDate) {
     this.lastUpdateDate = lastUpdateDate;
     return this;
   }
@@ -399,11 +399,11 @@ public class PlanetaryColony implements Serializable {
    * @return lastUpdateDate
   **/
   @ApiModelProperty(example = "null", value = "lastUpdate Date")
-  public DateTime getLastUpdateDate() {
+  public OffsetDateTime getLastUpdateDate() {
     return lastUpdateDate;
   }
 
-  public void setLastUpdateDate(DateTime lastUpdateDate) {
+  public void setLastUpdateDate(OffsetDateTime lastUpdateDate) {
     this.lastUpdateDate = lastUpdateDate;
   }
 

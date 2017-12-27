@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 
 /**
@@ -81,13 +81,13 @@ public class ContainerLog implements Serializable {
   private Integer typeID = null;
 
   @JsonProperty("lifeStartDate")
-  private DateTime lifeStartDate = null;
+  private OffsetDateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private DateTime lifeEndDate = null;
+  private OffsetDateTime lifeEndDate = null;
 
   @JsonProperty("logTimeDate")
-  private DateTime logTimeDate = null;
+  private OffsetDateTime logTimeDate = null;
 
   public ContainerLog cid(Long cid) {
     this.cid = cid;
@@ -395,7 +395,7 @@ public class ContainerLog implements Serializable {
     this.typeID = typeID;
   }
 
-  public ContainerLog lifeStartDate(DateTime lifeStartDate) {
+  public ContainerLog lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -405,15 +405,15 @@ public class ContainerLog implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public DateTime getLifeStartDate() {
+  public OffsetDateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(DateTime lifeStartDate) {
+  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public ContainerLog lifeEndDate(DateTime lifeEndDate) {
+  public ContainerLog lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -423,15 +423,15 @@ public class ContainerLog implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public DateTime getLifeEndDate() {
+  public OffsetDateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(DateTime lifeEndDate) {
+  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public ContainerLog logTimeDate(DateTime logTimeDate) {
+  public ContainerLog logTimeDate(OffsetDateTime logTimeDate) {
     this.logTimeDate = logTimeDate;
     return this;
   }
@@ -441,11 +441,11 @@ public class ContainerLog implements Serializable {
    * @return logTimeDate
   **/
   @ApiModelProperty(example = "null", value = "logTime Date")
-  public DateTime getLogTimeDate() {
+  public OffsetDateTime getLogTimeDate() {
     return logTimeDate;
   }
 
-  public void setLogTimeDate(DateTime logTimeDate) {
+  public void setLogTimeDate(OffsetDateTime logTimeDate) {
     this.logTimeDate = logTimeDate;
   }
 

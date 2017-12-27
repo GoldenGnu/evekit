@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 
 /**
@@ -66,16 +66,16 @@ public class Starbase implements Serializable {
   private Long standingOwnerID = null;
 
   @JsonProperty("lifeStartDate")
-  private DateTime lifeStartDate = null;
+  private OffsetDateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private DateTime lifeEndDate = null;
+  private OffsetDateTime lifeEndDate = null;
 
   @JsonProperty("onlineTimestampDate")
-  private DateTime onlineTimestampDate = null;
+  private OffsetDateTime onlineTimestampDate = null;
 
   @JsonProperty("stateTimestampDate")
-  private DateTime stateTimestampDate = null;
+  private OffsetDateTime stateTimestampDate = null;
 
   public Starbase cid(Long cid) {
     this.cid = cid;
@@ -293,7 +293,7 @@ public class Starbase implements Serializable {
     this.standingOwnerID = standingOwnerID;
   }
 
-  public Starbase lifeStartDate(DateTime lifeStartDate) {
+  public Starbase lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -303,15 +303,15 @@ public class Starbase implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public DateTime getLifeStartDate() {
+  public OffsetDateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(DateTime lifeStartDate) {
+  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public Starbase lifeEndDate(DateTime lifeEndDate) {
+  public Starbase lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -321,15 +321,15 @@ public class Starbase implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public DateTime getLifeEndDate() {
+  public OffsetDateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(DateTime lifeEndDate) {
+  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public Starbase onlineTimestampDate(DateTime onlineTimestampDate) {
+  public Starbase onlineTimestampDate(OffsetDateTime onlineTimestampDate) {
     this.onlineTimestampDate = onlineTimestampDate;
     return this;
   }
@@ -339,15 +339,15 @@ public class Starbase implements Serializable {
    * @return onlineTimestampDate
   **/
   @ApiModelProperty(example = "null", value = "onlineTimestamp Date")
-  public DateTime getOnlineTimestampDate() {
+  public OffsetDateTime getOnlineTimestampDate() {
     return onlineTimestampDate;
   }
 
-  public void setOnlineTimestampDate(DateTime onlineTimestampDate) {
+  public void setOnlineTimestampDate(OffsetDateTime onlineTimestampDate) {
     this.onlineTimestampDate = onlineTimestampDate;
   }
 
-  public Starbase stateTimestampDate(DateTime stateTimestampDate) {
+  public Starbase stateTimestampDate(OffsetDateTime stateTimestampDate) {
     this.stateTimestampDate = stateTimestampDate;
     return this;
   }
@@ -357,11 +357,11 @@ public class Starbase implements Serializable {
    * @return stateTimestampDate
   **/
   @ApiModelProperty(example = "null", value = "stateTimestamp Date")
-  public DateTime getStateTimestampDate() {
+  public OffsetDateTime getStateTimestampDate() {
     return stateTimestampDate;
   }
 
-  public void setStateTimestampDate(DateTime stateTimestampDate) {
+  public void setStateTimestampDate(OffsetDateTime stateTimestampDate) {
     this.stateTimestampDate = stateTimestampDate;
   }
 

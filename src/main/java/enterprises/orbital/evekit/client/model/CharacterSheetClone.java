@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 
 /**
@@ -45,13 +45,13 @@ public class CharacterSheetClone implements Serializable {
   private Long cloneJumpDate = null;
 
   @JsonProperty("lifeStartDate")
-  private DateTime lifeStartDate = null;
+  private OffsetDateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private DateTime lifeEndDate = null;
+  private OffsetDateTime lifeEndDate = null;
 
   @JsonProperty("cloneJumpDateDate")
-  private DateTime cloneJumpDateDate = null;
+  private OffsetDateTime cloneJumpDateDate = null;
 
   public CharacterSheetClone cid(Long cid) {
     this.cid = cid;
@@ -143,7 +143,7 @@ public class CharacterSheetClone implements Serializable {
     this.cloneJumpDate = cloneJumpDate;
   }
 
-  public CharacterSheetClone lifeStartDate(DateTime lifeStartDate) {
+  public CharacterSheetClone lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -153,15 +153,15 @@ public class CharacterSheetClone implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public DateTime getLifeStartDate() {
+  public OffsetDateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(DateTime lifeStartDate) {
+  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterSheetClone lifeEndDate(DateTime lifeEndDate) {
+  public CharacterSheetClone lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -171,15 +171,15 @@ public class CharacterSheetClone implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public DateTime getLifeEndDate() {
+  public OffsetDateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(DateTime lifeEndDate) {
+  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public CharacterSheetClone cloneJumpDateDate(DateTime cloneJumpDateDate) {
+  public CharacterSheetClone cloneJumpDateDate(OffsetDateTime cloneJumpDateDate) {
     this.cloneJumpDateDate = cloneJumpDateDate;
     return this;
   }
@@ -189,11 +189,11 @@ public class CharacterSheetClone implements Serializable {
    * @return cloneJumpDateDate
   **/
   @ApiModelProperty(example = "null", value = "cloneJumpDate Date")
-  public DateTime getCloneJumpDateDate() {
+  public OffsetDateTime getCloneJumpDateDate() {
     return cloneJumpDateDate;
   }
 
-  public void setCloneJumpDateDate(DateTime cloneJumpDateDate) {
+  public void setCloneJumpDateDate(OffsetDateTime cloneJumpDateDate) {
     this.cloneJumpDateDate = cloneJumpDateDate;
   }
 

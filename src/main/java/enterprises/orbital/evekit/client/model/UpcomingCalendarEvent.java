@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 
 /**
@@ -72,13 +72,13 @@ public class UpcomingCalendarEvent implements Serializable {
   private Integer ownerTypeID = null;
 
   @JsonProperty("lifeStartDate")
-  private DateTime lifeStartDate = null;
+  private OffsetDateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private DateTime lifeEndDate = null;
+  private OffsetDateTime lifeEndDate = null;
 
   @JsonProperty("eventDateDate")
-  private DateTime eventDateDate = null;
+  private OffsetDateTime eventDateDate = null;
 
   public UpcomingCalendarEvent cid(Long cid) {
     this.cid = cid;
@@ -332,7 +332,7 @@ public class UpcomingCalendarEvent implements Serializable {
     this.ownerTypeID = ownerTypeID;
   }
 
-  public UpcomingCalendarEvent lifeStartDate(DateTime lifeStartDate) {
+  public UpcomingCalendarEvent lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -342,15 +342,15 @@ public class UpcomingCalendarEvent implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public DateTime getLifeStartDate() {
+  public OffsetDateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(DateTime lifeStartDate) {
+  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public UpcomingCalendarEvent lifeEndDate(DateTime lifeEndDate) {
+  public UpcomingCalendarEvent lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -360,15 +360,15 @@ public class UpcomingCalendarEvent implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public DateTime getLifeEndDate() {
+  public OffsetDateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(DateTime lifeEndDate) {
+  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public UpcomingCalendarEvent eventDateDate(DateTime eventDateDate) {
+  public UpcomingCalendarEvent eventDateDate(OffsetDateTime eventDateDate) {
     this.eventDateDate = eventDateDate;
     return this;
   }
@@ -378,11 +378,11 @@ public class UpcomingCalendarEvent implements Serializable {
    * @return eventDateDate
   **/
   @ApiModelProperty(example = "null", value = "eventDate Date")
-  public DateTime getEventDateDate() {
+  public OffsetDateTime getEventDateDate() {
     return eventDateDate;
   }
 
-  public void setEventDateDate(DateTime eventDateDate) {
+  public void setEventDateDate(OffsetDateTime eventDateDate) {
     this.eventDateDate = eventDateDate;
   }
 

@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 
 /**
@@ -66,19 +66,19 @@ public class CharacterSkillInTraining implements Serializable {
   private Long skillTypeID = null;
 
   @JsonProperty("lifeStartDate")
-  private DateTime lifeStartDate = null;
+  private OffsetDateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private DateTime lifeEndDate = null;
+  private OffsetDateTime lifeEndDate = null;
 
   @JsonProperty("currentTrainingQueueTimeDate")
-  private DateTime currentTrainingQueueTimeDate = null;
+  private OffsetDateTime currentTrainingQueueTimeDate = null;
 
   @JsonProperty("trainingStartTimeDate")
-  private DateTime trainingStartTimeDate = null;
+  private OffsetDateTime trainingStartTimeDate = null;
 
   @JsonProperty("trainingEndTimeDate")
-  private DateTime trainingEndTimeDate = null;
+  private OffsetDateTime trainingEndTimeDate = null;
 
   public CharacterSkillInTraining cid(Long cid) {
     this.cid = cid;
@@ -296,7 +296,7 @@ public class CharacterSkillInTraining implements Serializable {
     this.skillTypeID = skillTypeID;
   }
 
-  public CharacterSkillInTraining lifeStartDate(DateTime lifeStartDate) {
+  public CharacterSkillInTraining lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -306,15 +306,15 @@ public class CharacterSkillInTraining implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public DateTime getLifeStartDate() {
+  public OffsetDateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(DateTime lifeStartDate) {
+  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterSkillInTraining lifeEndDate(DateTime lifeEndDate) {
+  public CharacterSkillInTraining lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -324,15 +324,15 @@ public class CharacterSkillInTraining implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public DateTime getLifeEndDate() {
+  public OffsetDateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(DateTime lifeEndDate) {
+  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public CharacterSkillInTraining currentTrainingQueueTimeDate(DateTime currentTrainingQueueTimeDate) {
+  public CharacterSkillInTraining currentTrainingQueueTimeDate(OffsetDateTime currentTrainingQueueTimeDate) {
     this.currentTrainingQueueTimeDate = currentTrainingQueueTimeDate;
     return this;
   }
@@ -342,15 +342,15 @@ public class CharacterSkillInTraining implements Serializable {
    * @return currentTrainingQueueTimeDate
   **/
   @ApiModelProperty(example = "null", value = "currentTrainingQueueTime Date")
-  public DateTime getCurrentTrainingQueueTimeDate() {
+  public OffsetDateTime getCurrentTrainingQueueTimeDate() {
     return currentTrainingQueueTimeDate;
   }
 
-  public void setCurrentTrainingQueueTimeDate(DateTime currentTrainingQueueTimeDate) {
+  public void setCurrentTrainingQueueTimeDate(OffsetDateTime currentTrainingQueueTimeDate) {
     this.currentTrainingQueueTimeDate = currentTrainingQueueTimeDate;
   }
 
-  public CharacterSkillInTraining trainingStartTimeDate(DateTime trainingStartTimeDate) {
+  public CharacterSkillInTraining trainingStartTimeDate(OffsetDateTime trainingStartTimeDate) {
     this.trainingStartTimeDate = trainingStartTimeDate;
     return this;
   }
@@ -360,15 +360,15 @@ public class CharacterSkillInTraining implements Serializable {
    * @return trainingStartTimeDate
   **/
   @ApiModelProperty(example = "null", value = "trainingStartTime Date")
-  public DateTime getTrainingStartTimeDate() {
+  public OffsetDateTime getTrainingStartTimeDate() {
     return trainingStartTimeDate;
   }
 
-  public void setTrainingStartTimeDate(DateTime trainingStartTimeDate) {
+  public void setTrainingStartTimeDate(OffsetDateTime trainingStartTimeDate) {
     this.trainingStartTimeDate = trainingStartTimeDate;
   }
 
-  public CharacterSkillInTraining trainingEndTimeDate(DateTime trainingEndTimeDate) {
+  public CharacterSkillInTraining trainingEndTimeDate(OffsetDateTime trainingEndTimeDate) {
     this.trainingEndTimeDate = trainingEndTimeDate;
     return this;
   }
@@ -378,11 +378,11 @@ public class CharacterSkillInTraining implements Serializable {
    * @return trainingEndTimeDate
   **/
   @ApiModelProperty(example = "null", value = "trainingEndTime Date")
-  public DateTime getTrainingEndTimeDate() {
+  public OffsetDateTime getTrainingEndTimeDate() {
     return trainingEndTimeDate;
   }
 
-  public void setTrainingEndTimeDate(DateTime trainingEndTimeDate) {
+  public void setTrainingEndTimeDate(OffsetDateTime trainingEndTimeDate) {
     this.trainingEndTimeDate = trainingEndTimeDate;
   }
 

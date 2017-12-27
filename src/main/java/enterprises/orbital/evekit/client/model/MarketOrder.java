@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 import java.io.Serializable;
 
 /**
@@ -88,13 +88,13 @@ public class MarketOrder implements Serializable {
   private Integer volRemaining = null;
 
   @JsonProperty("lifeStartDate")
-  private DateTime lifeStartDate = null;
+  private OffsetDateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
-  private DateTime lifeEndDate = null;
+  private OffsetDateTime lifeEndDate = null;
 
   @JsonProperty("issuedDate")
-  private DateTime issuedDate = null;
+  private OffsetDateTime issuedDate = null;
 
   public MarketOrder cid(Long cid) {
     this.cid = cid;
@@ -438,7 +438,7 @@ public class MarketOrder implements Serializable {
     this.volRemaining = volRemaining;
   }
 
-  public MarketOrder lifeStartDate(DateTime lifeStartDate) {
+  public MarketOrder lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -448,15 +448,15 @@ public class MarketOrder implements Serializable {
    * @return lifeStartDate
   **/
   @ApiModelProperty(example = "null", value = "lifeStart Date")
-  public DateTime getLifeStartDate() {
+  public OffsetDateTime getLifeStartDate() {
     return lifeStartDate;
   }
 
-  public void setLifeStartDate(DateTime lifeStartDate) {
+  public void setLifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public MarketOrder lifeEndDate(DateTime lifeEndDate) {
+  public MarketOrder lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -466,15 +466,15 @@ public class MarketOrder implements Serializable {
    * @return lifeEndDate
   **/
   @ApiModelProperty(example = "null", value = "lifeEnd Date")
-  public DateTime getLifeEndDate() {
+  public OffsetDateTime getLifeEndDate() {
     return lifeEndDate;
   }
 
-  public void setLifeEndDate(DateTime lifeEndDate) {
+  public void setLifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public MarketOrder issuedDate(DateTime issuedDate) {
+  public MarketOrder issuedDate(OffsetDateTime issuedDate) {
     this.issuedDate = issuedDate;
     return this;
   }
@@ -484,11 +484,11 @@ public class MarketOrder implements Serializable {
    * @return issuedDate
   **/
   @ApiModelProperty(example = "null", value = "issued Date")
-  public DateTime getIssuedDate() {
+  public OffsetDateTime getIssuedDate() {
     return issuedDate;
   }
 
-  public void setIssuedDate(DateTime issuedDate) {
+  public void setIssuedDate(OffsetDateTime issuedDate) {
     this.issuedDate = issuedDate;
   }
 
