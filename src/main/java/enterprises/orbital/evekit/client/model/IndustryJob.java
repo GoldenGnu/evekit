@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.io.Serializable;
 
@@ -43,22 +42,13 @@ public class IndustryJob implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("jobID")
-  private Long jobID = null;
+  private Integer jobID = null;
 
   @JsonProperty("installerID")
-  private Long installerID = null;
-
-  @JsonProperty("installerName")
-  private String installerName = null;
+  private Integer installerID = null;
 
   @JsonProperty("facilityID")
   private Long facilityID = null;
-
-  @JsonProperty("solarSystemID")
-  private Integer solarSystemID = null;
-
-  @JsonProperty("solarSystemName")
-  private String solarSystemName = null;
 
   @JsonProperty("stationID")
   private Long stationID = null;
@@ -72,9 +62,6 @@ public class IndustryJob implements Serializable {
   @JsonProperty("blueprintTypeID")
   private Integer blueprintTypeID = null;
 
-  @JsonProperty("blueprintTypeName")
-  private String blueprintTypeName = null;
-
   @JsonProperty("blueprintLocationID")
   private Long blueprintLocationID = null;
 
@@ -85,10 +72,7 @@ public class IndustryJob implements Serializable {
   private Integer runs = null;
 
   @JsonProperty("cost")
-  private BigDecimal cost = null;
-
-  @JsonProperty("teamID")
-  private Long teamID = null;
+  private Double cost = null;
 
   @JsonProperty("licensedRuns")
   private Integer licensedRuns = null;
@@ -99,11 +83,8 @@ public class IndustryJob implements Serializable {
   @JsonProperty("productTypeID")
   private Integer productTypeID = null;
 
-  @JsonProperty("productTypeName")
-  private String productTypeName = null;
-
   @JsonProperty("status")
-  private Integer status = null;
+  private String status = null;
 
   @JsonProperty("timeInSeconds")
   private Integer timeInSeconds = null;
@@ -121,7 +102,7 @@ public class IndustryJob implements Serializable {
   private Long completedDate = null;
 
   @JsonProperty("completedCharacterID")
-  private Long completedCharacterID = null;
+  private Integer completedCharacterID = null;
 
   @JsonProperty("successfulRuns")
   private Integer successfulRuns = null;
@@ -216,7 +197,7 @@ public class IndustryJob implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public IndustryJob jobID(Long jobID) {
+  public IndustryJob jobID(Integer jobID) {
     this.jobID = jobID;
     return this;
   }
@@ -226,15 +207,15 @@ public class IndustryJob implements Serializable {
    * @return jobID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getJobID() {
+  public Integer getJobID() {
     return jobID;
   }
 
-  public void setJobID(Long jobID) {
+  public void setJobID(Integer jobID) {
     this.jobID = jobID;
   }
 
-  public IndustryJob installerID(Long installerID) {
+  public IndustryJob installerID(Integer installerID) {
     this.installerID = installerID;
     return this;
   }
@@ -244,30 +225,12 @@ public class IndustryJob implements Serializable {
    * @return installerID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getInstallerID() {
+  public Integer getInstallerID() {
     return installerID;
   }
 
-  public void setInstallerID(Long installerID) {
+  public void setInstallerID(Integer installerID) {
     this.installerID = installerID;
-  }
-
-  public IndustryJob installerName(String installerName) {
-    this.installerName = installerName;
-    return this;
-  }
-
-   /**
-   * Get installerName
-   * @return installerName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getInstallerName() {
-    return installerName;
-  }
-
-  public void setInstallerName(String installerName) {
-    this.installerName = installerName;
   }
 
   public IndustryJob facilityID(Long facilityID) {
@@ -286,42 +249,6 @@ public class IndustryJob implements Serializable {
 
   public void setFacilityID(Long facilityID) {
     this.facilityID = facilityID;
-  }
-
-  public IndustryJob solarSystemID(Integer solarSystemID) {
-    this.solarSystemID = solarSystemID;
-    return this;
-  }
-
-   /**
-   * Get solarSystemID
-   * @return solarSystemID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getSolarSystemID() {
-    return solarSystemID;
-  }
-
-  public void setSolarSystemID(Integer solarSystemID) {
-    this.solarSystemID = solarSystemID;
-  }
-
-  public IndustryJob solarSystemName(String solarSystemName) {
-    this.solarSystemName = solarSystemName;
-    return this;
-  }
-
-   /**
-   * Get solarSystemName
-   * @return solarSystemName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getSolarSystemName() {
-    return solarSystemName;
-  }
-
-  public void setSolarSystemName(String solarSystemName) {
-    this.solarSystemName = solarSystemName;
   }
 
   public IndustryJob stationID(Long stationID) {
@@ -396,24 +323,6 @@ public class IndustryJob implements Serializable {
     this.blueprintTypeID = blueprintTypeID;
   }
 
-  public IndustryJob blueprintTypeName(String blueprintTypeName) {
-    this.blueprintTypeName = blueprintTypeName;
-    return this;
-  }
-
-   /**
-   * Get blueprintTypeName
-   * @return blueprintTypeName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getBlueprintTypeName() {
-    return blueprintTypeName;
-  }
-
-  public void setBlueprintTypeName(String blueprintTypeName) {
-    this.blueprintTypeName = blueprintTypeName;
-  }
-
   public IndustryJob blueprintLocationID(Long blueprintLocationID) {
     this.blueprintLocationID = blueprintLocationID;
     return this;
@@ -468,7 +377,7 @@ public class IndustryJob implements Serializable {
     this.runs = runs;
   }
 
-  public IndustryJob cost(BigDecimal cost) {
+  public IndustryJob cost(Double cost) {
     this.cost = cost;
     return this;
   }
@@ -478,30 +387,12 @@ public class IndustryJob implements Serializable {
    * @return cost
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getCost() {
+  public Double getCost() {
     return cost;
   }
 
-  public void setCost(BigDecimal cost) {
+  public void setCost(Double cost) {
     this.cost = cost;
-  }
-
-  public IndustryJob teamID(Long teamID) {
-    this.teamID = teamID;
-    return this;
-  }
-
-   /**
-   * Get teamID
-   * @return teamID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getTeamID() {
-    return teamID;
-  }
-
-  public void setTeamID(Long teamID) {
-    this.teamID = teamID;
   }
 
   public IndustryJob licensedRuns(Integer licensedRuns) {
@@ -558,25 +449,7 @@ public class IndustryJob implements Serializable {
     this.productTypeID = productTypeID;
   }
 
-  public IndustryJob productTypeName(String productTypeName) {
-    this.productTypeName = productTypeName;
-    return this;
-  }
-
-   /**
-   * Get productTypeName
-   * @return productTypeName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getProductTypeName() {
-    return productTypeName;
-  }
-
-  public void setProductTypeName(String productTypeName) {
-    this.productTypeName = productTypeName;
-  }
-
-  public IndustryJob status(Integer status) {
+  public IndustryJob status(String status) {
     this.status = status;
     return this;
   }
@@ -586,11 +459,11 @@ public class IndustryJob implements Serializable {
    * @return status
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getStatus() {
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(Integer status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
@@ -684,7 +557,7 @@ public class IndustryJob implements Serializable {
     this.completedDate = completedDate;
   }
 
-  public IndustryJob completedCharacterID(Long completedCharacterID) {
+  public IndustryJob completedCharacterID(Integer completedCharacterID) {
     this.completedCharacterID = completedCharacterID;
     return this;
   }
@@ -694,11 +567,11 @@ public class IndustryJob implements Serializable {
    * @return completedCharacterID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getCompletedCharacterID() {
+  public Integer getCompletedCharacterID() {
     return completedCharacterID;
   }
 
-  public void setCompletedCharacterID(Long completedCharacterID) {
+  public void setCompletedCharacterID(Integer completedCharacterID) {
     this.completedCharacterID = completedCharacterID;
   }
 
@@ -844,24 +717,18 @@ public class IndustryJob implements Serializable {
         Objects.equals(this.lifeEnd, industryJob.lifeEnd) &&
         Objects.equals(this.jobID, industryJob.jobID) &&
         Objects.equals(this.installerID, industryJob.installerID) &&
-        Objects.equals(this.installerName, industryJob.installerName) &&
         Objects.equals(this.facilityID, industryJob.facilityID) &&
-        Objects.equals(this.solarSystemID, industryJob.solarSystemID) &&
-        Objects.equals(this.solarSystemName, industryJob.solarSystemName) &&
         Objects.equals(this.stationID, industryJob.stationID) &&
         Objects.equals(this.activityID, industryJob.activityID) &&
         Objects.equals(this.blueprintID, industryJob.blueprintID) &&
         Objects.equals(this.blueprintTypeID, industryJob.blueprintTypeID) &&
-        Objects.equals(this.blueprintTypeName, industryJob.blueprintTypeName) &&
         Objects.equals(this.blueprintLocationID, industryJob.blueprintLocationID) &&
         Objects.equals(this.outputLocationID, industryJob.outputLocationID) &&
         Objects.equals(this.runs, industryJob.runs) &&
         Objects.equals(this.cost, industryJob.cost) &&
-        Objects.equals(this.teamID, industryJob.teamID) &&
         Objects.equals(this.licensedRuns, industryJob.licensedRuns) &&
         Objects.equals(this.probability, industryJob.probability) &&
         Objects.equals(this.productTypeID, industryJob.productTypeID) &&
-        Objects.equals(this.productTypeName, industryJob.productTypeName) &&
         Objects.equals(this.status, industryJob.status) &&
         Objects.equals(this.timeInSeconds, industryJob.timeInSeconds) &&
         Objects.equals(this.startDate, industryJob.startDate) &&
@@ -880,7 +747,7 @@ public class IndustryJob implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, jobID, installerID, installerName, facilityID, solarSystemID, solarSystemName, stationID, activityID, blueprintID, blueprintTypeID, blueprintTypeName, blueprintLocationID, outputLocationID, runs, cost, teamID, licensedRuns, probability, productTypeID, productTypeName, status, timeInSeconds, startDate, endDate, pauseDate, completedDate, completedCharacterID, successfulRuns, lifeStartDate, lifeEndDate, startDateDate, endDateDate, pauseDateDate, completedDateDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, jobID, installerID, facilityID, stationID, activityID, blueprintID, blueprintTypeID, blueprintLocationID, outputLocationID, runs, cost, licensedRuns, probability, productTypeID, status, timeInSeconds, startDate, endDate, pauseDate, completedDate, completedCharacterID, successfulRuns, lifeStartDate, lifeEndDate, startDateDate, endDateDate, pauseDateDate, completedDateDate);
   }
 
 
@@ -895,24 +762,18 @@ public class IndustryJob implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    jobID: ").append(toIndentedString(jobID)).append("\n");
     sb.append("    installerID: ").append(toIndentedString(installerID)).append("\n");
-    sb.append("    installerName: ").append(toIndentedString(installerName)).append("\n");
     sb.append("    facilityID: ").append(toIndentedString(facilityID)).append("\n");
-    sb.append("    solarSystemID: ").append(toIndentedString(solarSystemID)).append("\n");
-    sb.append("    solarSystemName: ").append(toIndentedString(solarSystemName)).append("\n");
     sb.append("    stationID: ").append(toIndentedString(stationID)).append("\n");
     sb.append("    activityID: ").append(toIndentedString(activityID)).append("\n");
     sb.append("    blueprintID: ").append(toIndentedString(blueprintID)).append("\n");
     sb.append("    blueprintTypeID: ").append(toIndentedString(blueprintTypeID)).append("\n");
-    sb.append("    blueprintTypeName: ").append(toIndentedString(blueprintTypeName)).append("\n");
     sb.append("    blueprintLocationID: ").append(toIndentedString(blueprintLocationID)).append("\n");
     sb.append("    outputLocationID: ").append(toIndentedString(outputLocationID)).append("\n");
     sb.append("    runs: ").append(toIndentedString(runs)).append("\n");
     sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
-    sb.append("    teamID: ").append(toIndentedString(teamID)).append("\n");
     sb.append("    licensedRuns: ").append(toIndentedString(licensedRuns)).append("\n");
     sb.append("    probability: ").append(toIndentedString(probability)).append("\n");
     sb.append("    productTypeID: ").append(toIndentedString(productTypeID)).append("\n");
-    sb.append("    productTypeName: ").append(toIndentedString(productTypeName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    timeInSeconds: ").append(toIndentedString(timeInSeconds)).append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");

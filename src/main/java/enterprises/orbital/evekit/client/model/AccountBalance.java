@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.io.Serializable;
 
@@ -42,20 +41,23 @@ public class AccountBalance implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("accountID")
-  private Integer accountID = null;
-
-  @JsonProperty("accountKey")
-  private Integer accountKey = null;
+  @JsonProperty("division")
+  private Integer division = null;
 
   @JsonProperty("balance")
-  private BigDecimal balance = null;
+  private Double balance = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
 
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
+
+  @JsonProperty("accountID")
+  private Integer accountID = null;
+
+  @JsonProperty("accountKey")
+  private Integer accountKey = null;
 
   public AccountBalance cid(Long cid) {
     this.cid = cid;
@@ -129,43 +131,25 @@ public class AccountBalance implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public AccountBalance accountID(Integer accountID) {
-    this.accountID = accountID;
+  public AccountBalance division(Integer division) {
+    this.division = division;
     return this;
   }
 
    /**
-   * Get accountID
-   * @return accountID
+   * Get division
+   * @return division
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getAccountID() {
-    return accountID;
+  public Integer getDivision() {
+    return division;
   }
 
-  public void setAccountID(Integer accountID) {
-    this.accountID = accountID;
+  public void setDivision(Integer division) {
+    this.division = division;
   }
 
-  public AccountBalance accountKey(Integer accountKey) {
-    this.accountKey = accountKey;
-    return this;
-  }
-
-   /**
-   * Get accountKey
-   * @return accountKey
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getAccountKey() {
-    return accountKey;
-  }
-
-  public void setAccountKey(Integer accountKey) {
-    this.accountKey = accountKey;
-  }
-
-  public AccountBalance balance(BigDecimal balance) {
+  public AccountBalance balance(Double balance) {
     this.balance = balance;
     return this;
   }
@@ -175,11 +159,11 @@ public class AccountBalance implements Serializable {
    * @return balance
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getBalance() {
+  public Double getBalance() {
     return balance;
   }
 
-  public void setBalance(BigDecimal balance) {
+  public void setBalance(Double balance) {
     this.balance = balance;
   }
 
@@ -219,6 +203,42 @@ public class AccountBalance implements Serializable {
     this.lifeEndDate = lifeEndDate;
   }
 
+  public AccountBalance accountID(Integer accountID) {
+    this.accountID = accountID;
+    return this;
+  }
+
+   /**
+   * *DEPRECATED* accountID
+   * @return accountID
+  **/
+  @ApiModelProperty(example = "null", value = "*DEPRECATED* accountID")
+  public Integer getAccountID() {
+    return accountID;
+  }
+
+  public void setAccountID(Integer accountID) {
+    this.accountID = accountID;
+  }
+
+  public AccountBalance accountKey(Integer accountKey) {
+    this.accountKey = accountKey;
+    return this;
+  }
+
+   /**
+   * *DEPRECATED* accountKey
+   * @return accountKey
+  **/
+  @ApiModelProperty(example = "null", value = "*DEPRECATED* accountKey")
+  public Integer getAccountKey() {
+    return accountKey;
+  }
+
+  public void setAccountKey(Integer accountKey) {
+    this.accountKey = accountKey;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -233,16 +253,17 @@ public class AccountBalance implements Serializable {
         Objects.equals(this.eveKitVersion, accountBalance.eveKitVersion) &&
         Objects.equals(this.lifeStart, accountBalance.lifeStart) &&
         Objects.equals(this.lifeEnd, accountBalance.lifeEnd) &&
-        Objects.equals(this.accountID, accountBalance.accountID) &&
-        Objects.equals(this.accountKey, accountBalance.accountKey) &&
+        Objects.equals(this.division, accountBalance.division) &&
         Objects.equals(this.balance, accountBalance.balance) &&
         Objects.equals(this.lifeStartDate, accountBalance.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, accountBalance.lifeEndDate);
+        Objects.equals(this.lifeEndDate, accountBalance.lifeEndDate) &&
+        Objects.equals(this.accountID, accountBalance.accountID) &&
+        Objects.equals(this.accountKey, accountBalance.accountKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, accountID, accountKey, balance, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, division, balance, lifeStartDate, lifeEndDate, accountID, accountKey);
   }
 
 
@@ -255,11 +276,12 @@ public class AccountBalance implements Serializable {
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
-    sb.append("    accountKey: ").append(toIndentedString(accountKey)).append("\n");
+    sb.append("    division: ").append(toIndentedString(division)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
+    sb.append("    accountID: ").append(toIndentedString(accountID)).append("\n");
+    sb.append("    accountKey: ").append(toIndentedString(accountKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

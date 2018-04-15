@@ -26,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class SecurityTitle implements Serializable {
+public class Member implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -41,11 +41,8 @@ public class SecurityTitle implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("titleID")
-  private Long titleID = null;
-
-  @JsonProperty("titleName")
-  private String titleName = null;
+  @JsonProperty("characterID")
+  private Integer characterID = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -53,7 +50,7 @@ public class SecurityTitle implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public SecurityTitle cid(Long cid) {
+  public Member cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -71,7 +68,7 @@ public class SecurityTitle implements Serializable {
     this.cid = cid;
   }
 
-  public SecurityTitle eveKitVersion(Integer eveKitVersion) {
+  public Member eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -89,7 +86,7 @@ public class SecurityTitle implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public SecurityTitle lifeStart(Long lifeStart) {
+  public Member lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -107,7 +104,7 @@ public class SecurityTitle implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public SecurityTitle lifeEnd(Long lifeEnd) {
+  public Member lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -125,43 +122,25 @@ public class SecurityTitle implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public SecurityTitle titleID(Long titleID) {
-    this.titleID = titleID;
+  public Member characterID(Integer characterID) {
+    this.characterID = characterID;
     return this;
   }
 
    /**
-   * Get titleID
-   * @return titleID
+   * Get characterID
+   * @return characterID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getTitleID() {
-    return titleID;
+  public Integer getCharacterID() {
+    return characterID;
   }
 
-  public void setTitleID(Long titleID) {
-    this.titleID = titleID;
+  public void setCharacterID(Integer characterID) {
+    this.characterID = characterID;
   }
 
-  public SecurityTitle titleName(String titleName) {
-    this.titleName = titleName;
-    return this;
-  }
-
-   /**
-   * Get titleName
-   * @return titleName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getTitleName() {
-    return titleName;
-  }
-
-  public void setTitleName(String titleName) {
-    this.titleName = titleName;
-  }
-
-  public SecurityTitle lifeStartDate(OffsetDateTime lifeStartDate) {
+  public Member lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -179,7 +158,7 @@ public class SecurityTitle implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public SecurityTitle lifeEndDate(OffsetDateTime lifeEndDate) {
+  public Member lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -206,34 +185,32 @@ public class SecurityTitle implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityTitle securityTitle = (SecurityTitle) o;
-    return Objects.equals(this.cid, securityTitle.cid) &&
-        Objects.equals(this.eveKitVersion, securityTitle.eveKitVersion) &&
-        Objects.equals(this.lifeStart, securityTitle.lifeStart) &&
-        Objects.equals(this.lifeEnd, securityTitle.lifeEnd) &&
-        Objects.equals(this.titleID, securityTitle.titleID) &&
-        Objects.equals(this.titleName, securityTitle.titleName) &&
-        Objects.equals(this.lifeStartDate, securityTitle.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, securityTitle.lifeEndDate);
+    Member member = (Member) o;
+    return Objects.equals(this.cid, member.cid) &&
+        Objects.equals(this.eveKitVersion, member.eveKitVersion) &&
+        Objects.equals(this.lifeStart, member.lifeStart) &&
+        Objects.equals(this.lifeEnd, member.lifeEnd) &&
+        Objects.equals(this.characterID, member.characterID) &&
+        Objects.equals(this.lifeStartDate, member.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, member.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, titleID, titleName, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, characterID, lifeStartDate, lifeEndDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityTitle {\n");
+    sb.append("class Member {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    titleID: ").append(toIndentedString(titleID)).append("\n");
-    sb.append("    titleName: ").append(toIndentedString(titleName)).append("\n");
+    sb.append("    characterID: ").append(toIndentedString(characterID)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

@@ -41,17 +41,17 @@ public class CustomsOffice implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("itemID")
-  private Long itemID = null;
+  @JsonProperty("officeID")
+  private Long officeID = null;
 
   @JsonProperty("solarSystemID")
   private Integer solarSystemID = null;
 
-  @JsonProperty("solarSystemName")
-  private String solarSystemName = null;
+  @JsonProperty("reinforceExitStart")
+  private Integer reinforceExitStart = null;
 
-  @JsonProperty("reinforceHour")
-  private Integer reinforceHour = null;
+  @JsonProperty("reinforceExitEnd")
+  private Integer reinforceExitEnd = null;
 
   @JsonProperty("allowAlliance")
   private Boolean allowAlliance = false;
@@ -60,28 +60,28 @@ public class CustomsOffice implements Serializable {
   private Boolean allowStandings = false;
 
   @JsonProperty("standingLevel")
-  private Double standingLevel = null;
+  private String standingLevel = null;
 
   @JsonProperty("taxRateAlliance")
-  private Double taxRateAlliance = null;
+  private Float taxRateAlliance = null;
 
   @JsonProperty("taxRateCorp")
-  private Double taxRateCorp = null;
+  private Float taxRateCorp = null;
 
-  @JsonProperty("taxRateStandingHigh")
-  private Double taxRateStandingHigh = null;
+  @JsonProperty("taxRateStandingExcellent")
+  private Float taxRateStandingExcellent = null;
 
   @JsonProperty("taxRateStandingGood")
-  private Double taxRateStandingGood = null;
+  private Float taxRateStandingGood = null;
 
   @JsonProperty("taxRateStandingNeutral")
-  private Double taxRateStandingNeutral = null;
+  private Float taxRateStandingNeutral = null;
 
   @JsonProperty("taxRateStandingBad")
-  private Double taxRateStandingBad = null;
+  private Float taxRateStandingBad = null;
 
-  @JsonProperty("taxRateStandingHorrible")
-  private Double taxRateStandingHorrible = null;
+  @JsonProperty("taxRateStandingTerrible")
+  private Float taxRateStandingTerrible = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -161,22 +161,22 @@ public class CustomsOffice implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CustomsOffice itemID(Long itemID) {
-    this.itemID = itemID;
+  public CustomsOffice officeID(Long officeID) {
+    this.officeID = officeID;
     return this;
   }
 
    /**
-   * Get itemID
-   * @return itemID
+   * Get officeID
+   * @return officeID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getItemID() {
-    return itemID;
+  public Long getOfficeID() {
+    return officeID;
   }
 
-  public void setItemID(Long itemID) {
-    this.itemID = itemID;
+  public void setOfficeID(Long officeID) {
+    this.officeID = officeID;
   }
 
   public CustomsOffice solarSystemID(Integer solarSystemID) {
@@ -197,40 +197,40 @@ public class CustomsOffice implements Serializable {
     this.solarSystemID = solarSystemID;
   }
 
-  public CustomsOffice solarSystemName(String solarSystemName) {
-    this.solarSystemName = solarSystemName;
+  public CustomsOffice reinforceExitStart(Integer reinforceExitStart) {
+    this.reinforceExitStart = reinforceExitStart;
     return this;
   }
 
    /**
-   * Get solarSystemName
-   * @return solarSystemName
+   * Get reinforceExitStart
+   * @return reinforceExitStart
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getSolarSystemName() {
-    return solarSystemName;
+  public Integer getReinforceExitStart() {
+    return reinforceExitStart;
   }
 
-  public void setSolarSystemName(String solarSystemName) {
-    this.solarSystemName = solarSystemName;
+  public void setReinforceExitStart(Integer reinforceExitStart) {
+    this.reinforceExitStart = reinforceExitStart;
   }
 
-  public CustomsOffice reinforceHour(Integer reinforceHour) {
-    this.reinforceHour = reinforceHour;
+  public CustomsOffice reinforceExitEnd(Integer reinforceExitEnd) {
+    this.reinforceExitEnd = reinforceExitEnd;
     return this;
   }
 
    /**
-   * Get reinforceHour
-   * @return reinforceHour
+   * Get reinforceExitEnd
+   * @return reinforceExitEnd
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getReinforceHour() {
-    return reinforceHour;
+  public Integer getReinforceExitEnd() {
+    return reinforceExitEnd;
   }
 
-  public void setReinforceHour(Integer reinforceHour) {
-    this.reinforceHour = reinforceHour;
+  public void setReinforceExitEnd(Integer reinforceExitEnd) {
+    this.reinforceExitEnd = reinforceExitEnd;
   }
 
   public CustomsOffice allowAlliance(Boolean allowAlliance) {
@@ -269,7 +269,7 @@ public class CustomsOffice implements Serializable {
     this.allowStandings = allowStandings;
   }
 
-  public CustomsOffice standingLevel(Double standingLevel) {
+  public CustomsOffice standingLevel(String standingLevel) {
     this.standingLevel = standingLevel;
     return this;
   }
@@ -279,15 +279,15 @@ public class CustomsOffice implements Serializable {
    * @return standingLevel
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getStandingLevel() {
+  public String getStandingLevel() {
     return standingLevel;
   }
 
-  public void setStandingLevel(Double standingLevel) {
+  public void setStandingLevel(String standingLevel) {
     this.standingLevel = standingLevel;
   }
 
-  public CustomsOffice taxRateAlliance(Double taxRateAlliance) {
+  public CustomsOffice taxRateAlliance(Float taxRateAlliance) {
     this.taxRateAlliance = taxRateAlliance;
     return this;
   }
@@ -297,15 +297,15 @@ public class CustomsOffice implements Serializable {
    * @return taxRateAlliance
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getTaxRateAlliance() {
+  public Float getTaxRateAlliance() {
     return taxRateAlliance;
   }
 
-  public void setTaxRateAlliance(Double taxRateAlliance) {
+  public void setTaxRateAlliance(Float taxRateAlliance) {
     this.taxRateAlliance = taxRateAlliance;
   }
 
-  public CustomsOffice taxRateCorp(Double taxRateCorp) {
+  public CustomsOffice taxRateCorp(Float taxRateCorp) {
     this.taxRateCorp = taxRateCorp;
     return this;
   }
@@ -315,33 +315,33 @@ public class CustomsOffice implements Serializable {
    * @return taxRateCorp
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getTaxRateCorp() {
+  public Float getTaxRateCorp() {
     return taxRateCorp;
   }
 
-  public void setTaxRateCorp(Double taxRateCorp) {
+  public void setTaxRateCorp(Float taxRateCorp) {
     this.taxRateCorp = taxRateCorp;
   }
 
-  public CustomsOffice taxRateStandingHigh(Double taxRateStandingHigh) {
-    this.taxRateStandingHigh = taxRateStandingHigh;
+  public CustomsOffice taxRateStandingExcellent(Float taxRateStandingExcellent) {
+    this.taxRateStandingExcellent = taxRateStandingExcellent;
     return this;
   }
 
    /**
-   * Get taxRateStandingHigh
-   * @return taxRateStandingHigh
+   * Get taxRateStandingExcellent
+   * @return taxRateStandingExcellent
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getTaxRateStandingHigh() {
-    return taxRateStandingHigh;
+  public Float getTaxRateStandingExcellent() {
+    return taxRateStandingExcellent;
   }
 
-  public void setTaxRateStandingHigh(Double taxRateStandingHigh) {
-    this.taxRateStandingHigh = taxRateStandingHigh;
+  public void setTaxRateStandingExcellent(Float taxRateStandingExcellent) {
+    this.taxRateStandingExcellent = taxRateStandingExcellent;
   }
 
-  public CustomsOffice taxRateStandingGood(Double taxRateStandingGood) {
+  public CustomsOffice taxRateStandingGood(Float taxRateStandingGood) {
     this.taxRateStandingGood = taxRateStandingGood;
     return this;
   }
@@ -351,15 +351,15 @@ public class CustomsOffice implements Serializable {
    * @return taxRateStandingGood
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getTaxRateStandingGood() {
+  public Float getTaxRateStandingGood() {
     return taxRateStandingGood;
   }
 
-  public void setTaxRateStandingGood(Double taxRateStandingGood) {
+  public void setTaxRateStandingGood(Float taxRateStandingGood) {
     this.taxRateStandingGood = taxRateStandingGood;
   }
 
-  public CustomsOffice taxRateStandingNeutral(Double taxRateStandingNeutral) {
+  public CustomsOffice taxRateStandingNeutral(Float taxRateStandingNeutral) {
     this.taxRateStandingNeutral = taxRateStandingNeutral;
     return this;
   }
@@ -369,15 +369,15 @@ public class CustomsOffice implements Serializable {
    * @return taxRateStandingNeutral
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getTaxRateStandingNeutral() {
+  public Float getTaxRateStandingNeutral() {
     return taxRateStandingNeutral;
   }
 
-  public void setTaxRateStandingNeutral(Double taxRateStandingNeutral) {
+  public void setTaxRateStandingNeutral(Float taxRateStandingNeutral) {
     this.taxRateStandingNeutral = taxRateStandingNeutral;
   }
 
-  public CustomsOffice taxRateStandingBad(Double taxRateStandingBad) {
+  public CustomsOffice taxRateStandingBad(Float taxRateStandingBad) {
     this.taxRateStandingBad = taxRateStandingBad;
     return this;
   }
@@ -387,30 +387,30 @@ public class CustomsOffice implements Serializable {
    * @return taxRateStandingBad
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getTaxRateStandingBad() {
+  public Float getTaxRateStandingBad() {
     return taxRateStandingBad;
   }
 
-  public void setTaxRateStandingBad(Double taxRateStandingBad) {
+  public void setTaxRateStandingBad(Float taxRateStandingBad) {
     this.taxRateStandingBad = taxRateStandingBad;
   }
 
-  public CustomsOffice taxRateStandingHorrible(Double taxRateStandingHorrible) {
-    this.taxRateStandingHorrible = taxRateStandingHorrible;
+  public CustomsOffice taxRateStandingTerrible(Float taxRateStandingTerrible) {
+    this.taxRateStandingTerrible = taxRateStandingTerrible;
     return this;
   }
 
    /**
-   * Get taxRateStandingHorrible
-   * @return taxRateStandingHorrible
+   * Get taxRateStandingTerrible
+   * @return taxRateStandingTerrible
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getTaxRateStandingHorrible() {
-    return taxRateStandingHorrible;
+  public Float getTaxRateStandingTerrible() {
+    return taxRateStandingTerrible;
   }
 
-  public void setTaxRateStandingHorrible(Double taxRateStandingHorrible) {
-    this.taxRateStandingHorrible = taxRateStandingHorrible;
+  public void setTaxRateStandingTerrible(Float taxRateStandingTerrible) {
+    this.taxRateStandingTerrible = taxRateStandingTerrible;
   }
 
   public CustomsOffice lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -463,27 +463,27 @@ public class CustomsOffice implements Serializable {
         Objects.equals(this.eveKitVersion, customsOffice.eveKitVersion) &&
         Objects.equals(this.lifeStart, customsOffice.lifeStart) &&
         Objects.equals(this.lifeEnd, customsOffice.lifeEnd) &&
-        Objects.equals(this.itemID, customsOffice.itemID) &&
+        Objects.equals(this.officeID, customsOffice.officeID) &&
         Objects.equals(this.solarSystemID, customsOffice.solarSystemID) &&
-        Objects.equals(this.solarSystemName, customsOffice.solarSystemName) &&
-        Objects.equals(this.reinforceHour, customsOffice.reinforceHour) &&
+        Objects.equals(this.reinforceExitStart, customsOffice.reinforceExitStart) &&
+        Objects.equals(this.reinforceExitEnd, customsOffice.reinforceExitEnd) &&
         Objects.equals(this.allowAlliance, customsOffice.allowAlliance) &&
         Objects.equals(this.allowStandings, customsOffice.allowStandings) &&
         Objects.equals(this.standingLevel, customsOffice.standingLevel) &&
         Objects.equals(this.taxRateAlliance, customsOffice.taxRateAlliance) &&
         Objects.equals(this.taxRateCorp, customsOffice.taxRateCorp) &&
-        Objects.equals(this.taxRateStandingHigh, customsOffice.taxRateStandingHigh) &&
+        Objects.equals(this.taxRateStandingExcellent, customsOffice.taxRateStandingExcellent) &&
         Objects.equals(this.taxRateStandingGood, customsOffice.taxRateStandingGood) &&
         Objects.equals(this.taxRateStandingNeutral, customsOffice.taxRateStandingNeutral) &&
         Objects.equals(this.taxRateStandingBad, customsOffice.taxRateStandingBad) &&
-        Objects.equals(this.taxRateStandingHorrible, customsOffice.taxRateStandingHorrible) &&
+        Objects.equals(this.taxRateStandingTerrible, customsOffice.taxRateStandingTerrible) &&
         Objects.equals(this.lifeStartDate, customsOffice.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, customsOffice.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, itemID, solarSystemID, solarSystemName, reinforceHour, allowAlliance, allowStandings, standingLevel, taxRateAlliance, taxRateCorp, taxRateStandingHigh, taxRateStandingGood, taxRateStandingNeutral, taxRateStandingBad, taxRateStandingHorrible, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, officeID, solarSystemID, reinforceExitStart, reinforceExitEnd, allowAlliance, allowStandings, standingLevel, taxRateAlliance, taxRateCorp, taxRateStandingExcellent, taxRateStandingGood, taxRateStandingNeutral, taxRateStandingBad, taxRateStandingTerrible, lifeStartDate, lifeEndDate);
   }
 
 
@@ -496,20 +496,20 @@ public class CustomsOffice implements Serializable {
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    itemID: ").append(toIndentedString(itemID)).append("\n");
+    sb.append("    officeID: ").append(toIndentedString(officeID)).append("\n");
     sb.append("    solarSystemID: ").append(toIndentedString(solarSystemID)).append("\n");
-    sb.append("    solarSystemName: ").append(toIndentedString(solarSystemName)).append("\n");
-    sb.append("    reinforceHour: ").append(toIndentedString(reinforceHour)).append("\n");
+    sb.append("    reinforceExitStart: ").append(toIndentedString(reinforceExitStart)).append("\n");
+    sb.append("    reinforceExitEnd: ").append(toIndentedString(reinforceExitEnd)).append("\n");
     sb.append("    allowAlliance: ").append(toIndentedString(allowAlliance)).append("\n");
     sb.append("    allowStandings: ").append(toIndentedString(allowStandings)).append("\n");
     sb.append("    standingLevel: ").append(toIndentedString(standingLevel)).append("\n");
     sb.append("    taxRateAlliance: ").append(toIndentedString(taxRateAlliance)).append("\n");
     sb.append("    taxRateCorp: ").append(toIndentedString(taxRateCorp)).append("\n");
-    sb.append("    taxRateStandingHigh: ").append(toIndentedString(taxRateStandingHigh)).append("\n");
+    sb.append("    taxRateStandingExcellent: ").append(toIndentedString(taxRateStandingExcellent)).append("\n");
     sb.append("    taxRateStandingGood: ").append(toIndentedString(taxRateStandingGood)).append("\n");
     sb.append("    taxRateStandingNeutral: ").append(toIndentedString(taxRateStandingNeutral)).append("\n");
     sb.append("    taxRateStandingBad: ").append(toIndentedString(taxRateStandingBad)).append("\n");
-    sb.append("    taxRateStandingHorrible: ").append(toIndentedString(taxRateStandingHorrible)).append("\n");
+    sb.append("    taxRateStandingTerrible: ").append(toIndentedString(taxRateStandingTerrible)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

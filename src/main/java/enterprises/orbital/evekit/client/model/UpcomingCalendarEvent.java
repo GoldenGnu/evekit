@@ -48,7 +48,7 @@ public class UpcomingCalendarEvent implements Serializable {
   private Long eventDate = null;
 
   @JsonProperty("eventID")
-  private Long eventID = null;
+  private Integer eventID = null;
 
   @JsonProperty("eventText")
   private String eventText = null;
@@ -57,7 +57,7 @@ public class UpcomingCalendarEvent implements Serializable {
   private String eventTitle = null;
 
   @JsonProperty("ownerID")
-  private Long ownerID = null;
+  private Integer ownerID = null;
 
   @JsonProperty("ownerName")
   private String ownerName = null;
@@ -65,11 +65,11 @@ public class UpcomingCalendarEvent implements Serializable {
   @JsonProperty("response")
   private String response = null;
 
-  @JsonProperty("important")
-  private Boolean important = false;
+  @JsonProperty("importance")
+  private Integer importance = null;
 
-  @JsonProperty("ownerTypeID")
-  private Integer ownerTypeID = null;
+  @JsonProperty("ownerType")
+  private String ownerType = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -188,7 +188,7 @@ public class UpcomingCalendarEvent implements Serializable {
     this.eventDate = eventDate;
   }
 
-  public UpcomingCalendarEvent eventID(Long eventID) {
+  public UpcomingCalendarEvent eventID(Integer eventID) {
     this.eventID = eventID;
     return this;
   }
@@ -198,11 +198,11 @@ public class UpcomingCalendarEvent implements Serializable {
    * @return eventID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getEventID() {
+  public Integer getEventID() {
     return eventID;
   }
 
-  public void setEventID(Long eventID) {
+  public void setEventID(Integer eventID) {
     this.eventID = eventID;
   }
 
@@ -242,7 +242,7 @@ public class UpcomingCalendarEvent implements Serializable {
     this.eventTitle = eventTitle;
   }
 
-  public UpcomingCalendarEvent ownerID(Long ownerID) {
+  public UpcomingCalendarEvent ownerID(Integer ownerID) {
     this.ownerID = ownerID;
     return this;
   }
@@ -252,11 +252,11 @@ public class UpcomingCalendarEvent implements Serializable {
    * @return ownerID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getOwnerID() {
+  public Integer getOwnerID() {
     return ownerID;
   }
 
-  public void setOwnerID(Long ownerID) {
+  public void setOwnerID(Integer ownerID) {
     this.ownerID = ownerID;
   }
 
@@ -296,40 +296,40 @@ public class UpcomingCalendarEvent implements Serializable {
     this.response = response;
   }
 
-  public UpcomingCalendarEvent important(Boolean important) {
-    this.important = important;
+  public UpcomingCalendarEvent importance(Integer importance) {
+    this.importance = importance;
     return this;
   }
 
    /**
-   * Get important
-   * @return important
+   * Get importance
+   * @return importance
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Boolean getImportant() {
-    return important;
+  public Integer getImportance() {
+    return importance;
   }
 
-  public void setImportant(Boolean important) {
-    this.important = important;
+  public void setImportance(Integer importance) {
+    this.importance = importance;
   }
 
-  public UpcomingCalendarEvent ownerTypeID(Integer ownerTypeID) {
-    this.ownerTypeID = ownerTypeID;
+  public UpcomingCalendarEvent ownerType(String ownerType) {
+    this.ownerType = ownerType;
     return this;
   }
 
    /**
-   * Get ownerTypeID
-   * @return ownerTypeID
+   * Get ownerType
+   * @return ownerType
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getOwnerTypeID() {
-    return ownerTypeID;
+  public String getOwnerType() {
+    return ownerType;
   }
 
-  public void setOwnerTypeID(Integer ownerTypeID) {
-    this.ownerTypeID = ownerTypeID;
+  public void setOwnerType(String ownerType) {
+    this.ownerType = ownerType;
   }
 
   public UpcomingCalendarEvent lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -408,8 +408,8 @@ public class UpcomingCalendarEvent implements Serializable {
         Objects.equals(this.ownerID, upcomingCalendarEvent.ownerID) &&
         Objects.equals(this.ownerName, upcomingCalendarEvent.ownerName) &&
         Objects.equals(this.response, upcomingCalendarEvent.response) &&
-        Objects.equals(this.important, upcomingCalendarEvent.important) &&
-        Objects.equals(this.ownerTypeID, upcomingCalendarEvent.ownerTypeID) &&
+        Objects.equals(this.importance, upcomingCalendarEvent.importance) &&
+        Objects.equals(this.ownerType, upcomingCalendarEvent.ownerType) &&
         Objects.equals(this.lifeStartDate, upcomingCalendarEvent.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, upcomingCalendarEvent.lifeEndDate) &&
         Objects.equals(this.eventDateDate, upcomingCalendarEvent.eventDateDate);
@@ -417,7 +417,7 @@ public class UpcomingCalendarEvent implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, duration, eventDate, eventID, eventText, eventTitle, ownerID, ownerName, response, important, ownerTypeID, lifeStartDate, lifeEndDate, eventDateDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, duration, eventDate, eventID, eventText, eventTitle, ownerID, ownerName, response, importance, ownerType, lifeStartDate, lifeEndDate, eventDateDate);
   }
 
 
@@ -438,8 +438,8 @@ public class UpcomingCalendarEvent implements Serializable {
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
     sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
-    sb.append("    important: ").append(toIndentedString(important)).append("\n");
-    sb.append("    ownerTypeID: ").append(toIndentedString(ownerTypeID)).append("\n");
+    sb.append("    importance: ").append(toIndentedString(importance)).append("\n");
+    sb.append("    ownerType: ").append(toIndentedString(ownerType)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("    eventDateDate: ").append(toIndentedString(eventDateDate)).append("\n");

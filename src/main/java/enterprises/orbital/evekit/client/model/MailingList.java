@@ -45,7 +45,7 @@ public class MailingList implements Serializable {
   private String displayName = null;
 
   @JsonProperty("listID")
-  private Long listID = null;
+  private Integer listID = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -143,7 +143,7 @@ public class MailingList implements Serializable {
     this.displayName = displayName;
   }
 
-  public MailingList listID(Long listID) {
+  public MailingList listID(Integer listID) {
     this.listID = listID;
     return this;
   }
@@ -153,11 +153,11 @@ public class MailingList implements Serializable {
    * @return listID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getListID() {
+  public Integer getListID() {
     return listID;
   }
 
-  public void setListID(Long listID) {
+  public void setListID(Integer listID) {
     this.listID = listID;
   }
 

@@ -47,11 +47,8 @@ public class Standing implements Serializable {
   @JsonProperty("fromID")
   private Integer fromID = null;
 
-  @JsonProperty("fromName")
-  private String fromName = null;
-
   @JsonProperty("standing")
-  private Double standing = null;
+  private Float standing = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -167,25 +164,7 @@ public class Standing implements Serializable {
     this.fromID = fromID;
   }
 
-  public Standing fromName(String fromName) {
-    this.fromName = fromName;
-    return this;
-  }
-
-   /**
-   * Get fromName
-   * @return fromName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getFromName() {
-    return fromName;
-  }
-
-  public void setFromName(String fromName) {
-    this.fromName = fromName;
-  }
-
-  public Standing standing(Double standing) {
+  public Standing standing(Float standing) {
     this.standing = standing;
     return this;
   }
@@ -195,11 +174,11 @@ public class Standing implements Serializable {
    * @return standing
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getStanding() {
+  public Float getStanding() {
     return standing;
   }
 
-  public void setStanding(Double standing) {
+  public void setStanding(Float standing) {
     this.standing = standing;
   }
 
@@ -255,7 +234,6 @@ public class Standing implements Serializable {
         Objects.equals(this.lifeEnd, standing.lifeEnd) &&
         Objects.equals(this.standingEntity, standing.standingEntity) &&
         Objects.equals(this.fromID, standing.fromID) &&
-        Objects.equals(this.fromName, standing.fromName) &&
         Objects.equals(this.standing, standing.standing) &&
         Objects.equals(this.lifeStartDate, standing.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, standing.lifeEndDate);
@@ -263,7 +241,7 @@ public class Standing implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, standingEntity, fromID, fromName, standing, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, standingEntity, fromID, standing, lifeStartDate, lifeEndDate);
   }
 
 
@@ -278,7 +256,6 @@ public class Standing implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    standingEntity: ").append(toIndentedString(standingEntity)).append("\n");
     sb.append("    fromID: ").append(toIndentedString(fromID)).append("\n");
-    sb.append("    fromName: ").append(toIndentedString(fromName)).append("\n");
     sb.append("    standing: ").append(toIndentedString(standing)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");

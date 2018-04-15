@@ -47,20 +47,20 @@ public class Contact implements Serializable {
   @JsonProperty("contactID")
   private Integer contactID = null;
 
-  @JsonProperty("contactName")
-  private String contactName = null;
-
   @JsonProperty("standing")
-  private Double standing = null;
+  private Float standing = null;
 
-  @JsonProperty("contactTypeID")
-  private Integer contactTypeID = null;
+  @JsonProperty("contactType")
+  private String contactType = null;
 
   @JsonProperty("inWatchlist")
   private Boolean inWatchlist = false;
 
-  @JsonProperty("labelMask")
-  private Long labelMask = null;
+  @JsonProperty("labelID")
+  private Long labelID = null;
+
+  @JsonProperty("blocked")
+  private Boolean blocked = false;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -176,25 +176,7 @@ public class Contact implements Serializable {
     this.contactID = contactID;
   }
 
-  public Contact contactName(String contactName) {
-    this.contactName = contactName;
-    return this;
-  }
-
-   /**
-   * Get contactName
-   * @return contactName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getContactName() {
-    return contactName;
-  }
-
-  public void setContactName(String contactName) {
-    this.contactName = contactName;
-  }
-
-  public Contact standing(Double standing) {
+  public Contact standing(Float standing) {
     this.standing = standing;
     return this;
   }
@@ -204,30 +186,30 @@ public class Contact implements Serializable {
    * @return standing
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getStanding() {
+  public Float getStanding() {
     return standing;
   }
 
-  public void setStanding(Double standing) {
+  public void setStanding(Float standing) {
     this.standing = standing;
   }
 
-  public Contact contactTypeID(Integer contactTypeID) {
-    this.contactTypeID = contactTypeID;
+  public Contact contactType(String contactType) {
+    this.contactType = contactType;
     return this;
   }
 
    /**
-   * Get contactTypeID
-   * @return contactTypeID
+   * Get contactType
+   * @return contactType
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getContactTypeID() {
-    return contactTypeID;
+  public String getContactType() {
+    return contactType;
   }
 
-  public void setContactTypeID(Integer contactTypeID) {
-    this.contactTypeID = contactTypeID;
+  public void setContactType(String contactType) {
+    this.contactType = contactType;
   }
 
   public Contact inWatchlist(Boolean inWatchlist) {
@@ -248,22 +230,40 @@ public class Contact implements Serializable {
     this.inWatchlist = inWatchlist;
   }
 
-  public Contact labelMask(Long labelMask) {
-    this.labelMask = labelMask;
+  public Contact labelID(Long labelID) {
+    this.labelID = labelID;
     return this;
   }
 
    /**
-   * Get labelMask
-   * @return labelMask
+   * Get labelID
+   * @return labelID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getLabelMask() {
-    return labelMask;
+  public Long getLabelID() {
+    return labelID;
   }
 
-  public void setLabelMask(Long labelMask) {
-    this.labelMask = labelMask;
+  public void setLabelID(Long labelID) {
+    this.labelID = labelID;
+  }
+
+  public Contact blocked(Boolean blocked) {
+    this.blocked = blocked;
+    return this;
+  }
+
+   /**
+   * Get blocked
+   * @return blocked
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getBlocked() {
+    return blocked;
+  }
+
+  public void setBlocked(Boolean blocked) {
+    this.blocked = blocked;
   }
 
   public Contact lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -318,18 +318,18 @@ public class Contact implements Serializable {
         Objects.equals(this.lifeEnd, contact.lifeEnd) &&
         Objects.equals(this.list, contact.list) &&
         Objects.equals(this.contactID, contact.contactID) &&
-        Objects.equals(this.contactName, contact.contactName) &&
         Objects.equals(this.standing, contact.standing) &&
-        Objects.equals(this.contactTypeID, contact.contactTypeID) &&
+        Objects.equals(this.contactType, contact.contactType) &&
         Objects.equals(this.inWatchlist, contact.inWatchlist) &&
-        Objects.equals(this.labelMask, contact.labelMask) &&
+        Objects.equals(this.labelID, contact.labelID) &&
+        Objects.equals(this.blocked, contact.blocked) &&
         Objects.equals(this.lifeStartDate, contact.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, contact.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, list, contactID, contactName, standing, contactTypeID, inWatchlist, labelMask, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, list, contactID, standing, contactType, inWatchlist, labelID, blocked, lifeStartDate, lifeEndDate);
   }
 
 
@@ -344,11 +344,11 @@ public class Contact implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    list: ").append(toIndentedString(list)).append("\n");
     sb.append("    contactID: ").append(toIndentedString(contactID)).append("\n");
-    sb.append("    contactName: ").append(toIndentedString(contactName)).append("\n");
     sb.append("    standing: ").append(toIndentedString(standing)).append("\n");
-    sb.append("    contactTypeID: ").append(toIndentedString(contactTypeID)).append("\n");
+    sb.append("    contactType: ").append(toIndentedString(contactType)).append("\n");
     sb.append("    inWatchlist: ").append(toIndentedString(inWatchlist)).append("\n");
-    sb.append("    labelMask: ").append(toIndentedString(labelMask)).append("\n");
+    sb.append("    labelID: ").append(toIndentedString(labelID)).append("\n");
+    sb.append("    blocked: ").append(toIndentedString(blocked)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

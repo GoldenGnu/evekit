@@ -42,7 +42,7 @@ public class ContractItem implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("contractID")
-  private Long contractID = null;
+  private Integer contractID = null;
 
   @JsonProperty("recordID")
   private Long recordID = null;
@@ -51,10 +51,10 @@ public class ContractItem implements Serializable {
   private Integer typeID = null;
 
   @JsonProperty("quantity")
-  private Long quantity = null;
+  private Integer quantity = null;
 
   @JsonProperty("rawQuantity")
-  private Long rawQuantity = null;
+  private Integer rawQuantity = null;
 
   @JsonProperty("singleton")
   private Boolean singleton = false;
@@ -140,7 +140,7 @@ public class ContractItem implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public ContractItem contractID(Long contractID) {
+  public ContractItem contractID(Integer contractID) {
     this.contractID = contractID;
     return this;
   }
@@ -150,11 +150,11 @@ public class ContractItem implements Serializable {
    * @return contractID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getContractID() {
+  public Integer getContractID() {
     return contractID;
   }
 
-  public void setContractID(Long contractID) {
+  public void setContractID(Integer contractID) {
     this.contractID = contractID;
   }
 
@@ -194,7 +194,7 @@ public class ContractItem implements Serializable {
     this.typeID = typeID;
   }
 
-  public ContractItem quantity(Long quantity) {
+  public ContractItem quantity(Integer quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -204,15 +204,15 @@ public class ContractItem implements Serializable {
    * @return quantity
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getQuantity() {
+  public Integer getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(Long quantity) {
+  public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
 
-  public ContractItem rawQuantity(Long rawQuantity) {
+  public ContractItem rawQuantity(Integer rawQuantity) {
     this.rawQuantity = rawQuantity;
     return this;
   }
@@ -222,11 +222,11 @@ public class ContractItem implements Serializable {
    * @return rawQuantity
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getRawQuantity() {
+  public Integer getRawQuantity() {
     return rawQuantity;
   }
 
-  public void setRawQuantity(Long rawQuantity) {
+  public void setRawQuantity(Integer rawQuantity) {
     this.rawQuantity = rawQuantity;
   }
 

@@ -42,7 +42,7 @@ public class PlanetaryLink implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("planetID")
-  private Long planetID = null;
+  private Integer planetID = null;
 
   @JsonProperty("sourcePinID")
   private Long sourcePinID = null;
@@ -131,7 +131,7 @@ public class PlanetaryLink implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public PlanetaryLink planetID(Long planetID) {
+  public PlanetaryLink planetID(Integer planetID) {
     this.planetID = planetID;
     return this;
   }
@@ -141,11 +141,11 @@ public class PlanetaryLink implements Serializable {
    * @return planetID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getPlanetID() {
+  public Integer getPlanetID() {
     return planetID;
   }
 
-  public void setPlanetID(Long planetID) {
+  public void setPlanetID(Integer planetID) {
     this.planetID = planetID;
   }
 

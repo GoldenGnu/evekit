@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.io.Serializable;
 
@@ -43,19 +42,19 @@ public class Contract implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("contractID")
-  private Long contractID = null;
+  private Integer contractID = null;
 
   @JsonProperty("issuerID")
-  private Long issuerID = null;
+  private Integer issuerID = null;
 
   @JsonProperty("issuerCorpID")
-  private Long issuerCorpID = null;
+  private Integer issuerCorpID = null;
 
   @JsonProperty("assigneeID")
-  private Long assigneeID = null;
+  private Integer assigneeID = null;
 
   @JsonProperty("acceptorID")
-  private Long acceptorID = null;
+  private Integer acceptorID = null;
 
   @JsonProperty("startStationID")
   private Long startStationID = null;
@@ -94,16 +93,16 @@ public class Contract implements Serializable {
   private Long dateCompleted = null;
 
   @JsonProperty("price")
-  private BigDecimal price = null;
+  private Double price = null;
 
   @JsonProperty("reward")
-  private BigDecimal reward = null;
+  private Double reward = null;
 
   @JsonProperty("collateral")
-  private BigDecimal collateral = null;
+  private Double collateral = null;
 
   @JsonProperty("buyout")
-  private BigDecimal buyout = null;
+  private Double buyout = null;
 
   @JsonProperty("volume")
   private Double volume = null;
@@ -198,7 +197,7 @@ public class Contract implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public Contract contractID(Long contractID) {
+  public Contract contractID(Integer contractID) {
     this.contractID = contractID;
     return this;
   }
@@ -208,15 +207,15 @@ public class Contract implements Serializable {
    * @return contractID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getContractID() {
+  public Integer getContractID() {
     return contractID;
   }
 
-  public void setContractID(Long contractID) {
+  public void setContractID(Integer contractID) {
     this.contractID = contractID;
   }
 
-  public Contract issuerID(Long issuerID) {
+  public Contract issuerID(Integer issuerID) {
     this.issuerID = issuerID;
     return this;
   }
@@ -226,15 +225,15 @@ public class Contract implements Serializable {
    * @return issuerID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getIssuerID() {
+  public Integer getIssuerID() {
     return issuerID;
   }
 
-  public void setIssuerID(Long issuerID) {
+  public void setIssuerID(Integer issuerID) {
     this.issuerID = issuerID;
   }
 
-  public Contract issuerCorpID(Long issuerCorpID) {
+  public Contract issuerCorpID(Integer issuerCorpID) {
     this.issuerCorpID = issuerCorpID;
     return this;
   }
@@ -244,15 +243,15 @@ public class Contract implements Serializable {
    * @return issuerCorpID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getIssuerCorpID() {
+  public Integer getIssuerCorpID() {
     return issuerCorpID;
   }
 
-  public void setIssuerCorpID(Long issuerCorpID) {
+  public void setIssuerCorpID(Integer issuerCorpID) {
     this.issuerCorpID = issuerCorpID;
   }
 
-  public Contract assigneeID(Long assigneeID) {
+  public Contract assigneeID(Integer assigneeID) {
     this.assigneeID = assigneeID;
     return this;
   }
@@ -262,15 +261,15 @@ public class Contract implements Serializable {
    * @return assigneeID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getAssigneeID() {
+  public Integer getAssigneeID() {
     return assigneeID;
   }
 
-  public void setAssigneeID(Long assigneeID) {
+  public void setAssigneeID(Integer assigneeID) {
     this.assigneeID = assigneeID;
   }
 
-  public Contract acceptorID(Long acceptorID) {
+  public Contract acceptorID(Integer acceptorID) {
     this.acceptorID = acceptorID;
     return this;
   }
@@ -280,11 +279,11 @@ public class Contract implements Serializable {
    * @return acceptorID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getAcceptorID() {
+  public Integer getAcceptorID() {
     return acceptorID;
   }
 
-  public void setAcceptorID(Long acceptorID) {
+  public void setAcceptorID(Integer acceptorID) {
     this.acceptorID = acceptorID;
   }
 
@@ -504,7 +503,7 @@ public class Contract implements Serializable {
     this.dateCompleted = dateCompleted;
   }
 
-  public Contract price(BigDecimal price) {
+  public Contract price(Double price) {
     this.price = price;
     return this;
   }
@@ -514,15 +513,15 @@ public class Contract implements Serializable {
    * @return price
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getPrice() {
+  public Double getPrice() {
     return price;
   }
 
-  public void setPrice(BigDecimal price) {
+  public void setPrice(Double price) {
     this.price = price;
   }
 
-  public Contract reward(BigDecimal reward) {
+  public Contract reward(Double reward) {
     this.reward = reward;
     return this;
   }
@@ -532,15 +531,15 @@ public class Contract implements Serializable {
    * @return reward
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getReward() {
+  public Double getReward() {
     return reward;
   }
 
-  public void setReward(BigDecimal reward) {
+  public void setReward(Double reward) {
     this.reward = reward;
   }
 
-  public Contract collateral(BigDecimal collateral) {
+  public Contract collateral(Double collateral) {
     this.collateral = collateral;
     return this;
   }
@@ -550,15 +549,15 @@ public class Contract implements Serializable {
    * @return collateral
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getCollateral() {
+  public Double getCollateral() {
     return collateral;
   }
 
-  public void setCollateral(BigDecimal collateral) {
+  public void setCollateral(Double collateral) {
     this.collateral = collateral;
   }
 
-  public Contract buyout(BigDecimal buyout) {
+  public Contract buyout(Double buyout) {
     this.buyout = buyout;
     return this;
   }
@@ -568,11 +567,11 @@ public class Contract implements Serializable {
    * @return buyout
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getBuyout() {
+  public Double getBuyout() {
     return buyout;
   }
 
-  public void setBuyout(BigDecimal buyout) {
+  public void setBuyout(Double buyout) {
     this.buyout = buyout;
   }
 

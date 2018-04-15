@@ -42,16 +42,16 @@ public class ChatChannelMember implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("channelID")
-  private Long channelID = null;
+  private Integer channelID = null;
 
   @JsonProperty("category")
   private String category = null;
 
   @JsonProperty("accessorID")
-  private Long accessorID = null;
+  private Integer accessorID = null;
 
-  @JsonProperty("accessorName")
-  private String accessorName = null;
+  @JsonProperty("accessorType")
+  private String accessorType = null;
 
   @JsonProperty("untilWhen")
   private Long untilWhen = null;
@@ -140,7 +140,7 @@ public class ChatChannelMember implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public ChatChannelMember channelID(Long channelID) {
+  public ChatChannelMember channelID(Integer channelID) {
     this.channelID = channelID;
     return this;
   }
@@ -150,11 +150,11 @@ public class ChatChannelMember implements Serializable {
    * @return channelID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getChannelID() {
+  public Integer getChannelID() {
     return channelID;
   }
 
-  public void setChannelID(Long channelID) {
+  public void setChannelID(Integer channelID) {
     this.channelID = channelID;
   }
 
@@ -176,7 +176,7 @@ public class ChatChannelMember implements Serializable {
     this.category = category;
   }
 
-  public ChatChannelMember accessorID(Long accessorID) {
+  public ChatChannelMember accessorID(Integer accessorID) {
     this.accessorID = accessorID;
     return this;
   }
@@ -186,30 +186,30 @@ public class ChatChannelMember implements Serializable {
    * @return accessorID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getAccessorID() {
+  public Integer getAccessorID() {
     return accessorID;
   }
 
-  public void setAccessorID(Long accessorID) {
+  public void setAccessorID(Integer accessorID) {
     this.accessorID = accessorID;
   }
 
-  public ChatChannelMember accessorName(String accessorName) {
-    this.accessorName = accessorName;
+  public ChatChannelMember accessorType(String accessorType) {
+    this.accessorType = accessorType;
     return this;
   }
 
    /**
-   * Get accessorName
-   * @return accessorName
+   * Get accessorType
+   * @return accessorType
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getAccessorName() {
-    return accessorName;
+  public String getAccessorType() {
+    return accessorType;
   }
 
-  public void setAccessorName(String accessorName) {
-    this.accessorName = accessorName;
+  public void setAccessorType(String accessorType) {
+    this.accessorType = accessorType;
   }
 
   public ChatChannelMember untilWhen(Long untilWhen) {
@@ -319,7 +319,7 @@ public class ChatChannelMember implements Serializable {
         Objects.equals(this.channelID, chatChannelMember.channelID) &&
         Objects.equals(this.category, chatChannelMember.category) &&
         Objects.equals(this.accessorID, chatChannelMember.accessorID) &&
-        Objects.equals(this.accessorName, chatChannelMember.accessorName) &&
+        Objects.equals(this.accessorType, chatChannelMember.accessorType) &&
         Objects.equals(this.untilWhen, chatChannelMember.untilWhen) &&
         Objects.equals(this.reason, chatChannelMember.reason) &&
         Objects.equals(this.lifeStartDate, chatChannelMember.lifeStartDate) &&
@@ -329,7 +329,7 @@ public class ChatChannelMember implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, channelID, category, accessorID, accessorName, untilWhen, reason, lifeStartDate, lifeEndDate, untilWhenDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, channelID, category, accessorID, accessorType, untilWhen, reason, lifeStartDate, lifeEndDate, untilWhenDate);
   }
 
 
@@ -345,7 +345,7 @@ public class ChatChannelMember implements Serializable {
     sb.append("    channelID: ").append(toIndentedString(channelID)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    accessorID: ").append(toIndentedString(accessorID)).append("\n");
-    sb.append("    accessorName: ").append(toIndentedString(accessorName)).append("\n");
+    sb.append("    accessorType: ").append(toIndentedString(accessorType)).append("\n");
     sb.append("    untilWhen: ").append(toIndentedString(untilWhen)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");

@@ -42,16 +42,16 @@ public class CharacterContactNotification implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("notificationID")
-  private Long notificationID = null;
+  private Integer notificationID = null;
 
   @JsonProperty("senderID")
-  private Long senderID = null;
-
-  @JsonProperty("senderName")
-  private String senderName = null;
+  private Integer senderID = null;
 
   @JsonProperty("sentDate")
   private Long sentDate = null;
+
+  @JsonProperty("standingLevel")
+  private Float standingLevel = null;
 
   @JsonProperty("messageData")
   private String messageData = null;
@@ -137,7 +137,7 @@ public class CharacterContactNotification implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CharacterContactNotification notificationID(Long notificationID) {
+  public CharacterContactNotification notificationID(Integer notificationID) {
     this.notificationID = notificationID;
     return this;
   }
@@ -147,15 +147,15 @@ public class CharacterContactNotification implements Serializable {
    * @return notificationID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getNotificationID() {
+  public Integer getNotificationID() {
     return notificationID;
   }
 
-  public void setNotificationID(Long notificationID) {
+  public void setNotificationID(Integer notificationID) {
     this.notificationID = notificationID;
   }
 
-  public CharacterContactNotification senderID(Long senderID) {
+  public CharacterContactNotification senderID(Integer senderID) {
     this.senderID = senderID;
     return this;
   }
@@ -165,30 +165,12 @@ public class CharacterContactNotification implements Serializable {
    * @return senderID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getSenderID() {
+  public Integer getSenderID() {
     return senderID;
   }
 
-  public void setSenderID(Long senderID) {
+  public void setSenderID(Integer senderID) {
     this.senderID = senderID;
-  }
-
-  public CharacterContactNotification senderName(String senderName) {
-    this.senderName = senderName;
-    return this;
-  }
-
-   /**
-   * Get senderName
-   * @return senderName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getSenderName() {
-    return senderName;
-  }
-
-  public void setSenderName(String senderName) {
-    this.senderName = senderName;
   }
 
   public CharacterContactNotification sentDate(Long sentDate) {
@@ -207,6 +189,24 @@ public class CharacterContactNotification implements Serializable {
 
   public void setSentDate(Long sentDate) {
     this.sentDate = sentDate;
+  }
+
+  public CharacterContactNotification standingLevel(Float standingLevel) {
+    this.standingLevel = standingLevel;
+    return this;
+  }
+
+   /**
+   * Get standingLevel
+   * @return standingLevel
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Float getStandingLevel() {
+    return standingLevel;
+  }
+
+  public void setStandingLevel(Float standingLevel) {
+    this.standingLevel = standingLevel;
   }
 
   public CharacterContactNotification messageData(String messageData) {
@@ -297,8 +297,8 @@ public class CharacterContactNotification implements Serializable {
         Objects.equals(this.lifeEnd, characterContactNotification.lifeEnd) &&
         Objects.equals(this.notificationID, characterContactNotification.notificationID) &&
         Objects.equals(this.senderID, characterContactNotification.senderID) &&
-        Objects.equals(this.senderName, characterContactNotification.senderName) &&
         Objects.equals(this.sentDate, characterContactNotification.sentDate) &&
+        Objects.equals(this.standingLevel, characterContactNotification.standingLevel) &&
         Objects.equals(this.messageData, characterContactNotification.messageData) &&
         Objects.equals(this.lifeStartDate, characterContactNotification.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, characterContactNotification.lifeEndDate) &&
@@ -307,7 +307,7 @@ public class CharacterContactNotification implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, notificationID, senderID, senderName, sentDate, messageData, lifeStartDate, lifeEndDate, sentDateDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, notificationID, senderID, sentDate, standingLevel, messageData, lifeStartDate, lifeEndDate, sentDateDate);
   }
 
 
@@ -322,8 +322,8 @@ public class CharacterContactNotification implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    notificationID: ").append(toIndentedString(notificationID)).append("\n");
     sb.append("    senderID: ").append(toIndentedString(senderID)).append("\n");
-    sb.append("    senderName: ").append(toIndentedString(senderName)).append("\n");
     sb.append("    sentDate: ").append(toIndentedString(sentDate)).append("\n");
+    sb.append("    standingLevel: ").append(toIndentedString(standingLevel)).append("\n");
     sb.append("    messageData: ").append(toIndentedString(messageData)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");

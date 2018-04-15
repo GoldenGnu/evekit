@@ -68,9 +68,9 @@ public class CommonApiTest {
         Long contid = null;
         Integer maxresults = null;
         Boolean reverse = null;
-        String accountID = null;
-        String accountKey = null;
-        List<AccountBalance> response = api.getAccountBalance(accessKey, accessCred, at, contid, maxresults, reverse, accountID, accountKey);
+        String division = null;
+        String balance = null;
+        List<AccountBalance> response = api.getAccountBalance(accessKey, accessCred, at, contid, maxresults, reverse, division, balance);
 
         // TODO: test validations
     }
@@ -93,13 +93,13 @@ public class CommonApiTest {
         Boolean reverse = null;
         String itemID = null;
         String locationID = null;
+        String locationType = null;
+        String locationFlag = null;
         String typeID = null;
         String quantity = null;
-        String flag = null;
         String singleton = null;
-        String rawQuantity = null;
-        String container = null;
-        List<Asset> response = api.getAssets(accessKey, accessCred, at, contid, maxresults, reverse, itemID, locationID, typeID, quantity, flag, singleton, rawQuantity, container);
+        String blueprintType = null;
+        List<Asset> response = api.getAssets(accessKey, accessCred, at, contid, maxresults, reverse, itemID, locationID, locationType, locationFlag, typeID, quantity, singleton, blueprintType);
 
         // TODO: test validations
     }
@@ -122,14 +122,13 @@ public class CommonApiTest {
         Boolean reverse = null;
         String itemID = null;
         String locationID = null;
+        String locationFlag = null;
         String typeID = null;
-        String typeName = null;
-        String flagID = null;
         String quantity = null;
         String timeEfficiency = null;
         String materialEfficiency = null;
         String runs = null;
-        List<Blueprint> response = api.getBlueprints(accessKey, accessCred, at, contid, maxresults, reverse, itemID, locationID, typeID, typeName, flagID, quantity, timeEfficiency, materialEfficiency, runs);
+        List<Blueprint> response = api.getBlueprints(accessKey, accessCred, at, contid, maxresults, reverse, itemID, locationID, locationFlag, typeID, quantity, timeEfficiency, materialEfficiency, runs);
 
         // TODO: test validations
     }
@@ -211,12 +210,12 @@ public class CommonApiTest {
         Boolean reverse = null;
         String list = null;
         String contactID = null;
-        String contactName = null;
         String standing = null;
-        String contactTypeID = null;
+        String contactType = null;
         String inWatchlist = null;
-        String labelMask = null;
-        List<Contact> response = api.getContacts(accessKey, accessCred, at, contid, maxresults, reverse, list, contactID, contactName, standing, contactTypeID, inWatchlist, labelMask);
+        String isBlocked = null;
+        String labelID = null;
+        List<Contact> response = api.getContacts(accessKey, accessCred, at, contid, maxresults, reverse, list, contactID, standing, contactType, inWatchlist, isBlocked, labelID);
 
         // TODO: test validations
     }
@@ -337,7 +336,6 @@ public class CommonApiTest {
         String currentRank = null;
         String enlisted = null;
         String factionID = null;
-        String factionName = null;
         String highestRank = null;
         String killsLastWeek = null;
         String killsTotal = null;
@@ -346,7 +344,7 @@ public class CommonApiTest {
         String victoryPointsLastWeek = null;
         String victoryPointsTotal = null;
         String victoryPointsYesterday = null;
-        List<FacWarStats> response = api.getFacWarStats(accessKey, accessCred, at, contid, maxresults, reverse, currentRank, enlisted, factionID, factionName, highestRank, killsLastWeek, killsTotal, killsYesterday, pilots, victoryPointsLastWeek, victoryPointsTotal, victoryPointsYesterday);
+        List<FacWarStats> response = api.getFacWarStats(accessKey, accessCred, at, contid, maxresults, reverse, currentRank, enlisted, factionID, highestRank, killsLastWeek, killsTotal, killsYesterday, pilots, victoryPointsLastWeek, victoryPointsTotal, victoryPointsYesterday);
 
         // TODO: test validations
     }
@@ -369,24 +367,18 @@ public class CommonApiTest {
         Boolean reverse = null;
         String jobID = null;
         String installerID = null;
-        String installerName = null;
         String facilityID = null;
-        String solarSystemID = null;
-        String solarSystemName = null;
         String stationID = null;
         String activityID = null;
         String blueprintID = null;
         String blueprintTypeID = null;
-        String blueprintTypeName = null;
         String blueprintLocationID = null;
         String outputLocationID = null;
         String runs = null;
         String cost = null;
-        String teamID = null;
         String licensedRuns = null;
         String probability = null;
         String productTypeID = null;
-        String productTypeName = null;
         String status = null;
         String timeInSeconds = null;
         String startDate = null;
@@ -395,7 +387,7 @@ public class CommonApiTest {
         String completedDate = null;
         String completedCharacterID = null;
         String successfulRuns = null;
-        List<IndustryJob> response = api.getIndustryJobs(accessKey, accessCred, at, contid, maxresults, reverse, jobID, installerID, installerName, facilityID, solarSystemID, solarSystemName, stationID, activityID, blueprintID, blueprintTypeID, blueprintTypeName, blueprintLocationID, outputLocationID, runs, cost, teamID, licensedRuns, probability, productTypeID, productTypeName, status, timeInSeconds, startDate, endDate, pauseDate, completedDate, completedCharacterID, successfulRuns);
+        List<IndustryJob> response = api.getIndustryJobs(accessKey, accessCred, at, contid, maxresults, reverse, jobID, installerID, facilityID, stationID, activityID, blueprintID, blueprintTypeID, blueprintLocationID, outputLocationID, runs, cost, licensedRuns, probability, productTypeID, status, timeInSeconds, startDate, endDate, pauseDate, completedDate, completedCharacterID, successfulRuns);
 
         // TODO: test validations
     }
@@ -416,14 +408,14 @@ public class CommonApiTest {
         Long contid = null;
         Integer maxresults = null;
         Boolean reverse = null;
-        String accountKey = null;
+        String division = null;
         String refID = null;
         String date = null;
-        String refTypeID = null;
-        String ownerName1 = null;
-        String ownerID1 = null;
-        String ownerName2 = null;
-        String ownerID2 = null;
+        String refType = null;
+        String firstPartyID = null;
+        String firstPartyType = null;
+        String secondPartyID = null;
+        String secondPartyType = null;
         String argName1 = null;
         String argID1 = null;
         String amount = null;
@@ -431,9 +423,19 @@ public class CommonApiTest {
         String reason = null;
         String taxReceiverID = null;
         String taxAmount = null;
-        String owner1TypeID = null;
-        String owner2TypeID = null;
-        List<WalletJournal> response = api.getJournalEntries(accessKey, accessCred, at, contid, maxresults, reverse, accountKey, refID, date, refTypeID, ownerName1, ownerID1, ownerName2, ownerID2, argName1, argID1, amount, balance, reason, taxReceiverID, taxAmount, owner1TypeID, owner2TypeID);
+        String locationID = null;
+        String transactionID = null;
+        String npcName = null;
+        String npcID = null;
+        String destroyedShipTypeID = null;
+        String characterID = null;
+        String corporationID = null;
+        String allianceID = null;
+        String jobID = null;
+        String contractID = null;
+        String systemID = null;
+        String planetID = null;
+        List<WalletJournal> response = api.getJournalEntries(accessKey, accessCred, at, contid, maxresults, reverse, division, refID, date, refType, firstPartyID, firstPartyType, secondPartyID, secondPartyType, argName1, argID1, amount, balance, reason, taxReceiverID, taxAmount, locationID, transactionID, npcName, npcID, destroyedShipTypeID, characterID, corporationID, allianceID, jobID, contractID, systemID, planetID);
 
         // TODO: test validations
     }
@@ -457,18 +459,14 @@ public class CommonApiTest {
         String killID = null;
         String attackerCharacterID = null;
         String allianceID = null;
-        String allianceName = null;
-        String attackerCharacterName = null;
         String attackerCorporationID = null;
-        String attackerCorporationName = null;
         String damageDone = null;
         String factionID = null;
-        String factionName = null;
         String securityStatus = null;
         String shipTypeID = null;
         String weaponTypeID = null;
         String finalBlow = null;
-        List<KillAttacker> response = api.getKillAttackers(accessKey, accessCred, at, contid, maxresults, reverse, killID, attackerCharacterID, allianceID, allianceName, attackerCharacterName, attackerCorporationID, attackerCorporationName, damageDone, factionID, factionName, securityStatus, shipTypeID, weaponTypeID, finalBlow);
+        List<KillAttacker> response = api.getKillAttackers(accessKey, accessCred, at, contid, maxresults, reverse, killID, attackerCharacterID, allianceID, attackerCorporationID, damageDone, factionID, securityStatus, shipTypeID, weaponTypeID, finalBlow);
 
         // TODO: test validations
     }
@@ -520,16 +518,15 @@ public class CommonApiTest {
         Boolean reverse = null;
         String killID = null;
         String allianceID = null;
-        String allianceName = null;
         String killCharacterID = null;
-        String killCharacterName = null;
         String killCorporationID = null;
-        String killCorporationName = null;
         String damageTaken = null;
         String factionID = null;
-        String factionName = null;
         String shipTypeID = null;
-        List<KillVictim> response = api.getKillVictims(accessKey, accessCred, at, contid, maxresults, reverse, killID, allianceID, allianceName, killCharacterID, killCharacterName, killCorporationID, killCorporationName, damageTaken, factionID, factionName, shipTypeID);
+        String x = null;
+        String y = null;
+        String z = null;
+        List<KillVictim> response = api.getKillVictims(accessKey, accessCred, at, contid, maxresults, reverse, killID, allianceID, killCharacterID, killCorporationID, damageTaken, factionID, shipTypeID, x, y, z);
 
         // TODO: test validations
     }
@@ -554,7 +551,8 @@ public class CommonApiTest {
         String killTime = null;
         String moonID = null;
         String solarSystemID = null;
-        List<Kill> response = api.getKills(accessKey, accessCred, at, contid, maxresults, reverse, killID, killTime, moonID, solarSystemID);
+        String warID = null;
+        List<Kill> response = api.getKills(accessKey, accessCred, at, contid, maxresults, reverse, killID, killTime, moonID, solarSystemID, warID);
 
         // TODO: test validations
     }
@@ -602,7 +600,7 @@ public class CommonApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String orderID = null;
-        String accountKey = null;
+        String walletDivision = null;
         String bid = null;
         String charID = null;
         String duration = null;
@@ -612,11 +610,13 @@ public class CommonApiTest {
         String orderState = null;
         String price = null;
         String orderRange = null;
-        String stationID = null;
         String typeID = null;
         String volEntered = null;
         String volRemaining = null;
-        List<MarketOrder> response = api.getMarketOrders(accessKey, accessCred, at, contid, maxresults, reverse, orderID, accountKey, bid, charID, duration, escrow, issued, minVolume, orderState, price, orderRange, stationID, typeID, volEntered, volRemaining);
+        String regionID = null;
+        String locationID = null;
+        String isCorp = null;
+        List<MarketOrder> response = api.getMarketOrders(accessKey, accessCred, at, contid, maxresults, reverse, orderID, walletDivision, bid, charID, duration, escrow, issued, minVolume, orderState, price, orderRange, typeID, volEntered, volRemaining, regionID, locationID, isCorp);
 
         // TODO: test validations
     }
@@ -639,9 +639,8 @@ public class CommonApiTest {
         Boolean reverse = null;
         String standingEntity = null;
         String fromID = null;
-        String fromName = null;
         String standing = null;
-        List<Standing> response = api.getStandings(accessKey, accessCred, at, contid, maxresults, reverse, standingEntity, fromID, fromName, standing);
+        List<Standing> response = api.getStandings(accessKey, accessCred, at, contid, maxresults, reverse, standingEntity, fromID, standing);
 
         // TODO: test validations
     }
@@ -662,24 +661,18 @@ public class CommonApiTest {
         Long contid = null;
         Integer maxresults = null;
         Boolean reverse = null;
-        String accountKey = null;
+        String division = null;
         String transactionID = null;
         String date = null;
         String quantity = null;
-        String typeName = null;
         String typeID = null;
         String price = null;
         String clientID = null;
-        String clientName = null;
-        String stationID = null;
-        String stationName = null;
-        String transactionType = null;
-        String transactionFor = null;
+        String locationID = null;
+        String isBuy = null;
+        String isPersonal = null;
         String journalTransactionID = null;
-        String clientTypeID = null;
-        String characterID = null;
-        String characterName = null;
-        List<WalletTransaction> response = api.getWalletTransactions(accessKey, accessCred, at, contid, maxresults, reverse, accountKey, transactionID, date, quantity, typeName, typeID, price, clientID, clientName, stationID, stationName, transactionType, transactionFor, journalTransactionID, clientTypeID, characterID, characterName);
+        List<WalletTransaction> response = api.getWalletTransactions(accessKey, accessCred, at, contid, maxresults, reverse, division, transactionID, date, quantity, typeID, price, clientID, locationID, isBuy, isPersonal, journalTransactionID);
 
         // TODO: test validations
     }

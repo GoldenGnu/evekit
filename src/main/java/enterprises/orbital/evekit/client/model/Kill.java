@@ -42,7 +42,7 @@ public class Kill implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("killID")
-  private Long killID = null;
+  private Integer killID = null;
 
   @JsonProperty("killTime")
   private Long killTime = null;
@@ -51,7 +51,10 @@ public class Kill implements Serializable {
   private Integer moonID = null;
 
   @JsonProperty("solarSystemID")
-  private Long solarSystemID = null;
+  private Integer solarSystemID = null;
+
+  @JsonProperty("warID")
+  private Integer warID = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -134,7 +137,7 @@ public class Kill implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public Kill killID(Long killID) {
+  public Kill killID(Integer killID) {
     this.killID = killID;
     return this;
   }
@@ -144,11 +147,11 @@ public class Kill implements Serializable {
    * @return killID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getKillID() {
+  public Integer getKillID() {
     return killID;
   }
 
-  public void setKillID(Long killID) {
+  public void setKillID(Integer killID) {
     this.killID = killID;
   }
 
@@ -188,7 +191,7 @@ public class Kill implements Serializable {
     this.moonID = moonID;
   }
 
-  public Kill solarSystemID(Long solarSystemID) {
+  public Kill solarSystemID(Integer solarSystemID) {
     this.solarSystemID = solarSystemID;
     return this;
   }
@@ -198,12 +201,30 @@ public class Kill implements Serializable {
    * @return solarSystemID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getSolarSystemID() {
+  public Integer getSolarSystemID() {
     return solarSystemID;
   }
 
-  public void setSolarSystemID(Long solarSystemID) {
+  public void setSolarSystemID(Integer solarSystemID) {
     this.solarSystemID = solarSystemID;
+  }
+
+  public Kill warID(Integer warID) {
+    this.warID = warID;
+    return this;
+  }
+
+   /**
+   * Get warID
+   * @return warID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getWarID() {
+    return warID;
+  }
+
+  public void setWarID(Integer warID) {
+    this.warID = warID;
   }
 
   public Kill lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -278,6 +299,7 @@ public class Kill implements Serializable {
         Objects.equals(this.killTime, kill.killTime) &&
         Objects.equals(this.moonID, kill.moonID) &&
         Objects.equals(this.solarSystemID, kill.solarSystemID) &&
+        Objects.equals(this.warID, kill.warID) &&
         Objects.equals(this.lifeStartDate, kill.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, kill.lifeEndDate) &&
         Objects.equals(this.killTimeDate, kill.killTimeDate);
@@ -285,7 +307,7 @@ public class Kill implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, killID, killTime, moonID, solarSystemID, lifeStartDate, lifeEndDate, killTimeDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, killID, killTime, moonID, solarSystemID, warID, lifeStartDate, lifeEndDate, killTimeDate);
   }
 
 
@@ -302,6 +324,7 @@ public class Kill implements Serializable {
     sb.append("    killTime: ").append(toIndentedString(killTime)).append("\n");
     sb.append("    moonID: ").append(toIndentedString(moonID)).append("\n");
     sb.append("    solarSystemID: ").append(toIndentedString(solarSystemID)).append("\n");
+    sb.append("    warID: ").append(toIndentedString(warID)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("    killTimeDate: ").append(toIndentedString(killTimeDate)).append("\n");

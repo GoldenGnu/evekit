@@ -63,12 +63,12 @@ public class CommonApi {
    * @param contid Continuation ID for paged results (optional, default to -1)
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param accountID Account ID selector (optional, default to { any: true })
-   * @param accountKey Account key selector (optional, default to { any: true })
+   * @param division Division selector (optional, default to { any: true })
+   * @param balance Balance selector (optional, default to { any: true })
    * @return List&lt;AccountBalance&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<AccountBalance> getAccountBalance(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String accountID, String accountKey) throws ApiException {
+  public List<AccountBalance> getAccountBalance(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String division, String balance) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -95,8 +95,8 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountID", accountID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountKey", accountKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "division", division));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "balance", balance));
 
     
     
@@ -126,16 +126,16 @@ public class CommonApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param itemID Asset item ID selector (optional, default to { any: true })
    * @param locationID Asset location ID selector (optional, default to { any: true })
+   * @param locationType Asset location type selector (optional, default to { any: true })
+   * @param locationFlag Asset location flag selector (optional, default to { any: true })
    * @param typeID Asset type ID selector (optional, default to { any: true })
    * @param quantity Asset quantity selector (optional, default to { any: true })
-   * @param flag Asset flag selector (optional, default to { any: true })
    * @param singleton Asset is singleton selector (optional, default to { any: true })
-   * @param rawQuantity Asset raw quantity selector (optional, default to { any: true })
-   * @param container Asset container selector (optional, default to { any: true })
+   * @param blueprintType Asset blueprint type selector (optional, default to { any: true })
    * @return List&lt;Asset&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Asset> getAssets(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String locationID, String typeID, String quantity, String flag, String singleton, String rawQuantity, String container) throws ApiException {
+  public List<Asset> getAssets(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String locationID, String locationType, String locationFlag, String typeID, String quantity, String singleton, String blueprintType) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -164,12 +164,12 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "itemID", itemID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationID", locationID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationType", locationType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationFlag", locationFlag));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeID", typeID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "quantity", quantity));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "flag", flag));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "singleton", singleton));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "rawQuantity", rawQuantity));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "container", container));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "blueprintType", blueprintType));
 
     
     
@@ -199,9 +199,8 @@ public class CommonApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param itemID Blueprint item ID selector (optional, default to { any: true })
    * @param locationID Blueprint location ID selector (optional, default to { any: true })
+   * @param locationFlag Blueprint location flag selector (optional, default to { any: true })
    * @param typeID Blueprint type ID selector (optional, default to { any: true })
-   * @param typeName Blueprint type name selector (optional, default to { any: true })
-   * @param flagID Blueprint flag ID selector (optional, default to { any: true })
    * @param quantity Blueprint quantity selector (optional, default to { any: true })
    * @param timeEfficiency Blueprint time efficiency selector (optional, default to { any: true })
    * @param materialEfficiency Blueprint material efficiency selector (optional, default to { any: true })
@@ -209,7 +208,7 @@ public class CommonApi {
    * @return List&lt;Blueprint&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Blueprint> getBlueprints(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String locationID, String typeID, String typeName, String flagID, String quantity, String timeEfficiency, String materialEfficiency, String runs) throws ApiException {
+  public List<Blueprint> getBlueprints(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String locationID, String locationFlag, String typeID, String quantity, String timeEfficiency, String materialEfficiency, String runs) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -238,9 +237,8 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "itemID", itemID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationID", locationID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationFlag", locationFlag));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeID", typeID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeName", typeName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "flagID", flagID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "quantity", quantity));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "timeEfficiency", timeEfficiency));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "materialEfficiency", materialEfficiency));
@@ -422,15 +420,15 @@ public class CommonApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param list Contact list selector (optional, default to { any: true })
    * @param contactID Contact ID selector (optional, default to { any: true })
-   * @param contactName Contact name selector (optional, default to { any: true })
    * @param standing Contact standing selector (optional, default to { any: true })
-   * @param contactTypeID Contact type ID selector (optional, default to { any: true })
+   * @param contactType Contact type selector (optional, default to { any: true })
    * @param inWatchlist Contact in watch list selector (optional, default to { any: true })
-   * @param labelMask Contact label mask selector (optional, default to { any: true })
+   * @param isBlocked Contact is blocked selector (optional, default to { any: true })
+   * @param labelID Contact label mask selector (optional, default to { any: true })
    * @return List&lt;Contact&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Contact> getContacts(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String list, String contactID, String contactName, String standing, String contactTypeID, String inWatchlist, String labelMask) throws ApiException {
+  public List<Contact> getContacts(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String list, String contactID, String standing, String contactType, String inWatchlist, String isBlocked, String labelID) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -459,11 +457,11 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "list", list));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "contactID", contactID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contactName", contactName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "standing", standing));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contactTypeID", contactTypeID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contactType", contactType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "inWatchlist", inWatchlist));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "labelMask", labelMask));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "isBlocked", isBlocked));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "labelID", labelID));
 
     
     
@@ -733,7 +731,6 @@ public class CommonApi {
    * @param currentRank Faction war statistics current rank selector (optional, default to { any: true })
    * @param enlisted Faction war statistics enlisted indicator selector (optional, default to { any: true })
    * @param factionID Faction war statistics faction ID selector (optional, default to { any: true })
-   * @param factionName Faction war statistics faction name selector (optional, default to { any: true })
    * @param highestRank Faction war statistics highest rank selector (optional, default to { any: true })
    * @param killsLastWeek Faction war statistics kill last week selector (optional, default to { any: true })
    * @param killsTotal Faction war statistics total kills selector (optional, default to { any: true })
@@ -745,7 +742,7 @@ public class CommonApi {
    * @return List&lt;FacWarStats&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<FacWarStats> getFacWarStats(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String currentRank, String enlisted, String factionID, String factionName, String highestRank, String killsLastWeek, String killsTotal, String killsYesterday, String pilots, String victoryPointsLastWeek, String victoryPointsTotal, String victoryPointsYesterday) throws ApiException {
+  public List<FacWarStats> getFacWarStats(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String currentRank, String enlisted, String factionID, String highestRank, String killsLastWeek, String killsTotal, String killsYesterday, String pilots, String victoryPointsLastWeek, String victoryPointsTotal, String victoryPointsYesterday) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -775,7 +772,6 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "currentRank", currentRank));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "enlisted", enlisted));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "factionID", factionID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "factionName", factionName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "highestRank", highestRank));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "killsLastWeek", killsLastWeek));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "killsTotal", killsTotal));
@@ -813,24 +809,18 @@ public class CommonApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param jobID Industry job ID selector (optional, default to { any: true })
    * @param installerID Industry job installer ID selector (optional, default to { any: true })
-   * @param installerName Industry job installer name selector (optional, default to { any: true })
    * @param facilityID Industry job facility ID selector (optional, default to { any: true })
-   * @param solarSystemID Industry job solar system ID selector (optional, default to { any: true })
-   * @param solarSystemName Industry job solar system name selector (optional, default to { any: true })
    * @param stationID Industry job station ID selector (optional, default to { any: true })
    * @param activityID Industry job activity ID selector (optional, default to { any: true })
    * @param blueprintID Industry job blueprint ID selector (optional, default to { any: true })
    * @param blueprintTypeID Industry job blueprint type ID selector (optional, default to { any: true })
-   * @param blueprintTypeName Industry job blueprint type name selector (optional, default to { any: true })
    * @param blueprintLocationID Industry job blueprint location ID selector (optional, default to { any: true })
    * @param outputLocationID Industry job output location ID selector (optional, default to { any: true })
    * @param runs Industry job runs selector (optional, default to { any: true })
    * @param cost Industry job cost selector (optional, default to { any: true })
-   * @param teamID Industry job team ID selector (optional, default to { any: true })
    * @param licensedRuns Industry job licensed runs selector (optional, default to { any: true })
    * @param probability Industry job probability selector (optional, default to { any: true })
    * @param productTypeID Industry job product type ID selector (optional, default to { any: true })
-   * @param productTypeName Industry job product type name selector (optional, default to { any: true })
    * @param status Industry job status selector (optional, default to { any: true })
    * @param timeInSeconds Industry job time in seconds selector (optional, default to { any: true })
    * @param startDate Industry job start date selector (optional, default to { any: true })
@@ -842,7 +832,7 @@ public class CommonApi {
    * @return List&lt;IndustryJob&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<IndustryJob> getIndustryJobs(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String jobID, String installerID, String installerName, String facilityID, String solarSystemID, String solarSystemName, String stationID, String activityID, String blueprintID, String blueprintTypeID, String blueprintTypeName, String blueprintLocationID, String outputLocationID, String runs, String cost, String teamID, String licensedRuns, String probability, String productTypeID, String productTypeName, String status, String timeInSeconds, String startDate, String endDate, String pauseDate, String completedDate, String completedCharacterID, String successfulRuns) throws ApiException {
+  public List<IndustryJob> getIndustryJobs(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String jobID, String installerID, String facilityID, String stationID, String activityID, String blueprintID, String blueprintTypeID, String blueprintLocationID, String outputLocationID, String runs, String cost, String licensedRuns, String probability, String productTypeID, String status, String timeInSeconds, String startDate, String endDate, String pauseDate, String completedDate, String completedCharacterID, String successfulRuns) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -871,24 +861,18 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "jobID", jobID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "installerID", installerID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "installerName", installerName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "facilityID", facilityID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "solarSystemID", solarSystemID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "solarSystemName", solarSystemName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "stationID", stationID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "activityID", activityID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "blueprintID", blueprintID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "blueprintTypeID", blueprintTypeID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "blueprintTypeName", blueprintTypeName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "blueprintLocationID", blueprintLocationID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "outputLocationID", outputLocationID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "runs", runs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "cost", cost));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "teamID", teamID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "licensedRuns", licensedRuns));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "probability", probability));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "productTypeID", productTypeID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "productTypeName", productTypeName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "status", status));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "timeInSeconds", timeInSeconds));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDate", startDate));
@@ -924,14 +908,14 @@ public class CommonApi {
    * @param contid Continuation ID for paged results (optional, default to -1)
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param accountKey Wallet journal account key selector (optional, default to { any: true })
+   * @param division Wallet journal division selector (optional, default to { any: true })
    * @param refID Journal entry ref ID selector (optional, default to { any: true })
    * @param date Journal entry date selector (optional, default to { any: true })
-   * @param refTypeID Journal entry ref type ID selector (optional, default to { any: true })
-   * @param ownerName1 Journal entry first owner name selector (optional, default to { any: true })
-   * @param ownerID1 Journal entry first owner ID selector (optional, default to { any: true })
-   * @param ownerName2 Journal entry second owner name selector (optional, default to { any: true })
-   * @param ownerID2 Journal entry second owner ID selector (optional, default to { any: true })
+   * @param refType Journal entry ref type selector (optional, default to { any: true })
+   * @param firstPartyID Journal entry first party ID selector (optional, default to { any: true })
+   * @param firstPartyType Journal entry first party type selector (optional, default to { any: true })
+   * @param secondPartyID Journal entry second party ID selector (optional, default to { any: true })
+   * @param secondPartyType Journal entry second party type selector (optional, default to { any: true })
    * @param argName1 Journal entry argument name selector (optional, default to { any: true })
    * @param argID1 Journal entry argument ID selector (optional, default to { any: true })
    * @param amount Journal entry amount selector (optional, default to { any: true })
@@ -939,12 +923,22 @@ public class CommonApi {
    * @param reason Journal entry reason selector (optional, default to { any: true })
    * @param taxReceiverID Journal entry tax receiver ID selector (optional, default to { any: true })
    * @param taxAmount Journal entry tax amount selector (optional, default to { any: true })
-   * @param owner1TypeID First owner type ID selector (optional, default to { any: true })
-   * @param owner2TypeID Second owner type ID selector (optional, default to { any: true })
+   * @param locationID Location ID selector (optional, default to { any: true })
+   * @param transactionID Transaction ID selector (optional, default to { any: true })
+   * @param npcName NPC name selector (optional, default to { any: true })
+   * @param npcID NPC ID selector (optional, default to { any: true })
+   * @param destroyedShipTypeID Destroyed ship type ID selector (optional, default to { any: true })
+   * @param characterID Character ID selector (optional, default to { any: true })
+   * @param corporationID Corporation ID selector (optional, default to { any: true })
+   * @param allianceID Alliance ID selector (optional, default to { any: true })
+   * @param jobID Job ID selector (optional, default to { any: true })
+   * @param contractID Contract ID selector (optional, default to { any: true })
+   * @param systemID System ID selector (optional, default to { any: true })
+   * @param planetID Planet ID selector (optional, default to { any: true })
    * @return List&lt;WalletJournal&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<WalletJournal> getJournalEntries(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String accountKey, String refID, String date, String refTypeID, String ownerName1, String ownerID1, String ownerName2, String ownerID2, String argName1, String argID1, String amount, String balance, String reason, String taxReceiverID, String taxAmount, String owner1TypeID, String owner2TypeID) throws ApiException {
+  public List<WalletJournal> getJournalEntries(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String division, String refID, String date, String refType, String firstPartyID, String firstPartyType, String secondPartyID, String secondPartyType, String argName1, String argID1, String amount, String balance, String reason, String taxReceiverID, String taxAmount, String locationID, String transactionID, String npcName, String npcID, String destroyedShipTypeID, String characterID, String corporationID, String allianceID, String jobID, String contractID, String systemID, String planetID) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -971,14 +965,14 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountKey", accountKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "division", division));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "refID", refID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "date", date));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "refTypeID", refTypeID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ownerName1", ownerName1));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ownerID1", ownerID1));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ownerName2", ownerName2));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ownerID2", ownerID2));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "refType", refType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "firstPartyID", firstPartyID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "firstPartyType", firstPartyType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "secondPartyID", secondPartyID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "secondPartyType", secondPartyType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "argName1", argName1));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "argID1", argID1));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "amount", amount));
@@ -986,8 +980,18 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reason", reason));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxReceiverID", taxReceiverID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxAmount", taxAmount));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "owner1TypeID", owner1TypeID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "owner2TypeID", owner2TypeID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationID", locationID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "transactionID", transactionID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "npcName", npcName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "npcID", npcID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "destroyedShipTypeID", destroyedShipTypeID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterID", characterID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "corporationID", corporationID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "allianceID", allianceID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "jobID", jobID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contractID", contractID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "systemID", systemID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "planetID", planetID));
 
     
     
@@ -1018,13 +1022,9 @@ public class CommonApi {
    * @param killID Kill ID selector (optional, default to { any: true })
    * @param attackerCharacterID Kill attacker character ID selector (optional, default to { any: true })
    * @param allianceID Kill attacker alliance ID selector (optional, default to { any: true })
-   * @param allianceName Kill attacker alliance name selector (optional, default to { any: true })
-   * @param attackerCharacterName Kill attacker character name selector (optional, default to { any: true })
    * @param attackerCorporationID Kill attacker corporation ID selector (optional, default to { any: true })
-   * @param attackerCorporationName Kill attacker corporation name selector (optional, default to { any: true })
    * @param damageDone Kill attacker damage done selector (optional, default to { any: true })
    * @param factionID Kill attacker faction ID selector (optional, default to { any: true })
-   * @param factionName Kill attacker faction name selector (optional, default to { any: true })
    * @param securityStatus Kill attacker security status selector (optional, default to { any: true })
    * @param shipTypeID Kill attacker ship type ID selector (optional, default to { any: true })
    * @param weaponTypeID Kill attacker weapon type ID selector (optional, default to { any: true })
@@ -1032,7 +1032,7 @@ public class CommonApi {
    * @return List&lt;KillAttacker&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<KillAttacker> getKillAttackers(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String killID, String attackerCharacterID, String allianceID, String allianceName, String attackerCharacterName, String attackerCorporationID, String attackerCorporationName, String damageDone, String factionID, String factionName, String securityStatus, String shipTypeID, String weaponTypeID, String finalBlow) throws ApiException {
+  public List<KillAttacker> getKillAttackers(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String killID, String attackerCharacterID, String allianceID, String attackerCorporationID, String damageDone, String factionID, String securityStatus, String shipTypeID, String weaponTypeID, String finalBlow) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -1062,13 +1062,9 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "killID", killID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "attackerCharacterID", attackerCharacterID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "allianceID", allianceID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "allianceName", allianceName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attackerCharacterName", attackerCharacterName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "attackerCorporationID", attackerCorporationID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attackerCorporationName", attackerCorporationName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "damageDone", damageDone));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "factionID", factionID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "factionName", factionName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "securityStatus", securityStatus));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "shipTypeID", shipTypeID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "weaponTypeID", weaponTypeID));
@@ -1175,19 +1171,18 @@ public class CommonApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param killID Kill ID selector (optional, default to { any: true })
    * @param allianceID Kill victim alliance ID selector (optional, default to { any: true })
-   * @param allianceName Kill victim alliance name selector (optional, default to { any: true })
    * @param killCharacterID Kill victim character ID selector (optional, default to { any: true })
-   * @param killCharacterName Kill victim character name selector (optional, default to { any: true })
    * @param killCorporationID Kill victim corporation ID selector (optional, default to { any: true })
-   * @param killCorporationName Kill victim corporation name selector (optional, default to { any: true })
    * @param damageTaken Kill victim damage taken selector (optional, default to { any: true })
    * @param factionID Kill victim faction ID selector (optional, default to { any: true })
-   * @param factionName Kill victim faction name selector (optional, default to { any: true })
    * @param shipTypeID Kill victim ship type ID selector (optional, default to { any: true })
+   * @param x Kill X position selector (optional, default to { any: true })
+   * @param y Kill Y position selector (optional, default to { any: true })
+   * @param z Kill Z position selector (optional, default to { any: true })
    * @return List&lt;KillVictim&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<KillVictim> getKillVictims(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String killID, String allianceID, String allianceName, String killCharacterID, String killCharacterName, String killCorporationID, String killCorporationName, String damageTaken, String factionID, String factionName, String shipTypeID) throws ApiException {
+  public List<KillVictim> getKillVictims(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String killID, String allianceID, String killCharacterID, String killCorporationID, String damageTaken, String factionID, String shipTypeID, String x, String y, String z) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -1216,15 +1211,14 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "killID", killID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "allianceID", allianceID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "allianceName", allianceName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "killCharacterID", killCharacterID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "killCharacterName", killCharacterName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "killCorporationID", killCorporationID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "killCorporationName", killCorporationName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "damageTaken", damageTaken));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "factionID", factionID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "factionName", factionName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "shipTypeID", shipTypeID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "x", x));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "y", y));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "z", z));
 
     
     
@@ -1256,10 +1250,11 @@ public class CommonApi {
    * @param killTime Kill time selector (optional, default to { any: true })
    * @param moonID Kill moon ID selector (optional, default to { any: true })
    * @param solarSystemID Kill solar system ID selector (optional, default to { any: true })
+   * @param warID War ID selector (optional, default to { any: true })
    * @return List&lt;Kill&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Kill> getKills(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String killID, String killTime, String moonID, String solarSystemID) throws ApiException {
+  public List<Kill> getKills(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String killID, String killTime, String moonID, String solarSystemID, String warID) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -1290,6 +1285,7 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "killTime", killTime));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "moonID", moonID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "solarSystemID", solarSystemID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "warID", warID));
 
     
     
@@ -1385,7 +1381,7 @@ public class CommonApi {
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param orderID Market order ID selector (optional, default to { any: true })
-   * @param accountKey Market order account key selector (optional, default to { any: true })
+   * @param walletDivision Market order wallet division selector (optional, default to { any: true })
    * @param bid Market order bid indicator selector (optional, default to { any: true })
    * @param charID Market order character ID selector (optional, default to { any: true })
    * @param duration Market order duration selector (optional, default to { any: true })
@@ -1395,14 +1391,16 @@ public class CommonApi {
    * @param orderState Market order state selector (optional, default to { any: true })
    * @param price Market order price selector (optional, default to { any: true })
    * @param orderRange Market order range selector (optional, default to { any: true })
-   * @param stationID Market order station ID selector (optional, default to { any: true })
    * @param typeID Market order type ID selector (optional, default to { any: true })
    * @param volEntered Market order volume entered selector (optional, default to { any: true })
    * @param volRemaining Market order volume remaining selector (optional, default to { any: true })
+   * @param regionID Market order region ID selector (optional, default to { any: true })
+   * @param locationID Market order location ID selector (optional, default to { any: true })
+   * @param isCorp Market order is corporation selector (optional, default to { any: true })
    * @return List&lt;MarketOrder&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<MarketOrder> getMarketOrders(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String orderID, String accountKey, String bid, String charID, String duration, String escrow, String issued, String minVolume, String orderState, String price, String orderRange, String stationID, String typeID, String volEntered, String volRemaining) throws ApiException {
+  public List<MarketOrder> getMarketOrders(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String orderID, String walletDivision, String bid, String charID, String duration, String escrow, String issued, String minVolume, String orderState, String price, String orderRange, String typeID, String volEntered, String volRemaining, String regionID, String locationID, String isCorp) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -1430,7 +1428,7 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderID", orderID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountKey", accountKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "walletDivision", walletDivision));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "bid", bid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "charID", charID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "duration", duration));
@@ -1440,10 +1438,12 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderState", orderState));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "price", price));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderRange", orderRange));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stationID", stationID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeID", typeID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "volEntered", volEntered));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "volRemaining", volRemaining));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "regionID", regionID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationID", locationID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "isCorp", isCorp));
 
     
     
@@ -1473,12 +1473,11 @@ public class CommonApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param standingEntity Standing entity selector (optional, default to { any: true })
    * @param fromID Standing from ID selector (optional, default to { any: true })
-   * @param fromName Standing from name selector (optional, default to { any: true })
    * @param standing Standing value selector (optional, default to { any: true })
    * @return List&lt;Standing&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Standing> getStandings(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String standingEntity, String fromID, String fromName, String standing) throws ApiException {
+  public List<Standing> getStandings(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String standingEntity, String fromID, String standing) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -1507,7 +1506,6 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "standingEntity", standingEntity));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "fromID", fromID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fromName", fromName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "standing", standing));
 
     
@@ -1536,27 +1534,21 @@ public class CommonApi {
    * @param contid Continuation ID for paged results (optional, default to -1)
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param accountKey Wallet account key selector (optional, default to { any: true })
+   * @param division Wallet division selector (optional, default to { any: true })
    * @param transactionID Transaction ID selector (optional, default to { any: true })
    * @param date Transaction date selector (optional, default to { any: true })
    * @param quantity Transaction quantity selector (optional, default to { any: true })
-   * @param typeName Transaction type name selector (optional, default to { any: true })
    * @param typeID Transaction type ID selector (optional, default to { any: true })
    * @param price Transaction price selector (optional, default to { any: true })
    * @param clientID Transaction client ID selector (optional, default to { any: true })
-   * @param clientName Transaction client name selector (optional, default to { any: true })
-   * @param stationID Transaction station ID selector (optional, default to { any: true })
-   * @param stationName Transaction station name selector (optional, default to { any: true })
-   * @param transactionType Transaction type selector (optional, default to { any: true })
-   * @param transactionFor Transaction for selector (optional, default to { any: true })
+   * @param locationID Transaction location ID selector (optional, default to { any: true })
+   * @param isBuy Transaction isBuy selector (optional, default to { any: true })
+   * @param isPersonal Transaction isPersonal selector (optional, default to { any: true })
    * @param journalTransactionID Journal transaction ID selector (optional, default to { any: true })
-   * @param clientTypeID Client type ID selector (optional, default to { any: true })
-   * @param characterID Character ID selector (optional, default to { any: true })
-   * @param characterName Character name selector (optional, default to { any: true })
    * @return List&lt;WalletTransaction&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<WalletTransaction> getWalletTransactions(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String accountKey, String transactionID, String date, String quantity, String typeName, String typeID, String price, String clientID, String clientName, String stationID, String stationName, String transactionType, String transactionFor, String journalTransactionID, String clientTypeID, String characterID, String characterName) throws ApiException {
+  public List<WalletTransaction> getWalletTransactions(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String division, String transactionID, String date, String quantity, String typeID, String price, String clientID, String locationID, String isBuy, String isPersonal, String journalTransactionID) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -1583,23 +1575,17 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountKey", accountKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "division", division));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "transactionID", transactionID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "date", date));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "quantity", quantity));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeName", typeName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeID", typeID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "price", price));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "clientID", clientID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "clientName", clientName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stationID", stationID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stationName", stationName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "transactionType", transactionType));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "transactionFor", transactionFor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationID", locationID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "isBuy", isBuy));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "isPersonal", isPersonal));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "journalTransactionID", journalTransactionID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "clientTypeID", clientTypeID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterID", characterID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterName", characterName));
 
     
     

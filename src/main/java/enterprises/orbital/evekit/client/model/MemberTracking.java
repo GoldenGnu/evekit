@@ -42,19 +42,10 @@ public class MemberTracking implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("characterID")
-  private Long characterID = null;
-
-  @JsonProperty("base")
-  private String base = null;
+  private Integer characterID = null;
 
   @JsonProperty("baseID")
-  private Long baseID = null;
-
-  @JsonProperty("grantableRoles")
-  private Long grantableRoles = null;
-
-  @JsonProperty("location")
-  private String location = null;
+  private Integer baseID = null;
 
   @JsonProperty("locationID")
   private Long locationID = null;
@@ -65,23 +56,11 @@ public class MemberTracking implements Serializable {
   @JsonProperty("logonDateTime")
   private Long logonDateTime = null;
 
-  @JsonProperty("name")
-  private String name = null;
-
-  @JsonProperty("roles")
-  private Long roles = null;
-
-  @JsonProperty("shipType")
-  private String shipType = null;
-
   @JsonProperty("shipTypeID")
   private Integer shipTypeID = null;
 
   @JsonProperty("startDateTime")
   private Long startDateTime = null;
-
-  @JsonProperty("title")
-  private String title = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -170,7 +149,7 @@ public class MemberTracking implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public MemberTracking characterID(Long characterID) {
+  public MemberTracking characterID(Integer characterID) {
     this.characterID = characterID;
     return this;
   }
@@ -180,33 +159,15 @@ public class MemberTracking implements Serializable {
    * @return characterID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getCharacterID() {
+  public Integer getCharacterID() {
     return characterID;
   }
 
-  public void setCharacterID(Long characterID) {
+  public void setCharacterID(Integer characterID) {
     this.characterID = characterID;
   }
 
-  public MemberTracking base(String base) {
-    this.base = base;
-    return this;
-  }
-
-   /**
-   * Get base
-   * @return base
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getBase() {
-    return base;
-  }
-
-  public void setBase(String base) {
-    this.base = base;
-  }
-
-  public MemberTracking baseID(Long baseID) {
+  public MemberTracking baseID(Integer baseID) {
     this.baseID = baseID;
     return this;
   }
@@ -216,48 +177,12 @@ public class MemberTracking implements Serializable {
    * @return baseID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getBaseID() {
+  public Integer getBaseID() {
     return baseID;
   }
 
-  public void setBaseID(Long baseID) {
+  public void setBaseID(Integer baseID) {
     this.baseID = baseID;
-  }
-
-  public MemberTracking grantableRoles(Long grantableRoles) {
-    this.grantableRoles = grantableRoles;
-    return this;
-  }
-
-   /**
-   * Get grantableRoles
-   * @return grantableRoles
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getGrantableRoles() {
-    return grantableRoles;
-  }
-
-  public void setGrantableRoles(Long grantableRoles) {
-    this.grantableRoles = grantableRoles;
-  }
-
-  public MemberTracking location(String location) {
-    this.location = location;
-    return this;
-  }
-
-   /**
-   * Get location
-   * @return location
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getLocation() {
-    return location;
-  }
-
-  public void setLocation(String location) {
-    this.location = location;
   }
 
   public MemberTracking locationID(Long locationID) {
@@ -314,60 +239,6 @@ public class MemberTracking implements Serializable {
     this.logonDateTime = logonDateTime;
   }
 
-  public MemberTracking name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public MemberTracking roles(Long roles) {
-    this.roles = roles;
-    return this;
-  }
-
-   /**
-   * Get roles
-   * @return roles
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getRoles() {
-    return roles;
-  }
-
-  public void setRoles(Long roles) {
-    this.roles = roles;
-  }
-
-  public MemberTracking shipType(String shipType) {
-    this.shipType = shipType;
-    return this;
-  }
-
-   /**
-   * Get shipType
-   * @return shipType
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getShipType() {
-    return shipType;
-  }
-
-  public void setShipType(String shipType) {
-    this.shipType = shipType;
-  }
-
   public MemberTracking shipTypeID(Integer shipTypeID) {
     this.shipTypeID = shipTypeID;
     return this;
@@ -402,24 +273,6 @@ public class MemberTracking implements Serializable {
 
   public void setStartDateTime(Long startDateTime) {
     this.startDateTime = startDateTime;
-  }
-
-  public MemberTracking title(String title) {
-    this.title = title;
-    return this;
-  }
-
-   /**
-   * Get title
-   * @return title
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
   }
 
   public MemberTracking lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -527,19 +380,12 @@ public class MemberTracking implements Serializable {
         Objects.equals(this.lifeStart, memberTracking.lifeStart) &&
         Objects.equals(this.lifeEnd, memberTracking.lifeEnd) &&
         Objects.equals(this.characterID, memberTracking.characterID) &&
-        Objects.equals(this.base, memberTracking.base) &&
         Objects.equals(this.baseID, memberTracking.baseID) &&
-        Objects.equals(this.grantableRoles, memberTracking.grantableRoles) &&
-        Objects.equals(this.location, memberTracking.location) &&
         Objects.equals(this.locationID, memberTracking.locationID) &&
         Objects.equals(this.logoffDateTime, memberTracking.logoffDateTime) &&
         Objects.equals(this.logonDateTime, memberTracking.logonDateTime) &&
-        Objects.equals(this.name, memberTracking.name) &&
-        Objects.equals(this.roles, memberTracking.roles) &&
-        Objects.equals(this.shipType, memberTracking.shipType) &&
         Objects.equals(this.shipTypeID, memberTracking.shipTypeID) &&
         Objects.equals(this.startDateTime, memberTracking.startDateTime) &&
-        Objects.equals(this.title, memberTracking.title) &&
         Objects.equals(this.lifeStartDate, memberTracking.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, memberTracking.lifeEndDate) &&
         Objects.equals(this.logoffDateTimeDate, memberTracking.logoffDateTimeDate) &&
@@ -549,7 +395,7 @@ public class MemberTracking implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, characterID, base, baseID, grantableRoles, location, locationID, logoffDateTime, logonDateTime, name, roles, shipType, shipTypeID, startDateTime, title, lifeStartDate, lifeEndDate, logoffDateTimeDate, logonDateTimeDate, startDateTimeDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, characterID, baseID, locationID, logoffDateTime, logonDateTime, shipTypeID, startDateTime, lifeStartDate, lifeEndDate, logoffDateTimeDate, logonDateTimeDate, startDateTimeDate);
   }
 
 
@@ -563,19 +409,12 @@ public class MemberTracking implements Serializable {
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    characterID: ").append(toIndentedString(characterID)).append("\n");
-    sb.append("    base: ").append(toIndentedString(base)).append("\n");
     sb.append("    baseID: ").append(toIndentedString(baseID)).append("\n");
-    sb.append("    grantableRoles: ").append(toIndentedString(grantableRoles)).append("\n");
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    locationID: ").append(toIndentedString(locationID)).append("\n");
     sb.append("    logoffDateTime: ").append(toIndentedString(logoffDateTime)).append("\n");
     sb.append("    logonDateTime: ").append(toIndentedString(logonDateTime)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
-    sb.append("    shipType: ").append(toIndentedString(shipType)).append("\n");
     sb.append("    shipTypeID: ").append(toIndentedString(shipTypeID)).append("\n");
     sb.append("    startDateTime: ").append(toIndentedString(startDateTime)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("    logoffDateTimeDate: ").append(toIndentedString(logoffDateTimeDate)).append("\n");

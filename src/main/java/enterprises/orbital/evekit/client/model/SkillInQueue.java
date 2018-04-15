@@ -62,6 +62,9 @@ public class SkillInQueue implements Serializable {
   @JsonProperty("typeID")
   private Integer typeID = null;
 
+  @JsonProperty("trainingStartSP")
+  private Integer trainingStartSP = null;
+
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
 
@@ -272,6 +275,24 @@ public class SkillInQueue implements Serializable {
     this.typeID = typeID;
   }
 
+  public SkillInQueue trainingStartSP(Integer trainingStartSP) {
+    this.trainingStartSP = trainingStartSP;
+    return this;
+  }
+
+   /**
+   * Get trainingStartSP
+   * @return trainingStartSP
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getTrainingStartSP() {
+    return trainingStartSP;
+  }
+
+  public void setTrainingStartSP(Integer trainingStartSP) {
+    this.trainingStartSP = trainingStartSP;
+  }
+
   public SkillInQueue lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
@@ -365,6 +386,7 @@ public class SkillInQueue implements Serializable {
         Objects.equals(this.startSP, skillInQueue.startSP) &&
         Objects.equals(this.startTime, skillInQueue.startTime) &&
         Objects.equals(this.typeID, skillInQueue.typeID) &&
+        Objects.equals(this.trainingStartSP, skillInQueue.trainingStartSP) &&
         Objects.equals(this.lifeStartDate, skillInQueue.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, skillInQueue.lifeEndDate) &&
         Objects.equals(this.endTimeDate, skillInQueue.endTimeDate) &&
@@ -373,7 +395,7 @@ public class SkillInQueue implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, endSP, endTime, level, queuePosition, startSP, startTime, typeID, lifeStartDate, lifeEndDate, endTimeDate, startTimeDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, endSP, endTime, level, queuePosition, startSP, startTime, typeID, trainingStartSP, lifeStartDate, lifeEndDate, endTimeDate, startTimeDate);
   }
 
 
@@ -393,6 +415,7 @@ public class SkillInQueue implements Serializable {
     sb.append("    startSP: ").append(toIndentedString(startSP)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
+    sb.append("    trainingStartSP: ").append(toIndentedString(trainingStartSP)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("    endTimeDate: ").append(toIndentedString(endTimeDate)).append("\n");

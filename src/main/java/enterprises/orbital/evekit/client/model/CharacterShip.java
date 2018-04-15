@@ -26,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class CharacterSkill implements Serializable {
+public class CharacterShip implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -41,17 +41,14 @@ public class CharacterSkill implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("typeID")
-  private Integer typeID = null;
+  @JsonProperty("shipTypeID")
+  private Integer shipTypeID = null;
 
-  @JsonProperty("trainedSkillLevel")
-  private Integer trainedSkillLevel = null;
+  @JsonProperty("shipItemID")
+  private Long shipItemID = null;
 
-  @JsonProperty("skillpoints")
-  private Long skillpoints = null;
-
-  @JsonProperty("activeSkillLevel")
-  private Integer activeSkillLevel = null;
+  @JsonProperty("shipName")
+  private String shipName = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -59,7 +56,7 @@ public class CharacterSkill implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public CharacterSkill cid(Long cid) {
+  public CharacterShip cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -77,7 +74,7 @@ public class CharacterSkill implements Serializable {
     this.cid = cid;
   }
 
-  public CharacterSkill eveKitVersion(Integer eveKitVersion) {
+  public CharacterShip eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -95,7 +92,7 @@ public class CharacterSkill implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public CharacterSkill lifeStart(Long lifeStart) {
+  public CharacterShip lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -113,7 +110,7 @@ public class CharacterSkill implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public CharacterSkill lifeEnd(Long lifeEnd) {
+  public CharacterShip lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -131,79 +128,61 @@ public class CharacterSkill implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CharacterSkill typeID(Integer typeID) {
-    this.typeID = typeID;
+  public CharacterShip shipTypeID(Integer shipTypeID) {
+    this.shipTypeID = shipTypeID;
     return this;
   }
 
    /**
-   * Get typeID
-   * @return typeID
+   * Get shipTypeID
+   * @return shipTypeID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getTypeID() {
-    return typeID;
+  public Integer getShipTypeID() {
+    return shipTypeID;
   }
 
-  public void setTypeID(Integer typeID) {
-    this.typeID = typeID;
+  public void setShipTypeID(Integer shipTypeID) {
+    this.shipTypeID = shipTypeID;
   }
 
-  public CharacterSkill trainedSkillLevel(Integer trainedSkillLevel) {
-    this.trainedSkillLevel = trainedSkillLevel;
+  public CharacterShip shipItemID(Long shipItemID) {
+    this.shipItemID = shipItemID;
     return this;
   }
 
    /**
-   * Get trainedSkillLevel
-   * @return trainedSkillLevel
+   * Get shipItemID
+   * @return shipItemID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getTrainedSkillLevel() {
-    return trainedSkillLevel;
+  public Long getShipItemID() {
+    return shipItemID;
   }
 
-  public void setTrainedSkillLevel(Integer trainedSkillLevel) {
-    this.trainedSkillLevel = trainedSkillLevel;
+  public void setShipItemID(Long shipItemID) {
+    this.shipItemID = shipItemID;
   }
 
-  public CharacterSkill skillpoints(Long skillpoints) {
-    this.skillpoints = skillpoints;
+  public CharacterShip shipName(String shipName) {
+    this.shipName = shipName;
     return this;
   }
 
    /**
-   * Get skillpoints
-   * @return skillpoints
+   * Get shipName
+   * @return shipName
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getSkillpoints() {
-    return skillpoints;
+  public String getShipName() {
+    return shipName;
   }
 
-  public void setSkillpoints(Long skillpoints) {
-    this.skillpoints = skillpoints;
+  public void setShipName(String shipName) {
+    this.shipName = shipName;
   }
 
-  public CharacterSkill activeSkillLevel(Integer activeSkillLevel) {
-    this.activeSkillLevel = activeSkillLevel;
-    return this;
-  }
-
-   /**
-   * Get activeSkillLevel
-   * @return activeSkillLevel
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getActiveSkillLevel() {
-    return activeSkillLevel;
-  }
-
-  public void setActiveSkillLevel(Integer activeSkillLevel) {
-    this.activeSkillLevel = activeSkillLevel;
-  }
-
-  public CharacterSkill lifeStartDate(OffsetDateTime lifeStartDate) {
+  public CharacterShip lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -221,7 +200,7 @@ public class CharacterSkill implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterSkill lifeEndDate(OffsetDateTime lifeEndDate) {
+  public CharacterShip lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -248,38 +227,36 @@ public class CharacterSkill implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CharacterSkill characterSkill = (CharacterSkill) o;
-    return Objects.equals(this.cid, characterSkill.cid) &&
-        Objects.equals(this.eveKitVersion, characterSkill.eveKitVersion) &&
-        Objects.equals(this.lifeStart, characterSkill.lifeStart) &&
-        Objects.equals(this.lifeEnd, characterSkill.lifeEnd) &&
-        Objects.equals(this.typeID, characterSkill.typeID) &&
-        Objects.equals(this.trainedSkillLevel, characterSkill.trainedSkillLevel) &&
-        Objects.equals(this.skillpoints, characterSkill.skillpoints) &&
-        Objects.equals(this.activeSkillLevel, characterSkill.activeSkillLevel) &&
-        Objects.equals(this.lifeStartDate, characterSkill.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, characterSkill.lifeEndDate);
+    CharacterShip characterShip = (CharacterShip) o;
+    return Objects.equals(this.cid, characterShip.cid) &&
+        Objects.equals(this.eveKitVersion, characterShip.eveKitVersion) &&
+        Objects.equals(this.lifeStart, characterShip.lifeStart) &&
+        Objects.equals(this.lifeEnd, characterShip.lifeEnd) &&
+        Objects.equals(this.shipTypeID, characterShip.shipTypeID) &&
+        Objects.equals(this.shipItemID, characterShip.shipItemID) &&
+        Objects.equals(this.shipName, characterShip.shipName) &&
+        Objects.equals(this.lifeStartDate, characterShip.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, characterShip.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, typeID, trainedSkillLevel, skillpoints, activeSkillLevel, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, shipTypeID, shipItemID, shipName, lifeStartDate, lifeEndDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CharacterSkill {\n");
+    sb.append("class CharacterShip {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
-    sb.append("    trainedSkillLevel: ").append(toIndentedString(trainedSkillLevel)).append("\n");
-    sb.append("    skillpoints: ").append(toIndentedString(skillpoints)).append("\n");
-    sb.append("    activeSkillLevel: ").append(toIndentedString(activeSkillLevel)).append("\n");
+    sb.append("    shipTypeID: ").append(toIndentedString(shipTypeID)).append("\n");
+    sb.append("    shipItemID: ").append(toIndentedString(shipItemID)).append("\n");
+    sb.append("    shipName: ").append(toIndentedString(shipName)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

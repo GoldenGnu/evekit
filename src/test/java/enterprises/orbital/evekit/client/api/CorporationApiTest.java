@@ -19,22 +19,20 @@ import enterprises.orbital.evekit.client.model.CorporationMedal;
 import enterprises.orbital.evekit.client.model.CorporationMemberMedal;
 import enterprises.orbital.evekit.client.model.CorporationSheet;
 import enterprises.orbital.evekit.client.model.CorporationTitle;
+import enterprises.orbital.evekit.client.model.CorporationTitleRole;
 import enterprises.orbital.evekit.client.model.CustomsOffice;
 import enterprises.orbital.evekit.client.model.Division;
 import enterprises.orbital.evekit.client.model.Facility;
 import enterprises.orbital.evekit.client.model.Fuel;
-import enterprises.orbital.evekit.client.model.MemberSecurity;
-import enterprises.orbital.evekit.client.model.MemberSecurityLog;
+import enterprises.orbital.evekit.client.model.Member;
+import enterprises.orbital.evekit.client.model.MemberLimit;
+import enterprises.orbital.evekit.client.model.MemberRole;
+import enterprises.orbital.evekit.client.model.MemberRoleHistory;
+import enterprises.orbital.evekit.client.model.MemberTitle;
 import enterprises.orbital.evekit.client.model.MemberTracking;
-import enterprises.orbital.evekit.client.model.Outpost;
-import enterprises.orbital.evekit.client.model.OutpostServiceDetail;
-import enterprises.orbital.evekit.client.model.Role;
-import enterprises.orbital.evekit.client.model.SecurityRole;
-import enterprises.orbital.evekit.client.model.SecurityTitle;
 import enterprises.orbital.evekit.client.model.ServiceError;
 import enterprises.orbital.evekit.client.model.Shareholder;
 import enterprises.orbital.evekit.client.model.Starbase;
-import enterprises.orbital.evekit.client.model.StarbaseDetail;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -70,18 +68,17 @@ public class CorporationApiTest {
         Boolean reverse = null;
         String logTime = null;
         String action = null;
-        String actorID = null;
-        String actorName = null;
-        String flag = null;
-        String itemID = null;
-        String itemTypeID = null;
+        String characterID = null;
+        String locationFlag = null;
+        String containerID = null;
+        String containerTypeID = null;
         String locationID = null;
         String newConfiguration = null;
         String oldConfiguration = null;
         String passwordType = null;
         String quantity = null;
         String typeID = null;
-        List<ContainerLog> response = api.getContainerLogs(accessKey, accessCred, at, contid, maxresults, reverse, logTime, action, actorID, actorName, flag, itemID, itemTypeID, locationID, newConfiguration, oldConfiguration, passwordType, quantity, typeID);
+        List<ContainerLog> response = api.getContainerLogs(accessKey, accessCred, at, contid, maxresults, reverse, logTime, action, characterID, locationFlag, containerID, containerTypeID, locationID, newConfiguration, oldConfiguration, passwordType, quantity, typeID);
 
         // TODO: test validations
     }
@@ -129,28 +126,50 @@ public class CorporationApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String allianceID = null;
-        String allianceName = null;
         String ceoID = null;
-        String ceoName = null;
         String corporationID = null;
         String corporationName = null;
         String description = null;
-        String logoColor1 = null;
-        String logoColor2 = null;
-        String logoColor3 = null;
-        String logoGraphicID = null;
-        String logoShape1 = null;
-        String logoShape2 = null;
-        String logoShape3 = null;
         String memberCount = null;
-        String memberLimit = null;
         String shares = null;
         String stationID = null;
-        String stationName = null;
         String taxRate = null;
         String ticker = null;
         String url = null;
-        List<CorporationSheet> response = api.getCorporationSheet(accessKey, accessCred, at, contid, maxresults, reverse, allianceID, allianceName, ceoID, ceoName, corporationID, corporationName, description, logoColor1, logoColor2, logoColor3, logoGraphicID, logoShape1, logoShape2, logoShape3, memberCount, memberLimit, shares, stationID, stationName, taxRate, ticker, url);
+        String dateFounded = null;
+        String creatorID = null;
+        String factionID = null;
+        String px64x64 = null;
+        String px128x128 = null;
+        String px256x256 = null;
+        List<CorporationSheet> response = api.getCorporationSheet(accessKey, accessCred, at, contid, maxresults, reverse, allianceID, ceoID, corporationID, corporationName, description, memberCount, shares, stationID, taxRate, ticker, url, dateFounded, creatorID, factionID, px64x64, px128x128, px256x256);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get corporation title roles
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getCorporationTitleRolesTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String titleID = null;
+        String roleName = null;
+        String grantable = null;
+        String atHQ = null;
+        String atBase = null;
+        String atOther = null;
+        List<CorporationTitleRole> response = api.getCorporationTitleRoles(accessKey, accessCred, at, contid, maxresults, reverse, titleID, roleName, grantable, atHQ, atBase, atOther);
 
         // TODO: test validations
     }
@@ -173,15 +192,7 @@ public class CorporationApiTest {
         Boolean reverse = null;
         String titleID = null;
         String titleName = null;
-        String grantableRoles = null;
-        String grantableRolesAtBase = null;
-        String grantableRolesAtHQ = null;
-        String grantableRolesAtOther = null;
-        String roles = null;
-        String rolesAtBase = null;
-        String rolesAtHQ = null;
-        String rolesAtOther = null;
-        List<CorporationTitle> response = api.getCorporationTitles(accessKey, accessCred, at, contid, maxresults, reverse, titleID, titleName, grantableRoles, grantableRolesAtBase, grantableRolesAtHQ, grantableRolesAtOther, roles, rolesAtBase, rolesAtHQ, rolesAtOther);
+        List<CorporationTitle> response = api.getCorporationTitles(accessKey, accessCred, at, contid, maxresults, reverse, titleID, titleName);
 
         // TODO: test validations
     }
@@ -202,21 +213,21 @@ public class CorporationApiTest {
         Long contid = null;
         Integer maxresults = null;
         Boolean reverse = null;
-        String itemID = null;
+        String officeID = null;
         String solarSystemID = null;
-        String solarSystemName = null;
-        String reinforceHour = null;
+        String reinforceExitStart = null;
+        String reinforceExitEnd = null;
         String allowAlliance = null;
         String allowStandings = null;
         String standingLevel = null;
         String taxRateAlliance = null;
         String taxRateCorp = null;
-        String taxRateStandingHigh = null;
+        String taxRateStandingExcellent = null;
         String taxRateStandingGood = null;
         String taxRateStandingNeutral = null;
         String taxRateStandingBad = null;
-        String taxRateStandingHorrible = null;
-        List<CustomsOffice> response = api.getCustomsOffices(accessKey, accessCred, at, contid, maxresults, reverse, itemID, solarSystemID, solarSystemName, reinforceHour, allowAlliance, allowStandings, standingLevel, taxRateAlliance, taxRateCorp, taxRateStandingHigh, taxRateStandingGood, taxRateStandingNeutral, taxRateStandingBad, taxRateStandingHorrible);
+        String taxRateStandingTerrible = null;
+        List<CustomsOffice> response = api.getCustomsOffices(accessKey, accessCred, at, contid, maxresults, reverse, officeID, solarSystemID, reinforceExitStart, reinforceExitEnd, allowAlliance, allowStandings, standingLevel, taxRateAlliance, taxRateCorp, taxRateStandingExcellent, taxRateStandingGood, taxRateStandingNeutral, taxRateStandingBad, taxRateStandingTerrible);
 
         // TODO: test validations
     }
@@ -238,9 +249,9 @@ public class CorporationApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String wallet = null;
-        String accountKey = null;
-        String description = null;
-        List<Division> response = api.getDivisions(accessKey, accessCred, at, contid, maxresults, reverse, wallet, accountKey, description);
+        String division = null;
+        String name = null;
+        List<Division> response = api.getDivisions(accessKey, accessCred, at, contid, maxresults, reverse, wallet, division, name);
 
         // TODO: test validations
     }
@@ -263,14 +274,8 @@ public class CorporationApiTest {
         Boolean reverse = null;
         String facilityID = null;
         String typeID = null;
-        String typeName = null;
         String solarSystemID = null;
-        String solarSystemName = null;
-        String regionID = null;
-        String regionName = null;
-        String starbaseModifier = null;
-        String tax = null;
-        List<Facility> response = api.getFacilities(accessKey, accessCred, at, contid, maxresults, reverse, facilityID, typeID, typeName, solarSystemID, solarSystemName, regionID, regionName, starbaseModifier, tax);
+        List<Facility> response = api.getFacilities(accessKey, accessCred, at, contid, maxresults, reverse, facilityID, typeID, solarSystemID);
 
         // TODO: test validations
     }
@@ -291,10 +296,32 @@ public class CorporationApiTest {
         Long contid = null;
         Integer maxresults = null;
         Boolean reverse = null;
-        String itemID = null;
+        String starbaseID = null;
         String typeID = null;
         String quantity = null;
-        List<Fuel> response = api.getFuel(accessKey, accessCred, at, contid, maxresults, reverse, itemID, typeID, quantity);
+        List<Fuel> response = api.getFuel(accessKey, accessCred, at, contid, maxresults, reverse, starbaseID, typeID, quantity);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get corporation member limit information
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMemberLimitTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String memberLimit = null;
+        List<MemberLimit> response = api.getMemberLimit(accessKey, accessCred, at, contid, maxresults, reverse, memberLimit);
 
         // TODO: test validations
     }
@@ -327,7 +354,7 @@ public class CorporationApiTest {
     }
     
     /**
-     * Get corporation member security settings
+     * Get corporation member role history entries
      *
      * 
      *
@@ -335,7 +362,7 @@ public class CorporationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getMemberSecurityTest() throws ApiException {
+    public void getMemberRoleHistoryTest() throws ApiException {
         Integer accessKey = null;
         String accessCred = null;
         String at = null;
@@ -343,23 +370,18 @@ public class CorporationApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String characterID = null;
-        String name = null;
-        String grantableRoles = null;
-        String grantableRolesAtBase = null;
-        String grantableRolesAtHQ = null;
-        String grantableRolesAtOther = null;
-        String roles = null;
-        String rolesAtBase = null;
-        String rolesAtHQ = null;
-        String rolesAtOther = null;
-        String titles = null;
-        List<MemberSecurity> response = api.getMemberSecurity(accessKey, accessCred, at, contid, maxresults, reverse, characterID, name, grantableRoles, grantableRolesAtBase, grantableRolesAtHQ, grantableRolesAtOther, roles, rolesAtBase, rolesAtHQ, rolesAtOther, titles);
+        String changedAt = null;
+        String issuerID = null;
+        String roleType = null;
+        String roleName = null;
+        String old = null;
+        List<MemberRoleHistory> response = api.getMemberRoleHistory(accessKey, accessCred, at, contid, maxresults, reverse, characterID, changedAt, issuerID, roleType, roleName, old);
 
         // TODO: test validations
     }
     
     /**
-     * Get corporation member security log entries
+     * Get corporation member roles
      *
      * 
      *
@@ -367,22 +389,43 @@ public class CorporationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getMemberSecurityLogTest() throws ApiException {
+    public void getMemberRolesTest() throws ApiException {
         Integer accessKey = null;
         String accessCred = null;
         String at = null;
         Long contid = null;
         Integer maxresults = null;
         Boolean reverse = null;
-        String changeTime = null;
-        String changedCharacterID = null;
-        String changedCharacterName = null;
-        String issuerID = null;
-        String issuerName = null;
-        String roleLocationType = null;
-        String oldRoles = null;
-        String newRoles = null;
-        List<MemberSecurityLog> response = api.getMemberSecurityLog(accessKey, accessCred, at, contid, maxresults, reverse, changeTime, changedCharacterID, changedCharacterName, issuerID, issuerName, roleLocationType, oldRoles, newRoles);
+        String characterID = null;
+        String roleName = null;
+        String grantable = null;
+        String atHQ = null;
+        String atBase = null;
+        String atOther = null;
+        List<MemberRole> response = api.getMemberRoles(accessKey, accessCred, at, contid, maxresults, reverse, characterID, roleName, grantable, atHQ, atBase, atOther);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get corporation member titles
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMemberTitlesTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String characterID = null;
+        String titleID = null;
+        List<MemberTitle> response = api.getMemberTitles(accessKey, accessCred, at, contid, maxresults, reverse, characterID, titleID);
 
         // TODO: test validations
     }
@@ -404,26 +447,19 @@ public class CorporationApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String characterID = null;
-        String base = null;
         String baseID = null;
-        String grantableRoles = null;
-        String location = null;
         String locationID = null;
         String logoffDateTime = null;
         String logonDateTime = null;
-        String name = null;
-        String roles = null;
-        String shipType = null;
         String shipTypeID = null;
         String startDateTime = null;
-        String title = null;
-        List<MemberTracking> response = api.getMemberTracking(accessKey, accessCred, at, contid, maxresults, reverse, characterID, base, baseID, grantableRoles, location, locationID, logoffDateTime, logonDateTime, name, roles, shipType, shipTypeID, startDateTime, title);
+        List<MemberTracking> response = api.getMemberTracking(accessKey, accessCred, at, contid, maxresults, reverse, characterID, baseID, locationID, logoffDateTime, logonDateTime, shipTypeID, startDateTime);
 
         // TODO: test validations
     }
     
     /**
-     * Get corporation outpost service detail
+     * Get corporation members
      *
      * 
      *
@@ -431,124 +467,15 @@ public class CorporationApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getOutpostServiceDetailsTest() throws ApiException {
+    public void getMembersTest() throws ApiException {
         Integer accessKey = null;
         String accessCred = null;
         String at = null;
         Long contid = null;
         Integer maxresults = null;
         Boolean reverse = null;
-        String stationID = null;
-        String serviceName = null;
-        String ownerID = null;
-        String minStanding = null;
-        String surchargePerBadStanding = null;
-        String discountPerGoodStanding = null;
-        List<OutpostServiceDetail> response = api.getOutpostServiceDetails(accessKey, accessCred, at, contid, maxresults, reverse, stationID, serviceName, ownerID, minStanding, surchargePerBadStanding, discountPerGoodStanding);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get corporation outposts
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getOutpostsTest() throws ApiException {
-        Integer accessKey = null;
-        String accessCred = null;
-        String at = null;
-        Long contid = null;
-        Integer maxresults = null;
-        Boolean reverse = null;
-        String stationID = null;
-        String ownerID = null;
-        String stationName = null;
-        String solarSystemID = null;
-        String dockingCostPerShipVolume = null;
-        String officeRentalCost = null;
-        String stationTypeID = null;
-        String reprocessingEfficiency = null;
-        String reprocessingStationTake = null;
-        String standingOwnerID = null;
-        String x = null;
-        String y = null;
-        String z = null;
-        List<Outpost> response = api.getOutposts(accessKey, accessCred, at, contid, maxresults, reverse, stationID, ownerID, stationName, solarSystemID, dockingCostPerShipVolume, officeRentalCost, stationTypeID, reprocessingEfficiency, reprocessingStationTake, standingOwnerID, x, y, z);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get corporation title roles
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getRolesTest() throws ApiException {
-        Integer accessKey = null;
-        String accessCred = null;
-        String at = null;
-        Long contid = null;
-        Integer maxresults = null;
-        Boolean reverse = null;
-        String roleID = null;
-        String roleDescription = null;
-        String roleName = null;
-        List<Role> response = api.getRoles(accessKey, accessCred, at, contid, maxresults, reverse, roleID, roleDescription, roleName);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get corporation security roles
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSecurityRolesTest() throws ApiException {
-        Integer accessKey = null;
-        String accessCred = null;
-        String at = null;
-        Long contid = null;
-        Integer maxresults = null;
-        Boolean reverse = null;
-        String roleID = null;
-        String roleName = null;
-        List<SecurityRole> response = api.getSecurityRoles(accessKey, accessCred, at, contid, maxresults, reverse, roleID, roleName);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get corporation security titles
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSecurityTitlesTest() throws ApiException {
-        Integer accessKey = null;
-        String accessCred = null;
-        String at = null;
-        Long contid = null;
-        Integer maxresults = null;
-        Boolean reverse = null;
-        String titleID = null;
-        String titleName = null;
-        List<SecurityTitle> response = api.getSecurityTitles(accessKey, accessCred, at, contid, maxresults, reverse, titleID, titleName);
+        String characterID = null;
+        List<Member> response = api.getMembers(accessKey, accessCred, at, contid, maxresults, reverse, characterID);
 
         // TODO: test validations
     }
@@ -570,50 +497,9 @@ public class CorporationApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String shareholderID = null;
-        String isCorporation = null;
-        String shareholderCorporationID = null;
-        String shareholderCorporationName = null;
-        String shareholderName = null;
+        String shareholderType = null;
         String shares = null;
-        List<Shareholder> response = api.getShareholders(accessKey, accessCred, at, contid, maxresults, reverse, shareholderID, isCorporation, shareholderCorporationID, shareholderCorporationName, shareholderName, shares);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get corporation starbase details
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getStarbaseDetailsTest() throws ApiException {
-        Integer accessKey = null;
-        String accessCred = null;
-        String at = null;
-        Long contid = null;
-        Integer maxresults = null;
-        Boolean reverse = null;
-        String itemID = null;
-        String state = null;
-        String stateTimestamp = null;
-        String onlineTimestamp = null;
-        String usageFlags = null;
-        String deployFlags = null;
-        String allowAllianceMembers = null;
-        String allowCorporationMembers = null;
-        String useStandingsFrom = null;
-        String onAggressionEnabled = null;
-        String onAggressionStanding = null;
-        String onCorporationWarEnabled = null;
-        String onCorporationWarStanding = null;
-        String onStandingDropEnabled = null;
-        String onStandingDropStanding = null;
-        String onStatusDropEnabled = null;
-        String onStatusDropStanding = null;
-        List<StarbaseDetail> response = api.getStarbaseDetails(accessKey, accessCred, at, contid, maxresults, reverse, itemID, state, stateTimestamp, onlineTimestamp, usageFlags, deployFlags, allowAllianceMembers, allowCorporationMembers, useStandingsFrom, onAggressionEnabled, onAggressionStanding, onCorporationWarEnabled, onCorporationWarStanding, onStandingDropEnabled, onStandingDropStanding, onStatusDropEnabled, onStatusDropStanding);
+        List<Shareholder> response = api.getShareholders(accessKey, accessCred, at, contid, maxresults, reverse, shareholderID, shareholderType, shares);
 
         // TODO: test validations
     }
@@ -634,15 +520,28 @@ public class CorporationApiTest {
         Long contid = null;
         Integer maxresults = null;
         Boolean reverse = null;
-        String itemID = null;
-        String locationID = null;
-        String moonID = null;
-        String onlineTimestamp = null;
-        String state = null;
-        String stateTimestamp = null;
+        String starbaseID = null;
         String typeID = null;
-        String standingOwnerID = null;
-        List<Starbase> response = api.getStarbases(accessKey, accessCred, at, contid, maxresults, reverse, itemID, locationID, moonID, onlineTimestamp, state, stateTimestamp, typeID, standingOwnerID);
+        String systemID = null;
+        String moonID = null;
+        String state = null;
+        String unanchorAt = null;
+        String reinforcedUntil = null;
+        String onlinedSince = null;
+        String fuelBayView = null;
+        String fuelBayTake = null;
+        String anchor = null;
+        String unanchor = null;
+        String online = null;
+        String offline = null;
+        String allowCorporationMembers = null;
+        String allowAllianceMembers = null;
+        String useAllianceStandings = null;
+        String attackStandingThreshold = null;
+        String attackSecurityStatusThreshold = null;
+        String attackIfOtherSecurityStatusDropping = null;
+        String attackIfAtWar = null;
+        List<Starbase> response = api.getStarbases(accessKey, accessCred, at, contid, maxresults, reverse, starbaseID, typeID, systemID, moonID, state, unanchorAt, reinforcedUntil, onlinedSince, fuelBayView, fuelBayTake, anchor, unanchor, online, offline, allowCorporationMembers, allowAllianceMembers, useAllianceStandings, attackStandingThreshold, attackSecurityStatusThreshold, attackIfOtherSecurityStatusDropping, attackIfAtWar);
 
         // TODO: test validations
     }

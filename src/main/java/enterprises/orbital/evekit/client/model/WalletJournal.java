@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.io.Serializable;
 
@@ -42,8 +41,8 @@ public class WalletJournal implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("accountKey")
-  private Integer accountKey = null;
+  @JsonProperty("division")
+  private Integer division = null;
 
   @JsonProperty("refID")
   private Long refID = null;
@@ -51,20 +50,20 @@ public class WalletJournal implements Serializable {
   @JsonProperty("date")
   private Long date = null;
 
-  @JsonProperty("refTypeID")
-  private Integer refTypeID = null;
+  @JsonProperty("refType")
+  private String refType = null;
 
-  @JsonProperty("ownerName1")
-  private String ownerName1 = null;
+  @JsonProperty("firstPartyID")
+  private Integer firstPartyID = null;
 
-  @JsonProperty("ownerID1")
-  private Long ownerID1 = null;
+  @JsonProperty("firstPartyType")
+  private String firstPartyType = null;
 
-  @JsonProperty("ownerName2")
-  private String ownerName2 = null;
+  @JsonProperty("secondPartyID")
+  private Integer secondPartyID = null;
 
-  @JsonProperty("ownerID2")
-  private Long ownerID2 = null;
+  @JsonProperty("secondPartyType")
+  private String secondPartyType = null;
 
   @JsonProperty("argName1")
   private String argName1 = null;
@@ -73,25 +72,55 @@ public class WalletJournal implements Serializable {
   private Long argID1 = null;
 
   @JsonProperty("amount")
-  private BigDecimal amount = null;
+  private Double amount = null;
 
   @JsonProperty("balance")
-  private BigDecimal balance = null;
+  private Double balance = null;
 
   @JsonProperty("reason")
   private String reason = null;
 
   @JsonProperty("taxReceiverID")
-  private Long taxReceiverID = null;
+  private Integer taxReceiverID = null;
 
   @JsonProperty("taxAmount")
-  private BigDecimal taxAmount = null;
+  private Double taxAmount = null;
 
-  @JsonProperty("owner1TypeID")
-  private Integer owner1TypeID = null;
+  @JsonProperty("locationID")
+  private Long locationID = null;
 
-  @JsonProperty("owner2TypeID")
-  private Integer owner2TypeID = null;
+  @JsonProperty("transactionID")
+  private Long transactionID = null;
+
+  @JsonProperty("npcName")
+  private String npcName = null;
+
+  @JsonProperty("npcID")
+  private Integer npcID = null;
+
+  @JsonProperty("destroyedShipTypeID")
+  private Integer destroyedShipTypeID = null;
+
+  @JsonProperty("characterID")
+  private Integer characterID = null;
+
+  @JsonProperty("corporationID")
+  private Integer corporationID = null;
+
+  @JsonProperty("allianceID")
+  private Integer allianceID = null;
+
+  @JsonProperty("jobID")
+  private Integer jobID = null;
+
+  @JsonProperty("contractID")
+  private Integer contractID = null;
+
+  @JsonProperty("systemID")
+  private Integer systemID = null;
+
+  @JsonProperty("planetID")
+  private Integer planetID = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -101,6 +130,15 @@ public class WalletJournal implements Serializable {
 
   @JsonProperty("dateDate")
   private OffsetDateTime dateDate = null;
+
+  @JsonProperty("accountKey")
+  private Integer accountKey = null;
+
+  @JsonProperty("ownerID1")
+  private Long ownerID1 = null;
+
+  @JsonProperty("ownerID2")
+  private Long ownerID2 = null;
 
   public WalletJournal cid(Long cid) {
     this.cid = cid;
@@ -174,22 +212,22 @@ public class WalletJournal implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public WalletJournal accountKey(Integer accountKey) {
-    this.accountKey = accountKey;
+  public WalletJournal division(Integer division) {
+    this.division = division;
     return this;
   }
 
    /**
-   * Get accountKey
-   * @return accountKey
+   * Get division
+   * @return division
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getAccountKey() {
-    return accountKey;
+  public Integer getDivision() {
+    return division;
   }
 
-  public void setAccountKey(Integer accountKey) {
-    this.accountKey = accountKey;
+  public void setDivision(Integer division) {
+    this.division = division;
   }
 
   public WalletJournal refID(Long refID) {
@@ -228,94 +266,94 @@ public class WalletJournal implements Serializable {
     this.date = date;
   }
 
-  public WalletJournal refTypeID(Integer refTypeID) {
-    this.refTypeID = refTypeID;
+  public WalletJournal refType(String refType) {
+    this.refType = refType;
     return this;
   }
 
    /**
-   * Get refTypeID
-   * @return refTypeID
+   * Get refType
+   * @return refType
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getRefTypeID() {
-    return refTypeID;
+  public String getRefType() {
+    return refType;
   }
 
-  public void setRefTypeID(Integer refTypeID) {
-    this.refTypeID = refTypeID;
+  public void setRefType(String refType) {
+    this.refType = refType;
   }
 
-  public WalletJournal ownerName1(String ownerName1) {
-    this.ownerName1 = ownerName1;
+  public WalletJournal firstPartyID(Integer firstPartyID) {
+    this.firstPartyID = firstPartyID;
     return this;
   }
 
    /**
-   * Get ownerName1
-   * @return ownerName1
+   * Get firstPartyID
+   * @return firstPartyID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getOwnerName1() {
-    return ownerName1;
+  public Integer getFirstPartyID() {
+    return firstPartyID;
   }
 
-  public void setOwnerName1(String ownerName1) {
-    this.ownerName1 = ownerName1;
+  public void setFirstPartyID(Integer firstPartyID) {
+    this.firstPartyID = firstPartyID;
   }
 
-  public WalletJournal ownerID1(Long ownerID1) {
-    this.ownerID1 = ownerID1;
+  public WalletJournal firstPartyType(String firstPartyType) {
+    this.firstPartyType = firstPartyType;
     return this;
   }
 
    /**
-   * Get ownerID1
-   * @return ownerID1
+   * Get firstPartyType
+   * @return firstPartyType
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getOwnerID1() {
-    return ownerID1;
+  public String getFirstPartyType() {
+    return firstPartyType;
   }
 
-  public void setOwnerID1(Long ownerID1) {
-    this.ownerID1 = ownerID1;
+  public void setFirstPartyType(String firstPartyType) {
+    this.firstPartyType = firstPartyType;
   }
 
-  public WalletJournal ownerName2(String ownerName2) {
-    this.ownerName2 = ownerName2;
+  public WalletJournal secondPartyID(Integer secondPartyID) {
+    this.secondPartyID = secondPartyID;
     return this;
   }
 
    /**
-   * Get ownerName2
-   * @return ownerName2
+   * Get secondPartyID
+   * @return secondPartyID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getOwnerName2() {
-    return ownerName2;
+  public Integer getSecondPartyID() {
+    return secondPartyID;
   }
 
-  public void setOwnerName2(String ownerName2) {
-    this.ownerName2 = ownerName2;
+  public void setSecondPartyID(Integer secondPartyID) {
+    this.secondPartyID = secondPartyID;
   }
 
-  public WalletJournal ownerID2(Long ownerID2) {
-    this.ownerID2 = ownerID2;
+  public WalletJournal secondPartyType(String secondPartyType) {
+    this.secondPartyType = secondPartyType;
     return this;
   }
 
    /**
-   * Get ownerID2
-   * @return ownerID2
+   * Get secondPartyType
+   * @return secondPartyType
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getOwnerID2() {
-    return ownerID2;
+  public String getSecondPartyType() {
+    return secondPartyType;
   }
 
-  public void setOwnerID2(Long ownerID2) {
-    this.ownerID2 = ownerID2;
+  public void setSecondPartyType(String secondPartyType) {
+    this.secondPartyType = secondPartyType;
   }
 
   public WalletJournal argName1(String argName1) {
@@ -354,7 +392,7 @@ public class WalletJournal implements Serializable {
     this.argID1 = argID1;
   }
 
-  public WalletJournal amount(BigDecimal amount) {
+  public WalletJournal amount(Double amount) {
     this.amount = amount;
     return this;
   }
@@ -364,15 +402,15 @@ public class WalletJournal implements Serializable {
    * @return amount
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getAmount() {
+  public Double getAmount() {
     return amount;
   }
 
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(Double amount) {
     this.amount = amount;
   }
 
-  public WalletJournal balance(BigDecimal balance) {
+  public WalletJournal balance(Double balance) {
     this.balance = balance;
     return this;
   }
@@ -382,11 +420,11 @@ public class WalletJournal implements Serializable {
    * @return balance
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getBalance() {
+  public Double getBalance() {
     return balance;
   }
 
-  public void setBalance(BigDecimal balance) {
+  public void setBalance(Double balance) {
     this.balance = balance;
   }
 
@@ -408,7 +446,7 @@ public class WalletJournal implements Serializable {
     this.reason = reason;
   }
 
-  public WalletJournal taxReceiverID(Long taxReceiverID) {
+  public WalletJournal taxReceiverID(Integer taxReceiverID) {
     this.taxReceiverID = taxReceiverID;
     return this;
   }
@@ -418,15 +456,15 @@ public class WalletJournal implements Serializable {
    * @return taxReceiverID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getTaxReceiverID() {
+  public Integer getTaxReceiverID() {
     return taxReceiverID;
   }
 
-  public void setTaxReceiverID(Long taxReceiverID) {
+  public void setTaxReceiverID(Integer taxReceiverID) {
     this.taxReceiverID = taxReceiverID;
   }
 
-  public WalletJournal taxAmount(BigDecimal taxAmount) {
+  public WalletJournal taxAmount(Double taxAmount) {
     this.taxAmount = taxAmount;
     return this;
   }
@@ -436,48 +474,228 @@ public class WalletJournal implements Serializable {
    * @return taxAmount
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getTaxAmount() {
+  public Double getTaxAmount() {
     return taxAmount;
   }
 
-  public void setTaxAmount(BigDecimal taxAmount) {
+  public void setTaxAmount(Double taxAmount) {
     this.taxAmount = taxAmount;
   }
 
-  public WalletJournal owner1TypeID(Integer owner1TypeID) {
-    this.owner1TypeID = owner1TypeID;
+  public WalletJournal locationID(Long locationID) {
+    this.locationID = locationID;
     return this;
   }
 
    /**
-   * Get owner1TypeID
-   * @return owner1TypeID
+   * Get locationID
+   * @return locationID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getOwner1TypeID() {
-    return owner1TypeID;
+  public Long getLocationID() {
+    return locationID;
   }
 
-  public void setOwner1TypeID(Integer owner1TypeID) {
-    this.owner1TypeID = owner1TypeID;
+  public void setLocationID(Long locationID) {
+    this.locationID = locationID;
   }
 
-  public WalletJournal owner2TypeID(Integer owner2TypeID) {
-    this.owner2TypeID = owner2TypeID;
+  public WalletJournal transactionID(Long transactionID) {
+    this.transactionID = transactionID;
     return this;
   }
 
    /**
-   * Get owner2TypeID
-   * @return owner2TypeID
+   * Get transactionID
+   * @return transactionID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getOwner2TypeID() {
-    return owner2TypeID;
+  public Long getTransactionID() {
+    return transactionID;
   }
 
-  public void setOwner2TypeID(Integer owner2TypeID) {
-    this.owner2TypeID = owner2TypeID;
+  public void setTransactionID(Long transactionID) {
+    this.transactionID = transactionID;
+  }
+
+  public WalletJournal npcName(String npcName) {
+    this.npcName = npcName;
+    return this;
+  }
+
+   /**
+   * Get npcName
+   * @return npcName
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getNpcName() {
+    return npcName;
+  }
+
+  public void setNpcName(String npcName) {
+    this.npcName = npcName;
+  }
+
+  public WalletJournal npcID(Integer npcID) {
+    this.npcID = npcID;
+    return this;
+  }
+
+   /**
+   * Get npcID
+   * @return npcID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getNpcID() {
+    return npcID;
+  }
+
+  public void setNpcID(Integer npcID) {
+    this.npcID = npcID;
+  }
+
+  public WalletJournal destroyedShipTypeID(Integer destroyedShipTypeID) {
+    this.destroyedShipTypeID = destroyedShipTypeID;
+    return this;
+  }
+
+   /**
+   * Get destroyedShipTypeID
+   * @return destroyedShipTypeID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getDestroyedShipTypeID() {
+    return destroyedShipTypeID;
+  }
+
+  public void setDestroyedShipTypeID(Integer destroyedShipTypeID) {
+    this.destroyedShipTypeID = destroyedShipTypeID;
+  }
+
+  public WalletJournal characterID(Integer characterID) {
+    this.characterID = characterID;
+    return this;
+  }
+
+   /**
+   * Get characterID
+   * @return characterID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getCharacterID() {
+    return characterID;
+  }
+
+  public void setCharacterID(Integer characterID) {
+    this.characterID = characterID;
+  }
+
+  public WalletJournal corporationID(Integer corporationID) {
+    this.corporationID = corporationID;
+    return this;
+  }
+
+   /**
+   * Get corporationID
+   * @return corporationID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getCorporationID() {
+    return corporationID;
+  }
+
+  public void setCorporationID(Integer corporationID) {
+    this.corporationID = corporationID;
+  }
+
+  public WalletJournal allianceID(Integer allianceID) {
+    this.allianceID = allianceID;
+    return this;
+  }
+
+   /**
+   * Get allianceID
+   * @return allianceID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getAllianceID() {
+    return allianceID;
+  }
+
+  public void setAllianceID(Integer allianceID) {
+    this.allianceID = allianceID;
+  }
+
+  public WalletJournal jobID(Integer jobID) {
+    this.jobID = jobID;
+    return this;
+  }
+
+   /**
+   * Get jobID
+   * @return jobID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getJobID() {
+    return jobID;
+  }
+
+  public void setJobID(Integer jobID) {
+    this.jobID = jobID;
+  }
+
+  public WalletJournal contractID(Integer contractID) {
+    this.contractID = contractID;
+    return this;
+  }
+
+   /**
+   * Get contractID
+   * @return contractID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getContractID() {
+    return contractID;
+  }
+
+  public void setContractID(Integer contractID) {
+    this.contractID = contractID;
+  }
+
+  public WalletJournal systemID(Integer systemID) {
+    this.systemID = systemID;
+    return this;
+  }
+
+   /**
+   * Get systemID
+   * @return systemID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getSystemID() {
+    return systemID;
+  }
+
+  public void setSystemID(Integer systemID) {
+    this.systemID = systemID;
+  }
+
+  public WalletJournal planetID(Integer planetID) {
+    this.planetID = planetID;
+    return this;
+  }
+
+   /**
+   * Get planetID
+   * @return planetID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getPlanetID() {
+    return planetID;
+  }
+
+  public void setPlanetID(Integer planetID) {
+    this.planetID = planetID;
   }
 
   public WalletJournal lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -534,6 +752,60 @@ public class WalletJournal implements Serializable {
     this.dateDate = dateDate;
   }
 
+  public WalletJournal accountKey(Integer accountKey) {
+    this.accountKey = accountKey;
+    return this;
+  }
+
+   /**
+   * *DEPRECATED* accountKey
+   * @return accountKey
+  **/
+  @ApiModelProperty(example = "null", value = "*DEPRECATED* accountKey")
+  public Integer getAccountKey() {
+    return accountKey;
+  }
+
+  public void setAccountKey(Integer accountKey) {
+    this.accountKey = accountKey;
+  }
+
+  public WalletJournal ownerID1(Long ownerID1) {
+    this.ownerID1 = ownerID1;
+    return this;
+  }
+
+   /**
+   * *DEPRECATED* ownerID1
+   * @return ownerID1
+  **/
+  @ApiModelProperty(example = "null", value = "*DEPRECATED* ownerID1")
+  public Long getOwnerID1() {
+    return ownerID1;
+  }
+
+  public void setOwnerID1(Long ownerID1) {
+    this.ownerID1 = ownerID1;
+  }
+
+  public WalletJournal ownerID2(Long ownerID2) {
+    this.ownerID2 = ownerID2;
+    return this;
+  }
+
+   /**
+   * *DEPRECATED* ownerID2
+   * @return ownerID2
+  **/
+  @ApiModelProperty(example = "null", value = "*DEPRECATED* ownerID2")
+  public Long getOwnerID2() {
+    return ownerID2;
+  }
+
+  public void setOwnerID2(Long ownerID2) {
+    this.ownerID2 = ownerID2;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -548,14 +820,14 @@ public class WalletJournal implements Serializable {
         Objects.equals(this.eveKitVersion, walletJournal.eveKitVersion) &&
         Objects.equals(this.lifeStart, walletJournal.lifeStart) &&
         Objects.equals(this.lifeEnd, walletJournal.lifeEnd) &&
-        Objects.equals(this.accountKey, walletJournal.accountKey) &&
+        Objects.equals(this.division, walletJournal.division) &&
         Objects.equals(this.refID, walletJournal.refID) &&
         Objects.equals(this.date, walletJournal.date) &&
-        Objects.equals(this.refTypeID, walletJournal.refTypeID) &&
-        Objects.equals(this.ownerName1, walletJournal.ownerName1) &&
-        Objects.equals(this.ownerID1, walletJournal.ownerID1) &&
-        Objects.equals(this.ownerName2, walletJournal.ownerName2) &&
-        Objects.equals(this.ownerID2, walletJournal.ownerID2) &&
+        Objects.equals(this.refType, walletJournal.refType) &&
+        Objects.equals(this.firstPartyID, walletJournal.firstPartyID) &&
+        Objects.equals(this.firstPartyType, walletJournal.firstPartyType) &&
+        Objects.equals(this.secondPartyID, walletJournal.secondPartyID) &&
+        Objects.equals(this.secondPartyType, walletJournal.secondPartyType) &&
         Objects.equals(this.argName1, walletJournal.argName1) &&
         Objects.equals(this.argID1, walletJournal.argID1) &&
         Objects.equals(this.amount, walletJournal.amount) &&
@@ -563,16 +835,29 @@ public class WalletJournal implements Serializable {
         Objects.equals(this.reason, walletJournal.reason) &&
         Objects.equals(this.taxReceiverID, walletJournal.taxReceiverID) &&
         Objects.equals(this.taxAmount, walletJournal.taxAmount) &&
-        Objects.equals(this.owner1TypeID, walletJournal.owner1TypeID) &&
-        Objects.equals(this.owner2TypeID, walletJournal.owner2TypeID) &&
+        Objects.equals(this.locationID, walletJournal.locationID) &&
+        Objects.equals(this.transactionID, walletJournal.transactionID) &&
+        Objects.equals(this.npcName, walletJournal.npcName) &&
+        Objects.equals(this.npcID, walletJournal.npcID) &&
+        Objects.equals(this.destroyedShipTypeID, walletJournal.destroyedShipTypeID) &&
+        Objects.equals(this.characterID, walletJournal.characterID) &&
+        Objects.equals(this.corporationID, walletJournal.corporationID) &&
+        Objects.equals(this.allianceID, walletJournal.allianceID) &&
+        Objects.equals(this.jobID, walletJournal.jobID) &&
+        Objects.equals(this.contractID, walletJournal.contractID) &&
+        Objects.equals(this.systemID, walletJournal.systemID) &&
+        Objects.equals(this.planetID, walletJournal.planetID) &&
         Objects.equals(this.lifeStartDate, walletJournal.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, walletJournal.lifeEndDate) &&
-        Objects.equals(this.dateDate, walletJournal.dateDate);
+        Objects.equals(this.dateDate, walletJournal.dateDate) &&
+        Objects.equals(this.accountKey, walletJournal.accountKey) &&
+        Objects.equals(this.ownerID1, walletJournal.ownerID1) &&
+        Objects.equals(this.ownerID2, walletJournal.ownerID2);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, accountKey, refID, date, refTypeID, ownerName1, ownerID1, ownerName2, ownerID2, argName1, argID1, amount, balance, reason, taxReceiverID, taxAmount, owner1TypeID, owner2TypeID, lifeStartDate, lifeEndDate, dateDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, division, refID, date, refType, firstPartyID, firstPartyType, secondPartyID, secondPartyType, argName1, argID1, amount, balance, reason, taxReceiverID, taxAmount, locationID, transactionID, npcName, npcID, destroyedShipTypeID, characterID, corporationID, allianceID, jobID, contractID, systemID, planetID, lifeStartDate, lifeEndDate, dateDate, accountKey, ownerID1, ownerID2);
   }
 
 
@@ -585,14 +870,14 @@ public class WalletJournal implements Serializable {
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    accountKey: ").append(toIndentedString(accountKey)).append("\n");
+    sb.append("    division: ").append(toIndentedString(division)).append("\n");
     sb.append("    refID: ").append(toIndentedString(refID)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    refTypeID: ").append(toIndentedString(refTypeID)).append("\n");
-    sb.append("    ownerName1: ").append(toIndentedString(ownerName1)).append("\n");
-    sb.append("    ownerID1: ").append(toIndentedString(ownerID1)).append("\n");
-    sb.append("    ownerName2: ").append(toIndentedString(ownerName2)).append("\n");
-    sb.append("    ownerID2: ").append(toIndentedString(ownerID2)).append("\n");
+    sb.append("    refType: ").append(toIndentedString(refType)).append("\n");
+    sb.append("    firstPartyID: ").append(toIndentedString(firstPartyID)).append("\n");
+    sb.append("    firstPartyType: ").append(toIndentedString(firstPartyType)).append("\n");
+    sb.append("    secondPartyID: ").append(toIndentedString(secondPartyID)).append("\n");
+    sb.append("    secondPartyType: ").append(toIndentedString(secondPartyType)).append("\n");
     sb.append("    argName1: ").append(toIndentedString(argName1)).append("\n");
     sb.append("    argID1: ").append(toIndentedString(argID1)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
@@ -600,11 +885,24 @@ public class WalletJournal implements Serializable {
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    taxReceiverID: ").append(toIndentedString(taxReceiverID)).append("\n");
     sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
-    sb.append("    owner1TypeID: ").append(toIndentedString(owner1TypeID)).append("\n");
-    sb.append("    owner2TypeID: ").append(toIndentedString(owner2TypeID)).append("\n");
+    sb.append("    locationID: ").append(toIndentedString(locationID)).append("\n");
+    sb.append("    transactionID: ").append(toIndentedString(transactionID)).append("\n");
+    sb.append("    npcName: ").append(toIndentedString(npcName)).append("\n");
+    sb.append("    npcID: ").append(toIndentedString(npcID)).append("\n");
+    sb.append("    destroyedShipTypeID: ").append(toIndentedString(destroyedShipTypeID)).append("\n");
+    sb.append("    characterID: ").append(toIndentedString(characterID)).append("\n");
+    sb.append("    corporationID: ").append(toIndentedString(corporationID)).append("\n");
+    sb.append("    allianceID: ").append(toIndentedString(allianceID)).append("\n");
+    sb.append("    jobID: ").append(toIndentedString(jobID)).append("\n");
+    sb.append("    contractID: ").append(toIndentedString(contractID)).append("\n");
+    sb.append("    systemID: ").append(toIndentedString(systemID)).append("\n");
+    sb.append("    planetID: ").append(toIndentedString(planetID)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("    dateDate: ").append(toIndentedString(dateDate)).append("\n");
+    sb.append("    accountKey: ").append(toIndentedString(accountKey)).append("\n");
+    sb.append("    ownerID1: ").append(toIndentedString(ownerID1)).append("\n");
+    sb.append("    ownerID2: ").append(toIndentedString(ownerID2)).append("\n");
     sb.append("}");
     return sb.toString();
   }

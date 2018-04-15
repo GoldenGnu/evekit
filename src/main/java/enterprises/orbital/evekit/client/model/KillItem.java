@@ -42,7 +42,7 @@ public class KillItem implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("killID")
-  private Long killID = null;
+  private Integer killID = null;
 
   @JsonProperty("typeID")
   private Integer typeID = null;
@@ -51,13 +51,13 @@ public class KillItem implements Serializable {
   private Integer flag = null;
 
   @JsonProperty("qtyDestroyed")
-  private Integer qtyDestroyed = null;
+  private Long qtyDestroyed = null;
 
   @JsonProperty("qtyDropped")
-  private Integer qtyDropped = null;
+  private Long qtyDropped = null;
 
   @JsonProperty("singleton")
-  private Boolean singleton = false;
+  private Integer singleton = null;
 
   @JsonProperty("sequence")
   private Integer sequence = null;
@@ -143,7 +143,7 @@ public class KillItem implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public KillItem killID(Long killID) {
+  public KillItem killID(Integer killID) {
     this.killID = killID;
     return this;
   }
@@ -153,11 +153,11 @@ public class KillItem implements Serializable {
    * @return killID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getKillID() {
+  public Integer getKillID() {
     return killID;
   }
 
-  public void setKillID(Long killID) {
+  public void setKillID(Integer killID) {
     this.killID = killID;
   }
 
@@ -197,7 +197,7 @@ public class KillItem implements Serializable {
     this.flag = flag;
   }
 
-  public KillItem qtyDestroyed(Integer qtyDestroyed) {
+  public KillItem qtyDestroyed(Long qtyDestroyed) {
     this.qtyDestroyed = qtyDestroyed;
     return this;
   }
@@ -207,15 +207,15 @@ public class KillItem implements Serializable {
    * @return qtyDestroyed
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getQtyDestroyed() {
+  public Long getQtyDestroyed() {
     return qtyDestroyed;
   }
 
-  public void setQtyDestroyed(Integer qtyDestroyed) {
+  public void setQtyDestroyed(Long qtyDestroyed) {
     this.qtyDestroyed = qtyDestroyed;
   }
 
-  public KillItem qtyDropped(Integer qtyDropped) {
+  public KillItem qtyDropped(Long qtyDropped) {
     this.qtyDropped = qtyDropped;
     return this;
   }
@@ -225,15 +225,15 @@ public class KillItem implements Serializable {
    * @return qtyDropped
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getQtyDropped() {
+  public Long getQtyDropped() {
     return qtyDropped;
   }
 
-  public void setQtyDropped(Integer qtyDropped) {
+  public void setQtyDropped(Long qtyDropped) {
     this.qtyDropped = qtyDropped;
   }
 
-  public KillItem singleton(Boolean singleton) {
+  public KillItem singleton(Integer singleton) {
     this.singleton = singleton;
     return this;
   }
@@ -243,11 +243,11 @@ public class KillItem implements Serializable {
    * @return singleton
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Boolean getSingleton() {
+  public Integer getSingleton() {
     return singleton;
   }
 
-  public void setSingleton(Boolean singleton) {
+  public void setSingleton(Integer singleton) {
     this.singleton = singleton;
   }
 

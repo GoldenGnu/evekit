@@ -44,17 +44,23 @@ public class CharacterNotification implements Serializable {
   @JsonProperty("notificationID")
   private Long notificationID = null;
 
-  @JsonProperty("typeID")
-  private Integer typeID = null;
+  @JsonProperty("type")
+  private String type = null;
 
   @JsonProperty("senderID")
-  private Long senderID = null;
+  private Integer senderID = null;
+
+  @JsonProperty("senderType")
+  private String senderType = null;
 
   @JsonProperty("sentDate")
   private Long sentDate = null;
 
   @JsonProperty("msgRead")
   private Boolean msgRead = false;
+
+  @JsonProperty("text")
+  private String text = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -155,25 +161,25 @@ public class CharacterNotification implements Serializable {
     this.notificationID = notificationID;
   }
 
-  public CharacterNotification typeID(Integer typeID) {
-    this.typeID = typeID;
+  public CharacterNotification type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get typeID
-   * @return typeID
+   * Get type
+   * @return type
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getTypeID() {
-    return typeID;
+  public String getType() {
+    return type;
   }
 
-  public void setTypeID(Integer typeID) {
-    this.typeID = typeID;
+  public void setType(String type) {
+    this.type = type;
   }
 
-  public CharacterNotification senderID(Long senderID) {
+  public CharacterNotification senderID(Integer senderID) {
     this.senderID = senderID;
     return this;
   }
@@ -183,12 +189,30 @@ public class CharacterNotification implements Serializable {
    * @return senderID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getSenderID() {
+  public Integer getSenderID() {
     return senderID;
   }
 
-  public void setSenderID(Long senderID) {
+  public void setSenderID(Integer senderID) {
     this.senderID = senderID;
+  }
+
+  public CharacterNotification senderType(String senderType) {
+    this.senderType = senderType;
+    return this;
+  }
+
+   /**
+   * Get senderType
+   * @return senderType
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getSenderType() {
+    return senderType;
+  }
+
+  public void setSenderType(String senderType) {
+    this.senderType = senderType;
   }
 
   public CharacterNotification sentDate(Long sentDate) {
@@ -225,6 +249,24 @@ public class CharacterNotification implements Serializable {
 
   public void setMsgRead(Boolean msgRead) {
     this.msgRead = msgRead;
+  }
+
+  public CharacterNotification text(String text) {
+    this.text = text;
+    return this;
+  }
+
+   /**
+   * Get text
+   * @return text
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getText() {
+    return text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
   }
 
   public CharacterNotification lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -296,10 +338,12 @@ public class CharacterNotification implements Serializable {
         Objects.equals(this.lifeStart, characterNotification.lifeStart) &&
         Objects.equals(this.lifeEnd, characterNotification.lifeEnd) &&
         Objects.equals(this.notificationID, characterNotification.notificationID) &&
-        Objects.equals(this.typeID, characterNotification.typeID) &&
+        Objects.equals(this.type, characterNotification.type) &&
         Objects.equals(this.senderID, characterNotification.senderID) &&
+        Objects.equals(this.senderType, characterNotification.senderType) &&
         Objects.equals(this.sentDate, characterNotification.sentDate) &&
         Objects.equals(this.msgRead, characterNotification.msgRead) &&
+        Objects.equals(this.text, characterNotification.text) &&
         Objects.equals(this.lifeStartDate, characterNotification.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, characterNotification.lifeEndDate) &&
         Objects.equals(this.sentDateDate, characterNotification.sentDateDate);
@@ -307,7 +351,7 @@ public class CharacterNotification implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, notificationID, typeID, senderID, sentDate, msgRead, lifeStartDate, lifeEndDate, sentDateDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, notificationID, type, senderID, senderType, sentDate, msgRead, text, lifeStartDate, lifeEndDate, sentDateDate);
   }
 
 
@@ -321,10 +365,12 @@ public class CharacterNotification implements Serializable {
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    notificationID: ").append(toIndentedString(notificationID)).append("\n");
-    sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    senderID: ").append(toIndentedString(senderID)).append("\n");
+    sb.append("    senderType: ").append(toIndentedString(senderType)).append("\n");
     sb.append("    sentDate: ").append(toIndentedString(sentDate)).append("\n");
     sb.append("    msgRead: ").append(toIndentedString(msgRead)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("    sentDateDate: ").append(toIndentedString(sentDateDate)).append("\n");

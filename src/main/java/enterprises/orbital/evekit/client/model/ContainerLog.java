@@ -47,29 +47,26 @@ public class ContainerLog implements Serializable {
   @JsonProperty("action")
   private String action = null;
 
-  @JsonProperty("actorID")
-  private Long actorID = null;
+  @JsonProperty("characterID")
+  private Integer characterID = null;
 
-  @JsonProperty("actorName")
-  private String actorName = null;
+  @JsonProperty("locationFlag")
+  private String locationFlag = null;
 
-  @JsonProperty("flag")
-  private Integer flag = null;
+  @JsonProperty("containerID")
+  private Long containerID = null;
 
-  @JsonProperty("itemID")
-  private Long itemID = null;
-
-  @JsonProperty("itemTypeID")
-  private Integer itemTypeID = null;
+  @JsonProperty("containerTypeID")
+  private Integer containerTypeID = null;
 
   @JsonProperty("locationID")
   private Long locationID = null;
 
   @JsonProperty("newConfiguration")
-  private String newConfiguration = null;
+  private Integer newConfiguration = null;
 
   @JsonProperty("oldConfiguration")
-  private String oldConfiguration = null;
+  private Integer oldConfiguration = null;
 
   @JsonProperty("passwordType")
   private String passwordType = null;
@@ -197,94 +194,76 @@ public class ContainerLog implements Serializable {
     this.action = action;
   }
 
-  public ContainerLog actorID(Long actorID) {
-    this.actorID = actorID;
+  public ContainerLog characterID(Integer characterID) {
+    this.characterID = characterID;
     return this;
   }
 
    /**
-   * Get actorID
-   * @return actorID
+   * Get characterID
+   * @return characterID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getActorID() {
-    return actorID;
+  public Integer getCharacterID() {
+    return characterID;
   }
 
-  public void setActorID(Long actorID) {
-    this.actorID = actorID;
+  public void setCharacterID(Integer characterID) {
+    this.characterID = characterID;
   }
 
-  public ContainerLog actorName(String actorName) {
-    this.actorName = actorName;
+  public ContainerLog locationFlag(String locationFlag) {
+    this.locationFlag = locationFlag;
     return this;
   }
 
    /**
-   * Get actorName
-   * @return actorName
+   * Get locationFlag
+   * @return locationFlag
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getActorName() {
-    return actorName;
+  public String getLocationFlag() {
+    return locationFlag;
   }
 
-  public void setActorName(String actorName) {
-    this.actorName = actorName;
+  public void setLocationFlag(String locationFlag) {
+    this.locationFlag = locationFlag;
   }
 
-  public ContainerLog flag(Integer flag) {
-    this.flag = flag;
+  public ContainerLog containerID(Long containerID) {
+    this.containerID = containerID;
     return this;
   }
 
    /**
-   * Get flag
-   * @return flag
+   * Get containerID
+   * @return containerID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getFlag() {
-    return flag;
+  public Long getContainerID() {
+    return containerID;
   }
 
-  public void setFlag(Integer flag) {
-    this.flag = flag;
+  public void setContainerID(Long containerID) {
+    this.containerID = containerID;
   }
 
-  public ContainerLog itemID(Long itemID) {
-    this.itemID = itemID;
+  public ContainerLog containerTypeID(Integer containerTypeID) {
+    this.containerTypeID = containerTypeID;
     return this;
   }
 
    /**
-   * Get itemID
-   * @return itemID
+   * Get containerTypeID
+   * @return containerTypeID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getItemID() {
-    return itemID;
+  public Integer getContainerTypeID() {
+    return containerTypeID;
   }
 
-  public void setItemID(Long itemID) {
-    this.itemID = itemID;
-  }
-
-  public ContainerLog itemTypeID(Integer itemTypeID) {
-    this.itemTypeID = itemTypeID;
-    return this;
-  }
-
-   /**
-   * Get itemTypeID
-   * @return itemTypeID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getItemTypeID() {
-    return itemTypeID;
-  }
-
-  public void setItemTypeID(Integer itemTypeID) {
-    this.itemTypeID = itemTypeID;
+  public void setContainerTypeID(Integer containerTypeID) {
+    this.containerTypeID = containerTypeID;
   }
 
   public ContainerLog locationID(Long locationID) {
@@ -305,7 +284,7 @@ public class ContainerLog implements Serializable {
     this.locationID = locationID;
   }
 
-  public ContainerLog newConfiguration(String newConfiguration) {
+  public ContainerLog newConfiguration(Integer newConfiguration) {
     this.newConfiguration = newConfiguration;
     return this;
   }
@@ -315,15 +294,15 @@ public class ContainerLog implements Serializable {
    * @return newConfiguration
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getNewConfiguration() {
+  public Integer getNewConfiguration() {
     return newConfiguration;
   }
 
-  public void setNewConfiguration(String newConfiguration) {
+  public void setNewConfiguration(Integer newConfiguration) {
     this.newConfiguration = newConfiguration;
   }
 
-  public ContainerLog oldConfiguration(String oldConfiguration) {
+  public ContainerLog oldConfiguration(Integer oldConfiguration) {
     this.oldConfiguration = oldConfiguration;
     return this;
   }
@@ -333,11 +312,11 @@ public class ContainerLog implements Serializable {
    * @return oldConfiguration
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getOldConfiguration() {
+  public Integer getOldConfiguration() {
     return oldConfiguration;
   }
 
-  public void setOldConfiguration(String oldConfiguration) {
+  public void setOldConfiguration(Integer oldConfiguration) {
     this.oldConfiguration = oldConfiguration;
   }
 
@@ -465,11 +444,10 @@ public class ContainerLog implements Serializable {
         Objects.equals(this.lifeEnd, containerLog.lifeEnd) &&
         Objects.equals(this.logTime, containerLog.logTime) &&
         Objects.equals(this.action, containerLog.action) &&
-        Objects.equals(this.actorID, containerLog.actorID) &&
-        Objects.equals(this.actorName, containerLog.actorName) &&
-        Objects.equals(this.flag, containerLog.flag) &&
-        Objects.equals(this.itemID, containerLog.itemID) &&
-        Objects.equals(this.itemTypeID, containerLog.itemTypeID) &&
+        Objects.equals(this.characterID, containerLog.characterID) &&
+        Objects.equals(this.locationFlag, containerLog.locationFlag) &&
+        Objects.equals(this.containerID, containerLog.containerID) &&
+        Objects.equals(this.containerTypeID, containerLog.containerTypeID) &&
         Objects.equals(this.locationID, containerLog.locationID) &&
         Objects.equals(this.newConfiguration, containerLog.newConfiguration) &&
         Objects.equals(this.oldConfiguration, containerLog.oldConfiguration) &&
@@ -483,7 +461,7 @@ public class ContainerLog implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, logTime, action, actorID, actorName, flag, itemID, itemTypeID, locationID, newConfiguration, oldConfiguration, passwordType, quantity, typeID, lifeStartDate, lifeEndDate, logTimeDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, logTime, action, characterID, locationFlag, containerID, containerTypeID, locationID, newConfiguration, oldConfiguration, passwordType, quantity, typeID, lifeStartDate, lifeEndDate, logTimeDate);
   }
 
 
@@ -498,11 +476,10 @@ public class ContainerLog implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    logTime: ").append(toIndentedString(logTime)).append("\n");
     sb.append("    action: ").append(toIndentedString(action)).append("\n");
-    sb.append("    actorID: ").append(toIndentedString(actorID)).append("\n");
-    sb.append("    actorName: ").append(toIndentedString(actorName)).append("\n");
-    sb.append("    flag: ").append(toIndentedString(flag)).append("\n");
-    sb.append("    itemID: ").append(toIndentedString(itemID)).append("\n");
-    sb.append("    itemTypeID: ").append(toIndentedString(itemTypeID)).append("\n");
+    sb.append("    characterID: ").append(toIndentedString(characterID)).append("\n");
+    sb.append("    locationFlag: ").append(toIndentedString(locationFlag)).append("\n");
+    sb.append("    containerID: ").append(toIndentedString(containerID)).append("\n");
+    sb.append("    containerTypeID: ").append(toIndentedString(containerTypeID)).append("\n");
     sb.append("    locationID: ").append(toIndentedString(locationID)).append("\n");
     sb.append("    newConfiguration: ").append(toIndentedString(newConfiguration)).append("\n");
     sb.append("    oldConfiguration: ").append(toIndentedString(oldConfiguration)).append("\n");

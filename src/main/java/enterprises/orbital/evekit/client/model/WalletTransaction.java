@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.io.Serializable;
 
@@ -42,8 +41,8 @@ public class WalletTransaction implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("accountKey")
-  private Integer accountKey = null;
+  @JsonProperty("division")
+  private Integer division = null;
 
   @JsonProperty("transactionID")
   private Long transactionID = null;
@@ -54,44 +53,26 @@ public class WalletTransaction implements Serializable {
   @JsonProperty("quantity")
   private Integer quantity = null;
 
-  @JsonProperty("typeName")
-  private String typeName = null;
-
   @JsonProperty("typeID")
   private Integer typeID = null;
 
   @JsonProperty("price")
-  private BigDecimal price = null;
+  private Double price = null;
 
   @JsonProperty("clientID")
-  private Long clientID = null;
+  private Integer clientID = null;
 
-  @JsonProperty("clientName")
-  private String clientName = null;
-
-  @JsonProperty("stationID")
-  private Integer stationID = null;
-
-  @JsonProperty("stationName")
-  private String stationName = null;
-
-  @JsonProperty("transactionType")
-  private String transactionType = null;
-
-  @JsonProperty("transactionFor")
-  private String transactionFor = null;
+  @JsonProperty("locationID")
+  private Long locationID = null;
 
   @JsonProperty("journalTransactionID")
   private Long journalTransactionID = null;
 
-  @JsonProperty("clientTypeID")
-  private Integer clientTypeID = null;
+  @JsonProperty("buy")
+  private Boolean buy = false;
 
-  @JsonProperty("characterID")
-  private Long characterID = null;
-
-  @JsonProperty("characterName")
-  private String characterName = null;
+  @JsonProperty("personal")
+  private Boolean personal = false;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -101,6 +82,18 @@ public class WalletTransaction implements Serializable {
 
   @JsonProperty("dateDate")
   private OffsetDateTime dateDate = null;
+
+  @JsonProperty("accountKey")
+  private Integer accountKey = null;
+
+  @JsonProperty("stationID")
+  private Long stationID = null;
+
+  @JsonProperty("transactionType")
+  private String transactionType = null;
+
+  @JsonProperty("transactionFor")
+  private String transactionFor = null;
 
   public WalletTransaction cid(Long cid) {
     this.cid = cid;
@@ -174,22 +167,22 @@ public class WalletTransaction implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public WalletTransaction accountKey(Integer accountKey) {
-    this.accountKey = accountKey;
+  public WalletTransaction division(Integer division) {
+    this.division = division;
     return this;
   }
 
    /**
-   * Get accountKey
-   * @return accountKey
+   * Get division
+   * @return division
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getAccountKey() {
-    return accountKey;
+  public Integer getDivision() {
+    return division;
   }
 
-  public void setAccountKey(Integer accountKey) {
-    this.accountKey = accountKey;
+  public void setDivision(Integer division) {
+    this.division = division;
   }
 
   public WalletTransaction transactionID(Long transactionID) {
@@ -246,24 +239,6 @@ public class WalletTransaction implements Serializable {
     this.quantity = quantity;
   }
 
-  public WalletTransaction typeName(String typeName) {
-    this.typeName = typeName;
-    return this;
-  }
-
-   /**
-   * Get typeName
-   * @return typeName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getTypeName() {
-    return typeName;
-  }
-
-  public void setTypeName(String typeName) {
-    this.typeName = typeName;
-  }
-
   public WalletTransaction typeID(Integer typeID) {
     this.typeID = typeID;
     return this;
@@ -282,7 +257,7 @@ public class WalletTransaction implements Serializable {
     this.typeID = typeID;
   }
 
-  public WalletTransaction price(BigDecimal price) {
+  public WalletTransaction price(Double price) {
     this.price = price;
     return this;
   }
@@ -292,15 +267,15 @@ public class WalletTransaction implements Serializable {
    * @return price
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getPrice() {
+  public Double getPrice() {
     return price;
   }
 
-  public void setPrice(BigDecimal price) {
+  public void setPrice(Double price) {
     this.price = price;
   }
 
-  public WalletTransaction clientID(Long clientID) {
+  public WalletTransaction clientID(Integer clientID) {
     this.clientID = clientID;
     return this;
   }
@@ -310,102 +285,30 @@ public class WalletTransaction implements Serializable {
    * @return clientID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getClientID() {
+  public Integer getClientID() {
     return clientID;
   }
 
-  public void setClientID(Long clientID) {
+  public void setClientID(Integer clientID) {
     this.clientID = clientID;
   }
 
-  public WalletTransaction clientName(String clientName) {
-    this.clientName = clientName;
+  public WalletTransaction locationID(Long locationID) {
+    this.locationID = locationID;
     return this;
   }
 
    /**
-   * Get clientName
-   * @return clientName
+   * Get locationID
+   * @return locationID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getClientName() {
-    return clientName;
+  public Long getLocationID() {
+    return locationID;
   }
 
-  public void setClientName(String clientName) {
-    this.clientName = clientName;
-  }
-
-  public WalletTransaction stationID(Integer stationID) {
-    this.stationID = stationID;
-    return this;
-  }
-
-   /**
-   * Get stationID
-   * @return stationID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getStationID() {
-    return stationID;
-  }
-
-  public void setStationID(Integer stationID) {
-    this.stationID = stationID;
-  }
-
-  public WalletTransaction stationName(String stationName) {
-    this.stationName = stationName;
-    return this;
-  }
-
-   /**
-   * Get stationName
-   * @return stationName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getStationName() {
-    return stationName;
-  }
-
-  public void setStationName(String stationName) {
-    this.stationName = stationName;
-  }
-
-  public WalletTransaction transactionType(String transactionType) {
-    this.transactionType = transactionType;
-    return this;
-  }
-
-   /**
-   * Get transactionType
-   * @return transactionType
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getTransactionType() {
-    return transactionType;
-  }
-
-  public void setTransactionType(String transactionType) {
-    this.transactionType = transactionType;
-  }
-
-  public WalletTransaction transactionFor(String transactionFor) {
-    this.transactionFor = transactionFor;
-    return this;
-  }
-
-   /**
-   * Get transactionFor
-   * @return transactionFor
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getTransactionFor() {
-    return transactionFor;
-  }
-
-  public void setTransactionFor(String transactionFor) {
-    this.transactionFor = transactionFor;
+  public void setLocationID(Long locationID) {
+    this.locationID = locationID;
   }
 
   public WalletTransaction journalTransactionID(Long journalTransactionID) {
@@ -426,58 +329,40 @@ public class WalletTransaction implements Serializable {
     this.journalTransactionID = journalTransactionID;
   }
 
-  public WalletTransaction clientTypeID(Integer clientTypeID) {
-    this.clientTypeID = clientTypeID;
+  public WalletTransaction buy(Boolean buy) {
+    this.buy = buy;
     return this;
   }
 
    /**
-   * Get clientTypeID
-   * @return clientTypeID
+   * Get buy
+   * @return buy
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getClientTypeID() {
-    return clientTypeID;
+  public Boolean getBuy() {
+    return buy;
   }
 
-  public void setClientTypeID(Integer clientTypeID) {
-    this.clientTypeID = clientTypeID;
+  public void setBuy(Boolean buy) {
+    this.buy = buy;
   }
 
-  public WalletTransaction characterID(Long characterID) {
-    this.characterID = characterID;
+  public WalletTransaction personal(Boolean personal) {
+    this.personal = personal;
     return this;
   }
 
    /**
-   * Get characterID
-   * @return characterID
+   * Get personal
+   * @return personal
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getCharacterID() {
-    return characterID;
+  public Boolean getPersonal() {
+    return personal;
   }
 
-  public void setCharacterID(Long characterID) {
-    this.characterID = characterID;
-  }
-
-  public WalletTransaction characterName(String characterName) {
-    this.characterName = characterName;
-    return this;
-  }
-
-   /**
-   * Get characterName
-   * @return characterName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getCharacterName() {
-    return characterName;
-  }
-
-  public void setCharacterName(String characterName) {
-    this.characterName = characterName;
+  public void setPersonal(Boolean personal) {
+    this.personal = personal;
   }
 
   public WalletTransaction lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -534,6 +419,78 @@ public class WalletTransaction implements Serializable {
     this.dateDate = dateDate;
   }
 
+  public WalletTransaction accountKey(Integer accountKey) {
+    this.accountKey = accountKey;
+    return this;
+  }
+
+   /**
+   * *DEPRECATED* accountKey
+   * @return accountKey
+  **/
+  @ApiModelProperty(example = "null", value = "*DEPRECATED* accountKey")
+  public Integer getAccountKey() {
+    return accountKey;
+  }
+
+  public void setAccountKey(Integer accountKey) {
+    this.accountKey = accountKey;
+  }
+
+  public WalletTransaction stationID(Long stationID) {
+    this.stationID = stationID;
+    return this;
+  }
+
+   /**
+   * *DEPRECATED* stationID
+   * @return stationID
+  **/
+  @ApiModelProperty(example = "null", value = "*DEPRECATED* stationID")
+  public Long getStationID() {
+    return stationID;
+  }
+
+  public void setStationID(Long stationID) {
+    this.stationID = stationID;
+  }
+
+  public WalletTransaction transactionType(String transactionType) {
+    this.transactionType = transactionType;
+    return this;
+  }
+
+   /**
+   * *DEPRECATED* transactionType
+   * @return transactionType
+  **/
+  @ApiModelProperty(example = "null", value = "*DEPRECATED* transactionType")
+  public String getTransactionType() {
+    return transactionType;
+  }
+
+  public void setTransactionType(String transactionType) {
+    this.transactionType = transactionType;
+  }
+
+  public WalletTransaction transactionFor(String transactionFor) {
+    this.transactionFor = transactionFor;
+    return this;
+  }
+
+   /**
+   * *DEPRECATED* transactionFor
+   * @return transactionFor
+  **/
+  @ApiModelProperty(example = "null", value = "*DEPRECATED* transactionFor")
+  public String getTransactionFor() {
+    return transactionFor;
+  }
+
+  public void setTransactionFor(String transactionFor) {
+    this.transactionFor = transactionFor;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -548,31 +505,29 @@ public class WalletTransaction implements Serializable {
         Objects.equals(this.eveKitVersion, walletTransaction.eveKitVersion) &&
         Objects.equals(this.lifeStart, walletTransaction.lifeStart) &&
         Objects.equals(this.lifeEnd, walletTransaction.lifeEnd) &&
-        Objects.equals(this.accountKey, walletTransaction.accountKey) &&
+        Objects.equals(this.division, walletTransaction.division) &&
         Objects.equals(this.transactionID, walletTransaction.transactionID) &&
         Objects.equals(this.date, walletTransaction.date) &&
         Objects.equals(this.quantity, walletTransaction.quantity) &&
-        Objects.equals(this.typeName, walletTransaction.typeName) &&
         Objects.equals(this.typeID, walletTransaction.typeID) &&
         Objects.equals(this.price, walletTransaction.price) &&
         Objects.equals(this.clientID, walletTransaction.clientID) &&
-        Objects.equals(this.clientName, walletTransaction.clientName) &&
-        Objects.equals(this.stationID, walletTransaction.stationID) &&
-        Objects.equals(this.stationName, walletTransaction.stationName) &&
-        Objects.equals(this.transactionType, walletTransaction.transactionType) &&
-        Objects.equals(this.transactionFor, walletTransaction.transactionFor) &&
+        Objects.equals(this.locationID, walletTransaction.locationID) &&
         Objects.equals(this.journalTransactionID, walletTransaction.journalTransactionID) &&
-        Objects.equals(this.clientTypeID, walletTransaction.clientTypeID) &&
-        Objects.equals(this.characterID, walletTransaction.characterID) &&
-        Objects.equals(this.characterName, walletTransaction.characterName) &&
+        Objects.equals(this.buy, walletTransaction.buy) &&
+        Objects.equals(this.personal, walletTransaction.personal) &&
         Objects.equals(this.lifeStartDate, walletTransaction.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, walletTransaction.lifeEndDate) &&
-        Objects.equals(this.dateDate, walletTransaction.dateDate);
+        Objects.equals(this.dateDate, walletTransaction.dateDate) &&
+        Objects.equals(this.accountKey, walletTransaction.accountKey) &&
+        Objects.equals(this.stationID, walletTransaction.stationID) &&
+        Objects.equals(this.transactionType, walletTransaction.transactionType) &&
+        Objects.equals(this.transactionFor, walletTransaction.transactionFor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, accountKey, transactionID, date, quantity, typeName, typeID, price, clientID, clientName, stationID, stationName, transactionType, transactionFor, journalTransactionID, clientTypeID, characterID, characterName, lifeStartDate, lifeEndDate, dateDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, division, transactionID, date, quantity, typeID, price, clientID, locationID, journalTransactionID, buy, personal, lifeStartDate, lifeEndDate, dateDate, accountKey, stationID, transactionType, transactionFor);
   }
 
 
@@ -585,26 +540,24 @@ public class WalletTransaction implements Serializable {
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    accountKey: ").append(toIndentedString(accountKey)).append("\n");
+    sb.append("    division: ").append(toIndentedString(division)).append("\n");
     sb.append("    transactionID: ").append(toIndentedString(transactionID)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-    sb.append("    typeName: ").append(toIndentedString(typeName)).append("\n");
     sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    clientID: ").append(toIndentedString(clientID)).append("\n");
-    sb.append("    clientName: ").append(toIndentedString(clientName)).append("\n");
-    sb.append("    stationID: ").append(toIndentedString(stationID)).append("\n");
-    sb.append("    stationName: ").append(toIndentedString(stationName)).append("\n");
-    sb.append("    transactionType: ").append(toIndentedString(transactionType)).append("\n");
-    sb.append("    transactionFor: ").append(toIndentedString(transactionFor)).append("\n");
+    sb.append("    locationID: ").append(toIndentedString(locationID)).append("\n");
     sb.append("    journalTransactionID: ").append(toIndentedString(journalTransactionID)).append("\n");
-    sb.append("    clientTypeID: ").append(toIndentedString(clientTypeID)).append("\n");
-    sb.append("    characterID: ").append(toIndentedString(characterID)).append("\n");
-    sb.append("    characterName: ").append(toIndentedString(characterName)).append("\n");
+    sb.append("    buy: ").append(toIndentedString(buy)).append("\n");
+    sb.append("    personal: ").append(toIndentedString(personal)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("    dateDate: ").append(toIndentedString(dateDate)).append("\n");
+    sb.append("    accountKey: ").append(toIndentedString(accountKey)).append("\n");
+    sb.append("    stationID: ").append(toIndentedString(stationID)).append("\n");
+    sb.append("    transactionType: ").append(toIndentedString(transactionType)).append("\n");
+    sb.append("    transactionFor: ").append(toIndentedString(transactionFor)).append("\n");
     sb.append("}");
     return sb.toString();
   }

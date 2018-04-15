@@ -26,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class CharacterMailMessageBody implements Serializable {
+public class MemberRoleHistory implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -41,14 +41,23 @@ public class CharacterMailMessageBody implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("messageID")
-  private Long messageID = null;
+  @JsonProperty("characterID")
+  private Integer characterID = null;
 
-  @JsonProperty("retrieved")
-  private Boolean retrieved = false;
+  @JsonProperty("changedAt")
+  private Long changedAt = null;
 
-  @JsonProperty("body")
-  private String body = null;
+  @JsonProperty("issuerID")
+  private Integer issuerID = null;
+
+  @JsonProperty("roleType")
+  private String roleType = null;
+
+  @JsonProperty("roleName")
+  private String roleName = null;
+
+  @JsonProperty("old")
+  private Boolean old = false;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -56,7 +65,7 @@ public class CharacterMailMessageBody implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public CharacterMailMessageBody cid(Long cid) {
+  public MemberRoleHistory cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -74,7 +83,7 @@ public class CharacterMailMessageBody implements Serializable {
     this.cid = cid;
   }
 
-  public CharacterMailMessageBody eveKitVersion(Integer eveKitVersion) {
+  public MemberRoleHistory eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -92,7 +101,7 @@ public class CharacterMailMessageBody implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public CharacterMailMessageBody lifeStart(Long lifeStart) {
+  public MemberRoleHistory lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -110,7 +119,7 @@ public class CharacterMailMessageBody implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public CharacterMailMessageBody lifeEnd(Long lifeEnd) {
+  public MemberRoleHistory lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -128,61 +137,115 @@ public class CharacterMailMessageBody implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CharacterMailMessageBody messageID(Long messageID) {
-    this.messageID = messageID;
+  public MemberRoleHistory characterID(Integer characterID) {
+    this.characterID = characterID;
     return this;
   }
 
    /**
-   * Get messageID
-   * @return messageID
+   * Get characterID
+   * @return characterID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getMessageID() {
-    return messageID;
+  public Integer getCharacterID() {
+    return characterID;
   }
 
-  public void setMessageID(Long messageID) {
-    this.messageID = messageID;
+  public void setCharacterID(Integer characterID) {
+    this.characterID = characterID;
   }
 
-  public CharacterMailMessageBody retrieved(Boolean retrieved) {
-    this.retrieved = retrieved;
+  public MemberRoleHistory changedAt(Long changedAt) {
+    this.changedAt = changedAt;
     return this;
   }
 
    /**
-   * Get retrieved
-   * @return retrieved
+   * Get changedAt
+   * @return changedAt
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Boolean getRetrieved() {
-    return retrieved;
+  public Long getChangedAt() {
+    return changedAt;
   }
 
-  public void setRetrieved(Boolean retrieved) {
-    this.retrieved = retrieved;
+  public void setChangedAt(Long changedAt) {
+    this.changedAt = changedAt;
   }
 
-  public CharacterMailMessageBody body(String body) {
-    this.body = body;
+  public MemberRoleHistory issuerID(Integer issuerID) {
+    this.issuerID = issuerID;
     return this;
   }
 
    /**
-   * Get body
-   * @return body
+   * Get issuerID
+   * @return issuerID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getBody() {
-    return body;
+  public Integer getIssuerID() {
+    return issuerID;
   }
 
-  public void setBody(String body) {
-    this.body = body;
+  public void setIssuerID(Integer issuerID) {
+    this.issuerID = issuerID;
   }
 
-  public CharacterMailMessageBody lifeStartDate(OffsetDateTime lifeStartDate) {
+  public MemberRoleHistory roleType(String roleType) {
+    this.roleType = roleType;
+    return this;
+  }
+
+   /**
+   * Get roleType
+   * @return roleType
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getRoleType() {
+    return roleType;
+  }
+
+  public void setRoleType(String roleType) {
+    this.roleType = roleType;
+  }
+
+  public MemberRoleHistory roleName(String roleName) {
+    this.roleName = roleName;
+    return this;
+  }
+
+   /**
+   * Get roleName
+   * @return roleName
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getRoleName() {
+    return roleName;
+  }
+
+  public void setRoleName(String roleName) {
+    this.roleName = roleName;
+  }
+
+  public MemberRoleHistory old(Boolean old) {
+    this.old = old;
+    return this;
+  }
+
+   /**
+   * Get old
+   * @return old
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getOld() {
+    return old;
+  }
+
+  public void setOld(Boolean old) {
+    this.old = old;
+  }
+
+  public MemberRoleHistory lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -200,7 +263,7 @@ public class CharacterMailMessageBody implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterMailMessageBody lifeEndDate(OffsetDateTime lifeEndDate) {
+  public MemberRoleHistory lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -227,36 +290,42 @@ public class CharacterMailMessageBody implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CharacterMailMessageBody characterMailMessageBody = (CharacterMailMessageBody) o;
-    return Objects.equals(this.cid, characterMailMessageBody.cid) &&
-        Objects.equals(this.eveKitVersion, characterMailMessageBody.eveKitVersion) &&
-        Objects.equals(this.lifeStart, characterMailMessageBody.lifeStart) &&
-        Objects.equals(this.lifeEnd, characterMailMessageBody.lifeEnd) &&
-        Objects.equals(this.messageID, characterMailMessageBody.messageID) &&
-        Objects.equals(this.retrieved, characterMailMessageBody.retrieved) &&
-        Objects.equals(this.body, characterMailMessageBody.body) &&
-        Objects.equals(this.lifeStartDate, characterMailMessageBody.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, characterMailMessageBody.lifeEndDate);
+    MemberRoleHistory memberRoleHistory = (MemberRoleHistory) o;
+    return Objects.equals(this.cid, memberRoleHistory.cid) &&
+        Objects.equals(this.eveKitVersion, memberRoleHistory.eveKitVersion) &&
+        Objects.equals(this.lifeStart, memberRoleHistory.lifeStart) &&
+        Objects.equals(this.lifeEnd, memberRoleHistory.lifeEnd) &&
+        Objects.equals(this.characterID, memberRoleHistory.characterID) &&
+        Objects.equals(this.changedAt, memberRoleHistory.changedAt) &&
+        Objects.equals(this.issuerID, memberRoleHistory.issuerID) &&
+        Objects.equals(this.roleType, memberRoleHistory.roleType) &&
+        Objects.equals(this.roleName, memberRoleHistory.roleName) &&
+        Objects.equals(this.old, memberRoleHistory.old) &&
+        Objects.equals(this.lifeStartDate, memberRoleHistory.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, memberRoleHistory.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, messageID, retrieved, body, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, characterID, changedAt, issuerID, roleType, roleName, old, lifeStartDate, lifeEndDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CharacterMailMessageBody {\n");
+    sb.append("class MemberRoleHistory {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    messageID: ").append(toIndentedString(messageID)).append("\n");
-    sb.append("    retrieved: ").append(toIndentedString(retrieved)).append("\n");
-    sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("    characterID: ").append(toIndentedString(characterID)).append("\n");
+    sb.append("    changedAt: ").append(toIndentedString(changedAt)).append("\n");
+    sb.append("    issuerID: ").append(toIndentedString(issuerID)).append("\n");
+    sb.append("    roleType: ").append(toIndentedString(roleType)).append("\n");
+    sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
+    sb.append("    old: ").append(toIndentedString(old)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

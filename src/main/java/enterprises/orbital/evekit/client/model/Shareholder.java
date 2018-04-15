@@ -42,22 +42,13 @@ public class Shareholder implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("shareholderID")
-  private Long shareholderID = null;
+  private Integer shareholderID = null;
 
-  @JsonProperty("shareholderCorporationID")
-  private Long shareholderCorporationID = null;
-
-  @JsonProperty("shareholderCorporationName")
-  private String shareholderCorporationName = null;
-
-  @JsonProperty("shareholderName")
-  private String shareholderName = null;
+  @JsonProperty("shareholderType")
+  private String shareholderType = null;
 
   @JsonProperty("shares")
-  private Integer shares = null;
-
-  @JsonProperty("corporation")
-  private Boolean corporation = false;
+  private Long shares = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -137,7 +128,7 @@ public class Shareholder implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public Shareholder shareholderID(Long shareholderID) {
+  public Shareholder shareholderID(Integer shareholderID) {
     this.shareholderID = shareholderID;
     return this;
   }
@@ -147,69 +138,33 @@ public class Shareholder implements Serializable {
    * @return shareholderID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getShareholderID() {
+  public Integer getShareholderID() {
     return shareholderID;
   }
 
-  public void setShareholderID(Long shareholderID) {
+  public void setShareholderID(Integer shareholderID) {
     this.shareholderID = shareholderID;
   }
 
-  public Shareholder shareholderCorporationID(Long shareholderCorporationID) {
-    this.shareholderCorporationID = shareholderCorporationID;
+  public Shareholder shareholderType(String shareholderType) {
+    this.shareholderType = shareholderType;
     return this;
   }
 
    /**
-   * Get shareholderCorporationID
-   * @return shareholderCorporationID
+   * Get shareholderType
+   * @return shareholderType
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getShareholderCorporationID() {
-    return shareholderCorporationID;
+  public String getShareholderType() {
+    return shareholderType;
   }
 
-  public void setShareholderCorporationID(Long shareholderCorporationID) {
-    this.shareholderCorporationID = shareholderCorporationID;
+  public void setShareholderType(String shareholderType) {
+    this.shareholderType = shareholderType;
   }
 
-  public Shareholder shareholderCorporationName(String shareholderCorporationName) {
-    this.shareholderCorporationName = shareholderCorporationName;
-    return this;
-  }
-
-   /**
-   * Get shareholderCorporationName
-   * @return shareholderCorporationName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getShareholderCorporationName() {
-    return shareholderCorporationName;
-  }
-
-  public void setShareholderCorporationName(String shareholderCorporationName) {
-    this.shareholderCorporationName = shareholderCorporationName;
-  }
-
-  public Shareholder shareholderName(String shareholderName) {
-    this.shareholderName = shareholderName;
-    return this;
-  }
-
-   /**
-   * Get shareholderName
-   * @return shareholderName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getShareholderName() {
-    return shareholderName;
-  }
-
-  public void setShareholderName(String shareholderName) {
-    this.shareholderName = shareholderName;
-  }
-
-  public Shareholder shares(Integer shares) {
+  public Shareholder shares(Long shares) {
     this.shares = shares;
     return this;
   }
@@ -219,30 +174,12 @@ public class Shareholder implements Serializable {
    * @return shares
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getShares() {
+  public Long getShares() {
     return shares;
   }
 
-  public void setShares(Integer shares) {
+  public void setShares(Long shares) {
     this.shares = shares;
-  }
-
-  public Shareholder corporation(Boolean corporation) {
-    this.corporation = corporation;
-    return this;
-  }
-
-   /**
-   * Get corporation
-   * @return corporation
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getCorporation() {
-    return corporation;
-  }
-
-  public void setCorporation(Boolean corporation) {
-    this.corporation = corporation;
   }
 
   public Shareholder lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -296,18 +233,15 @@ public class Shareholder implements Serializable {
         Objects.equals(this.lifeStart, shareholder.lifeStart) &&
         Objects.equals(this.lifeEnd, shareholder.lifeEnd) &&
         Objects.equals(this.shareholderID, shareholder.shareholderID) &&
-        Objects.equals(this.shareholderCorporationID, shareholder.shareholderCorporationID) &&
-        Objects.equals(this.shareholderCorporationName, shareholder.shareholderCorporationName) &&
-        Objects.equals(this.shareholderName, shareholder.shareholderName) &&
+        Objects.equals(this.shareholderType, shareholder.shareholderType) &&
         Objects.equals(this.shares, shareholder.shares) &&
-        Objects.equals(this.corporation, shareholder.corporation) &&
         Objects.equals(this.lifeStartDate, shareholder.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, shareholder.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, shareholderID, shareholderCorporationID, shareholderCorporationName, shareholderName, shares, corporation, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, shareholderID, shareholderType, shares, lifeStartDate, lifeEndDate);
   }
 
 
@@ -321,11 +255,8 @@ public class Shareholder implements Serializable {
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    shareholderID: ").append(toIndentedString(shareholderID)).append("\n");
-    sb.append("    shareholderCorporationID: ").append(toIndentedString(shareholderCorporationID)).append("\n");
-    sb.append("    shareholderCorporationName: ").append(toIndentedString(shareholderCorporationName)).append("\n");
-    sb.append("    shareholderName: ").append(toIndentedString(shareholderName)).append("\n");
+    sb.append("    shareholderType: ").append(toIndentedString(shareholderType)).append("\n");
     sb.append("    shares: ").append(toIndentedString(shares)).append("\n");
-    sb.append("    corporation: ").append(toIndentedString(corporation)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

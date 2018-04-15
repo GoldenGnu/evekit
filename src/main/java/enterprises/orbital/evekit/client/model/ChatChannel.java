@@ -42,13 +42,10 @@ public class ChatChannel implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("channelID")
-  private Long channelID = null;
+  private Integer channelID = null;
 
   @JsonProperty("ownerID")
-  private Long ownerID = null;
-
-  @JsonProperty("ownerName")
-  private String ownerName = null;
+  private Integer ownerID = null;
 
   @JsonProperty("displayName")
   private String displayName = null;
@@ -140,7 +137,7 @@ public class ChatChannel implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public ChatChannel channelID(Long channelID) {
+  public ChatChannel channelID(Integer channelID) {
     this.channelID = channelID;
     return this;
   }
@@ -150,15 +147,15 @@ public class ChatChannel implements Serializable {
    * @return channelID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getChannelID() {
+  public Integer getChannelID() {
     return channelID;
   }
 
-  public void setChannelID(Long channelID) {
+  public void setChannelID(Integer channelID) {
     this.channelID = channelID;
   }
 
-  public ChatChannel ownerID(Long ownerID) {
+  public ChatChannel ownerID(Integer ownerID) {
     this.ownerID = ownerID;
     return this;
   }
@@ -168,30 +165,12 @@ public class ChatChannel implements Serializable {
    * @return ownerID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getOwnerID() {
+  public Integer getOwnerID() {
     return ownerID;
   }
 
-  public void setOwnerID(Long ownerID) {
+  public void setOwnerID(Integer ownerID) {
     this.ownerID = ownerID;
-  }
-
-  public ChatChannel ownerName(String ownerName) {
-    this.ownerName = ownerName;
-    return this;
-  }
-
-   /**
-   * Get ownerName
-   * @return ownerName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getOwnerName() {
-    return ownerName;
-  }
-
-  public void setOwnerName(String ownerName) {
-    this.ownerName = ownerName;
   }
 
   public ChatChannel displayName(String displayName) {
@@ -318,7 +297,6 @@ public class ChatChannel implements Serializable {
         Objects.equals(this.lifeEnd, chatChannel.lifeEnd) &&
         Objects.equals(this.channelID, chatChannel.channelID) &&
         Objects.equals(this.ownerID, chatChannel.ownerID) &&
-        Objects.equals(this.ownerName, chatChannel.ownerName) &&
         Objects.equals(this.displayName, chatChannel.displayName) &&
         Objects.equals(this.comparisonKey, chatChannel.comparisonKey) &&
         Objects.equals(this.hasPassword, chatChannel.hasPassword) &&
@@ -329,7 +307,7 @@ public class ChatChannel implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, channelID, ownerID, ownerName, displayName, comparisonKey, hasPassword, motd, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, channelID, ownerID, displayName, comparisonKey, hasPassword, motd, lifeStartDate, lifeEndDate);
   }
 
 
@@ -344,7 +322,6 @@ public class ChatChannel implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    channelID: ").append(toIndentedString(channelID)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
-    sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    comparisonKey: ").append(toIndentedString(comparisonKey)).append("\n");
     sb.append("    hasPassword: ").append(toIndentedString(hasPassword)).append("\n");

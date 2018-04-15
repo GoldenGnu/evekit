@@ -26,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class CharacterNotificationBody implements Serializable {
+public class MemberRole implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -41,17 +41,23 @@ public class CharacterNotificationBody implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("notificationID")
-  private Long notificationID = null;
+  @JsonProperty("characterID")
+  private Integer characterID = null;
 
-  @JsonProperty("retrieved")
-  private Boolean retrieved = false;
+  @JsonProperty("roleName")
+  private String roleName = null;
 
-  @JsonProperty("text")
-  private String text = null;
+  @JsonProperty("grantable")
+  private Boolean grantable = false;
 
-  @JsonProperty("missing")
-  private Boolean missing = false;
+  @JsonProperty("atHQ")
+  private Boolean atHQ = false;
+
+  @JsonProperty("atBase")
+  private Boolean atBase = false;
+
+  @JsonProperty("atOther")
+  private Boolean atOther = false;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -59,7 +65,7 @@ public class CharacterNotificationBody implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public CharacterNotificationBody cid(Long cid) {
+  public MemberRole cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -77,7 +83,7 @@ public class CharacterNotificationBody implements Serializable {
     this.cid = cid;
   }
 
-  public CharacterNotificationBody eveKitVersion(Integer eveKitVersion) {
+  public MemberRole eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -95,7 +101,7 @@ public class CharacterNotificationBody implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public CharacterNotificationBody lifeStart(Long lifeStart) {
+  public MemberRole lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -113,7 +119,7 @@ public class CharacterNotificationBody implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public CharacterNotificationBody lifeEnd(Long lifeEnd) {
+  public MemberRole lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -131,79 +137,115 @@ public class CharacterNotificationBody implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CharacterNotificationBody notificationID(Long notificationID) {
-    this.notificationID = notificationID;
+  public MemberRole characterID(Integer characterID) {
+    this.characterID = characterID;
     return this;
   }
 
    /**
-   * Get notificationID
-   * @return notificationID
+   * Get characterID
+   * @return characterID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getNotificationID() {
-    return notificationID;
+  public Integer getCharacterID() {
+    return characterID;
   }
 
-  public void setNotificationID(Long notificationID) {
-    this.notificationID = notificationID;
+  public void setCharacterID(Integer characterID) {
+    this.characterID = characterID;
   }
 
-  public CharacterNotificationBody retrieved(Boolean retrieved) {
-    this.retrieved = retrieved;
+  public MemberRole roleName(String roleName) {
+    this.roleName = roleName;
     return this;
   }
 
    /**
-   * Get retrieved
-   * @return retrieved
+   * Get roleName
+   * @return roleName
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Boolean getRetrieved() {
-    return retrieved;
+  public String getRoleName() {
+    return roleName;
   }
 
-  public void setRetrieved(Boolean retrieved) {
-    this.retrieved = retrieved;
+  public void setRoleName(String roleName) {
+    this.roleName = roleName;
   }
 
-  public CharacterNotificationBody text(String text) {
-    this.text = text;
+  public MemberRole grantable(Boolean grantable) {
+    this.grantable = grantable;
     return this;
   }
 
    /**
-   * Get text
-   * @return text
+   * Get grantable
+   * @return grantable
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getText() {
-    return text;
+  public Boolean getGrantable() {
+    return grantable;
   }
 
-  public void setText(String text) {
-    this.text = text;
+  public void setGrantable(Boolean grantable) {
+    this.grantable = grantable;
   }
 
-  public CharacterNotificationBody missing(Boolean missing) {
-    this.missing = missing;
+  public MemberRole atHQ(Boolean atHQ) {
+    this.atHQ = atHQ;
     return this;
   }
 
    /**
-   * Get missing
-   * @return missing
+   * Get atHQ
+   * @return atHQ
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Boolean getMissing() {
-    return missing;
+  public Boolean getAtHQ() {
+    return atHQ;
   }
 
-  public void setMissing(Boolean missing) {
-    this.missing = missing;
+  public void setAtHQ(Boolean atHQ) {
+    this.atHQ = atHQ;
   }
 
-  public CharacterNotificationBody lifeStartDate(OffsetDateTime lifeStartDate) {
+  public MemberRole atBase(Boolean atBase) {
+    this.atBase = atBase;
+    return this;
+  }
+
+   /**
+   * Get atBase
+   * @return atBase
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getAtBase() {
+    return atBase;
+  }
+
+  public void setAtBase(Boolean atBase) {
+    this.atBase = atBase;
+  }
+
+  public MemberRole atOther(Boolean atOther) {
+    this.atOther = atOther;
+    return this;
+  }
+
+   /**
+   * Get atOther
+   * @return atOther
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getAtOther() {
+    return atOther;
+  }
+
+  public void setAtOther(Boolean atOther) {
+    this.atOther = atOther;
+  }
+
+  public MemberRole lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -221,7 +263,7 @@ public class CharacterNotificationBody implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterNotificationBody lifeEndDate(OffsetDateTime lifeEndDate) {
+  public MemberRole lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -248,38 +290,42 @@ public class CharacterNotificationBody implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CharacterNotificationBody characterNotificationBody = (CharacterNotificationBody) o;
-    return Objects.equals(this.cid, characterNotificationBody.cid) &&
-        Objects.equals(this.eveKitVersion, characterNotificationBody.eveKitVersion) &&
-        Objects.equals(this.lifeStart, characterNotificationBody.lifeStart) &&
-        Objects.equals(this.lifeEnd, characterNotificationBody.lifeEnd) &&
-        Objects.equals(this.notificationID, characterNotificationBody.notificationID) &&
-        Objects.equals(this.retrieved, characterNotificationBody.retrieved) &&
-        Objects.equals(this.text, characterNotificationBody.text) &&
-        Objects.equals(this.missing, characterNotificationBody.missing) &&
-        Objects.equals(this.lifeStartDate, characterNotificationBody.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, characterNotificationBody.lifeEndDate);
+    MemberRole memberRole = (MemberRole) o;
+    return Objects.equals(this.cid, memberRole.cid) &&
+        Objects.equals(this.eveKitVersion, memberRole.eveKitVersion) &&
+        Objects.equals(this.lifeStart, memberRole.lifeStart) &&
+        Objects.equals(this.lifeEnd, memberRole.lifeEnd) &&
+        Objects.equals(this.characterID, memberRole.characterID) &&
+        Objects.equals(this.roleName, memberRole.roleName) &&
+        Objects.equals(this.grantable, memberRole.grantable) &&
+        Objects.equals(this.atHQ, memberRole.atHQ) &&
+        Objects.equals(this.atBase, memberRole.atBase) &&
+        Objects.equals(this.atOther, memberRole.atOther) &&
+        Objects.equals(this.lifeStartDate, memberRole.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, memberRole.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, notificationID, retrieved, text, missing, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, characterID, roleName, grantable, atHQ, atBase, atOther, lifeStartDate, lifeEndDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CharacterNotificationBody {\n");
+    sb.append("class MemberRole {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    notificationID: ").append(toIndentedString(notificationID)).append("\n");
-    sb.append("    retrieved: ").append(toIndentedString(retrieved)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
-    sb.append("    missing: ").append(toIndentedString(missing)).append("\n");
+    sb.append("    characterID: ").append(toIndentedString(characterID)).append("\n");
+    sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
+    sb.append("    grantable: ").append(toIndentedString(grantable)).append("\n");
+    sb.append("    atHQ: ").append(toIndentedString(atHQ)).append("\n");
+    sb.append("    atBase: ").append(toIndentedString(atBase)).append("\n");
+    sb.append("    atOther: ").append(toIndentedString(atOther)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

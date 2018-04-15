@@ -44,14 +44,11 @@ public class ResearchAgent implements Serializable {
   @JsonProperty("agentID")
   private Integer agentID = null;
 
-  @JsonProperty("currentPoints")
-  private Double currentPoints = null;
-
   @JsonProperty("pointsPerDay")
-  private Double pointsPerDay = null;
+  private Float pointsPerDay = null;
 
   @JsonProperty("remainderPoints")
-  private Double remainderPoints = null;
+  private Float remainderPoints = null;
 
   @JsonProperty("researchStartDate")
   private Long researchStartDate = null;
@@ -158,25 +155,7 @@ public class ResearchAgent implements Serializable {
     this.agentID = agentID;
   }
 
-  public ResearchAgent currentPoints(Double currentPoints) {
-    this.currentPoints = currentPoints;
-    return this;
-  }
-
-   /**
-   * Get currentPoints
-   * @return currentPoints
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getCurrentPoints() {
-    return currentPoints;
-  }
-
-  public void setCurrentPoints(Double currentPoints) {
-    this.currentPoints = currentPoints;
-  }
-
-  public ResearchAgent pointsPerDay(Double pointsPerDay) {
+  public ResearchAgent pointsPerDay(Float pointsPerDay) {
     this.pointsPerDay = pointsPerDay;
     return this;
   }
@@ -186,15 +165,15 @@ public class ResearchAgent implements Serializable {
    * @return pointsPerDay
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getPointsPerDay() {
+  public Float getPointsPerDay() {
     return pointsPerDay;
   }
 
-  public void setPointsPerDay(Double pointsPerDay) {
+  public void setPointsPerDay(Float pointsPerDay) {
     this.pointsPerDay = pointsPerDay;
   }
 
-  public ResearchAgent remainderPoints(Double remainderPoints) {
+  public ResearchAgent remainderPoints(Float remainderPoints) {
     this.remainderPoints = remainderPoints;
     return this;
   }
@@ -204,11 +183,11 @@ public class ResearchAgent implements Serializable {
    * @return remainderPoints
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getRemainderPoints() {
+  public Float getRemainderPoints() {
     return remainderPoints;
   }
 
-  public void setRemainderPoints(Double remainderPoints) {
+  public void setRemainderPoints(Float remainderPoints) {
     this.remainderPoints = remainderPoints;
   }
 
@@ -317,7 +296,6 @@ public class ResearchAgent implements Serializable {
         Objects.equals(this.lifeStart, researchAgent.lifeStart) &&
         Objects.equals(this.lifeEnd, researchAgent.lifeEnd) &&
         Objects.equals(this.agentID, researchAgent.agentID) &&
-        Objects.equals(this.currentPoints, researchAgent.currentPoints) &&
         Objects.equals(this.pointsPerDay, researchAgent.pointsPerDay) &&
         Objects.equals(this.remainderPoints, researchAgent.remainderPoints) &&
         Objects.equals(this.researchStartDate, researchAgent.researchStartDate) &&
@@ -329,7 +307,7 @@ public class ResearchAgent implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, agentID, currentPoints, pointsPerDay, remainderPoints, researchStartDate, skillTypeID, lifeStartDate, lifeEndDate, researchStartDateDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, agentID, pointsPerDay, remainderPoints, researchStartDate, skillTypeID, lifeStartDate, lifeEndDate, researchStartDateDate);
   }
 
 
@@ -343,7 +321,6 @@ public class ResearchAgent implements Serializable {
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    agentID: ").append(toIndentedString(agentID)).append("\n");
-    sb.append("    currentPoints: ").append(toIndentedString(currentPoints)).append("\n");
     sb.append("    pointsPerDay: ").append(toIndentedString(pointsPerDay)).append("\n");
     sb.append("    remainderPoints: ").append(toIndentedString(remainderPoints)).append("\n");
     sb.append("    researchStartDate: ").append(toIndentedString(researchStartDate)).append("\n");

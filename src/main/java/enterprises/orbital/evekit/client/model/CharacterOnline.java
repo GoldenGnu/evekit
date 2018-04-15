@@ -26,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class CharacterSkill implements Serializable {
+public class CharacterOnline implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -41,17 +41,17 @@ public class CharacterSkill implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("typeID")
-  private Integer typeID = null;
+  @JsonProperty("online")
+  private Boolean online = false;
 
-  @JsonProperty("trainedSkillLevel")
-  private Integer trainedSkillLevel = null;
+  @JsonProperty("lastLogin")
+  private Long lastLogin = null;
 
-  @JsonProperty("skillpoints")
-  private Long skillpoints = null;
+  @JsonProperty("lastLogout")
+  private Long lastLogout = null;
 
-  @JsonProperty("activeSkillLevel")
-  private Integer activeSkillLevel = null;
+  @JsonProperty("logins")
+  private Integer logins = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -59,7 +59,13 @@ public class CharacterSkill implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public CharacterSkill cid(Long cid) {
+  @JsonProperty("lastLoginDate")
+  private OffsetDateTime lastLoginDate = null;
+
+  @JsonProperty("lastLogoutDate")
+  private OffsetDateTime lastLogoutDate = null;
+
+  public CharacterOnline cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -77,7 +83,7 @@ public class CharacterSkill implements Serializable {
     this.cid = cid;
   }
 
-  public CharacterSkill eveKitVersion(Integer eveKitVersion) {
+  public CharacterOnline eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -95,7 +101,7 @@ public class CharacterSkill implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public CharacterSkill lifeStart(Long lifeStart) {
+  public CharacterOnline lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -113,7 +119,7 @@ public class CharacterSkill implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public CharacterSkill lifeEnd(Long lifeEnd) {
+  public CharacterOnline lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -131,79 +137,79 @@ public class CharacterSkill implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CharacterSkill typeID(Integer typeID) {
-    this.typeID = typeID;
+  public CharacterOnline online(Boolean online) {
+    this.online = online;
     return this;
   }
 
    /**
-   * Get typeID
-   * @return typeID
+   * Get online
+   * @return online
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getTypeID() {
-    return typeID;
+  public Boolean getOnline() {
+    return online;
   }
 
-  public void setTypeID(Integer typeID) {
-    this.typeID = typeID;
+  public void setOnline(Boolean online) {
+    this.online = online;
   }
 
-  public CharacterSkill trainedSkillLevel(Integer trainedSkillLevel) {
-    this.trainedSkillLevel = trainedSkillLevel;
+  public CharacterOnline lastLogin(Long lastLogin) {
+    this.lastLogin = lastLogin;
     return this;
   }
 
    /**
-   * Get trainedSkillLevel
-   * @return trainedSkillLevel
+   * Get lastLogin
+   * @return lastLogin
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getTrainedSkillLevel() {
-    return trainedSkillLevel;
+  public Long getLastLogin() {
+    return lastLogin;
   }
 
-  public void setTrainedSkillLevel(Integer trainedSkillLevel) {
-    this.trainedSkillLevel = trainedSkillLevel;
+  public void setLastLogin(Long lastLogin) {
+    this.lastLogin = lastLogin;
   }
 
-  public CharacterSkill skillpoints(Long skillpoints) {
-    this.skillpoints = skillpoints;
+  public CharacterOnline lastLogout(Long lastLogout) {
+    this.lastLogout = lastLogout;
     return this;
   }
 
    /**
-   * Get skillpoints
-   * @return skillpoints
+   * Get lastLogout
+   * @return lastLogout
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getSkillpoints() {
-    return skillpoints;
+  public Long getLastLogout() {
+    return lastLogout;
   }
 
-  public void setSkillpoints(Long skillpoints) {
-    this.skillpoints = skillpoints;
+  public void setLastLogout(Long lastLogout) {
+    this.lastLogout = lastLogout;
   }
 
-  public CharacterSkill activeSkillLevel(Integer activeSkillLevel) {
-    this.activeSkillLevel = activeSkillLevel;
+  public CharacterOnline logins(Integer logins) {
+    this.logins = logins;
     return this;
   }
 
    /**
-   * Get activeSkillLevel
-   * @return activeSkillLevel
+   * Get logins
+   * @return logins
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getActiveSkillLevel() {
-    return activeSkillLevel;
+  public Integer getLogins() {
+    return logins;
   }
 
-  public void setActiveSkillLevel(Integer activeSkillLevel) {
-    this.activeSkillLevel = activeSkillLevel;
+  public void setLogins(Integer logins) {
+    this.logins = logins;
   }
 
-  public CharacterSkill lifeStartDate(OffsetDateTime lifeStartDate) {
+  public CharacterOnline lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -221,7 +227,7 @@ public class CharacterSkill implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterSkill lifeEndDate(OffsetDateTime lifeEndDate) {
+  public CharacterOnline lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -239,6 +245,42 @@ public class CharacterSkill implements Serializable {
     this.lifeEndDate = lifeEndDate;
   }
 
+  public CharacterOnline lastLoginDate(OffsetDateTime lastLoginDate) {
+    this.lastLoginDate = lastLoginDate;
+    return this;
+  }
+
+   /**
+   * lastLogin Date
+   * @return lastLoginDate
+  **/
+  @ApiModelProperty(example = "null", value = "lastLogin Date")
+  public OffsetDateTime getLastLoginDate() {
+    return lastLoginDate;
+  }
+
+  public void setLastLoginDate(OffsetDateTime lastLoginDate) {
+    this.lastLoginDate = lastLoginDate;
+  }
+
+  public CharacterOnline lastLogoutDate(OffsetDateTime lastLogoutDate) {
+    this.lastLogoutDate = lastLogoutDate;
+    return this;
+  }
+
+   /**
+   * lastLogout Date
+   * @return lastLogoutDate
+  **/
+  @ApiModelProperty(example = "null", value = "lastLogout Date")
+  public OffsetDateTime getLastLogoutDate() {
+    return lastLogoutDate;
+  }
+
+  public void setLastLogoutDate(OffsetDateTime lastLogoutDate) {
+    this.lastLogoutDate = lastLogoutDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -248,40 +290,44 @@ public class CharacterSkill implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CharacterSkill characterSkill = (CharacterSkill) o;
-    return Objects.equals(this.cid, characterSkill.cid) &&
-        Objects.equals(this.eveKitVersion, characterSkill.eveKitVersion) &&
-        Objects.equals(this.lifeStart, characterSkill.lifeStart) &&
-        Objects.equals(this.lifeEnd, characterSkill.lifeEnd) &&
-        Objects.equals(this.typeID, characterSkill.typeID) &&
-        Objects.equals(this.trainedSkillLevel, characterSkill.trainedSkillLevel) &&
-        Objects.equals(this.skillpoints, characterSkill.skillpoints) &&
-        Objects.equals(this.activeSkillLevel, characterSkill.activeSkillLevel) &&
-        Objects.equals(this.lifeStartDate, characterSkill.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, characterSkill.lifeEndDate);
+    CharacterOnline characterOnline = (CharacterOnline) o;
+    return Objects.equals(this.cid, characterOnline.cid) &&
+        Objects.equals(this.eveKitVersion, characterOnline.eveKitVersion) &&
+        Objects.equals(this.lifeStart, characterOnline.lifeStart) &&
+        Objects.equals(this.lifeEnd, characterOnline.lifeEnd) &&
+        Objects.equals(this.online, characterOnline.online) &&
+        Objects.equals(this.lastLogin, characterOnline.lastLogin) &&
+        Objects.equals(this.lastLogout, characterOnline.lastLogout) &&
+        Objects.equals(this.logins, characterOnline.logins) &&
+        Objects.equals(this.lifeStartDate, characterOnline.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, characterOnline.lifeEndDate) &&
+        Objects.equals(this.lastLoginDate, characterOnline.lastLoginDate) &&
+        Objects.equals(this.lastLogoutDate, characterOnline.lastLogoutDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, typeID, trainedSkillLevel, skillpoints, activeSkillLevel, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, online, lastLogin, lastLogout, logins, lifeStartDate, lifeEndDate, lastLoginDate, lastLogoutDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CharacterSkill {\n");
+    sb.append("class CharacterOnline {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
-    sb.append("    trainedSkillLevel: ").append(toIndentedString(trainedSkillLevel)).append("\n");
-    sb.append("    skillpoints: ").append(toIndentedString(skillpoints)).append("\n");
-    sb.append("    activeSkillLevel: ").append(toIndentedString(activeSkillLevel)).append("\n");
+    sb.append("    online: ").append(toIndentedString(online)).append("\n");
+    sb.append("    lastLogin: ").append(toIndentedString(lastLogin)).append("\n");
+    sb.append("    lastLogout: ").append(toIndentedString(lastLogout)).append("\n");
+    sb.append("    logins: ").append(toIndentedString(logins)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
+    sb.append("    lastLoginDate: ").append(toIndentedString(lastLoginDate)).append("\n");
+    sb.append("    lastLogoutDate: ").append(toIndentedString(lastLogoutDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

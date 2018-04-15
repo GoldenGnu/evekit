@@ -47,23 +47,23 @@ public class Asset implements Serializable {
   @JsonProperty("locationID")
   private Long locationID = null;
 
+  @JsonProperty("locationType")
+  private String locationType = null;
+
+  @JsonProperty("locationFlag")
+  private String locationFlag = null;
+
   @JsonProperty("typeID")
   private Integer typeID = null;
 
   @JsonProperty("quantity")
-  private Long quantity = null;
-
-  @JsonProperty("flag")
-  private Integer flag = null;
+  private Integer quantity = null;
 
   @JsonProperty("singleton")
   private Boolean singleton = false;
 
-  @JsonProperty("rawQuantity")
-  private Long rawQuantity = null;
-
-  @JsonProperty("container")
-  private Long container = null;
+  @JsonProperty("blueprintType")
+  private String blueprintType = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -179,6 +179,42 @@ public class Asset implements Serializable {
     this.locationID = locationID;
   }
 
+  public Asset locationType(String locationType) {
+    this.locationType = locationType;
+    return this;
+  }
+
+   /**
+   * Get locationType
+   * @return locationType
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getLocationType() {
+    return locationType;
+  }
+
+  public void setLocationType(String locationType) {
+    this.locationType = locationType;
+  }
+
+  public Asset locationFlag(String locationFlag) {
+    this.locationFlag = locationFlag;
+    return this;
+  }
+
+   /**
+   * Get locationFlag
+   * @return locationFlag
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getLocationFlag() {
+    return locationFlag;
+  }
+
+  public void setLocationFlag(String locationFlag) {
+    this.locationFlag = locationFlag;
+  }
+
   public Asset typeID(Integer typeID) {
     this.typeID = typeID;
     return this;
@@ -197,7 +233,7 @@ public class Asset implements Serializable {
     this.typeID = typeID;
   }
 
-  public Asset quantity(Long quantity) {
+  public Asset quantity(Integer quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -207,30 +243,12 @@ public class Asset implements Serializable {
    * @return quantity
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getQuantity() {
+  public Integer getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(Long quantity) {
+  public void setQuantity(Integer quantity) {
     this.quantity = quantity;
-  }
-
-  public Asset flag(Integer flag) {
-    this.flag = flag;
-    return this;
-  }
-
-   /**
-   * Get flag
-   * @return flag
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getFlag() {
-    return flag;
-  }
-
-  public void setFlag(Integer flag) {
-    this.flag = flag;
   }
 
   public Asset singleton(Boolean singleton) {
@@ -251,40 +269,22 @@ public class Asset implements Serializable {
     this.singleton = singleton;
   }
 
-  public Asset rawQuantity(Long rawQuantity) {
-    this.rawQuantity = rawQuantity;
+  public Asset blueprintType(String blueprintType) {
+    this.blueprintType = blueprintType;
     return this;
   }
 
    /**
-   * Get rawQuantity
-   * @return rawQuantity
+   * Get blueprintType
+   * @return blueprintType
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getRawQuantity() {
-    return rawQuantity;
+  public String getBlueprintType() {
+    return blueprintType;
   }
 
-  public void setRawQuantity(Long rawQuantity) {
-    this.rawQuantity = rawQuantity;
-  }
-
-  public Asset container(Long container) {
-    this.container = container;
-    return this;
-  }
-
-   /**
-   * Get container
-   * @return container
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getContainer() {
-    return container;
-  }
-
-  public void setContainer(Long container) {
-    this.container = container;
+  public void setBlueprintType(String blueprintType) {
+    this.blueprintType = blueprintType;
   }
 
   public Asset lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -339,19 +339,19 @@ public class Asset implements Serializable {
         Objects.equals(this.lifeEnd, asset.lifeEnd) &&
         Objects.equals(this.itemID, asset.itemID) &&
         Objects.equals(this.locationID, asset.locationID) &&
+        Objects.equals(this.locationType, asset.locationType) &&
+        Objects.equals(this.locationFlag, asset.locationFlag) &&
         Objects.equals(this.typeID, asset.typeID) &&
         Objects.equals(this.quantity, asset.quantity) &&
-        Objects.equals(this.flag, asset.flag) &&
         Objects.equals(this.singleton, asset.singleton) &&
-        Objects.equals(this.rawQuantity, asset.rawQuantity) &&
-        Objects.equals(this.container, asset.container) &&
+        Objects.equals(this.blueprintType, asset.blueprintType) &&
         Objects.equals(this.lifeStartDate, asset.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, asset.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, itemID, locationID, typeID, quantity, flag, singleton, rawQuantity, container, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, itemID, locationID, locationType, locationFlag, typeID, quantity, singleton, blueprintType, lifeStartDate, lifeEndDate);
   }
 
 
@@ -366,12 +366,12 @@ public class Asset implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    itemID: ").append(toIndentedString(itemID)).append("\n");
     sb.append("    locationID: ").append(toIndentedString(locationID)).append("\n");
+    sb.append("    locationType: ").append(toIndentedString(locationType)).append("\n");
+    sb.append("    locationFlag: ").append(toIndentedString(locationFlag)).append("\n");
     sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-    sb.append("    flag: ").append(toIndentedString(flag)).append("\n");
     sb.append("    singleton: ").append(toIndentedString(singleton)).append("\n");
-    sb.append("    rawQuantity: ").append(toIndentedString(rawQuantity)).append("\n");
-    sb.append("    container: ").append(toIndentedString(container)).append("\n");
+    sb.append("    blueprintType: ").append(toIndentedString(blueprintType)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

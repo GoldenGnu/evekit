@@ -19,8 +19,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -44,34 +42,10 @@ public class CorporationTitle implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("titleID")
-  private Long titleID = null;
+  private Integer titleID = null;
 
   @JsonProperty("titleName")
   private String titleName = null;
-
-  @JsonProperty("grantableRoles")
-  private List<Long> grantableRoles = new ArrayList<Long>();
-
-  @JsonProperty("grantableRolesAtBase")
-  private List<Long> grantableRolesAtBase = new ArrayList<Long>();
-
-  @JsonProperty("grantableRolesAtHQ")
-  private List<Long> grantableRolesAtHQ = new ArrayList<Long>();
-
-  @JsonProperty("grantableRolesAtOther")
-  private List<Long> grantableRolesAtOther = new ArrayList<Long>();
-
-  @JsonProperty("roles")
-  private List<Long> roles = new ArrayList<Long>();
-
-  @JsonProperty("rolesAtBase")
-  private List<Long> rolesAtBase = new ArrayList<Long>();
-
-  @JsonProperty("rolesAtHQ")
-  private List<Long> rolesAtHQ = new ArrayList<Long>();
-
-  @JsonProperty("rolesAtOther")
-  private List<Long> rolesAtOther = new ArrayList<Long>();
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -151,7 +125,7 @@ public class CorporationTitle implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CorporationTitle titleID(Long titleID) {
+  public CorporationTitle titleID(Integer titleID) {
     this.titleID = titleID;
     return this;
   }
@@ -161,11 +135,11 @@ public class CorporationTitle implements Serializable {
    * @return titleID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getTitleID() {
+  public Integer getTitleID() {
     return titleID;
   }
 
-  public void setTitleID(Long titleID) {
+  public void setTitleID(Integer titleID) {
     this.titleID = titleID;
   }
 
@@ -185,190 +159,6 @@ public class CorporationTitle implements Serializable {
 
   public void setTitleName(String titleName) {
     this.titleName = titleName;
-  }
-
-  public CorporationTitle grantableRoles(List<Long> grantableRoles) {
-    this.grantableRoles = grantableRoles;
-    return this;
-  }
-
-  public CorporationTitle addGrantableRolesItem(Long grantableRolesItem) {
-    this.grantableRoles.add(grantableRolesItem);
-    return this;
-  }
-
-   /**
-   * Get grantableRoles
-   * @return grantableRoles
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<Long> getGrantableRoles() {
-    return grantableRoles;
-  }
-
-  public void setGrantableRoles(List<Long> grantableRoles) {
-    this.grantableRoles = grantableRoles;
-  }
-
-  public CorporationTitle grantableRolesAtBase(List<Long> grantableRolesAtBase) {
-    this.grantableRolesAtBase = grantableRolesAtBase;
-    return this;
-  }
-
-  public CorporationTitle addGrantableRolesAtBaseItem(Long grantableRolesAtBaseItem) {
-    this.grantableRolesAtBase.add(grantableRolesAtBaseItem);
-    return this;
-  }
-
-   /**
-   * Get grantableRolesAtBase
-   * @return grantableRolesAtBase
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<Long> getGrantableRolesAtBase() {
-    return grantableRolesAtBase;
-  }
-
-  public void setGrantableRolesAtBase(List<Long> grantableRolesAtBase) {
-    this.grantableRolesAtBase = grantableRolesAtBase;
-  }
-
-  public CorporationTitle grantableRolesAtHQ(List<Long> grantableRolesAtHQ) {
-    this.grantableRolesAtHQ = grantableRolesAtHQ;
-    return this;
-  }
-
-  public CorporationTitle addGrantableRolesAtHQItem(Long grantableRolesAtHQItem) {
-    this.grantableRolesAtHQ.add(grantableRolesAtHQItem);
-    return this;
-  }
-
-   /**
-   * Get grantableRolesAtHQ
-   * @return grantableRolesAtHQ
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<Long> getGrantableRolesAtHQ() {
-    return grantableRolesAtHQ;
-  }
-
-  public void setGrantableRolesAtHQ(List<Long> grantableRolesAtHQ) {
-    this.grantableRolesAtHQ = grantableRolesAtHQ;
-  }
-
-  public CorporationTitle grantableRolesAtOther(List<Long> grantableRolesAtOther) {
-    this.grantableRolesAtOther = grantableRolesAtOther;
-    return this;
-  }
-
-  public CorporationTitle addGrantableRolesAtOtherItem(Long grantableRolesAtOtherItem) {
-    this.grantableRolesAtOther.add(grantableRolesAtOtherItem);
-    return this;
-  }
-
-   /**
-   * Get grantableRolesAtOther
-   * @return grantableRolesAtOther
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<Long> getGrantableRolesAtOther() {
-    return grantableRolesAtOther;
-  }
-
-  public void setGrantableRolesAtOther(List<Long> grantableRolesAtOther) {
-    this.grantableRolesAtOther = grantableRolesAtOther;
-  }
-
-  public CorporationTitle roles(List<Long> roles) {
-    this.roles = roles;
-    return this;
-  }
-
-  public CorporationTitle addRolesItem(Long rolesItem) {
-    this.roles.add(rolesItem);
-    return this;
-  }
-
-   /**
-   * Get roles
-   * @return roles
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<Long> getRoles() {
-    return roles;
-  }
-
-  public void setRoles(List<Long> roles) {
-    this.roles = roles;
-  }
-
-  public CorporationTitle rolesAtBase(List<Long> rolesAtBase) {
-    this.rolesAtBase = rolesAtBase;
-    return this;
-  }
-
-  public CorporationTitle addRolesAtBaseItem(Long rolesAtBaseItem) {
-    this.rolesAtBase.add(rolesAtBaseItem);
-    return this;
-  }
-
-   /**
-   * Get rolesAtBase
-   * @return rolesAtBase
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<Long> getRolesAtBase() {
-    return rolesAtBase;
-  }
-
-  public void setRolesAtBase(List<Long> rolesAtBase) {
-    this.rolesAtBase = rolesAtBase;
-  }
-
-  public CorporationTitle rolesAtHQ(List<Long> rolesAtHQ) {
-    this.rolesAtHQ = rolesAtHQ;
-    return this;
-  }
-
-  public CorporationTitle addRolesAtHQItem(Long rolesAtHQItem) {
-    this.rolesAtHQ.add(rolesAtHQItem);
-    return this;
-  }
-
-   /**
-   * Get rolesAtHQ
-   * @return rolesAtHQ
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<Long> getRolesAtHQ() {
-    return rolesAtHQ;
-  }
-
-  public void setRolesAtHQ(List<Long> rolesAtHQ) {
-    this.rolesAtHQ = rolesAtHQ;
-  }
-
-  public CorporationTitle rolesAtOther(List<Long> rolesAtOther) {
-    this.rolesAtOther = rolesAtOther;
-    return this;
-  }
-
-  public CorporationTitle addRolesAtOtherItem(Long rolesAtOtherItem) {
-    this.rolesAtOther.add(rolesAtOtherItem);
-    return this;
-  }
-
-   /**
-   * Get rolesAtOther
-   * @return rolesAtOther
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<Long> getRolesAtOther() {
-    return rolesAtOther;
-  }
-
-  public void setRolesAtOther(List<Long> rolesAtOther) {
-    this.rolesAtOther = rolesAtOther;
   }
 
   public CorporationTitle lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -423,21 +213,13 @@ public class CorporationTitle implements Serializable {
         Objects.equals(this.lifeEnd, corporationTitle.lifeEnd) &&
         Objects.equals(this.titleID, corporationTitle.titleID) &&
         Objects.equals(this.titleName, corporationTitle.titleName) &&
-        Objects.equals(this.grantableRoles, corporationTitle.grantableRoles) &&
-        Objects.equals(this.grantableRolesAtBase, corporationTitle.grantableRolesAtBase) &&
-        Objects.equals(this.grantableRolesAtHQ, corporationTitle.grantableRolesAtHQ) &&
-        Objects.equals(this.grantableRolesAtOther, corporationTitle.grantableRolesAtOther) &&
-        Objects.equals(this.roles, corporationTitle.roles) &&
-        Objects.equals(this.rolesAtBase, corporationTitle.rolesAtBase) &&
-        Objects.equals(this.rolesAtHQ, corporationTitle.rolesAtHQ) &&
-        Objects.equals(this.rolesAtOther, corporationTitle.rolesAtOther) &&
         Objects.equals(this.lifeStartDate, corporationTitle.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, corporationTitle.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, titleID, titleName, grantableRoles, grantableRolesAtBase, grantableRolesAtHQ, grantableRolesAtOther, roles, rolesAtBase, rolesAtHQ, rolesAtOther, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, titleID, titleName, lifeStartDate, lifeEndDate);
   }
 
 
@@ -452,14 +234,6 @@ public class CorporationTitle implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    titleID: ").append(toIndentedString(titleID)).append("\n");
     sb.append("    titleName: ").append(toIndentedString(titleName)).append("\n");
-    sb.append("    grantableRoles: ").append(toIndentedString(grantableRoles)).append("\n");
-    sb.append("    grantableRolesAtBase: ").append(toIndentedString(grantableRolesAtBase)).append("\n");
-    sb.append("    grantableRolesAtHQ: ").append(toIndentedString(grantableRolesAtHQ)).append("\n");
-    sb.append("    grantableRolesAtOther: ").append(toIndentedString(grantableRolesAtOther)).append("\n");
-    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
-    sb.append("    rolesAtBase: ").append(toIndentedString(rolesAtBase)).append("\n");
-    sb.append("    rolesAtHQ: ").append(toIndentedString(rolesAtHQ)).append("\n");
-    sb.append("    rolesAtOther: ").append(toIndentedString(rolesAtOther)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

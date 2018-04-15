@@ -16,6 +16,7 @@ package enterprises.orbital.evekit.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import enterprises.orbital.evekit.client.model.MailMessageRecipient;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -47,13 +48,7 @@ public class CharacterMailMessage implements Serializable {
   private Long messageID = null;
 
   @JsonProperty("senderID")
-  private Long senderID = null;
-
-  @JsonProperty("senderName")
-  private String senderName = null;
-
-  @JsonProperty("toCharacterID")
-  private List<Long> toCharacterID = new ArrayList<Long>();
+  private Integer senderID = null;
 
   @JsonProperty("sentDate")
   private Long sentDate = null;
@@ -61,17 +56,17 @@ public class CharacterMailMessage implements Serializable {
   @JsonProperty("title")
   private String title = null;
 
-  @JsonProperty("toCorpOrAllianceID")
-  private Long toCorpOrAllianceID = null;
-
-  @JsonProperty("toListID")
-  private List<Long> toListID = new ArrayList<Long>();
-
   @JsonProperty("msgRead")
   private Boolean msgRead = false;
 
-  @JsonProperty("senderTypeID")
-  private Integer senderTypeID = null;
+  @JsonProperty("labels")
+  private List<Integer> labels = new ArrayList<Integer>();
+
+  @JsonProperty("recipients")
+  private List<MailMessageRecipient> recipients = new ArrayList<MailMessageRecipient>();
+
+  @JsonProperty("body")
+  private String body = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -172,7 +167,7 @@ public class CharacterMailMessage implements Serializable {
     this.messageID = messageID;
   }
 
-  public CharacterMailMessage senderID(Long senderID) {
+  public CharacterMailMessage senderID(Integer senderID) {
     this.senderID = senderID;
     return this;
   }
@@ -182,53 +177,12 @@ public class CharacterMailMessage implements Serializable {
    * @return senderID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getSenderID() {
+  public Integer getSenderID() {
     return senderID;
   }
 
-  public void setSenderID(Long senderID) {
+  public void setSenderID(Integer senderID) {
     this.senderID = senderID;
-  }
-
-  public CharacterMailMessage senderName(String senderName) {
-    this.senderName = senderName;
-    return this;
-  }
-
-   /**
-   * Get senderName
-   * @return senderName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getSenderName() {
-    return senderName;
-  }
-
-  public void setSenderName(String senderName) {
-    this.senderName = senderName;
-  }
-
-  public CharacterMailMessage toCharacterID(List<Long> toCharacterID) {
-    this.toCharacterID = toCharacterID;
-    return this;
-  }
-
-  public CharacterMailMessage addToCharacterIDItem(Long toCharacterIDItem) {
-    this.toCharacterID.add(toCharacterIDItem);
-    return this;
-  }
-
-   /**
-   * Get toCharacterID
-   * @return toCharacterID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<Long> getToCharacterID() {
-    return toCharacterID;
-  }
-
-  public void setToCharacterID(List<Long> toCharacterID) {
-    this.toCharacterID = toCharacterID;
   }
 
   public CharacterMailMessage sentDate(Long sentDate) {
@@ -267,47 +221,6 @@ public class CharacterMailMessage implements Serializable {
     this.title = title;
   }
 
-  public CharacterMailMessage toCorpOrAllianceID(Long toCorpOrAllianceID) {
-    this.toCorpOrAllianceID = toCorpOrAllianceID;
-    return this;
-  }
-
-   /**
-   * Get toCorpOrAllianceID
-   * @return toCorpOrAllianceID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getToCorpOrAllianceID() {
-    return toCorpOrAllianceID;
-  }
-
-  public void setToCorpOrAllianceID(Long toCorpOrAllianceID) {
-    this.toCorpOrAllianceID = toCorpOrAllianceID;
-  }
-
-  public CharacterMailMessage toListID(List<Long> toListID) {
-    this.toListID = toListID;
-    return this;
-  }
-
-  public CharacterMailMessage addToListIDItem(Long toListIDItem) {
-    this.toListID.add(toListIDItem);
-    return this;
-  }
-
-   /**
-   * Get toListID
-   * @return toListID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public List<Long> getToListID() {
-    return toListID;
-  }
-
-  public void setToListID(List<Long> toListID) {
-    this.toListID = toListID;
-  }
-
   public CharacterMailMessage msgRead(Boolean msgRead) {
     this.msgRead = msgRead;
     return this;
@@ -326,22 +239,68 @@ public class CharacterMailMessage implements Serializable {
     this.msgRead = msgRead;
   }
 
-  public CharacterMailMessage senderTypeID(Integer senderTypeID) {
-    this.senderTypeID = senderTypeID;
+  public CharacterMailMessage labels(List<Integer> labels) {
+    this.labels = labels;
+    return this;
+  }
+
+  public CharacterMailMessage addLabelsItem(Integer labelsItem) {
+    this.labels.add(labelsItem);
     return this;
   }
 
    /**
-   * Get senderTypeID
-   * @return senderTypeID
+   * Get labels
+   * @return labels
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getSenderTypeID() {
-    return senderTypeID;
+  public List<Integer> getLabels() {
+    return labels;
   }
 
-  public void setSenderTypeID(Integer senderTypeID) {
-    this.senderTypeID = senderTypeID;
+  public void setLabels(List<Integer> labels) {
+    this.labels = labels;
+  }
+
+  public CharacterMailMessage recipients(List<MailMessageRecipient> recipients) {
+    this.recipients = recipients;
+    return this;
+  }
+
+  public CharacterMailMessage addRecipientsItem(MailMessageRecipient recipientsItem) {
+    this.recipients.add(recipientsItem);
+    return this;
+  }
+
+   /**
+   * Get recipients
+   * @return recipients
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<MailMessageRecipient> getRecipients() {
+    return recipients;
+  }
+
+  public void setRecipients(List<MailMessageRecipient> recipients) {
+    this.recipients = recipients;
+  }
+
+  public CharacterMailMessage body(String body) {
+    this.body = body;
+    return this;
+  }
+
+   /**
+   * Get body
+   * @return body
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getBody() {
+    return body;
+  }
+
+  public void setBody(String body) {
+    this.body = body;
   }
 
   public CharacterMailMessage lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -414,14 +373,12 @@ public class CharacterMailMessage implements Serializable {
         Objects.equals(this.lifeEnd, characterMailMessage.lifeEnd) &&
         Objects.equals(this.messageID, characterMailMessage.messageID) &&
         Objects.equals(this.senderID, characterMailMessage.senderID) &&
-        Objects.equals(this.senderName, characterMailMessage.senderName) &&
-        Objects.equals(this.toCharacterID, characterMailMessage.toCharacterID) &&
         Objects.equals(this.sentDate, characterMailMessage.sentDate) &&
         Objects.equals(this.title, characterMailMessage.title) &&
-        Objects.equals(this.toCorpOrAllianceID, characterMailMessage.toCorpOrAllianceID) &&
-        Objects.equals(this.toListID, characterMailMessage.toListID) &&
         Objects.equals(this.msgRead, characterMailMessage.msgRead) &&
-        Objects.equals(this.senderTypeID, characterMailMessage.senderTypeID) &&
+        Objects.equals(this.labels, characterMailMessage.labels) &&
+        Objects.equals(this.recipients, characterMailMessage.recipients) &&
+        Objects.equals(this.body, characterMailMessage.body) &&
         Objects.equals(this.lifeStartDate, characterMailMessage.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, characterMailMessage.lifeEndDate) &&
         Objects.equals(this.sentDateDate, characterMailMessage.sentDateDate);
@@ -429,7 +386,7 @@ public class CharacterMailMessage implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, messageID, senderID, senderName, toCharacterID, sentDate, title, toCorpOrAllianceID, toListID, msgRead, senderTypeID, lifeStartDate, lifeEndDate, sentDateDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, messageID, senderID, sentDate, title, msgRead, labels, recipients, body, lifeStartDate, lifeEndDate, sentDateDate);
   }
 
 
@@ -444,14 +401,12 @@ public class CharacterMailMessage implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    messageID: ").append(toIndentedString(messageID)).append("\n");
     sb.append("    senderID: ").append(toIndentedString(senderID)).append("\n");
-    sb.append("    senderName: ").append(toIndentedString(senderName)).append("\n");
-    sb.append("    toCharacterID: ").append(toIndentedString(toCharacterID)).append("\n");
     sb.append("    sentDate: ").append(toIndentedString(sentDate)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    toCorpOrAllianceID: ").append(toIndentedString(toCorpOrAllianceID)).append("\n");
-    sb.append("    toListID: ").append(toIndentedString(toListID)).append("\n");
     sb.append("    msgRead: ").append(toIndentedString(msgRead)).append("\n");
-    sb.append("    senderTypeID: ").append(toIndentedString(senderTypeID)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    recipients: ").append(toIndentedString(recipients)).append("\n");
+    sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("    sentDateDate: ").append(toIndentedString(sentDateDate)).append("\n");

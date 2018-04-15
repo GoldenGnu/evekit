@@ -47,9 +47,6 @@ public class JumpCloneImplant implements Serializable {
   @JsonProperty("typeID")
   private Integer typeID = null;
 
-  @JsonProperty("typeName")
-  private String typeName = null;
-
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
 
@@ -164,24 +161,6 @@ public class JumpCloneImplant implements Serializable {
     this.typeID = typeID;
   }
 
-  public JumpCloneImplant typeName(String typeName) {
-    this.typeName = typeName;
-    return this;
-  }
-
-   /**
-   * Get typeName
-   * @return typeName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getTypeName() {
-    return typeName;
-  }
-
-  public void setTypeName(String typeName) {
-    this.typeName = typeName;
-  }
-
   public JumpCloneImplant lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
@@ -234,14 +213,13 @@ public class JumpCloneImplant implements Serializable {
         Objects.equals(this.lifeEnd, jumpCloneImplant.lifeEnd) &&
         Objects.equals(this.jumpCloneID, jumpCloneImplant.jumpCloneID) &&
         Objects.equals(this.typeID, jumpCloneImplant.typeID) &&
-        Objects.equals(this.typeName, jumpCloneImplant.typeName) &&
         Objects.equals(this.lifeStartDate, jumpCloneImplant.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, jumpCloneImplant.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, jumpCloneID, typeID, typeName, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, jumpCloneID, typeID, lifeStartDate, lifeEndDate);
   }
 
 
@@ -256,7 +234,6 @@ public class JumpCloneImplant implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    jumpCloneID: ").append(toIndentedString(jumpCloneID)).append("\n");
     sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
-    sb.append("    typeName: ").append(toIndentedString(typeName)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

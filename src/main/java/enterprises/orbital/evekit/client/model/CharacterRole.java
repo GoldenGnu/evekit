@@ -44,9 +44,6 @@ public class CharacterRole implements Serializable {
   @JsonProperty("roleCategory")
   private String roleCategory = null;
 
-  @JsonProperty("roleID")
-  private Long roleID = null;
-
   @JsonProperty("roleName")
   private String roleName = null;
 
@@ -146,24 +143,6 @@ public class CharacterRole implements Serializable {
     this.roleCategory = roleCategory;
   }
 
-  public CharacterRole roleID(Long roleID) {
-    this.roleID = roleID;
-    return this;
-  }
-
-   /**
-   * Get roleID
-   * @return roleID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getRoleID() {
-    return roleID;
-  }
-
-  public void setRoleID(Long roleID) {
-    this.roleID = roleID;
-  }
-
   public CharacterRole roleName(String roleName) {
     this.roleName = roleName;
     return this;
@@ -233,7 +212,6 @@ public class CharacterRole implements Serializable {
         Objects.equals(this.lifeStart, characterRole.lifeStart) &&
         Objects.equals(this.lifeEnd, characterRole.lifeEnd) &&
         Objects.equals(this.roleCategory, characterRole.roleCategory) &&
-        Objects.equals(this.roleID, characterRole.roleID) &&
         Objects.equals(this.roleName, characterRole.roleName) &&
         Objects.equals(this.lifeStartDate, characterRole.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, characterRole.lifeEndDate);
@@ -241,7 +219,7 @@ public class CharacterRole implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, roleCategory, roleID, roleName, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, roleCategory, roleName, lifeStartDate, lifeEndDate);
   }
 
 
@@ -255,7 +233,6 @@ public class CharacterRole implements Serializable {
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    roleCategory: ").append(toIndentedString(roleCategory)).append("\n");
-    sb.append("    roleID: ").append(toIndentedString(roleID)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");

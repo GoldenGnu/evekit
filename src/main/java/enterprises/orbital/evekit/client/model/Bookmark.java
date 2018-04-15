@@ -48,13 +48,13 @@ public class Bookmark implements Serializable {
   private String folderName = null;
 
   @JsonProperty("folderCreatorID")
-  private Long folderCreatorID = null;
+  private Integer folderCreatorID = null;
 
   @JsonProperty("bookmarkID")
   private Integer bookmarkID = null;
 
   @JsonProperty("bookmarkCreatorID")
-  private Long bookmarkCreatorID = null;
+  private Integer bookmarkCreatorID = null;
 
   @JsonProperty("created")
   private Long created = null;
@@ -66,7 +66,7 @@ public class Bookmark implements Serializable {
   private Integer typeID = null;
 
   @JsonProperty("locationID")
-  private Long locationID = null;
+  private Integer locationID = null;
 
   @JsonProperty("x")
   private Double x = null;
@@ -200,7 +200,7 @@ public class Bookmark implements Serializable {
     this.folderName = folderName;
   }
 
-  public Bookmark folderCreatorID(Long folderCreatorID) {
+  public Bookmark folderCreatorID(Integer folderCreatorID) {
     this.folderCreatorID = folderCreatorID;
     return this;
   }
@@ -210,11 +210,11 @@ public class Bookmark implements Serializable {
    * @return folderCreatorID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getFolderCreatorID() {
+  public Integer getFolderCreatorID() {
     return folderCreatorID;
   }
 
-  public void setFolderCreatorID(Long folderCreatorID) {
+  public void setFolderCreatorID(Integer folderCreatorID) {
     this.folderCreatorID = folderCreatorID;
   }
 
@@ -236,7 +236,7 @@ public class Bookmark implements Serializable {
     this.bookmarkID = bookmarkID;
   }
 
-  public Bookmark bookmarkCreatorID(Long bookmarkCreatorID) {
+  public Bookmark bookmarkCreatorID(Integer bookmarkCreatorID) {
     this.bookmarkCreatorID = bookmarkCreatorID;
     return this;
   }
@@ -246,11 +246,11 @@ public class Bookmark implements Serializable {
    * @return bookmarkCreatorID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getBookmarkCreatorID() {
+  public Integer getBookmarkCreatorID() {
     return bookmarkCreatorID;
   }
 
-  public void setBookmarkCreatorID(Long bookmarkCreatorID) {
+  public void setBookmarkCreatorID(Integer bookmarkCreatorID) {
     this.bookmarkCreatorID = bookmarkCreatorID;
   }
 
@@ -308,7 +308,7 @@ public class Bookmark implements Serializable {
     this.typeID = typeID;
   }
 
-  public Bookmark locationID(Long locationID) {
+  public Bookmark locationID(Integer locationID) {
     this.locationID = locationID;
     return this;
   }
@@ -318,11 +318,11 @@ public class Bookmark implements Serializable {
    * @return locationID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getLocationID() {
+  public Integer getLocationID() {
     return locationID;
   }
 
-  public void setLocationID(Long locationID) {
+  public void setLocationID(Integer locationID) {
     this.locationID = locationID;
   }
 

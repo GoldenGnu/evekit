@@ -26,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class CharacterSkill implements Serializable {
+public class CharacterLocation implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -41,17 +41,14 @@ public class CharacterSkill implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("typeID")
-  private Integer typeID = null;
+  @JsonProperty("solarSystemID")
+  private Integer solarSystemID = null;
 
-  @JsonProperty("trainedSkillLevel")
-  private Integer trainedSkillLevel = null;
+  @JsonProperty("stationID")
+  private Integer stationID = null;
 
-  @JsonProperty("skillpoints")
-  private Long skillpoints = null;
-
-  @JsonProperty("activeSkillLevel")
-  private Integer activeSkillLevel = null;
+  @JsonProperty("structureID")
+  private Long structureID = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -59,7 +56,7 @@ public class CharacterSkill implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public CharacterSkill cid(Long cid) {
+  public CharacterLocation cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -77,7 +74,7 @@ public class CharacterSkill implements Serializable {
     this.cid = cid;
   }
 
-  public CharacterSkill eveKitVersion(Integer eveKitVersion) {
+  public CharacterLocation eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -95,7 +92,7 @@ public class CharacterSkill implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public CharacterSkill lifeStart(Long lifeStart) {
+  public CharacterLocation lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -113,7 +110,7 @@ public class CharacterSkill implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public CharacterSkill lifeEnd(Long lifeEnd) {
+  public CharacterLocation lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -131,79 +128,61 @@ public class CharacterSkill implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CharacterSkill typeID(Integer typeID) {
-    this.typeID = typeID;
+  public CharacterLocation solarSystemID(Integer solarSystemID) {
+    this.solarSystemID = solarSystemID;
     return this;
   }
 
    /**
-   * Get typeID
-   * @return typeID
+   * Get solarSystemID
+   * @return solarSystemID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getTypeID() {
-    return typeID;
+  public Integer getSolarSystemID() {
+    return solarSystemID;
   }
 
-  public void setTypeID(Integer typeID) {
-    this.typeID = typeID;
+  public void setSolarSystemID(Integer solarSystemID) {
+    this.solarSystemID = solarSystemID;
   }
 
-  public CharacterSkill trainedSkillLevel(Integer trainedSkillLevel) {
-    this.trainedSkillLevel = trainedSkillLevel;
+  public CharacterLocation stationID(Integer stationID) {
+    this.stationID = stationID;
     return this;
   }
 
    /**
-   * Get trainedSkillLevel
-   * @return trainedSkillLevel
+   * Get stationID
+   * @return stationID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getTrainedSkillLevel() {
-    return trainedSkillLevel;
+  public Integer getStationID() {
+    return stationID;
   }
 
-  public void setTrainedSkillLevel(Integer trainedSkillLevel) {
-    this.trainedSkillLevel = trainedSkillLevel;
+  public void setStationID(Integer stationID) {
+    this.stationID = stationID;
   }
 
-  public CharacterSkill skillpoints(Long skillpoints) {
-    this.skillpoints = skillpoints;
+  public CharacterLocation structureID(Long structureID) {
+    this.structureID = structureID;
     return this;
   }
 
    /**
-   * Get skillpoints
-   * @return skillpoints
+   * Get structureID
+   * @return structureID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getSkillpoints() {
-    return skillpoints;
+  public Long getStructureID() {
+    return structureID;
   }
 
-  public void setSkillpoints(Long skillpoints) {
-    this.skillpoints = skillpoints;
+  public void setStructureID(Long structureID) {
+    this.structureID = structureID;
   }
 
-  public CharacterSkill activeSkillLevel(Integer activeSkillLevel) {
-    this.activeSkillLevel = activeSkillLevel;
-    return this;
-  }
-
-   /**
-   * Get activeSkillLevel
-   * @return activeSkillLevel
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getActiveSkillLevel() {
-    return activeSkillLevel;
-  }
-
-  public void setActiveSkillLevel(Integer activeSkillLevel) {
-    this.activeSkillLevel = activeSkillLevel;
-  }
-
-  public CharacterSkill lifeStartDate(OffsetDateTime lifeStartDate) {
+  public CharacterLocation lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -221,7 +200,7 @@ public class CharacterSkill implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterSkill lifeEndDate(OffsetDateTime lifeEndDate) {
+  public CharacterLocation lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -248,38 +227,36 @@ public class CharacterSkill implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CharacterSkill characterSkill = (CharacterSkill) o;
-    return Objects.equals(this.cid, characterSkill.cid) &&
-        Objects.equals(this.eveKitVersion, characterSkill.eveKitVersion) &&
-        Objects.equals(this.lifeStart, characterSkill.lifeStart) &&
-        Objects.equals(this.lifeEnd, characterSkill.lifeEnd) &&
-        Objects.equals(this.typeID, characterSkill.typeID) &&
-        Objects.equals(this.trainedSkillLevel, characterSkill.trainedSkillLevel) &&
-        Objects.equals(this.skillpoints, characterSkill.skillpoints) &&
-        Objects.equals(this.activeSkillLevel, characterSkill.activeSkillLevel) &&
-        Objects.equals(this.lifeStartDate, characterSkill.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, characterSkill.lifeEndDate);
+    CharacterLocation characterLocation = (CharacterLocation) o;
+    return Objects.equals(this.cid, characterLocation.cid) &&
+        Objects.equals(this.eveKitVersion, characterLocation.eveKitVersion) &&
+        Objects.equals(this.lifeStart, characterLocation.lifeStart) &&
+        Objects.equals(this.lifeEnd, characterLocation.lifeEnd) &&
+        Objects.equals(this.solarSystemID, characterLocation.solarSystemID) &&
+        Objects.equals(this.stationID, characterLocation.stationID) &&
+        Objects.equals(this.structureID, characterLocation.structureID) &&
+        Objects.equals(this.lifeStartDate, characterLocation.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, characterLocation.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, typeID, trainedSkillLevel, skillpoints, activeSkillLevel, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, solarSystemID, stationID, structureID, lifeStartDate, lifeEndDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CharacterSkill {\n");
+    sb.append("class CharacterLocation {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
-    sb.append("    trainedSkillLevel: ").append(toIndentedString(trainedSkillLevel)).append("\n");
-    sb.append("    skillpoints: ").append(toIndentedString(skillpoints)).append("\n");
-    sb.append("    activeSkillLevel: ").append(toIndentedString(activeSkillLevel)).append("\n");
+    sb.append("    solarSystemID: ").append(toIndentedString(solarSystemID)).append("\n");
+    sb.append("    stationID: ").append(toIndentedString(stationID)).append("\n");
+    sb.append("    structureID: ").append(toIndentedString(structureID)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

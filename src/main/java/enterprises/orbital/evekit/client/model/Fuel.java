@@ -41,8 +41,8 @@ public class Fuel implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("itemID")
-  private Long itemID = null;
+  @JsonProperty("starbaseID")
+  private Long starbaseID = null;
 
   @JsonProperty("typeID")
   private Integer typeID = null;
@@ -128,22 +128,22 @@ public class Fuel implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public Fuel itemID(Long itemID) {
-    this.itemID = itemID;
+  public Fuel starbaseID(Long starbaseID) {
+    this.starbaseID = starbaseID;
     return this;
   }
 
    /**
-   * Get itemID
-   * @return itemID
+   * Get starbaseID
+   * @return starbaseID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getItemID() {
-    return itemID;
+  public Long getStarbaseID() {
+    return starbaseID;
   }
 
-  public void setItemID(Long itemID) {
-    this.itemID = itemID;
+  public void setStarbaseID(Long starbaseID) {
+    this.starbaseID = starbaseID;
   }
 
   public Fuel typeID(Integer typeID) {
@@ -232,7 +232,7 @@ public class Fuel implements Serializable {
         Objects.equals(this.eveKitVersion, fuel.eveKitVersion) &&
         Objects.equals(this.lifeStart, fuel.lifeStart) &&
         Objects.equals(this.lifeEnd, fuel.lifeEnd) &&
-        Objects.equals(this.itemID, fuel.itemID) &&
+        Objects.equals(this.starbaseID, fuel.starbaseID) &&
         Objects.equals(this.typeID, fuel.typeID) &&
         Objects.equals(this.quantity, fuel.quantity) &&
         Objects.equals(this.lifeStartDate, fuel.lifeStartDate) &&
@@ -241,7 +241,7 @@ public class Fuel implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, itemID, typeID, quantity, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, starbaseID, typeID, quantity, lifeStartDate, lifeEndDate);
   }
 
 
@@ -254,7 +254,7 @@ public class Fuel implements Serializable {
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    itemID: ").append(toIndentedString(itemID)).append("\n");
+    sb.append("    starbaseID: ").append(toIndentedString(starbaseID)).append("\n");
     sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");

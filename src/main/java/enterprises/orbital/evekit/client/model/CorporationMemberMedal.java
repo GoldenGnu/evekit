@@ -45,13 +45,13 @@ public class CorporationMemberMedal implements Serializable {
   private Integer medalID = null;
 
   @JsonProperty("characterID")
-  private Long characterID = null;
+  private Integer characterID = null;
 
   @JsonProperty("issued")
   private Long issued = null;
 
   @JsonProperty("issuerID")
-  private Long issuerID = null;
+  private Integer issuerID = null;
 
   @JsonProperty("reason")
   private String reason = null;
@@ -158,7 +158,7 @@ public class CorporationMemberMedal implements Serializable {
     this.medalID = medalID;
   }
 
-  public CorporationMemberMedal characterID(Long characterID) {
+  public CorporationMemberMedal characterID(Integer characterID) {
     this.characterID = characterID;
     return this;
   }
@@ -168,11 +168,11 @@ public class CorporationMemberMedal implements Serializable {
    * @return characterID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getCharacterID() {
+  public Integer getCharacterID() {
     return characterID;
   }
 
-  public void setCharacterID(Long characterID) {
+  public void setCharacterID(Integer characterID) {
     this.characterID = characterID;
   }
 
@@ -194,7 +194,7 @@ public class CorporationMemberMedal implements Serializable {
     this.issued = issued;
   }
 
-  public CorporationMemberMedal issuerID(Long issuerID) {
+  public CorporationMemberMedal issuerID(Integer issuerID) {
     this.issuerID = issuerID;
     return this;
   }
@@ -204,11 +204,11 @@ public class CorporationMemberMedal implements Serializable {
    * @return issuerID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getIssuerID() {
+  public Integer getIssuerID() {
     return issuerID;
   }
 
-  public void setIssuerID(Long issuerID) {
+  public void setIssuerID(Integer issuerID) {
     this.issuerID = issuerID;
   }
 

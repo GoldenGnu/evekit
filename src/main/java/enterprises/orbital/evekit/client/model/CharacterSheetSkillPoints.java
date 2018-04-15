@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.io.Serializable;
 
@@ -27,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class CharacterSheetBalance implements Serializable {
+public class CharacterSheetSkillPoints implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -42,8 +41,11 @@ public class CharacterSheetBalance implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("balance")
-  private BigDecimal balance = null;
+  @JsonProperty("totalSkillPoints")
+  private Long totalSkillPoints = null;
+
+  @JsonProperty("unallocatedSkillPoints")
+  private Integer unallocatedSkillPoints = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -51,7 +53,7 @@ public class CharacterSheetBalance implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public CharacterSheetBalance cid(Long cid) {
+  public CharacterSheetSkillPoints cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -69,7 +71,7 @@ public class CharacterSheetBalance implements Serializable {
     this.cid = cid;
   }
 
-  public CharacterSheetBalance eveKitVersion(Integer eveKitVersion) {
+  public CharacterSheetSkillPoints eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -87,7 +89,7 @@ public class CharacterSheetBalance implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public CharacterSheetBalance lifeStart(Long lifeStart) {
+  public CharacterSheetSkillPoints lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -105,7 +107,7 @@ public class CharacterSheetBalance implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public CharacterSheetBalance lifeEnd(Long lifeEnd) {
+  public CharacterSheetSkillPoints lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -123,25 +125,43 @@ public class CharacterSheetBalance implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CharacterSheetBalance balance(BigDecimal balance) {
-    this.balance = balance;
+  public CharacterSheetSkillPoints totalSkillPoints(Long totalSkillPoints) {
+    this.totalSkillPoints = totalSkillPoints;
     return this;
   }
 
    /**
-   * Get balance
-   * @return balance
+   * Get totalSkillPoints
+   * @return totalSkillPoints
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getBalance() {
-    return balance;
+  public Long getTotalSkillPoints() {
+    return totalSkillPoints;
   }
 
-  public void setBalance(BigDecimal balance) {
-    this.balance = balance;
+  public void setTotalSkillPoints(Long totalSkillPoints) {
+    this.totalSkillPoints = totalSkillPoints;
   }
 
-  public CharacterSheetBalance lifeStartDate(OffsetDateTime lifeStartDate) {
+  public CharacterSheetSkillPoints unallocatedSkillPoints(Integer unallocatedSkillPoints) {
+    this.unallocatedSkillPoints = unallocatedSkillPoints;
+    return this;
+  }
+
+   /**
+   * Get unallocatedSkillPoints
+   * @return unallocatedSkillPoints
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getUnallocatedSkillPoints() {
+    return unallocatedSkillPoints;
+  }
+
+  public void setUnallocatedSkillPoints(Integer unallocatedSkillPoints) {
+    this.unallocatedSkillPoints = unallocatedSkillPoints;
+  }
+
+  public CharacterSheetSkillPoints lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -159,7 +179,7 @@ public class CharacterSheetBalance implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterSheetBalance lifeEndDate(OffsetDateTime lifeEndDate) {
+  public CharacterSheetSkillPoints lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -186,32 +206,34 @@ public class CharacterSheetBalance implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CharacterSheetBalance characterSheetBalance = (CharacterSheetBalance) o;
-    return Objects.equals(this.cid, characterSheetBalance.cid) &&
-        Objects.equals(this.eveKitVersion, characterSheetBalance.eveKitVersion) &&
-        Objects.equals(this.lifeStart, characterSheetBalance.lifeStart) &&
-        Objects.equals(this.lifeEnd, characterSheetBalance.lifeEnd) &&
-        Objects.equals(this.balance, characterSheetBalance.balance) &&
-        Objects.equals(this.lifeStartDate, characterSheetBalance.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, characterSheetBalance.lifeEndDate);
+    CharacterSheetSkillPoints characterSheetSkillPoints = (CharacterSheetSkillPoints) o;
+    return Objects.equals(this.cid, characterSheetSkillPoints.cid) &&
+        Objects.equals(this.eveKitVersion, characterSheetSkillPoints.eveKitVersion) &&
+        Objects.equals(this.lifeStart, characterSheetSkillPoints.lifeStart) &&
+        Objects.equals(this.lifeEnd, characterSheetSkillPoints.lifeEnd) &&
+        Objects.equals(this.totalSkillPoints, characterSheetSkillPoints.totalSkillPoints) &&
+        Objects.equals(this.unallocatedSkillPoints, characterSheetSkillPoints.unallocatedSkillPoints) &&
+        Objects.equals(this.lifeStartDate, characterSheetSkillPoints.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, characterSheetSkillPoints.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, balance, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, totalSkillPoints, unallocatedSkillPoints, lifeStartDate, lifeEndDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CharacterSheetBalance {\n");
+    sb.append("class CharacterSheetSkillPoints {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+    sb.append("    totalSkillPoints: ").append(toIndentedString(totalSkillPoints)).append("\n");
+    sb.append("    unallocatedSkillPoints: ").append(toIndentedString(unallocatedSkillPoints)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

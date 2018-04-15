@@ -26,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class Role implements Serializable {
+public class MailLabel implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -41,14 +41,17 @@ public class Role implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("roleID")
-  private Long roleID = null;
+  @JsonProperty("labelID")
+  private Integer labelID = null;
 
-  @JsonProperty("roleDescription")
-  private String roleDescription = null;
+  @JsonProperty("unreadCount")
+  private Integer unreadCount = null;
 
-  @JsonProperty("roleName")
-  private String roleName = null;
+  @JsonProperty("name")
+  private String name = null;
+
+  @JsonProperty("color")
+  private String color = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -56,7 +59,7 @@ public class Role implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public Role cid(Long cid) {
+  public MailLabel cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -74,7 +77,7 @@ public class Role implements Serializable {
     this.cid = cid;
   }
 
-  public Role eveKitVersion(Integer eveKitVersion) {
+  public MailLabel eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -92,7 +95,7 @@ public class Role implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public Role lifeStart(Long lifeStart) {
+  public MailLabel lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -110,7 +113,7 @@ public class Role implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public Role lifeEnd(Long lifeEnd) {
+  public MailLabel lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -128,61 +131,79 @@ public class Role implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public Role roleID(Long roleID) {
-    this.roleID = roleID;
+  public MailLabel labelID(Integer labelID) {
+    this.labelID = labelID;
     return this;
   }
 
    /**
-   * Get roleID
-   * @return roleID
+   * Get labelID
+   * @return labelID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getRoleID() {
-    return roleID;
+  public Integer getLabelID() {
+    return labelID;
   }
 
-  public void setRoleID(Long roleID) {
-    this.roleID = roleID;
+  public void setLabelID(Integer labelID) {
+    this.labelID = labelID;
   }
 
-  public Role roleDescription(String roleDescription) {
-    this.roleDescription = roleDescription;
+  public MailLabel unreadCount(Integer unreadCount) {
+    this.unreadCount = unreadCount;
     return this;
   }
 
    /**
-   * Get roleDescription
-   * @return roleDescription
+   * Get unreadCount
+   * @return unreadCount
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getRoleDescription() {
-    return roleDescription;
+  public Integer getUnreadCount() {
+    return unreadCount;
   }
 
-  public void setRoleDescription(String roleDescription) {
-    this.roleDescription = roleDescription;
+  public void setUnreadCount(Integer unreadCount) {
+    this.unreadCount = unreadCount;
   }
 
-  public Role roleName(String roleName) {
-    this.roleName = roleName;
+  public MailLabel name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get roleName
-   * @return roleName
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getRoleName() {
-    return roleName;
+  public String getName() {
+    return name;
   }
 
-  public void setRoleName(String roleName) {
-    this.roleName = roleName;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public Role lifeStartDate(OffsetDateTime lifeStartDate) {
+  public MailLabel color(String color) {
+    this.color = color;
+    return this;
+  }
+
+   /**
+   * Get color
+   * @return color
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  public MailLabel lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -200,7 +221,7 @@ public class Role implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public Role lifeEndDate(OffsetDateTime lifeEndDate) {
+  public MailLabel lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -227,36 +248,38 @@ public class Role implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Role role = (Role) o;
-    return Objects.equals(this.cid, role.cid) &&
-        Objects.equals(this.eveKitVersion, role.eveKitVersion) &&
-        Objects.equals(this.lifeStart, role.lifeStart) &&
-        Objects.equals(this.lifeEnd, role.lifeEnd) &&
-        Objects.equals(this.roleID, role.roleID) &&
-        Objects.equals(this.roleDescription, role.roleDescription) &&
-        Objects.equals(this.roleName, role.roleName) &&
-        Objects.equals(this.lifeStartDate, role.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, role.lifeEndDate);
+    MailLabel mailLabel = (MailLabel) o;
+    return Objects.equals(this.cid, mailLabel.cid) &&
+        Objects.equals(this.eveKitVersion, mailLabel.eveKitVersion) &&
+        Objects.equals(this.lifeStart, mailLabel.lifeStart) &&
+        Objects.equals(this.lifeEnd, mailLabel.lifeEnd) &&
+        Objects.equals(this.labelID, mailLabel.labelID) &&
+        Objects.equals(this.unreadCount, mailLabel.unreadCount) &&
+        Objects.equals(this.name, mailLabel.name) &&
+        Objects.equals(this.color, mailLabel.color) &&
+        Objects.equals(this.lifeStartDate, mailLabel.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, mailLabel.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, roleID, roleDescription, roleName, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, labelID, unreadCount, name, color, lifeStartDate, lifeEndDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Role {\n");
+    sb.append("class MailLabel {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    roleID: ").append(toIndentedString(roleID)).append("\n");
-    sb.append("    roleDescription: ").append(toIndentedString(roleDescription)).append("\n");
-    sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
+    sb.append("    labelID: ").append(toIndentedString(labelID)).append("\n");
+    sb.append("    unreadCount: ").append(toIndentedString(unreadCount)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

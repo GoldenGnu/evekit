@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.io.Serializable;
 
@@ -45,8 +44,8 @@ public class MarketOrder implements Serializable {
   @JsonProperty("orderID")
   private Long orderID = null;
 
-  @JsonProperty("accountKey")
-  private Integer accountKey = null;
+  @JsonProperty("walletDivision")
+  private Integer walletDivision = null;
 
   @JsonProperty("bid")
   private Boolean bid = false;
@@ -58,7 +57,7 @@ public class MarketOrder implements Serializable {
   private Integer duration = null;
 
   @JsonProperty("escrow")
-  private BigDecimal escrow = null;
+  private Double escrow = null;
 
   @JsonProperty("issued")
   private Long issued = null;
@@ -67,16 +66,13 @@ public class MarketOrder implements Serializable {
   private Integer minVolume = null;
 
   @JsonProperty("orderState")
-  private Integer orderState = null;
+  private String orderState = null;
 
   @JsonProperty("price")
-  private BigDecimal price = null;
+  private Double price = null;
 
   @JsonProperty("orderRange")
-  private Integer orderRange = null;
-
-  @JsonProperty("stationID")
-  private Long stationID = null;
+  private String orderRange = null;
 
   @JsonProperty("typeID")
   private Integer typeID = null;
@@ -87,6 +83,15 @@ public class MarketOrder implements Serializable {
   @JsonProperty("volRemaining")
   private Integer volRemaining = null;
 
+  @JsonProperty("regionID")
+  private Integer regionID = null;
+
+  @JsonProperty("locationID")
+  private Long locationID = null;
+
+  @JsonProperty("corp")
+  private Boolean corp = false;
+
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
 
@@ -95,6 +100,9 @@ public class MarketOrder implements Serializable {
 
   @JsonProperty("issuedDate")
   private OffsetDateTime issuedDate = null;
+
+  @JsonProperty("accountKey")
+  private Integer accountKey = null;
 
   public MarketOrder cid(Long cid) {
     this.cid = cid;
@@ -186,22 +194,22 @@ public class MarketOrder implements Serializable {
     this.orderID = orderID;
   }
 
-  public MarketOrder accountKey(Integer accountKey) {
-    this.accountKey = accountKey;
+  public MarketOrder walletDivision(Integer walletDivision) {
+    this.walletDivision = walletDivision;
     return this;
   }
 
    /**
-   * Get accountKey
-   * @return accountKey
+   * Get walletDivision
+   * @return walletDivision
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getAccountKey() {
-    return accountKey;
+  public Integer getWalletDivision() {
+    return walletDivision;
   }
 
-  public void setAccountKey(Integer accountKey) {
-    this.accountKey = accountKey;
+  public void setWalletDivision(Integer walletDivision) {
+    this.walletDivision = walletDivision;
   }
 
   public MarketOrder bid(Boolean bid) {
@@ -258,7 +266,7 @@ public class MarketOrder implements Serializable {
     this.duration = duration;
   }
 
-  public MarketOrder escrow(BigDecimal escrow) {
+  public MarketOrder escrow(Double escrow) {
     this.escrow = escrow;
     return this;
   }
@@ -268,11 +276,11 @@ public class MarketOrder implements Serializable {
    * @return escrow
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getEscrow() {
+  public Double getEscrow() {
     return escrow;
   }
 
-  public void setEscrow(BigDecimal escrow) {
+  public void setEscrow(Double escrow) {
     this.escrow = escrow;
   }
 
@@ -312,7 +320,7 @@ public class MarketOrder implements Serializable {
     this.minVolume = minVolume;
   }
 
-  public MarketOrder orderState(Integer orderState) {
+  public MarketOrder orderState(String orderState) {
     this.orderState = orderState;
     return this;
   }
@@ -322,15 +330,15 @@ public class MarketOrder implements Serializable {
    * @return orderState
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getOrderState() {
+  public String getOrderState() {
     return orderState;
   }
 
-  public void setOrderState(Integer orderState) {
+  public void setOrderState(String orderState) {
     this.orderState = orderState;
   }
 
-  public MarketOrder price(BigDecimal price) {
+  public MarketOrder price(Double price) {
     this.price = price;
     return this;
   }
@@ -340,15 +348,15 @@ public class MarketOrder implements Serializable {
    * @return price
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getPrice() {
+  public Double getPrice() {
     return price;
   }
 
-  public void setPrice(BigDecimal price) {
+  public void setPrice(Double price) {
     this.price = price;
   }
 
-  public MarketOrder orderRange(Integer orderRange) {
+  public MarketOrder orderRange(String orderRange) {
     this.orderRange = orderRange;
     return this;
   }
@@ -358,30 +366,12 @@ public class MarketOrder implements Serializable {
    * @return orderRange
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getOrderRange() {
+  public String getOrderRange() {
     return orderRange;
   }
 
-  public void setOrderRange(Integer orderRange) {
+  public void setOrderRange(String orderRange) {
     this.orderRange = orderRange;
-  }
-
-  public MarketOrder stationID(Long stationID) {
-    this.stationID = stationID;
-    return this;
-  }
-
-   /**
-   * Get stationID
-   * @return stationID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getStationID() {
-    return stationID;
-  }
-
-  public void setStationID(Long stationID) {
-    this.stationID = stationID;
   }
 
   public MarketOrder typeID(Integer typeID) {
@@ -438,6 +428,60 @@ public class MarketOrder implements Serializable {
     this.volRemaining = volRemaining;
   }
 
+  public MarketOrder regionID(Integer regionID) {
+    this.regionID = regionID;
+    return this;
+  }
+
+   /**
+   * Get regionID
+   * @return regionID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getRegionID() {
+    return regionID;
+  }
+
+  public void setRegionID(Integer regionID) {
+    this.regionID = regionID;
+  }
+
+  public MarketOrder locationID(Long locationID) {
+    this.locationID = locationID;
+    return this;
+  }
+
+   /**
+   * Get locationID
+   * @return locationID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Long getLocationID() {
+    return locationID;
+  }
+
+  public void setLocationID(Long locationID) {
+    this.locationID = locationID;
+  }
+
+  public MarketOrder corp(Boolean corp) {
+    this.corp = corp;
+    return this;
+  }
+
+   /**
+   * Get corp
+   * @return corp
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getCorp() {
+    return corp;
+  }
+
+  public void setCorp(Boolean corp) {
+    this.corp = corp;
+  }
+
   public MarketOrder lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
@@ -492,6 +536,24 @@ public class MarketOrder implements Serializable {
     this.issuedDate = issuedDate;
   }
 
+  public MarketOrder accountKey(Integer accountKey) {
+    this.accountKey = accountKey;
+    return this;
+  }
+
+   /**
+   * *DEPRECATED* accountKey
+   * @return accountKey
+  **/
+  @ApiModelProperty(example = "null", value = "*DEPRECATED* accountKey")
+  public Integer getAccountKey() {
+    return accountKey;
+  }
+
+  public void setAccountKey(Integer accountKey) {
+    this.accountKey = accountKey;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -507,7 +569,7 @@ public class MarketOrder implements Serializable {
         Objects.equals(this.lifeStart, marketOrder.lifeStart) &&
         Objects.equals(this.lifeEnd, marketOrder.lifeEnd) &&
         Objects.equals(this.orderID, marketOrder.orderID) &&
-        Objects.equals(this.accountKey, marketOrder.accountKey) &&
+        Objects.equals(this.walletDivision, marketOrder.walletDivision) &&
         Objects.equals(this.bid, marketOrder.bid) &&
         Objects.equals(this.charID, marketOrder.charID) &&
         Objects.equals(this.duration, marketOrder.duration) &&
@@ -517,18 +579,21 @@ public class MarketOrder implements Serializable {
         Objects.equals(this.orderState, marketOrder.orderState) &&
         Objects.equals(this.price, marketOrder.price) &&
         Objects.equals(this.orderRange, marketOrder.orderRange) &&
-        Objects.equals(this.stationID, marketOrder.stationID) &&
         Objects.equals(this.typeID, marketOrder.typeID) &&
         Objects.equals(this.volEntered, marketOrder.volEntered) &&
         Objects.equals(this.volRemaining, marketOrder.volRemaining) &&
+        Objects.equals(this.regionID, marketOrder.regionID) &&
+        Objects.equals(this.locationID, marketOrder.locationID) &&
+        Objects.equals(this.corp, marketOrder.corp) &&
         Objects.equals(this.lifeStartDate, marketOrder.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, marketOrder.lifeEndDate) &&
-        Objects.equals(this.issuedDate, marketOrder.issuedDate);
+        Objects.equals(this.issuedDate, marketOrder.issuedDate) &&
+        Objects.equals(this.accountKey, marketOrder.accountKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, orderID, accountKey, bid, charID, duration, escrow, issued, minVolume, orderState, price, orderRange, stationID, typeID, volEntered, volRemaining, lifeStartDate, lifeEndDate, issuedDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, orderID, walletDivision, bid, charID, duration, escrow, issued, minVolume, orderState, price, orderRange, typeID, volEntered, volRemaining, regionID, locationID, corp, lifeStartDate, lifeEndDate, issuedDate, accountKey);
   }
 
 
@@ -542,7 +607,7 @@ public class MarketOrder implements Serializable {
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    orderID: ").append(toIndentedString(orderID)).append("\n");
-    sb.append("    accountKey: ").append(toIndentedString(accountKey)).append("\n");
+    sb.append("    walletDivision: ").append(toIndentedString(walletDivision)).append("\n");
     sb.append("    bid: ").append(toIndentedString(bid)).append("\n");
     sb.append("    charID: ").append(toIndentedString(charID)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
@@ -552,13 +617,16 @@ public class MarketOrder implements Serializable {
     sb.append("    orderState: ").append(toIndentedString(orderState)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    orderRange: ").append(toIndentedString(orderRange)).append("\n");
-    sb.append("    stationID: ").append(toIndentedString(stationID)).append("\n");
     sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
     sb.append("    volEntered: ").append(toIndentedString(volEntered)).append("\n");
     sb.append("    volRemaining: ").append(toIndentedString(volRemaining)).append("\n");
+    sb.append("    regionID: ").append(toIndentedString(regionID)).append("\n");
+    sb.append("    locationID: ").append(toIndentedString(locationID)).append("\n");
+    sb.append("    corp: ").append(toIndentedString(corp)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("    issuedDate: ").append(toIndentedString(issuedDate)).append("\n");
+    sb.append("    accountKey: ").append(toIndentedString(accountKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

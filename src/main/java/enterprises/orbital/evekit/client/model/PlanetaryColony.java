@@ -42,28 +42,16 @@ public class PlanetaryColony implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("planetID")
-  private Long planetID = null;
+  private Integer planetID = null;
 
   @JsonProperty("solarSystemID")
   private Integer solarSystemID = null;
 
-  @JsonProperty("solarSystemName")
-  private String solarSystemName = null;
-
-  @JsonProperty("planetName")
-  private String planetName = null;
-
-  @JsonProperty("planetTypeID")
-  private Integer planetTypeID = null;
-
-  @JsonProperty("planetTypeName")
-  private String planetTypeName = null;
+  @JsonProperty("planetType")
+  private String planetType = null;
 
   @JsonProperty("ownerID")
   private Long ownerID = null;
-
-  @JsonProperty("ownerName")
-  private String ownerName = null;
 
   @JsonProperty("lastUpdate")
   private Long lastUpdate = null;
@@ -155,7 +143,7 @@ public class PlanetaryColony implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public PlanetaryColony planetID(Long planetID) {
+  public PlanetaryColony planetID(Integer planetID) {
     this.planetID = planetID;
     return this;
   }
@@ -165,11 +153,11 @@ public class PlanetaryColony implements Serializable {
    * @return planetID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getPlanetID() {
+  public Integer getPlanetID() {
     return planetID;
   }
 
-  public void setPlanetID(Long planetID) {
+  public void setPlanetID(Integer planetID) {
     this.planetID = planetID;
   }
 
@@ -191,76 +179,22 @@ public class PlanetaryColony implements Serializable {
     this.solarSystemID = solarSystemID;
   }
 
-  public PlanetaryColony solarSystemName(String solarSystemName) {
-    this.solarSystemName = solarSystemName;
+  public PlanetaryColony planetType(String planetType) {
+    this.planetType = planetType;
     return this;
   }
 
    /**
-   * Get solarSystemName
-   * @return solarSystemName
+   * Get planetType
+   * @return planetType
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getSolarSystemName() {
-    return solarSystemName;
+  public String getPlanetType() {
+    return planetType;
   }
 
-  public void setSolarSystemName(String solarSystemName) {
-    this.solarSystemName = solarSystemName;
-  }
-
-  public PlanetaryColony planetName(String planetName) {
-    this.planetName = planetName;
-    return this;
-  }
-
-   /**
-   * Get planetName
-   * @return planetName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getPlanetName() {
-    return planetName;
-  }
-
-  public void setPlanetName(String planetName) {
-    this.planetName = planetName;
-  }
-
-  public PlanetaryColony planetTypeID(Integer planetTypeID) {
-    this.planetTypeID = planetTypeID;
-    return this;
-  }
-
-   /**
-   * Get planetTypeID
-   * @return planetTypeID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getPlanetTypeID() {
-    return planetTypeID;
-  }
-
-  public void setPlanetTypeID(Integer planetTypeID) {
-    this.planetTypeID = planetTypeID;
-  }
-
-  public PlanetaryColony planetTypeName(String planetTypeName) {
-    this.planetTypeName = planetTypeName;
-    return this;
-  }
-
-   /**
-   * Get planetTypeName
-   * @return planetTypeName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getPlanetTypeName() {
-    return planetTypeName;
-  }
-
-  public void setPlanetTypeName(String planetTypeName) {
-    this.planetTypeName = planetTypeName;
+  public void setPlanetType(String planetType) {
+    this.planetType = planetType;
   }
 
   public PlanetaryColony ownerID(Long ownerID) {
@@ -279,24 +213,6 @@ public class PlanetaryColony implements Serializable {
 
   public void setOwnerID(Long ownerID) {
     this.ownerID = ownerID;
-  }
-
-  public PlanetaryColony ownerName(String ownerName) {
-    this.ownerName = ownerName;
-    return this;
-  }
-
-   /**
-   * Get ownerName
-   * @return ownerName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getOwnerName() {
-    return ownerName;
-  }
-
-  public void setOwnerName(String ownerName) {
-    this.ownerName = ownerName;
   }
 
   public PlanetaryColony lastUpdate(Long lastUpdate) {
@@ -423,12 +339,8 @@ public class PlanetaryColony implements Serializable {
         Objects.equals(this.lifeEnd, planetaryColony.lifeEnd) &&
         Objects.equals(this.planetID, planetaryColony.planetID) &&
         Objects.equals(this.solarSystemID, planetaryColony.solarSystemID) &&
-        Objects.equals(this.solarSystemName, planetaryColony.solarSystemName) &&
-        Objects.equals(this.planetName, planetaryColony.planetName) &&
-        Objects.equals(this.planetTypeID, planetaryColony.planetTypeID) &&
-        Objects.equals(this.planetTypeName, planetaryColony.planetTypeName) &&
+        Objects.equals(this.planetType, planetaryColony.planetType) &&
         Objects.equals(this.ownerID, planetaryColony.ownerID) &&
-        Objects.equals(this.ownerName, planetaryColony.ownerName) &&
         Objects.equals(this.lastUpdate, planetaryColony.lastUpdate) &&
         Objects.equals(this.upgradeLevel, planetaryColony.upgradeLevel) &&
         Objects.equals(this.numberOfPins, planetaryColony.numberOfPins) &&
@@ -439,7 +351,7 @@ public class PlanetaryColony implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, planetID, solarSystemID, solarSystemName, planetName, planetTypeID, planetTypeName, ownerID, ownerName, lastUpdate, upgradeLevel, numberOfPins, lifeStartDate, lifeEndDate, lastUpdateDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, planetID, solarSystemID, planetType, ownerID, lastUpdate, upgradeLevel, numberOfPins, lifeStartDate, lifeEndDate, lastUpdateDate);
   }
 
 
@@ -454,12 +366,8 @@ public class PlanetaryColony implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    planetID: ").append(toIndentedString(planetID)).append("\n");
     sb.append("    solarSystemID: ").append(toIndentedString(solarSystemID)).append("\n");
-    sb.append("    solarSystemName: ").append(toIndentedString(solarSystemName)).append("\n");
-    sb.append("    planetName: ").append(toIndentedString(planetName)).append("\n");
-    sb.append("    planetTypeID: ").append(toIndentedString(planetTypeID)).append("\n");
-    sb.append("    planetTypeName: ").append(toIndentedString(planetTypeName)).append("\n");
+    sb.append("    planetType: ").append(toIndentedString(planetType)).append("\n");
     sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
-    sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    lastUpdate: ").append(toIndentedString(lastUpdate)).append("\n");
     sb.append("    upgradeLevel: ").append(toIndentedString(upgradeLevel)).append("\n");
     sb.append("    numberOfPins: ").append(toIndentedString(numberOfPins)).append("\n");

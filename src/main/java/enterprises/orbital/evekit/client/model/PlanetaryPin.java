@@ -16,9 +16,13 @@ package enterprises.orbital.evekit.client.model;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import enterprises.orbital.evekit.client.model.PlanetaryPinContent;
+import enterprises.orbital.evekit.client.model.PlanetaryPinHead;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -42,7 +46,7 @@ public class PlanetaryPin implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("planetID")
-  private Long planetID = null;
+  private Integer planetID = null;
 
   @JsonProperty("pinID")
   private Long pinID = null;
@@ -50,14 +54,11 @@ public class PlanetaryPin implements Serializable {
   @JsonProperty("typeID")
   private Integer typeID = null;
 
-  @JsonProperty("typeName")
-  private String typeName = null;
-
   @JsonProperty("schematicID")
   private Integer schematicID = null;
 
-  @JsonProperty("lastLaunchTime")
-  private Long lastLaunchTime = null;
+  @JsonProperty("lastCycleStart")
+  private Long lastCycleStart = null;
 
   @JsonProperty("cycleTime")
   private Integer cycleTime = null;
@@ -71,20 +72,23 @@ public class PlanetaryPin implements Serializable {
   @JsonProperty("expiryTime")
   private Long expiryTime = null;
 
-  @JsonProperty("contentTypeID")
-  private Integer contentTypeID = null;
-
-  @JsonProperty("contentTypeName")
-  private String contentTypeName = null;
-
-  @JsonProperty("contentQuantity")
-  private Integer contentQuantity = null;
+  @JsonProperty("productTypeID")
+  private Integer productTypeID = null;
 
   @JsonProperty("longitude")
-  private Double longitude = null;
+  private Float longitude = null;
 
   @JsonProperty("latitude")
-  private Double latitude = null;
+  private Float latitude = null;
+
+  @JsonProperty("headRadius")
+  private Float headRadius = null;
+
+  @JsonProperty("heads")
+  private List<PlanetaryPinHead> heads = new ArrayList<PlanetaryPinHead>();
+
+  @JsonProperty("contents")
+  private List<PlanetaryPinContent> contents = new ArrayList<PlanetaryPinContent>();
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -92,8 +96,8 @@ public class PlanetaryPin implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  @JsonProperty("lastLaunchTimeDate")
-  private OffsetDateTime lastLaunchTimeDate = null;
+  @JsonProperty("lastCycleStartDate")
+  private OffsetDateTime lastCycleStartDate = null;
 
   @JsonProperty("installTimeDate")
   private OffsetDateTime installTimeDate = null;
@@ -173,7 +177,7 @@ public class PlanetaryPin implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public PlanetaryPin planetID(Long planetID) {
+  public PlanetaryPin planetID(Integer planetID) {
     this.planetID = planetID;
     return this;
   }
@@ -183,11 +187,11 @@ public class PlanetaryPin implements Serializable {
    * @return planetID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getPlanetID() {
+  public Integer getPlanetID() {
     return planetID;
   }
 
-  public void setPlanetID(Long planetID) {
+  public void setPlanetID(Integer planetID) {
     this.planetID = planetID;
   }
 
@@ -227,24 +231,6 @@ public class PlanetaryPin implements Serializable {
     this.typeID = typeID;
   }
 
-  public PlanetaryPin typeName(String typeName) {
-    this.typeName = typeName;
-    return this;
-  }
-
-   /**
-   * Get typeName
-   * @return typeName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getTypeName() {
-    return typeName;
-  }
-
-  public void setTypeName(String typeName) {
-    this.typeName = typeName;
-  }
-
   public PlanetaryPin schematicID(Integer schematicID) {
     this.schematicID = schematicID;
     return this;
@@ -263,22 +249,22 @@ public class PlanetaryPin implements Serializable {
     this.schematicID = schematicID;
   }
 
-  public PlanetaryPin lastLaunchTime(Long lastLaunchTime) {
-    this.lastLaunchTime = lastLaunchTime;
+  public PlanetaryPin lastCycleStart(Long lastCycleStart) {
+    this.lastCycleStart = lastCycleStart;
     return this;
   }
 
    /**
-   * Get lastLaunchTime
-   * @return lastLaunchTime
+   * Get lastCycleStart
+   * @return lastCycleStart
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getLastLaunchTime() {
-    return lastLaunchTime;
+  public Long getLastCycleStart() {
+    return lastCycleStart;
   }
 
-  public void setLastLaunchTime(Long lastLaunchTime) {
-    this.lastLaunchTime = lastLaunchTime;
+  public void setLastCycleStart(Long lastCycleStart) {
+    this.lastCycleStart = lastCycleStart;
   }
 
   public PlanetaryPin cycleTime(Integer cycleTime) {
@@ -353,61 +339,25 @@ public class PlanetaryPin implements Serializable {
     this.expiryTime = expiryTime;
   }
 
-  public PlanetaryPin contentTypeID(Integer contentTypeID) {
-    this.contentTypeID = contentTypeID;
+  public PlanetaryPin productTypeID(Integer productTypeID) {
+    this.productTypeID = productTypeID;
     return this;
   }
 
    /**
-   * Get contentTypeID
-   * @return contentTypeID
+   * Get productTypeID
+   * @return productTypeID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getContentTypeID() {
-    return contentTypeID;
+  public Integer getProductTypeID() {
+    return productTypeID;
   }
 
-  public void setContentTypeID(Integer contentTypeID) {
-    this.contentTypeID = contentTypeID;
+  public void setProductTypeID(Integer productTypeID) {
+    this.productTypeID = productTypeID;
   }
 
-  public PlanetaryPin contentTypeName(String contentTypeName) {
-    this.contentTypeName = contentTypeName;
-    return this;
-  }
-
-   /**
-   * Get contentTypeName
-   * @return contentTypeName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getContentTypeName() {
-    return contentTypeName;
-  }
-
-  public void setContentTypeName(String contentTypeName) {
-    this.contentTypeName = contentTypeName;
-  }
-
-  public PlanetaryPin contentQuantity(Integer contentQuantity) {
-    this.contentQuantity = contentQuantity;
-    return this;
-  }
-
-   /**
-   * Get contentQuantity
-   * @return contentQuantity
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getContentQuantity() {
-    return contentQuantity;
-  }
-
-  public void setContentQuantity(Integer contentQuantity) {
-    this.contentQuantity = contentQuantity;
-  }
-
-  public PlanetaryPin longitude(Double longitude) {
+  public PlanetaryPin longitude(Float longitude) {
     this.longitude = longitude;
     return this;
   }
@@ -417,15 +367,15 @@ public class PlanetaryPin implements Serializable {
    * @return longitude
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getLongitude() {
+  public Float getLongitude() {
     return longitude;
   }
 
-  public void setLongitude(Double longitude) {
+  public void setLongitude(Float longitude) {
     this.longitude = longitude;
   }
 
-  public PlanetaryPin latitude(Double latitude) {
+  public PlanetaryPin latitude(Float latitude) {
     this.latitude = latitude;
     return this;
   }
@@ -435,12 +385,76 @@ public class PlanetaryPin implements Serializable {
    * @return latitude
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getLatitude() {
+  public Float getLatitude() {
     return latitude;
   }
 
-  public void setLatitude(Double latitude) {
+  public void setLatitude(Float latitude) {
     this.latitude = latitude;
+  }
+
+  public PlanetaryPin headRadius(Float headRadius) {
+    this.headRadius = headRadius;
+    return this;
+  }
+
+   /**
+   * Get headRadius
+   * @return headRadius
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Float getHeadRadius() {
+    return headRadius;
+  }
+
+  public void setHeadRadius(Float headRadius) {
+    this.headRadius = headRadius;
+  }
+
+  public PlanetaryPin heads(List<PlanetaryPinHead> heads) {
+    this.heads = heads;
+    return this;
+  }
+
+  public PlanetaryPin addHeadsItem(PlanetaryPinHead headsItem) {
+    this.heads.add(headsItem);
+    return this;
+  }
+
+   /**
+   * Get heads
+   * @return heads
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<PlanetaryPinHead> getHeads() {
+    return heads;
+  }
+
+  public void setHeads(List<PlanetaryPinHead> heads) {
+    this.heads = heads;
+  }
+
+  public PlanetaryPin contents(List<PlanetaryPinContent> contents) {
+    this.contents = contents;
+    return this;
+  }
+
+  public PlanetaryPin addContentsItem(PlanetaryPinContent contentsItem) {
+    this.contents.add(contentsItem);
+    return this;
+  }
+
+   /**
+   * Get contents
+   * @return contents
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public List<PlanetaryPinContent> getContents() {
+    return contents;
+  }
+
+  public void setContents(List<PlanetaryPinContent> contents) {
+    this.contents = contents;
   }
 
   public PlanetaryPin lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -479,22 +493,22 @@ public class PlanetaryPin implements Serializable {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public PlanetaryPin lastLaunchTimeDate(OffsetDateTime lastLaunchTimeDate) {
-    this.lastLaunchTimeDate = lastLaunchTimeDate;
+  public PlanetaryPin lastCycleStartDate(OffsetDateTime lastCycleStartDate) {
+    this.lastCycleStartDate = lastCycleStartDate;
     return this;
   }
 
    /**
-   * lastLaunchTime Date
-   * @return lastLaunchTimeDate
+   * lastCycleStart Date
+   * @return lastCycleStartDate
   **/
-  @ApiModelProperty(example = "null", value = "lastLaunchTime Date")
-  public OffsetDateTime getLastLaunchTimeDate() {
-    return lastLaunchTimeDate;
+  @ApiModelProperty(example = "null", value = "lastCycleStart Date")
+  public OffsetDateTime getLastCycleStartDate() {
+    return lastCycleStartDate;
   }
 
-  public void setLastLaunchTimeDate(OffsetDateTime lastLaunchTimeDate) {
-    this.lastLaunchTimeDate = lastLaunchTimeDate;
+  public void setLastCycleStartDate(OffsetDateTime lastCycleStartDate) {
+    this.lastCycleStartDate = lastCycleStartDate;
   }
 
   public PlanetaryPin installTimeDate(OffsetDateTime installTimeDate) {
@@ -550,28 +564,28 @@ public class PlanetaryPin implements Serializable {
         Objects.equals(this.planetID, planetaryPin.planetID) &&
         Objects.equals(this.pinID, planetaryPin.pinID) &&
         Objects.equals(this.typeID, planetaryPin.typeID) &&
-        Objects.equals(this.typeName, planetaryPin.typeName) &&
         Objects.equals(this.schematicID, planetaryPin.schematicID) &&
-        Objects.equals(this.lastLaunchTime, planetaryPin.lastLaunchTime) &&
+        Objects.equals(this.lastCycleStart, planetaryPin.lastCycleStart) &&
         Objects.equals(this.cycleTime, planetaryPin.cycleTime) &&
         Objects.equals(this.quantityPerCycle, planetaryPin.quantityPerCycle) &&
         Objects.equals(this.installTime, planetaryPin.installTime) &&
         Objects.equals(this.expiryTime, planetaryPin.expiryTime) &&
-        Objects.equals(this.contentTypeID, planetaryPin.contentTypeID) &&
-        Objects.equals(this.contentTypeName, planetaryPin.contentTypeName) &&
-        Objects.equals(this.contentQuantity, planetaryPin.contentQuantity) &&
+        Objects.equals(this.productTypeID, planetaryPin.productTypeID) &&
         Objects.equals(this.longitude, planetaryPin.longitude) &&
         Objects.equals(this.latitude, planetaryPin.latitude) &&
+        Objects.equals(this.headRadius, planetaryPin.headRadius) &&
+        Objects.equals(this.heads, planetaryPin.heads) &&
+        Objects.equals(this.contents, planetaryPin.contents) &&
         Objects.equals(this.lifeStartDate, planetaryPin.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, planetaryPin.lifeEndDate) &&
-        Objects.equals(this.lastLaunchTimeDate, planetaryPin.lastLaunchTimeDate) &&
+        Objects.equals(this.lastCycleStartDate, planetaryPin.lastCycleStartDate) &&
         Objects.equals(this.installTimeDate, planetaryPin.installTimeDate) &&
         Objects.equals(this.expiryTimeDate, planetaryPin.expiryTimeDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, planetID, pinID, typeID, typeName, schematicID, lastLaunchTime, cycleTime, quantityPerCycle, installTime, expiryTime, contentTypeID, contentTypeName, contentQuantity, longitude, latitude, lifeStartDate, lifeEndDate, lastLaunchTimeDate, installTimeDate, expiryTimeDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, planetID, pinID, typeID, schematicID, lastCycleStart, cycleTime, quantityPerCycle, installTime, expiryTime, productTypeID, longitude, latitude, headRadius, heads, contents, lifeStartDate, lifeEndDate, lastCycleStartDate, installTimeDate, expiryTimeDate);
   }
 
 
@@ -587,21 +601,21 @@ public class PlanetaryPin implements Serializable {
     sb.append("    planetID: ").append(toIndentedString(planetID)).append("\n");
     sb.append("    pinID: ").append(toIndentedString(pinID)).append("\n");
     sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
-    sb.append("    typeName: ").append(toIndentedString(typeName)).append("\n");
     sb.append("    schematicID: ").append(toIndentedString(schematicID)).append("\n");
-    sb.append("    lastLaunchTime: ").append(toIndentedString(lastLaunchTime)).append("\n");
+    sb.append("    lastCycleStart: ").append(toIndentedString(lastCycleStart)).append("\n");
     sb.append("    cycleTime: ").append(toIndentedString(cycleTime)).append("\n");
     sb.append("    quantityPerCycle: ").append(toIndentedString(quantityPerCycle)).append("\n");
     sb.append("    installTime: ").append(toIndentedString(installTime)).append("\n");
     sb.append("    expiryTime: ").append(toIndentedString(expiryTime)).append("\n");
-    sb.append("    contentTypeID: ").append(toIndentedString(contentTypeID)).append("\n");
-    sb.append("    contentTypeName: ").append(toIndentedString(contentTypeName)).append("\n");
-    sb.append("    contentQuantity: ").append(toIndentedString(contentQuantity)).append("\n");
+    sb.append("    productTypeID: ").append(toIndentedString(productTypeID)).append("\n");
     sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("    latitude: ").append(toIndentedString(latitude)).append("\n");
+    sb.append("    headRadius: ").append(toIndentedString(headRadius)).append("\n");
+    sb.append("    heads: ").append(toIndentedString(heads)).append("\n");
+    sb.append("    contents: ").append(toIndentedString(contents)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
-    sb.append("    lastLaunchTimeDate: ").append(toIndentedString(lastLaunchTimeDate)).append("\n");
+    sb.append("    lastCycleStartDate: ").append(toIndentedString(lastCycleStartDate)).append("\n");
     sb.append("    installTimeDate: ").append(toIndentedString(installTimeDate)).append("\n");
     sb.append("    expiryTimeDate: ").append(toIndentedString(expiryTimeDate)).append("\n");
     sb.append("}");

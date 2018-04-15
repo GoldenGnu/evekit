@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.io.Serializable;
 
@@ -27,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class OutpostServiceDetail implements Serializable {
+public class CharacterMedalGraphic implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -42,23 +41,23 @@ public class OutpostServiceDetail implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("stationID")
-  private Long stationID = null;
+  @JsonProperty("medalID")
+  private Integer medalID = null;
 
-  @JsonProperty("serviceName")
-  private String serviceName = null;
+  @JsonProperty("issued")
+  private Long issued = null;
 
-  @JsonProperty("ownerID")
-  private Long ownerID = null;
+  @JsonProperty("part")
+  private Integer part = null;
 
-  @JsonProperty("minStanding")
-  private Double minStanding = null;
+  @JsonProperty("layer")
+  private Integer layer = null;
 
-  @JsonProperty("surchargePerBadStanding")
-  private BigDecimal surchargePerBadStanding = null;
+  @JsonProperty("graphic")
+  private String graphic = null;
 
-  @JsonProperty("discountPerGoodStanding")
-  private BigDecimal discountPerGoodStanding = null;
+  @JsonProperty("color")
+  private Integer color = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -66,7 +65,10 @@ public class OutpostServiceDetail implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public OutpostServiceDetail cid(Long cid) {
+  @JsonProperty("issuedDate")
+  private OffsetDateTime issuedDate = null;
+
+  public CharacterMedalGraphic cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -84,7 +86,7 @@ public class OutpostServiceDetail implements Serializable {
     this.cid = cid;
   }
 
-  public OutpostServiceDetail eveKitVersion(Integer eveKitVersion) {
+  public CharacterMedalGraphic eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -102,7 +104,7 @@ public class OutpostServiceDetail implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public OutpostServiceDetail lifeStart(Long lifeStart) {
+  public CharacterMedalGraphic lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -120,7 +122,7 @@ public class OutpostServiceDetail implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public OutpostServiceDetail lifeEnd(Long lifeEnd) {
+  public CharacterMedalGraphic lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -138,115 +140,115 @@ public class OutpostServiceDetail implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public OutpostServiceDetail stationID(Long stationID) {
-    this.stationID = stationID;
+  public CharacterMedalGraphic medalID(Integer medalID) {
+    this.medalID = medalID;
     return this;
   }
 
    /**
-   * Get stationID
-   * @return stationID
+   * Get medalID
+   * @return medalID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getStationID() {
-    return stationID;
+  public Integer getMedalID() {
+    return medalID;
   }
 
-  public void setStationID(Long stationID) {
-    this.stationID = stationID;
+  public void setMedalID(Integer medalID) {
+    this.medalID = medalID;
   }
 
-  public OutpostServiceDetail serviceName(String serviceName) {
-    this.serviceName = serviceName;
+  public CharacterMedalGraphic issued(Long issued) {
+    this.issued = issued;
     return this;
   }
 
    /**
-   * Get serviceName
-   * @return serviceName
+   * Get issued
+   * @return issued
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getServiceName() {
-    return serviceName;
+  public Long getIssued() {
+    return issued;
   }
 
-  public void setServiceName(String serviceName) {
-    this.serviceName = serviceName;
+  public void setIssued(Long issued) {
+    this.issued = issued;
   }
 
-  public OutpostServiceDetail ownerID(Long ownerID) {
-    this.ownerID = ownerID;
+  public CharacterMedalGraphic part(Integer part) {
+    this.part = part;
     return this;
   }
 
    /**
-   * Get ownerID
-   * @return ownerID
+   * Get part
+   * @return part
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getOwnerID() {
-    return ownerID;
+  public Integer getPart() {
+    return part;
   }
 
-  public void setOwnerID(Long ownerID) {
-    this.ownerID = ownerID;
+  public void setPart(Integer part) {
+    this.part = part;
   }
 
-  public OutpostServiceDetail minStanding(Double minStanding) {
-    this.minStanding = minStanding;
+  public CharacterMedalGraphic layer(Integer layer) {
+    this.layer = layer;
     return this;
   }
 
    /**
-   * Get minStanding
-   * @return minStanding
+   * Get layer
+   * @return layer
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getMinStanding() {
-    return minStanding;
+  public Integer getLayer() {
+    return layer;
   }
 
-  public void setMinStanding(Double minStanding) {
-    this.minStanding = minStanding;
+  public void setLayer(Integer layer) {
+    this.layer = layer;
   }
 
-  public OutpostServiceDetail surchargePerBadStanding(BigDecimal surchargePerBadStanding) {
-    this.surchargePerBadStanding = surchargePerBadStanding;
+  public CharacterMedalGraphic graphic(String graphic) {
+    this.graphic = graphic;
     return this;
   }
 
    /**
-   * Get surchargePerBadStanding
-   * @return surchargePerBadStanding
+   * Get graphic
+   * @return graphic
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getSurchargePerBadStanding() {
-    return surchargePerBadStanding;
+  public String getGraphic() {
+    return graphic;
   }
 
-  public void setSurchargePerBadStanding(BigDecimal surchargePerBadStanding) {
-    this.surchargePerBadStanding = surchargePerBadStanding;
+  public void setGraphic(String graphic) {
+    this.graphic = graphic;
   }
 
-  public OutpostServiceDetail discountPerGoodStanding(BigDecimal discountPerGoodStanding) {
-    this.discountPerGoodStanding = discountPerGoodStanding;
+  public CharacterMedalGraphic color(Integer color) {
+    this.color = color;
     return this;
   }
 
    /**
-   * Get discountPerGoodStanding
-   * @return discountPerGoodStanding
+   * Get color
+   * @return color
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getDiscountPerGoodStanding() {
-    return discountPerGoodStanding;
+  public Integer getColor() {
+    return color;
   }
 
-  public void setDiscountPerGoodStanding(BigDecimal discountPerGoodStanding) {
-    this.discountPerGoodStanding = discountPerGoodStanding;
+  public void setColor(Integer color) {
+    this.color = color;
   }
 
-  public OutpostServiceDetail lifeStartDate(OffsetDateTime lifeStartDate) {
+  public CharacterMedalGraphic lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -264,7 +266,7 @@ public class OutpostServiceDetail implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public OutpostServiceDetail lifeEndDate(OffsetDateTime lifeEndDate) {
+  public CharacterMedalGraphic lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -282,6 +284,24 @@ public class OutpostServiceDetail implements Serializable {
     this.lifeEndDate = lifeEndDate;
   }
 
+  public CharacterMedalGraphic issuedDate(OffsetDateTime issuedDate) {
+    this.issuedDate = issuedDate;
+    return this;
+  }
+
+   /**
+   * issued Date
+   * @return issuedDate
+  **/
+  @ApiModelProperty(example = "null", value = "issued Date")
+  public OffsetDateTime getIssuedDate() {
+    return issuedDate;
+  }
+
+  public void setIssuedDate(OffsetDateTime issuedDate) {
+    this.issuedDate = issuedDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -291,44 +311,46 @@ public class OutpostServiceDetail implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OutpostServiceDetail outpostServiceDetail = (OutpostServiceDetail) o;
-    return Objects.equals(this.cid, outpostServiceDetail.cid) &&
-        Objects.equals(this.eveKitVersion, outpostServiceDetail.eveKitVersion) &&
-        Objects.equals(this.lifeStart, outpostServiceDetail.lifeStart) &&
-        Objects.equals(this.lifeEnd, outpostServiceDetail.lifeEnd) &&
-        Objects.equals(this.stationID, outpostServiceDetail.stationID) &&
-        Objects.equals(this.serviceName, outpostServiceDetail.serviceName) &&
-        Objects.equals(this.ownerID, outpostServiceDetail.ownerID) &&
-        Objects.equals(this.minStanding, outpostServiceDetail.minStanding) &&
-        Objects.equals(this.surchargePerBadStanding, outpostServiceDetail.surchargePerBadStanding) &&
-        Objects.equals(this.discountPerGoodStanding, outpostServiceDetail.discountPerGoodStanding) &&
-        Objects.equals(this.lifeStartDate, outpostServiceDetail.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, outpostServiceDetail.lifeEndDate);
+    CharacterMedalGraphic characterMedalGraphic = (CharacterMedalGraphic) o;
+    return Objects.equals(this.cid, characterMedalGraphic.cid) &&
+        Objects.equals(this.eveKitVersion, characterMedalGraphic.eveKitVersion) &&
+        Objects.equals(this.lifeStart, characterMedalGraphic.lifeStart) &&
+        Objects.equals(this.lifeEnd, characterMedalGraphic.lifeEnd) &&
+        Objects.equals(this.medalID, characterMedalGraphic.medalID) &&
+        Objects.equals(this.issued, characterMedalGraphic.issued) &&
+        Objects.equals(this.part, characterMedalGraphic.part) &&
+        Objects.equals(this.layer, characterMedalGraphic.layer) &&
+        Objects.equals(this.graphic, characterMedalGraphic.graphic) &&
+        Objects.equals(this.color, characterMedalGraphic.color) &&
+        Objects.equals(this.lifeStartDate, characterMedalGraphic.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, characterMedalGraphic.lifeEndDate) &&
+        Objects.equals(this.issuedDate, characterMedalGraphic.issuedDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, stationID, serviceName, ownerID, minStanding, surchargePerBadStanding, discountPerGoodStanding, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, medalID, issued, part, layer, graphic, color, lifeStartDate, lifeEndDate, issuedDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OutpostServiceDetail {\n");
+    sb.append("class CharacterMedalGraphic {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    stationID: ").append(toIndentedString(stationID)).append("\n");
-    sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
-    sb.append("    ownerID: ").append(toIndentedString(ownerID)).append("\n");
-    sb.append("    minStanding: ").append(toIndentedString(minStanding)).append("\n");
-    sb.append("    surchargePerBadStanding: ").append(toIndentedString(surchargePerBadStanding)).append("\n");
-    sb.append("    discountPerGoodStanding: ").append(toIndentedString(discountPerGoodStanding)).append("\n");
+    sb.append("    medalID: ").append(toIndentedString(medalID)).append("\n");
+    sb.append("    issued: ").append(toIndentedString(issued)).append("\n");
+    sb.append("    part: ").append(toIndentedString(part)).append("\n");
+    sb.append("    layer: ").append(toIndentedString(layer)).append("\n");
+    sb.append("    graphic: ").append(toIndentedString(graphic)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
+    sb.append("    issuedDate: ").append(toIndentedString(issuedDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

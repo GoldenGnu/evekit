@@ -26,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class SecurityRole implements Serializable {
+public class CorporationTitleRole implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -41,11 +41,23 @@ public class SecurityRole implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("roleID")
-  private Long roleID = null;
+  @JsonProperty("titleID")
+  private Integer titleID = null;
 
   @JsonProperty("roleName")
   private String roleName = null;
+
+  @JsonProperty("grantable")
+  private Boolean grantable = false;
+
+  @JsonProperty("atHQ")
+  private Boolean atHQ = false;
+
+  @JsonProperty("atBase")
+  private Boolean atBase = false;
+
+  @JsonProperty("atOther")
+  private Boolean atOther = false;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -53,7 +65,7 @@ public class SecurityRole implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public SecurityRole cid(Long cid) {
+  public CorporationTitleRole cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -71,7 +83,7 @@ public class SecurityRole implements Serializable {
     this.cid = cid;
   }
 
-  public SecurityRole eveKitVersion(Integer eveKitVersion) {
+  public CorporationTitleRole eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -89,7 +101,7 @@ public class SecurityRole implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public SecurityRole lifeStart(Long lifeStart) {
+  public CorporationTitleRole lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -107,7 +119,7 @@ public class SecurityRole implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public SecurityRole lifeEnd(Long lifeEnd) {
+  public CorporationTitleRole lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -125,25 +137,25 @@ public class SecurityRole implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public SecurityRole roleID(Long roleID) {
-    this.roleID = roleID;
+  public CorporationTitleRole titleID(Integer titleID) {
+    this.titleID = titleID;
     return this;
   }
 
    /**
-   * Get roleID
-   * @return roleID
+   * Get titleID
+   * @return titleID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getRoleID() {
-    return roleID;
+  public Integer getTitleID() {
+    return titleID;
   }
 
-  public void setRoleID(Long roleID) {
-    this.roleID = roleID;
+  public void setTitleID(Integer titleID) {
+    this.titleID = titleID;
   }
 
-  public SecurityRole roleName(String roleName) {
+  public CorporationTitleRole roleName(String roleName) {
     this.roleName = roleName;
     return this;
   }
@@ -161,7 +173,79 @@ public class SecurityRole implements Serializable {
     this.roleName = roleName;
   }
 
-  public SecurityRole lifeStartDate(OffsetDateTime lifeStartDate) {
+  public CorporationTitleRole grantable(Boolean grantable) {
+    this.grantable = grantable;
+    return this;
+  }
+
+   /**
+   * Get grantable
+   * @return grantable
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getGrantable() {
+    return grantable;
+  }
+
+  public void setGrantable(Boolean grantable) {
+    this.grantable = grantable;
+  }
+
+  public CorporationTitleRole atHQ(Boolean atHQ) {
+    this.atHQ = atHQ;
+    return this;
+  }
+
+   /**
+   * Get atHQ
+   * @return atHQ
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getAtHQ() {
+    return atHQ;
+  }
+
+  public void setAtHQ(Boolean atHQ) {
+    this.atHQ = atHQ;
+  }
+
+  public CorporationTitleRole atBase(Boolean atBase) {
+    this.atBase = atBase;
+    return this;
+  }
+
+   /**
+   * Get atBase
+   * @return atBase
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getAtBase() {
+    return atBase;
+  }
+
+  public void setAtBase(Boolean atBase) {
+    this.atBase = atBase;
+  }
+
+  public CorporationTitleRole atOther(Boolean atOther) {
+    this.atOther = atOther;
+    return this;
+  }
+
+   /**
+   * Get atOther
+   * @return atOther
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getAtOther() {
+    return atOther;
+  }
+
+  public void setAtOther(Boolean atOther) {
+    this.atOther = atOther;
+  }
+
+  public CorporationTitleRole lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -179,7 +263,7 @@ public class SecurityRole implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public SecurityRole lifeEndDate(OffsetDateTime lifeEndDate) {
+  public CorporationTitleRole lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -206,34 +290,42 @@ public class SecurityRole implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityRole securityRole = (SecurityRole) o;
-    return Objects.equals(this.cid, securityRole.cid) &&
-        Objects.equals(this.eveKitVersion, securityRole.eveKitVersion) &&
-        Objects.equals(this.lifeStart, securityRole.lifeStart) &&
-        Objects.equals(this.lifeEnd, securityRole.lifeEnd) &&
-        Objects.equals(this.roleID, securityRole.roleID) &&
-        Objects.equals(this.roleName, securityRole.roleName) &&
-        Objects.equals(this.lifeStartDate, securityRole.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, securityRole.lifeEndDate);
+    CorporationTitleRole corporationTitleRole = (CorporationTitleRole) o;
+    return Objects.equals(this.cid, corporationTitleRole.cid) &&
+        Objects.equals(this.eveKitVersion, corporationTitleRole.eveKitVersion) &&
+        Objects.equals(this.lifeStart, corporationTitleRole.lifeStart) &&
+        Objects.equals(this.lifeEnd, corporationTitleRole.lifeEnd) &&
+        Objects.equals(this.titleID, corporationTitleRole.titleID) &&
+        Objects.equals(this.roleName, corporationTitleRole.roleName) &&
+        Objects.equals(this.grantable, corporationTitleRole.grantable) &&
+        Objects.equals(this.atHQ, corporationTitleRole.atHQ) &&
+        Objects.equals(this.atBase, corporationTitleRole.atBase) &&
+        Objects.equals(this.atOther, corporationTitleRole.atOther) &&
+        Objects.equals(this.lifeStartDate, corporationTitleRole.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, corporationTitleRole.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, roleID, roleName, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, titleID, roleName, grantable, atHQ, atBase, atOther, lifeStartDate, lifeEndDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SecurityRole {\n");
+    sb.append("class CorporationTitleRole {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    roleID: ").append(toIndentedString(roleID)).append("\n");
+    sb.append("    titleID: ").append(toIndentedString(titleID)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
+    sb.append("    grantable: ").append(toIndentedString(grantable)).append("\n");
+    sb.append("    atHQ: ").append(toIndentedString(atHQ)).append("\n");
+    sb.append("    atBase: ").append(toIndentedString(atBase)).append("\n");
+    sb.append("    atOther: ").append(toIndentedString(atOther)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

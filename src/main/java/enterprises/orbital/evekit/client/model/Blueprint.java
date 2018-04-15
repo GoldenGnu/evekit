@@ -47,14 +47,11 @@ public class Blueprint implements Serializable {
   @JsonProperty("locationID")
   private Long locationID = null;
 
+  @JsonProperty("locationFlag")
+  private String locationFlag = null;
+
   @JsonProperty("typeID")
   private Integer typeID = null;
-
-  @JsonProperty("typeName")
-  private String typeName = null;
-
-  @JsonProperty("flagID")
-  private Integer flagID = null;
 
   @JsonProperty("quantity")
   private Integer quantity = null;
@@ -182,6 +179,24 @@ public class Blueprint implements Serializable {
     this.locationID = locationID;
   }
 
+  public Blueprint locationFlag(String locationFlag) {
+    this.locationFlag = locationFlag;
+    return this;
+  }
+
+   /**
+   * Get locationFlag
+   * @return locationFlag
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getLocationFlag() {
+    return locationFlag;
+  }
+
+  public void setLocationFlag(String locationFlag) {
+    this.locationFlag = locationFlag;
+  }
+
   public Blueprint typeID(Integer typeID) {
     this.typeID = typeID;
     return this;
@@ -198,42 +213,6 @@ public class Blueprint implements Serializable {
 
   public void setTypeID(Integer typeID) {
     this.typeID = typeID;
-  }
-
-  public Blueprint typeName(String typeName) {
-    this.typeName = typeName;
-    return this;
-  }
-
-   /**
-   * Get typeName
-   * @return typeName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getTypeName() {
-    return typeName;
-  }
-
-  public void setTypeName(String typeName) {
-    this.typeName = typeName;
-  }
-
-  public Blueprint flagID(Integer flagID) {
-    this.flagID = flagID;
-    return this;
-  }
-
-   /**
-   * Get flagID
-   * @return flagID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getFlagID() {
-    return flagID;
-  }
-
-  public void setFlagID(Integer flagID) {
-    this.flagID = flagID;
   }
 
   public Blueprint quantity(Integer quantity) {
@@ -360,9 +339,8 @@ public class Blueprint implements Serializable {
         Objects.equals(this.lifeEnd, blueprint.lifeEnd) &&
         Objects.equals(this.itemID, blueprint.itemID) &&
         Objects.equals(this.locationID, blueprint.locationID) &&
+        Objects.equals(this.locationFlag, blueprint.locationFlag) &&
         Objects.equals(this.typeID, blueprint.typeID) &&
-        Objects.equals(this.typeName, blueprint.typeName) &&
-        Objects.equals(this.flagID, blueprint.flagID) &&
         Objects.equals(this.quantity, blueprint.quantity) &&
         Objects.equals(this.timeEfficiency, blueprint.timeEfficiency) &&
         Objects.equals(this.materialEfficiency, blueprint.materialEfficiency) &&
@@ -373,7 +351,7 @@ public class Blueprint implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, itemID, locationID, typeID, typeName, flagID, quantity, timeEfficiency, materialEfficiency, runs, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, itemID, locationID, locationFlag, typeID, quantity, timeEfficiency, materialEfficiency, runs, lifeStartDate, lifeEndDate);
   }
 
 
@@ -388,9 +366,8 @@ public class Blueprint implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    itemID: ").append(toIndentedString(itemID)).append("\n");
     sb.append("    locationID: ").append(toIndentedString(locationID)).append("\n");
+    sb.append("    locationFlag: ").append(toIndentedString(locationFlag)).append("\n");
     sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
-    sb.append("    typeName: ").append(toIndentedString(typeName)).append("\n");
-    sb.append("    flagID: ").append(toIndentedString(flagID)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    timeEfficiency: ").append(toIndentedString(timeEfficiency)).append("\n");
     sb.append("    materialEfficiency: ").append(toIndentedString(materialEfficiency)).append("\n");

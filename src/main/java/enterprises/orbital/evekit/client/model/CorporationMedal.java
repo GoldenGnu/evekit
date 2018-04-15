@@ -54,7 +54,7 @@ public class CorporationMedal implements Serializable {
   private Long created = null;
 
   @JsonProperty("creatorID")
-  private Long creatorID = null;
+  private Integer creatorID = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -209,7 +209,7 @@ public class CorporationMedal implements Serializable {
     this.created = created;
   }
 
-  public CorporationMedal creatorID(Long creatorID) {
+  public CorporationMedal creatorID(Integer creatorID) {
     this.creatorID = creatorID;
     return this;
   }
@@ -219,11 +219,11 @@ public class CorporationMedal implements Serializable {
    * @return creatorID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getCreatorID() {
+  public Integer getCreatorID() {
     return creatorID;
   }
 
-  public void setCreatorID(Long creatorID) {
+  public void setCreatorID(Integer creatorID) {
     this.creatorID = creatorID;
   }
 

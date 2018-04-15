@@ -26,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class CharacterSkill implements Serializable {
+public class MemberTitle implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -41,17 +41,11 @@ public class CharacterSkill implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("typeID")
-  private Integer typeID = null;
+  @JsonProperty("characterID")
+  private Integer characterID = null;
 
-  @JsonProperty("trainedSkillLevel")
-  private Integer trainedSkillLevel = null;
-
-  @JsonProperty("skillpoints")
-  private Long skillpoints = null;
-
-  @JsonProperty("activeSkillLevel")
-  private Integer activeSkillLevel = null;
+  @JsonProperty("titleID")
+  private Integer titleID = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -59,7 +53,7 @@ public class CharacterSkill implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public CharacterSkill cid(Long cid) {
+  public MemberTitle cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -77,7 +71,7 @@ public class CharacterSkill implements Serializable {
     this.cid = cid;
   }
 
-  public CharacterSkill eveKitVersion(Integer eveKitVersion) {
+  public MemberTitle eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -95,7 +89,7 @@ public class CharacterSkill implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public CharacterSkill lifeStart(Long lifeStart) {
+  public MemberTitle lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -113,7 +107,7 @@ public class CharacterSkill implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public CharacterSkill lifeEnd(Long lifeEnd) {
+  public MemberTitle lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -131,79 +125,43 @@ public class CharacterSkill implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CharacterSkill typeID(Integer typeID) {
-    this.typeID = typeID;
+  public MemberTitle characterID(Integer characterID) {
+    this.characterID = characterID;
     return this;
   }
 
    /**
-   * Get typeID
-   * @return typeID
+   * Get characterID
+   * @return characterID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getTypeID() {
-    return typeID;
+  public Integer getCharacterID() {
+    return characterID;
   }
 
-  public void setTypeID(Integer typeID) {
-    this.typeID = typeID;
+  public void setCharacterID(Integer characterID) {
+    this.characterID = characterID;
   }
 
-  public CharacterSkill trainedSkillLevel(Integer trainedSkillLevel) {
-    this.trainedSkillLevel = trainedSkillLevel;
+  public MemberTitle titleID(Integer titleID) {
+    this.titleID = titleID;
     return this;
   }
 
    /**
-   * Get trainedSkillLevel
-   * @return trainedSkillLevel
+   * Get titleID
+   * @return titleID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getTrainedSkillLevel() {
-    return trainedSkillLevel;
+  public Integer getTitleID() {
+    return titleID;
   }
 
-  public void setTrainedSkillLevel(Integer trainedSkillLevel) {
-    this.trainedSkillLevel = trainedSkillLevel;
+  public void setTitleID(Integer titleID) {
+    this.titleID = titleID;
   }
 
-  public CharacterSkill skillpoints(Long skillpoints) {
-    this.skillpoints = skillpoints;
-    return this;
-  }
-
-   /**
-   * Get skillpoints
-   * @return skillpoints
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getSkillpoints() {
-    return skillpoints;
-  }
-
-  public void setSkillpoints(Long skillpoints) {
-    this.skillpoints = skillpoints;
-  }
-
-  public CharacterSkill activeSkillLevel(Integer activeSkillLevel) {
-    this.activeSkillLevel = activeSkillLevel;
-    return this;
-  }
-
-   /**
-   * Get activeSkillLevel
-   * @return activeSkillLevel
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getActiveSkillLevel() {
-    return activeSkillLevel;
-  }
-
-  public void setActiveSkillLevel(Integer activeSkillLevel) {
-    this.activeSkillLevel = activeSkillLevel;
-  }
-
-  public CharacterSkill lifeStartDate(OffsetDateTime lifeStartDate) {
+  public MemberTitle lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -221,7 +179,7 @@ public class CharacterSkill implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public CharacterSkill lifeEndDate(OffsetDateTime lifeEndDate) {
+  public MemberTitle lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -248,38 +206,34 @@ public class CharacterSkill implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CharacterSkill characterSkill = (CharacterSkill) o;
-    return Objects.equals(this.cid, characterSkill.cid) &&
-        Objects.equals(this.eveKitVersion, characterSkill.eveKitVersion) &&
-        Objects.equals(this.lifeStart, characterSkill.lifeStart) &&
-        Objects.equals(this.lifeEnd, characterSkill.lifeEnd) &&
-        Objects.equals(this.typeID, characterSkill.typeID) &&
-        Objects.equals(this.trainedSkillLevel, characterSkill.trainedSkillLevel) &&
-        Objects.equals(this.skillpoints, characterSkill.skillpoints) &&
-        Objects.equals(this.activeSkillLevel, characterSkill.activeSkillLevel) &&
-        Objects.equals(this.lifeStartDate, characterSkill.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, characterSkill.lifeEndDate);
+    MemberTitle memberTitle = (MemberTitle) o;
+    return Objects.equals(this.cid, memberTitle.cid) &&
+        Objects.equals(this.eveKitVersion, memberTitle.eveKitVersion) &&
+        Objects.equals(this.lifeStart, memberTitle.lifeStart) &&
+        Objects.equals(this.lifeEnd, memberTitle.lifeEnd) &&
+        Objects.equals(this.characterID, memberTitle.characterID) &&
+        Objects.equals(this.titleID, memberTitle.titleID) &&
+        Objects.equals(this.lifeStartDate, memberTitle.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, memberTitle.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, typeID, trainedSkillLevel, skillpoints, activeSkillLevel, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, characterID, titleID, lifeStartDate, lifeEndDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CharacterSkill {\n");
+    sb.append("class MemberTitle {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
-    sb.append("    trainedSkillLevel: ").append(toIndentedString(trainedSkillLevel)).append("\n");
-    sb.append("    skillpoints: ").append(toIndentedString(skillpoints)).append("\n");
-    sb.append("    activeSkillLevel: ").append(toIndentedString(activeSkillLevel)).append("\n");
+    sb.append("    characterID: ").append(toIndentedString(characterID)).append("\n");
+    sb.append("    titleID: ").append(toIndentedString(titleID)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

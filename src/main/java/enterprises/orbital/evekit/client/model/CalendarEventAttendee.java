@@ -42,13 +42,10 @@ public class CalendarEventAttendee implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("eventID")
-  private Long eventID = null;
+  private Integer eventID = null;
 
   @JsonProperty("characterID")
-  private Long characterID = null;
-
-  @JsonProperty("characterName")
-  private String characterName = null;
+  private Integer characterID = null;
 
   @JsonProperty("response")
   private String response = null;
@@ -131,7 +128,7 @@ public class CalendarEventAttendee implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CalendarEventAttendee eventID(Long eventID) {
+  public CalendarEventAttendee eventID(Integer eventID) {
     this.eventID = eventID;
     return this;
   }
@@ -141,15 +138,15 @@ public class CalendarEventAttendee implements Serializable {
    * @return eventID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getEventID() {
+  public Integer getEventID() {
     return eventID;
   }
 
-  public void setEventID(Long eventID) {
+  public void setEventID(Integer eventID) {
     this.eventID = eventID;
   }
 
-  public CalendarEventAttendee characterID(Long characterID) {
+  public CalendarEventAttendee characterID(Integer characterID) {
     this.characterID = characterID;
     return this;
   }
@@ -159,30 +156,12 @@ public class CalendarEventAttendee implements Serializable {
    * @return characterID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getCharacterID() {
+  public Integer getCharacterID() {
     return characterID;
   }
 
-  public void setCharacterID(Long characterID) {
+  public void setCharacterID(Integer characterID) {
     this.characterID = characterID;
-  }
-
-  public CalendarEventAttendee characterName(String characterName) {
-    this.characterName = characterName;
-    return this;
-  }
-
-   /**
-   * Get characterName
-   * @return characterName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getCharacterName() {
-    return characterName;
-  }
-
-  public void setCharacterName(String characterName) {
-    this.characterName = characterName;
   }
 
   public CalendarEventAttendee response(String response) {
@@ -255,7 +234,6 @@ public class CalendarEventAttendee implements Serializable {
         Objects.equals(this.lifeEnd, calendarEventAttendee.lifeEnd) &&
         Objects.equals(this.eventID, calendarEventAttendee.eventID) &&
         Objects.equals(this.characterID, calendarEventAttendee.characterID) &&
-        Objects.equals(this.characterName, calendarEventAttendee.characterName) &&
         Objects.equals(this.response, calendarEventAttendee.response) &&
         Objects.equals(this.lifeStartDate, calendarEventAttendee.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, calendarEventAttendee.lifeEndDate);
@@ -263,7 +241,7 @@ public class CalendarEventAttendee implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, eventID, characterID, characterName, response, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, eventID, characterID, response, lifeStartDate, lifeEndDate);
   }
 
 
@@ -278,7 +256,6 @@ public class CalendarEventAttendee implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    eventID: ").append(toIndentedString(eventID)).append("\n");
     sb.append("    characterID: ").append(toIndentedString(characterID)).append("\n");
-    sb.append("    characterName: ").append(toIndentedString(characterName)).append("\n");
     sb.append("    response: ").append(toIndentedString(response)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");

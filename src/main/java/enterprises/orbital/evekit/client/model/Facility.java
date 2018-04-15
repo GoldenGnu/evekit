@@ -47,26 +47,8 @@ public class Facility implements Serializable {
   @JsonProperty("typeID")
   private Integer typeID = null;
 
-  @JsonProperty("typeName")
-  private String typeName = null;
-
   @JsonProperty("solarSystemID")
   private Integer solarSystemID = null;
-
-  @JsonProperty("solarSystemName")
-  private String solarSystemName = null;
-
-  @JsonProperty("regionID")
-  private Integer regionID = null;
-
-  @JsonProperty("regionName")
-  private String regionName = null;
-
-  @JsonProperty("starbaseModifier")
-  private Integer starbaseModifier = null;
-
-  @JsonProperty("tax")
-  private Double tax = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -182,24 +164,6 @@ public class Facility implements Serializable {
     this.typeID = typeID;
   }
 
-  public Facility typeName(String typeName) {
-    this.typeName = typeName;
-    return this;
-  }
-
-   /**
-   * Get typeName
-   * @return typeName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getTypeName() {
-    return typeName;
-  }
-
-  public void setTypeName(String typeName) {
-    this.typeName = typeName;
-  }
-
   public Facility solarSystemID(Integer solarSystemID) {
     this.solarSystemID = solarSystemID;
     return this;
@@ -216,96 +180,6 @@ public class Facility implements Serializable {
 
   public void setSolarSystemID(Integer solarSystemID) {
     this.solarSystemID = solarSystemID;
-  }
-
-  public Facility solarSystemName(String solarSystemName) {
-    this.solarSystemName = solarSystemName;
-    return this;
-  }
-
-   /**
-   * Get solarSystemName
-   * @return solarSystemName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getSolarSystemName() {
-    return solarSystemName;
-  }
-
-  public void setSolarSystemName(String solarSystemName) {
-    this.solarSystemName = solarSystemName;
-  }
-
-  public Facility regionID(Integer regionID) {
-    this.regionID = regionID;
-    return this;
-  }
-
-   /**
-   * Get regionID
-   * @return regionID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getRegionID() {
-    return regionID;
-  }
-
-  public void setRegionID(Integer regionID) {
-    this.regionID = regionID;
-  }
-
-  public Facility regionName(String regionName) {
-    this.regionName = regionName;
-    return this;
-  }
-
-   /**
-   * Get regionName
-   * @return regionName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getRegionName() {
-    return regionName;
-  }
-
-  public void setRegionName(String regionName) {
-    this.regionName = regionName;
-  }
-
-  public Facility starbaseModifier(Integer starbaseModifier) {
-    this.starbaseModifier = starbaseModifier;
-    return this;
-  }
-
-   /**
-   * Get starbaseModifier
-   * @return starbaseModifier
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getStarbaseModifier() {
-    return starbaseModifier;
-  }
-
-  public void setStarbaseModifier(Integer starbaseModifier) {
-    this.starbaseModifier = starbaseModifier;
-  }
-
-  public Facility tax(Double tax) {
-    this.tax = tax;
-    return this;
-  }
-
-   /**
-   * Get tax
-   * @return tax
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Double getTax() {
-    return tax;
-  }
-
-  public void setTax(Double tax) {
-    this.tax = tax;
   }
 
   public Facility lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -360,20 +234,14 @@ public class Facility implements Serializable {
         Objects.equals(this.lifeEnd, facility.lifeEnd) &&
         Objects.equals(this.facilityID, facility.facilityID) &&
         Objects.equals(this.typeID, facility.typeID) &&
-        Objects.equals(this.typeName, facility.typeName) &&
         Objects.equals(this.solarSystemID, facility.solarSystemID) &&
-        Objects.equals(this.solarSystemName, facility.solarSystemName) &&
-        Objects.equals(this.regionID, facility.regionID) &&
-        Objects.equals(this.regionName, facility.regionName) &&
-        Objects.equals(this.starbaseModifier, facility.starbaseModifier) &&
-        Objects.equals(this.tax, facility.tax) &&
         Objects.equals(this.lifeStartDate, facility.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, facility.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, facilityID, typeID, typeName, solarSystemID, solarSystemName, regionID, regionName, starbaseModifier, tax, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, facilityID, typeID, solarSystemID, lifeStartDate, lifeEndDate);
   }
 
 
@@ -388,13 +256,7 @@ public class Facility implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    facilityID: ").append(toIndentedString(facilityID)).append("\n");
     sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
-    sb.append("    typeName: ").append(toIndentedString(typeName)).append("\n");
     sb.append("    solarSystemID: ").append(toIndentedString(solarSystemID)).append("\n");
-    sb.append("    solarSystemName: ").append(toIndentedString(solarSystemName)).append("\n");
-    sb.append("    regionID: ").append(toIndentedString(regionID)).append("\n");
-    sb.append("    regionName: ").append(toIndentedString(regionName)).append("\n");
-    sb.append("    starbaseModifier: ").append(toIndentedString(starbaseModifier)).append("\n");
-    sb.append("    tax: ").append(toIndentedString(tax)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

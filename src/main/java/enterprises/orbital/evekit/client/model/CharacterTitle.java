@@ -42,7 +42,7 @@ public class CharacterTitle implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("titleID")
-  private Long titleID = null;
+  private Integer titleID = null;
 
   @JsonProperty("titleName")
   private String titleName = null;
@@ -125,7 +125,7 @@ public class CharacterTitle implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public CharacterTitle titleID(Long titleID) {
+  public CharacterTitle titleID(Integer titleID) {
     this.titleID = titleID;
     return this;
   }
@@ -135,11 +135,11 @@ public class CharacterTitle implements Serializable {
    * @return titleID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getTitleID() {
+  public Integer getTitleID() {
     return titleID;
   }
 
-  public void setTitleID(Long titleID) {
+  public void setTitleID(Integer titleID) {
     this.titleID = titleID;
   }
 

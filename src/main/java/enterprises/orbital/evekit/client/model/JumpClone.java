@@ -44,14 +44,14 @@ public class JumpClone implements Serializable {
   @JsonProperty("jumpCloneID")
   private Integer jumpCloneID = null;
 
-  @JsonProperty("typeID")
-  private Integer typeID = null;
-
   @JsonProperty("locationID")
   private Long locationID = null;
 
   @JsonProperty("cloneName")
   private String cloneName = null;
+
+  @JsonProperty("locationType")
+  private String locationType = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -149,24 +149,6 @@ public class JumpClone implements Serializable {
     this.jumpCloneID = jumpCloneID;
   }
 
-  public JumpClone typeID(Integer typeID) {
-    this.typeID = typeID;
-    return this;
-  }
-
-   /**
-   * Get typeID
-   * @return typeID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getTypeID() {
-    return typeID;
-  }
-
-  public void setTypeID(Integer typeID) {
-    this.typeID = typeID;
-  }
-
   public JumpClone locationID(Long locationID) {
     this.locationID = locationID;
     return this;
@@ -201,6 +183,24 @@ public class JumpClone implements Serializable {
 
   public void setCloneName(String cloneName) {
     this.cloneName = cloneName;
+  }
+
+  public JumpClone locationType(String locationType) {
+    this.locationType = locationType;
+    return this;
+  }
+
+   /**
+   * Get locationType
+   * @return locationType
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getLocationType() {
+    return locationType;
+  }
+
+  public void setLocationType(String locationType) {
+    this.locationType = locationType;
   }
 
   public JumpClone lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -254,16 +254,16 @@ public class JumpClone implements Serializable {
         Objects.equals(this.lifeStart, jumpClone.lifeStart) &&
         Objects.equals(this.lifeEnd, jumpClone.lifeEnd) &&
         Objects.equals(this.jumpCloneID, jumpClone.jumpCloneID) &&
-        Objects.equals(this.typeID, jumpClone.typeID) &&
         Objects.equals(this.locationID, jumpClone.locationID) &&
         Objects.equals(this.cloneName, jumpClone.cloneName) &&
+        Objects.equals(this.locationType, jumpClone.locationType) &&
         Objects.equals(this.lifeStartDate, jumpClone.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, jumpClone.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, jumpCloneID, typeID, locationID, cloneName, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, jumpCloneID, locationID, cloneName, locationType, lifeStartDate, lifeEndDate);
   }
 
 
@@ -277,9 +277,9 @@ public class JumpClone implements Serializable {
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    jumpCloneID: ").append(toIndentedString(jumpCloneID)).append("\n");
-    sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
     sb.append("    locationID: ").append(toIndentedString(locationID)).append("\n");
     sb.append("    cloneName: ").append(toIndentedString(cloneName)).append("\n");
+    sb.append("    locationType: ").append(toIndentedString(locationType)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

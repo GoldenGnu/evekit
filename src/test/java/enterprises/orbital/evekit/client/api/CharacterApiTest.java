@@ -14,38 +14,45 @@
 package enterprises.orbital.evekit.client.api;
 
 import enterprises.orbital.evekit.client.ApiException;
-import enterprises.orbital.evekit.client.model.AccountStatus;
 import enterprises.orbital.evekit.client.model.CalendarEventAttendee;
 import enterprises.orbital.evekit.client.model.CharacterContactNotification;
+import enterprises.orbital.evekit.client.model.CharacterLocation;
 import enterprises.orbital.evekit.client.model.CharacterMailMessage;
-import enterprises.orbital.evekit.client.model.CharacterMailMessageBody;
 import enterprises.orbital.evekit.client.model.CharacterMedal;
+import enterprises.orbital.evekit.client.model.CharacterMedalGraphic;
 import enterprises.orbital.evekit.client.model.CharacterNotification;
-import enterprises.orbital.evekit.client.model.CharacterNotificationBody;
+import enterprises.orbital.evekit.client.model.CharacterOnline;
 import enterprises.orbital.evekit.client.model.CharacterRole;
 import enterprises.orbital.evekit.client.model.CharacterSheet;
-import enterprises.orbital.evekit.client.model.CharacterSheetBalance;
+import enterprises.orbital.evekit.client.model.CharacterSheetAttributes;
 import enterprises.orbital.evekit.client.model.CharacterSheetClone;
 import enterprises.orbital.evekit.client.model.CharacterSheetJump;
+import enterprises.orbital.evekit.client.model.CharacterSheetSkillPoints;
+import enterprises.orbital.evekit.client.model.CharacterShip;
 import enterprises.orbital.evekit.client.model.CharacterSkill;
-import enterprises.orbital.evekit.client.model.CharacterSkillInTraining;
 import enterprises.orbital.evekit.client.model.CharacterTitle;
 import enterprises.orbital.evekit.client.model.ChatChannel;
 import enterprises.orbital.evekit.client.model.ChatChannelMember;
 import enterprises.orbital.evekit.client.model.Implant;
 import enterprises.orbital.evekit.client.model.JumpClone;
 import enterprises.orbital.evekit.client.model.JumpCloneImplant;
+import enterprises.orbital.evekit.client.model.MailLabel;
 import enterprises.orbital.evekit.client.model.MailingList;
 import enterprises.orbital.evekit.client.model.PlanetaryColony;
 import enterprises.orbital.evekit.client.model.PlanetaryLink;
 import enterprises.orbital.evekit.client.model.PlanetaryPin;
 import enterprises.orbital.evekit.client.model.PlanetaryRoute;
 import enterprises.orbital.evekit.client.model.ResearchAgent;
+import enterprises.orbital.evekit.client.model.ServiceError;
 import enterprises.orbital.evekit.client.model.SkillInQueue;
 import enterprises.orbital.evekit.client.model.UpcomingCalendarEvent;
-import java.util.List;
-import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.Ignore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * API tests for CharacterApi
@@ -55,54 +62,6 @@ public class CharacterApiTest {
 
     private final CharacterApi api = new CharacterApi();
 
-    
-    /**
-     * Get account status(es)
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getAccountStatusTest() throws ApiException {
-        Integer accessKey = null;
-        String accessCred = null;
-        String at = null;
-        Long contid = null;
-        Integer maxresults = null;
-        Boolean reverse = null;
-        String paidUntil = null;
-        String createDate = null;
-        String logonCount = null;
-        String logonMinutes = null;
-        String multiCharacterTraining = null;
-        List<AccountStatus> response = api.getAccountStatus(accessKey, accessCred, at, contid, maxresults, reverse, paidUntil, createDate, logonCount, logonMinutes, multiCharacterTraining);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get character sheet balance
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getBalancesTest() throws ApiException {
-        Integer accessKey = null;
-        String accessCred = null;
-        String at = null;
-        Long contid = null;
-        Integer maxresults = null;
-        Boolean reverse = null;
-        String balance = null;
-        List<CharacterSheetBalance> response = api.getBalances(accessKey, accessCred, at, contid, maxresults, reverse, balance);
-
-        // TODO: test validations
-    }
     
     /**
      * Get calendar event attendees
@@ -122,9 +81,8 @@ public class CharacterApiTest {
         Boolean reverse = null;
         String eventID = null;
         String characterID = null;
-        String characterName = null;
         String response = null;
-        List<CalendarEventAttendee> responses = api.getCalendarEventAttendees(accessKey, accessCred, at, contid, maxresults, reverse, eventID, characterID, characterName, response);
+        List<CalendarEventAttendee> responses = api.getCalendarEventAttendees(accessKey, accessCred, at, contid, maxresults, reverse, eventID, characterID, response);
 
         // TODO: test validations
     }
@@ -148,10 +106,10 @@ public class CharacterApiTest {
         String channelID = null;
         String category = null;
         String accessorID = null;
-        String accessorName = null;
+        String accessorType = null;
         String untilWhen = null;
         String reason = null;
-        List<ChatChannelMember> response = api.getChannelMembers(accessKey, accessCred, at, contid, maxresults, reverse, channelID, category, accessorID, accessorName, untilWhen, reason);
+        List<ChatChannelMember> response = api.getChannelMembers(accessKey, accessCred, at, contid, maxresults, reverse, channelID, category, accessorID, accessorType, untilWhen, reason);
 
         // TODO: test validations
     }
@@ -174,12 +132,40 @@ public class CharacterApiTest {
         Boolean reverse = null;
         String channelID = null;
         String ownerID = null;
-        String ownerName = null;
         String displayName = null;
         String comparisonKey = null;
         String hasPassword = null;
         String motd = null;
-        List<ChatChannel> response = api.getChannels(accessKey, accessCred, at, contid, maxresults, reverse, channelID, ownerID, ownerName, displayName, comparisonKey, hasPassword, motd);
+        List<ChatChannel> response = api.getChannels(accessKey, accessCred, at, contid, maxresults, reverse, channelID, ownerID, displayName, comparisonKey, hasPassword, motd);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get character sheet attributes
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getCharacterSheetAttributesTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String intelligence = null;
+        String memory = null;
+        String charisma = null;
+        String perception = null;
+        String willpower = null;
+        String lastRemapDate = null;
+        String accruedRemapCooldownDate = null;
+        String bonusRemaps = null;
+        List<CharacterSheetAttributes> response = api.getCharacterSheetAttributes(accessKey, accessCred, at, contid, maxresults, reverse, intelligence, memory, charisma, perception, willpower, lastRemapDate, accruedRemapCooldownDate, bonusRemaps);
 
         // TODO: test validations
     }
@@ -203,30 +189,16 @@ public class CharacterApiTest {
         String characterID = null;
         String name = null;
         String corporationID = null;
-        String corporationName = null;
-        String race = null;
+        String raceID = null;
         String doB = null;
         String bloodlineID = null;
-        String bloodline = null;
         String ancestryID = null;
-        String ancestry = null;
         String gender = null;
-        String allianceName = null;
         String allianceID = null;
-        String factionName = null;
         String factionID = null;
-        String intelligence = null;
-        String memory = null;
-        String charisma = null;
-        String perception = null;
-        String willpower = null;
-        String homeStationID = null;
-        String lastRespecDate = null;
-        String lastTimedRespec = null;
-        String freeRespecs = null;
-        String freeSkillPoints = null;
-        String remoteStationDate = null;
-        List<CharacterSheet> response = api.getCharacterSheets(accessKey, accessCred, at, contid, maxresults, reverse, characterID, name, corporationID, corporationName, race, doB, bloodlineID, bloodline, ancestryID, ancestry, gender, allianceName, allianceID, factionName, factionID, intelligence, memory, charisma, perception, willpower, homeStationID, lastRespecDate, lastTimedRespec, freeRespecs, freeSkillPoints, remoteStationDate);
+        String description = null;
+        String securityStatus = null;
+        List<CharacterSheet> response = api.getCharacterSheets(accessKey, accessCred, at, contid, maxresults, reverse, characterID, name, corporationID, raceID, doB, bloodlineID, ancestryID, gender, allianceID, factionID, description, securityStatus);
 
         // TODO: test validations
     }
@@ -248,7 +220,10 @@ public class CharacterApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String cloneJumpDate = null;
-        List<CharacterSheetClone> response = api.getCloneJumpTimers(accessKey, accessCred, at, contid, maxresults, reverse, cloneJumpDate);
+        String homeStationID = null;
+        String homeStationType = null;
+        String lastStationChangeDate = null;
+        List<CharacterSheetClone> response = api.getCloneJumpTimers(accessKey, accessCred, at, contid, maxresults, reverse, cloneJumpDate, homeStationID, homeStationType, lastStationChangeDate);
 
         // TODO: test validations
     }
@@ -271,10 +246,10 @@ public class CharacterApiTest {
         Boolean reverse = null;
         String notificationID = null;
         String senderID = null;
-        String senderName = null;
         String sentDate = null;
+        String standingLevel = null;
         String messageData = null;
-        List<CharacterContactNotification> response = api.getContactNotifications(accessKey, accessCred, at, contid, maxresults, reverse, notificationID, senderID, senderName, sentDate, messageData);
+        List<CharacterContactNotification> response = api.getContactNotifications(accessKey, accessCred, at, contid, maxresults, reverse, notificationID, senderID, sentDate, standingLevel, messageData);
 
         // TODO: test validations
     }
@@ -296,8 +271,7 @@ public class CharacterApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String typeID = null;
-        String typeName = null;
-        List<Implant> response = api.getImplants(accessKey, accessCred, at, contid, maxresults, reverse, typeID, typeName);
+        List<Implant> response = api.getImplants(accessKey, accessCred, at, contid, maxresults, reverse, typeID);
 
         // TODO: test validations
     }
@@ -320,8 +294,7 @@ public class CharacterApiTest {
         Boolean reverse = null;
         String jumpCloneID = null;
         String typeID = null;
-        String typeName = null;
-        List<JumpCloneImplant> response = api.getJumpCloneImplants(accessKey, accessCred, at, contid, maxresults, reverse, jumpCloneID, typeID, typeName);
+        List<JumpCloneImplant> response = api.getJumpCloneImplants(accessKey, accessCred, at, contid, maxresults, reverse, jumpCloneID, typeID);
 
         // TODO: test validations
     }
@@ -343,10 +316,10 @@ public class CharacterApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String jumpCloneID = null;
-        String typeID = null;
         String locationID = null;
         String cloneName = null;
-        List<JumpClone> response = api.getJumpClones(accessKey, accessCred, at, contid, maxresults, reverse, jumpCloneID, typeID, locationID, cloneName);
+        String locationType = null;
+        List<JumpClone> response = api.getJumpClones(accessKey, accessCred, at, contid, maxresults, reverse, jumpCloneID, locationID, cloneName, locationType);
 
         // TODO: test validations
     }
@@ -376,7 +349,7 @@ public class CharacterApiTest {
     }
     
     /**
-     * Get character mail message bodies
+     * Get character location
      *
      * 
      *
@@ -384,23 +357,48 @@ public class CharacterApiTest {
      *          if the Api call fails
      */
     @Test
-    public void getMailMessageBodiesTest() throws ApiException {
+    public void getLocationTest() throws ApiException {
         Integer accessKey = null;
         String accessCred = null;
         String at = null;
         Long contid = null;
         Integer maxresults = null;
         Boolean reverse = null;
-        String messageID = null;
-        String retrieved = null;
-        String body = null;
-        List<CharacterMailMessageBody> response = api.getMailMessageBodies(accessKey, accessCred, at, contid, maxresults, reverse, messageID, retrieved, body);
+        String solarSystemID = null;
+        String stationID = null;
+        String structureID = null;
+        List<CharacterLocation> response = api.getLocation(accessKey, accessCred, at, contid, maxresults, reverse, solarSystemID, stationID, structureID);
 
         // TODO: test validations
     }
     
     /**
-     * Get character mail messages (not bodies)
+     * Get character mail labels
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMailLabelsTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String labelID = null;
+        String unreadCount = null;
+        String name = null;
+        String color = null;
+        List<MailLabel> response = api.getMailLabels(accessKey, accessCred, at, contid, maxresults, reverse, labelID, unreadCount, name, color);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get character mail messages
      *
      * 
      *
@@ -417,15 +415,14 @@ public class CharacterApiTest {
         Boolean reverse = null;
         String messageID = null;
         String senderID = null;
-        String senderName = null;
-        String toCharacterID = null;
         String sentDate = null;
         String title = null;
-        String toCorpOrAllianceID = null;
-        String toListID = null;
         String msgRead = null;
-        String senderTypeID = null;
-        List<CharacterMailMessage> response = api.getMailMessages(accessKey, accessCred, at, contid, maxresults, reverse, messageID, senderID, senderName, toCharacterID, sentDate, title, toCorpOrAllianceID, toListID, msgRead, senderTypeID);
+        String labelID = null;
+        String recipientType = null;
+        String recipientID = null;
+        String body = null;
+        List<CharacterMailMessage> response = api.getMailMessages(accessKey, accessCred, at, contid, maxresults, reverse, messageID, senderID, sentDate, title, msgRead, labelID, recipientType, recipientID, body);
 
         // TODO: test validations
     }
@@ -449,6 +446,33 @@ public class CharacterApiTest {
         String displayName = null;
         String listID = null;
         List<MailingList> response = api.getMailingLists(accessKey, accessCred, at, contid, maxresults, reverse, displayName, listID);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get character medal graphics
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMedalGraphicsTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String medalID = null;
+        String issued = null;
+        String part = null;
+        String layer = null;
+        String graphic = null;
+        String color = null;
+        List<CharacterMedalGraphic> response = api.getMedalGraphics(accessKey, accessCred, at, contid, maxresults, reverse, medalID, issued, part, layer, graphic, color);
 
         // TODO: test validations
     }
@@ -483,31 +507,6 @@ public class CharacterApiTest {
     }
     
     /**
-     * Get character notification bodies
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getNotificationBodiesTest() throws ApiException {
-        Integer accessKey = null;
-        String accessCred = null;
-        String at = null;
-        Long contid = null;
-        Integer maxresults = null;
-        Boolean reverse = null;
-        String notificationID = null;
-        String retrieved = null;
-        String text = null;
-        String missing = null;
-        List<CharacterNotificationBody> response = api.getNotificationBodies(accessKey, accessCred, at, contid, maxresults, reverse, notificationID, retrieved, text, missing);
-
-        // TODO: test validations
-    }
-    
-    /**
      * Get character notifications (not bodies)
      *
      * 
@@ -524,11 +523,38 @@ public class CharacterApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String notificationID = null;
-        String typeID = null;
+        String type = null;
         String senderID = null;
+        String senderType = null;
         String sentDate = null;
         String msgRead = null;
-        List<CharacterNotification> response = api.getNotifications(accessKey, accessCred, at, contid, maxresults, reverse, notificationID, typeID, senderID, sentDate, msgRead);
+        String text = null;
+        List<CharacterNotification> response = api.getNotifications(accessKey, accessCred, at, contid, maxresults, reverse, notificationID, type, senderID, senderType, sentDate, msgRead, text);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get character online data
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getOnlineTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String online = null;
+        String lastLogin = null;
+        String lastLogout = null;
+        String logins = null;
+        List<CharacterOnline> response = api.getOnline(accessKey, accessCred, at, contid, maxresults, reverse, online, lastLogin, lastLogout, logins);
 
         // TODO: test validations
     }
@@ -551,16 +577,12 @@ public class CharacterApiTest {
         Boolean reverse = null;
         String planetID = null;
         String solarSystemID = null;
-        String solarSystemName = null;
-        String planetName = null;
-        String planetTypeID = null;
-        String planetTypeName = null;
+        String planetType = null;
         String ownerID = null;
-        String ownerName = null;
         String lastUpdate = null;
         String upgradeLevel = null;
         String numberOfPins = null;
-        List<PlanetaryColony> response = api.getPlanetaryColonies(accessKey, accessCred, at, contid, maxresults, reverse, planetID, solarSystemID, solarSystemName, planetName, planetTypeID, planetTypeName, ownerID, ownerName, lastUpdate, upgradeLevel, numberOfPins);
+        List<PlanetaryColony> response = api.getPlanetaryColonies(accessKey, accessCred, at, contid, maxresults, reverse, planetID, solarSystemID, planetType, ownerID, lastUpdate, upgradeLevel, numberOfPins);
 
         // TODO: test validations
     }
@@ -609,19 +631,22 @@ public class CharacterApiTest {
         String planetID = null;
         String pinID = null;
         String typeID = null;
-        String typeName = null;
         String schematicID = null;
-        String lastLaunchTime = null;
+        String lastCycleStart = null;
         String cycleTime = null;
         String quantityPerCycle = null;
         String installTime = null;
         String expiryTime = null;
-        String contentTypeID = null;
-        String contentTypeName = null;
-        String contentQuantity = null;
+        String productTypeID = null;
         String longitude = null;
         String latitude = null;
-        List<PlanetaryPin> response = api.getPlanetaryPins(accessKey, accessCred, at, contid, maxresults, reverse, planetID, pinID, typeID, typeName, schematicID, lastLaunchTime, cycleTime, quantityPerCycle, installTime, expiryTime, contentTypeID, contentTypeName, contentQuantity, longitude, latitude);
+        String headRadius = null;
+        String headID = null;
+        String headLongitude = null;
+        String headLatitude = null;
+        String contentTypeID = null;
+        String contentAmount = null;
+        List<PlanetaryPin> response = api.getPlanetaryPins(accessKey, accessCred, at, contid, maxresults, reverse, planetID, pinID, typeID, schematicID, lastCycleStart, cycleTime, quantityPerCycle, installTime, expiryTime, productTypeID, longitude, latitude, headRadius, headID, headLongitude, headLatitude, contentTypeID, contentAmount);
 
         // TODO: test validations
     }
@@ -647,14 +672,9 @@ public class CharacterApiTest {
         String sourcePinID = null;
         String destinationPinID = null;
         String contentTypeID = null;
-        String contentTypeName = null;
         String quantity = null;
-        String waypoint1 = null;
-        String waypoint2 = null;
-        String waypoint3 = null;
-        String waypoint4 = null;
-        String waypoint5 = null;
-        List<PlanetaryRoute> response = api.getPlanetaryRoutes(accessKey, accessCred, at, contid, maxresults, reverse, planetID, routeID, sourcePinID, destinationPinID, contentTypeID, contentTypeName, quantity, waypoint1, waypoint2, waypoint3, waypoint4, waypoint5);
+        String waypoint = null;
+        List<PlanetaryRoute> response = api.getPlanetaryRoutes(accessKey, accessCred, at, contid, maxresults, reverse, planetID, routeID, sourcePinID, destinationPinID, contentTypeID, quantity, waypoint);
 
         // TODO: test validations
     }
@@ -676,12 +696,11 @@ public class CharacterApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String agentID = null;
-        String currentPoints = null;
         String pointsPerDay = null;
         String remainderPoints = null;
         String researchStartDate = null;
         String skillTypeID = null;
-        List<ResearchAgent> response = api.getResearchAgents(accessKey, accessCred, at, contid, maxresults, reverse, agentID, currentPoints, pointsPerDay, remainderPoints, researchStartDate, skillTypeID);
+        List<ResearchAgent> response = api.getResearchAgents(accessKey, accessCred, at, contid, maxresults, reverse, agentID, pointsPerDay, remainderPoints, researchStartDate, skillTypeID);
 
         // TODO: test validations
     }
@@ -703,9 +722,55 @@ public class CharacterApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String roleCategory = null;
-        String roleID = null;
         String roleName = null;
-        List<CharacterRole> response = api.getRoles(accessKey, accessCred, at, contid, maxresults, reverse, roleCategory, roleID, roleName);
+        List<CharacterRole> response = api.getRoles(accessKey, accessCred, at, contid, maxresults, reverse, roleCategory, roleName);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get character ship type
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getShipTypeTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String shipTypeID = null;
+        String shipItemID = null;
+        String shipName = null;
+        List<CharacterShip> response = api.getShipType(accessKey, accessCred, at, contid, maxresults, reverse, shipTypeID, shipItemID, shipName);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get character skill points
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getSkillPointsTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String totalSkillPoints = null;
+        String unallocatedSkillPoints = null;
+        List<CharacterSheetSkillPoints> response = api.getSkillPoints(accessKey, accessCred, at, contid, maxresults, reverse, totalSkillPoints, unallocatedSkillPoints);
 
         // TODO: test validations
     }
@@ -727,10 +792,10 @@ public class CharacterApiTest {
         Integer maxresults = null;
         Boolean reverse = null;
         String typeID = null;
-        String level = null;
+        String trainedSkillLevel = null;
         String skillpoints = null;
-        String published = null;
-        List<CharacterSkill> response = api.getSkills(accessKey, accessCred, at, contid, maxresults, reverse, typeID, level, skillpoints, published);
+        String activeSkillLevel = null;
+        List<CharacterSkill> response = api.getSkills(accessKey, accessCred, at, contid, maxresults, reverse, typeID, trainedSkillLevel, skillpoints, activeSkillLevel);
 
         // TODO: test validations
     }
@@ -758,36 +823,8 @@ public class CharacterApiTest {
         String startSP = null;
         String startTime = null;
         String typeID = null;
-        List<SkillInQueue> response = api.getSkillsInQueue(accessKey, accessCred, at, contid, maxresults, reverse, endSP, endTime, level, queuePosition, startSP, startTime, typeID);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Get character skill in training
-     *
-     * 
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void getSkillsInTrainingTest() throws ApiException {
-        Integer accessKey = null;
-        String accessCred = null;
-        String at = null;
-        Long contid = null;
-        Integer maxresults = null;
-        Boolean reverse = null;
-        String skillInTraining = null;
-        String currentTrainingQueueTime = null;
-        String trainingStartTime = null;
-        String trainingEndTime = null;
         String trainingStartSP = null;
-        String trainingDestinationSP = null;
-        String trainingToLevel = null;
-        String skillTypeID = null;
-        List<CharacterSkillInTraining> response = api.getSkillsInTraining(accessKey, accessCred, at, contid, maxresults, reverse, skillInTraining, currentTrainingQueueTime, trainingStartTime, trainingEndTime, trainingStartSP, trainingDestinationSP, trainingToLevel, skillTypeID);
+        List<SkillInQueue> response = api.getSkillsInQueue(accessKey, accessCred, at, contid, maxresults, reverse, endSP, endTime, level, queuePosition, startSP, startTime, typeID, trainingStartSP);
 
         // TODO: test validations
     }
@@ -839,9 +876,9 @@ public class CharacterApiTest {
         String ownerID = null;
         String ownerName = null;
         String response = null;
-        String important = null;
-        String ownerTypeID = null;
-        List<UpcomingCalendarEvent> responses = api.getUpcomingCalendarEvents(accessKey, accessCred, at, contid, maxresults, reverse, duration, eventDate, eventID, eventText, eventTitle, ownerID, ownerName, response, important, ownerTypeID);
+        String importance = null;
+        String ownerType = null;
+        List<UpcomingCalendarEvent> responses = api.getUpcomingCalendarEvents(accessKey, accessCred, at, contid, maxresults, reverse, duration, eventDate, eventID, eventText, eventTitle, ownerID, ownerName, response, importance, ownerType);
 
         // TODO: test validations
     }

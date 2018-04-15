@@ -50,9 +50,6 @@ public class FacWarStats implements Serializable {
   @JsonProperty("factionID")
   private Integer factionID = null;
 
-  @JsonProperty("factionName")
-  private String factionName = null;
-
   @JsonProperty("highestRank")
   private Integer highestRank = null;
 
@@ -210,24 +207,6 @@ public class FacWarStats implements Serializable {
 
   public void setFactionID(Integer factionID) {
     this.factionID = factionID;
-  }
-
-  public FacWarStats factionName(String factionName) {
-    this.factionName = factionName;
-    return this;
-  }
-
-   /**
-   * Get factionName
-   * @return factionName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getFactionName() {
-    return factionName;
-  }
-
-  public void setFactionName(String factionName) {
-    this.factionName = factionName;
   }
 
   public FacWarStats highestRank(Integer highestRank) {
@@ -445,7 +424,6 @@ public class FacWarStats implements Serializable {
         Objects.equals(this.currentRank, facWarStats.currentRank) &&
         Objects.equals(this.enlisted, facWarStats.enlisted) &&
         Objects.equals(this.factionID, facWarStats.factionID) &&
-        Objects.equals(this.factionName, facWarStats.factionName) &&
         Objects.equals(this.highestRank, facWarStats.highestRank) &&
         Objects.equals(this.killsLastWeek, facWarStats.killsLastWeek) &&
         Objects.equals(this.killsTotal, facWarStats.killsTotal) &&
@@ -461,7 +439,7 @@ public class FacWarStats implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, currentRank, enlisted, factionID, factionName, highestRank, killsLastWeek, killsTotal, killsYesterday, pilots, victoryPointsLastWeek, victoryPointsTotal, victoryPointsYesterday, lifeStartDate, lifeEndDate, enlistedDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, currentRank, enlisted, factionID, highestRank, killsLastWeek, killsTotal, killsYesterday, pilots, victoryPointsLastWeek, victoryPointsTotal, victoryPointsYesterday, lifeStartDate, lifeEndDate, enlistedDate);
   }
 
 
@@ -477,7 +455,6 @@ public class FacWarStats implements Serializable {
     sb.append("    currentRank: ").append(toIndentedString(currentRank)).append("\n");
     sb.append("    enlisted: ").append(toIndentedString(enlisted)).append("\n");
     sb.append("    factionID: ").append(toIndentedString(factionID)).append("\n");
-    sb.append("    factionName: ").append(toIndentedString(factionName)).append("\n");
     sb.append("    highestRank: ").append(toIndentedString(highestRank)).append("\n");
     sb.append("    killsLastWeek: ").append(toIndentedString(killsLastWeek)).append("\n");
     sb.append("    killsTotal: ").append(toIndentedString(killsTotal)).append("\n");

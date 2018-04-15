@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.io.Serializable;
 
@@ -43,19 +42,19 @@ public class ContractBid implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("bidID")
-  private Long bidID = null;
+  private Integer bidID = null;
 
   @JsonProperty("contractID")
-  private Long contractID = null;
+  private Integer contractID = null;
 
   @JsonProperty("bidderID")
-  private Long bidderID = null;
+  private Integer bidderID = null;
 
   @JsonProperty("dateBid")
   private Long dateBid = null;
 
   @JsonProperty("amount")
-  private BigDecimal amount = null;
+  private Double amount = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -138,7 +137,7 @@ public class ContractBid implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public ContractBid bidID(Long bidID) {
+  public ContractBid bidID(Integer bidID) {
     this.bidID = bidID;
     return this;
   }
@@ -148,15 +147,15 @@ public class ContractBid implements Serializable {
    * @return bidID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getBidID() {
+  public Integer getBidID() {
     return bidID;
   }
 
-  public void setBidID(Long bidID) {
+  public void setBidID(Integer bidID) {
     this.bidID = bidID;
   }
 
-  public ContractBid contractID(Long contractID) {
+  public ContractBid contractID(Integer contractID) {
     this.contractID = contractID;
     return this;
   }
@@ -166,15 +165,15 @@ public class ContractBid implements Serializable {
    * @return contractID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getContractID() {
+  public Integer getContractID() {
     return contractID;
   }
 
-  public void setContractID(Long contractID) {
+  public void setContractID(Integer contractID) {
     this.contractID = contractID;
   }
 
-  public ContractBid bidderID(Long bidderID) {
+  public ContractBid bidderID(Integer bidderID) {
     this.bidderID = bidderID;
     return this;
   }
@@ -184,11 +183,11 @@ public class ContractBid implements Serializable {
    * @return bidderID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getBidderID() {
+  public Integer getBidderID() {
     return bidderID;
   }
 
-  public void setBidderID(Long bidderID) {
+  public void setBidderID(Integer bidderID) {
     this.bidderID = bidderID;
   }
 
@@ -210,7 +209,7 @@ public class ContractBid implements Serializable {
     this.dateBid = dateBid;
   }
 
-  public ContractBid amount(BigDecimal amount) {
+  public ContractBid amount(Double amount) {
     this.amount = amount;
     return this;
   }
@@ -220,11 +219,11 @@ public class ContractBid implements Serializable {
    * @return amount
   **/
   @ApiModelProperty(example = "null", value = "")
-  public BigDecimal getAmount() {
+  public Double getAmount() {
     return amount;
   }
 
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(Double amount) {
     this.amount = amount;
   }
 

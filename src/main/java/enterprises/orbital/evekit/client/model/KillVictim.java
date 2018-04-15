@@ -42,37 +42,34 @@ public class KillVictim implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("killID")
-  private Long killID = null;
+  private Integer killID = null;
 
   @JsonProperty("allianceID")
-  private Long allianceID = null;
-
-  @JsonProperty("allianceName")
-  private String allianceName = null;
+  private Integer allianceID = null;
 
   @JsonProperty("killCharacterID")
-  private Long killCharacterID = null;
-
-  @JsonProperty("killCharacterName")
-  private String killCharacterName = null;
+  private Integer killCharacterID = null;
 
   @JsonProperty("killCorporationID")
-  private Long killCorporationID = null;
-
-  @JsonProperty("killCorporationName")
-  private String killCorporationName = null;
+  private Integer killCorporationID = null;
 
   @JsonProperty("damageTaken")
-  private Long damageTaken = null;
+  private Integer damageTaken = null;
 
   @JsonProperty("factionID")
-  private Long factionID = null;
-
-  @JsonProperty("factionName")
-  private String factionName = null;
+  private Integer factionID = null;
 
   @JsonProperty("shipTypeID")
   private Integer shipTypeID = null;
+
+  @JsonProperty("x")
+  private Double x = null;
+
+  @JsonProperty("y")
+  private Double y = null;
+
+  @JsonProperty("z")
+  private Double z = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -152,7 +149,7 @@ public class KillVictim implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public KillVictim killID(Long killID) {
+  public KillVictim killID(Integer killID) {
     this.killID = killID;
     return this;
   }
@@ -162,15 +159,15 @@ public class KillVictim implements Serializable {
    * @return killID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getKillID() {
+  public Integer getKillID() {
     return killID;
   }
 
-  public void setKillID(Long killID) {
+  public void setKillID(Integer killID) {
     this.killID = killID;
   }
 
-  public KillVictim allianceID(Long allianceID) {
+  public KillVictim allianceID(Integer allianceID) {
     this.allianceID = allianceID;
     return this;
   }
@@ -180,33 +177,15 @@ public class KillVictim implements Serializable {
    * @return allianceID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getAllianceID() {
+  public Integer getAllianceID() {
     return allianceID;
   }
 
-  public void setAllianceID(Long allianceID) {
+  public void setAllianceID(Integer allianceID) {
     this.allianceID = allianceID;
   }
 
-  public KillVictim allianceName(String allianceName) {
-    this.allianceName = allianceName;
-    return this;
-  }
-
-   /**
-   * Get allianceName
-   * @return allianceName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getAllianceName() {
-    return allianceName;
-  }
-
-  public void setAllianceName(String allianceName) {
-    this.allianceName = allianceName;
-  }
-
-  public KillVictim killCharacterID(Long killCharacterID) {
+  public KillVictim killCharacterID(Integer killCharacterID) {
     this.killCharacterID = killCharacterID;
     return this;
   }
@@ -216,33 +195,15 @@ public class KillVictim implements Serializable {
    * @return killCharacterID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getKillCharacterID() {
+  public Integer getKillCharacterID() {
     return killCharacterID;
   }
 
-  public void setKillCharacterID(Long killCharacterID) {
+  public void setKillCharacterID(Integer killCharacterID) {
     this.killCharacterID = killCharacterID;
   }
 
-  public KillVictim killCharacterName(String killCharacterName) {
-    this.killCharacterName = killCharacterName;
-    return this;
-  }
-
-   /**
-   * Get killCharacterName
-   * @return killCharacterName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getKillCharacterName() {
-    return killCharacterName;
-  }
-
-  public void setKillCharacterName(String killCharacterName) {
-    this.killCharacterName = killCharacterName;
-  }
-
-  public KillVictim killCorporationID(Long killCorporationID) {
+  public KillVictim killCorporationID(Integer killCorporationID) {
     this.killCorporationID = killCorporationID;
     return this;
   }
@@ -252,33 +213,15 @@ public class KillVictim implements Serializable {
    * @return killCorporationID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getKillCorporationID() {
+  public Integer getKillCorporationID() {
     return killCorporationID;
   }
 
-  public void setKillCorporationID(Long killCorporationID) {
+  public void setKillCorporationID(Integer killCorporationID) {
     this.killCorporationID = killCorporationID;
   }
 
-  public KillVictim killCorporationName(String killCorporationName) {
-    this.killCorporationName = killCorporationName;
-    return this;
-  }
-
-   /**
-   * Get killCorporationName
-   * @return killCorporationName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getKillCorporationName() {
-    return killCorporationName;
-  }
-
-  public void setKillCorporationName(String killCorporationName) {
-    this.killCorporationName = killCorporationName;
-  }
-
-  public KillVictim damageTaken(Long damageTaken) {
+  public KillVictim damageTaken(Integer damageTaken) {
     this.damageTaken = damageTaken;
     return this;
   }
@@ -288,15 +231,15 @@ public class KillVictim implements Serializable {
    * @return damageTaken
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getDamageTaken() {
+  public Integer getDamageTaken() {
     return damageTaken;
   }
 
-  public void setDamageTaken(Long damageTaken) {
+  public void setDamageTaken(Integer damageTaken) {
     this.damageTaken = damageTaken;
   }
 
-  public KillVictim factionID(Long factionID) {
+  public KillVictim factionID(Integer factionID) {
     this.factionID = factionID;
     return this;
   }
@@ -306,30 +249,12 @@ public class KillVictim implements Serializable {
    * @return factionID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getFactionID() {
+  public Integer getFactionID() {
     return factionID;
   }
 
-  public void setFactionID(Long factionID) {
+  public void setFactionID(Integer factionID) {
     this.factionID = factionID;
-  }
-
-  public KillVictim factionName(String factionName) {
-    this.factionName = factionName;
-    return this;
-  }
-
-   /**
-   * Get factionName
-   * @return factionName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getFactionName() {
-    return factionName;
-  }
-
-  public void setFactionName(String factionName) {
-    this.factionName = factionName;
   }
 
   public KillVictim shipTypeID(Integer shipTypeID) {
@@ -348,6 +273,60 @@ public class KillVictim implements Serializable {
 
   public void setShipTypeID(Integer shipTypeID) {
     this.shipTypeID = shipTypeID;
+  }
+
+  public KillVictim x(Double x) {
+    this.x = x;
+    return this;
+  }
+
+   /**
+   * Get x
+   * @return x
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Double getX() {
+    return x;
+  }
+
+  public void setX(Double x) {
+    this.x = x;
+  }
+
+  public KillVictim y(Double y) {
+    this.y = y;
+    return this;
+  }
+
+   /**
+   * Get y
+   * @return y
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Double getY() {
+    return y;
+  }
+
+  public void setY(Double y) {
+    this.y = y;
+  }
+
+  public KillVictim z(Double z) {
+    this.z = z;
+    return this;
+  }
+
+   /**
+   * Get z
+   * @return z
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Double getZ() {
+    return z;
+  }
+
+  public void setZ(Double z) {
+    this.z = z;
   }
 
   public KillVictim lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -402,22 +381,21 @@ public class KillVictim implements Serializable {
         Objects.equals(this.lifeEnd, killVictim.lifeEnd) &&
         Objects.equals(this.killID, killVictim.killID) &&
         Objects.equals(this.allianceID, killVictim.allianceID) &&
-        Objects.equals(this.allianceName, killVictim.allianceName) &&
         Objects.equals(this.killCharacterID, killVictim.killCharacterID) &&
-        Objects.equals(this.killCharacterName, killVictim.killCharacterName) &&
         Objects.equals(this.killCorporationID, killVictim.killCorporationID) &&
-        Objects.equals(this.killCorporationName, killVictim.killCorporationName) &&
         Objects.equals(this.damageTaken, killVictim.damageTaken) &&
         Objects.equals(this.factionID, killVictim.factionID) &&
-        Objects.equals(this.factionName, killVictim.factionName) &&
         Objects.equals(this.shipTypeID, killVictim.shipTypeID) &&
+        Objects.equals(this.x, killVictim.x) &&
+        Objects.equals(this.y, killVictim.y) &&
+        Objects.equals(this.z, killVictim.z) &&
         Objects.equals(this.lifeStartDate, killVictim.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, killVictim.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, killID, allianceID, allianceName, killCharacterID, killCharacterName, killCorporationID, killCorporationName, damageTaken, factionID, factionName, shipTypeID, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, killID, allianceID, killCharacterID, killCorporationID, damageTaken, factionID, shipTypeID, x, y, z, lifeStartDate, lifeEndDate);
   }
 
 
@@ -432,15 +410,14 @@ public class KillVictim implements Serializable {
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    killID: ").append(toIndentedString(killID)).append("\n");
     sb.append("    allianceID: ").append(toIndentedString(allianceID)).append("\n");
-    sb.append("    allianceName: ").append(toIndentedString(allianceName)).append("\n");
     sb.append("    killCharacterID: ").append(toIndentedString(killCharacterID)).append("\n");
-    sb.append("    killCharacterName: ").append(toIndentedString(killCharacterName)).append("\n");
     sb.append("    killCorporationID: ").append(toIndentedString(killCorporationID)).append("\n");
-    sb.append("    killCorporationName: ").append(toIndentedString(killCorporationName)).append("\n");
     sb.append("    damageTaken: ").append(toIndentedString(damageTaken)).append("\n");
     sb.append("    factionID: ").append(toIndentedString(factionID)).append("\n");
-    sb.append("    factionName: ").append(toIndentedString(factionName)).append("\n");
     sb.append("    shipTypeID: ").append(toIndentedString(shipTypeID)).append("\n");
+    sb.append("    x: ").append(toIndentedString(x)).append("\n");
+    sb.append("    y: ").append(toIndentedString(y)).append("\n");
+    sb.append("    z: ").append(toIndentedString(z)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

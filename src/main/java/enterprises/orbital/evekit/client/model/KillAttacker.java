@@ -42,25 +42,16 @@ public class KillAttacker implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("killID")
-  private Long killID = null;
+  private Integer killID = null;
 
   @JsonProperty("attackerCharacterID")
-  private Long attackerCharacterID = null;
+  private Integer attackerCharacterID = null;
 
   @JsonProperty("allianceID")
-  private Long allianceID = null;
-
-  @JsonProperty("allianceName")
-  private String allianceName = null;
-
-  @JsonProperty("attackerCharacterName")
-  private String attackerCharacterName = null;
+  private Integer allianceID = null;
 
   @JsonProperty("attackerCorporationID")
-  private Long attackerCorporationID = null;
-
-  @JsonProperty("attackerCorporationName")
-  private String attackerCorporationName = null;
+  private Integer attackerCorporationID = null;
 
   @JsonProperty("damageDone")
   private Integer damageDone = null;
@@ -68,11 +59,8 @@ public class KillAttacker implements Serializable {
   @JsonProperty("factionID")
   private Integer factionID = null;
 
-  @JsonProperty("factionName")
-  private String factionName = null;
-
   @JsonProperty("securityStatus")
-  private Double securityStatus = null;
+  private Float securityStatus = null;
 
   @JsonProperty("shipTypeID")
   private Integer shipTypeID = null;
@@ -161,7 +149,7 @@ public class KillAttacker implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public KillAttacker killID(Long killID) {
+  public KillAttacker killID(Integer killID) {
     this.killID = killID;
     return this;
   }
@@ -171,15 +159,15 @@ public class KillAttacker implements Serializable {
    * @return killID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getKillID() {
+  public Integer getKillID() {
     return killID;
   }
 
-  public void setKillID(Long killID) {
+  public void setKillID(Integer killID) {
     this.killID = killID;
   }
 
-  public KillAttacker attackerCharacterID(Long attackerCharacterID) {
+  public KillAttacker attackerCharacterID(Integer attackerCharacterID) {
     this.attackerCharacterID = attackerCharacterID;
     return this;
   }
@@ -189,15 +177,15 @@ public class KillAttacker implements Serializable {
    * @return attackerCharacterID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getAttackerCharacterID() {
+  public Integer getAttackerCharacterID() {
     return attackerCharacterID;
   }
 
-  public void setAttackerCharacterID(Long attackerCharacterID) {
+  public void setAttackerCharacterID(Integer attackerCharacterID) {
     this.attackerCharacterID = attackerCharacterID;
   }
 
-  public KillAttacker allianceID(Long allianceID) {
+  public KillAttacker allianceID(Integer allianceID) {
     this.allianceID = allianceID;
     return this;
   }
@@ -207,51 +195,15 @@ public class KillAttacker implements Serializable {
    * @return allianceID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getAllianceID() {
+  public Integer getAllianceID() {
     return allianceID;
   }
 
-  public void setAllianceID(Long allianceID) {
+  public void setAllianceID(Integer allianceID) {
     this.allianceID = allianceID;
   }
 
-  public KillAttacker allianceName(String allianceName) {
-    this.allianceName = allianceName;
-    return this;
-  }
-
-   /**
-   * Get allianceName
-   * @return allianceName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getAllianceName() {
-    return allianceName;
-  }
-
-  public void setAllianceName(String allianceName) {
-    this.allianceName = allianceName;
-  }
-
-  public KillAttacker attackerCharacterName(String attackerCharacterName) {
-    this.attackerCharacterName = attackerCharacterName;
-    return this;
-  }
-
-   /**
-   * Get attackerCharacterName
-   * @return attackerCharacterName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getAttackerCharacterName() {
-    return attackerCharacterName;
-  }
-
-  public void setAttackerCharacterName(String attackerCharacterName) {
-    this.attackerCharacterName = attackerCharacterName;
-  }
-
-  public KillAttacker attackerCorporationID(Long attackerCorporationID) {
+  public KillAttacker attackerCorporationID(Integer attackerCorporationID) {
     this.attackerCorporationID = attackerCorporationID;
     return this;
   }
@@ -261,30 +213,12 @@ public class KillAttacker implements Serializable {
    * @return attackerCorporationID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getAttackerCorporationID() {
+  public Integer getAttackerCorporationID() {
     return attackerCorporationID;
   }
 
-  public void setAttackerCorporationID(Long attackerCorporationID) {
+  public void setAttackerCorporationID(Integer attackerCorporationID) {
     this.attackerCorporationID = attackerCorporationID;
-  }
-
-  public KillAttacker attackerCorporationName(String attackerCorporationName) {
-    this.attackerCorporationName = attackerCorporationName;
-    return this;
-  }
-
-   /**
-   * Get attackerCorporationName
-   * @return attackerCorporationName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getAttackerCorporationName() {
-    return attackerCorporationName;
-  }
-
-  public void setAttackerCorporationName(String attackerCorporationName) {
-    this.attackerCorporationName = attackerCorporationName;
   }
 
   public KillAttacker damageDone(Integer damageDone) {
@@ -323,25 +257,7 @@ public class KillAttacker implements Serializable {
     this.factionID = factionID;
   }
 
-  public KillAttacker factionName(String factionName) {
-    this.factionName = factionName;
-    return this;
-  }
-
-   /**
-   * Get factionName
-   * @return factionName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getFactionName() {
-    return factionName;
-  }
-
-  public void setFactionName(String factionName) {
-    this.factionName = factionName;
-  }
-
-  public KillAttacker securityStatus(Double securityStatus) {
+  public KillAttacker securityStatus(Float securityStatus) {
     this.securityStatus = securityStatus;
     return this;
   }
@@ -351,11 +267,11 @@ public class KillAttacker implements Serializable {
    * @return securityStatus
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Double getSecurityStatus() {
+  public Float getSecurityStatus() {
     return securityStatus;
   }
 
-  public void setSecurityStatus(Double securityStatus) {
+  public void setSecurityStatus(Float securityStatus) {
     this.securityStatus = securityStatus;
   }
 
@@ -466,13 +382,9 @@ public class KillAttacker implements Serializable {
         Objects.equals(this.killID, killAttacker.killID) &&
         Objects.equals(this.attackerCharacterID, killAttacker.attackerCharacterID) &&
         Objects.equals(this.allianceID, killAttacker.allianceID) &&
-        Objects.equals(this.allianceName, killAttacker.allianceName) &&
-        Objects.equals(this.attackerCharacterName, killAttacker.attackerCharacterName) &&
         Objects.equals(this.attackerCorporationID, killAttacker.attackerCorporationID) &&
-        Objects.equals(this.attackerCorporationName, killAttacker.attackerCorporationName) &&
         Objects.equals(this.damageDone, killAttacker.damageDone) &&
         Objects.equals(this.factionID, killAttacker.factionID) &&
-        Objects.equals(this.factionName, killAttacker.factionName) &&
         Objects.equals(this.securityStatus, killAttacker.securityStatus) &&
         Objects.equals(this.shipTypeID, killAttacker.shipTypeID) &&
         Objects.equals(this.weaponTypeID, killAttacker.weaponTypeID) &&
@@ -483,7 +395,7 @@ public class KillAttacker implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, killID, attackerCharacterID, allianceID, allianceName, attackerCharacterName, attackerCorporationID, attackerCorporationName, damageDone, factionID, factionName, securityStatus, shipTypeID, weaponTypeID, finalBlow, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, killID, attackerCharacterID, allianceID, attackerCorporationID, damageDone, factionID, securityStatus, shipTypeID, weaponTypeID, finalBlow, lifeStartDate, lifeEndDate);
   }
 
 
@@ -499,13 +411,9 @@ public class KillAttacker implements Serializable {
     sb.append("    killID: ").append(toIndentedString(killID)).append("\n");
     sb.append("    attackerCharacterID: ").append(toIndentedString(attackerCharacterID)).append("\n");
     sb.append("    allianceID: ").append(toIndentedString(allianceID)).append("\n");
-    sb.append("    allianceName: ").append(toIndentedString(allianceName)).append("\n");
-    sb.append("    attackerCharacterName: ").append(toIndentedString(attackerCharacterName)).append("\n");
     sb.append("    attackerCorporationID: ").append(toIndentedString(attackerCorporationID)).append("\n");
-    sb.append("    attackerCorporationName: ").append(toIndentedString(attackerCorporationName)).append("\n");
     sb.append("    damageDone: ").append(toIndentedString(damageDone)).append("\n");
     sb.append("    factionID: ").append(toIndentedString(factionID)).append("\n");
-    sb.append("    factionName: ").append(toIndentedString(factionName)).append("\n");
     sb.append("    securityStatus: ").append(toIndentedString(securityStatus)).append("\n");
     sb.append("    shipTypeID: ").append(toIndentedString(shipTypeID)).append("\n");
     sb.append("    weaponTypeID: ").append(toIndentedString(weaponTypeID)).append("\n");

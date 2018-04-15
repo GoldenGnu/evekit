@@ -44,11 +44,11 @@ public class Division implements Serializable {
   @JsonProperty("wallet")
   private Boolean wallet = false;
 
-  @JsonProperty("accountKey")
-  private Integer accountKey = null;
+  @JsonProperty("division")
+  private Integer division = null;
 
-  @JsonProperty("description")
-  private String description = null;
+  @JsonProperty("name")
+  private String name = null;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -146,40 +146,40 @@ public class Division implements Serializable {
     this.wallet = wallet;
   }
 
-  public Division accountKey(Integer accountKey) {
-    this.accountKey = accountKey;
+  public Division division(Integer division) {
+    this.division = division;
     return this;
   }
 
    /**
-   * Get accountKey
-   * @return accountKey
+   * Get division
+   * @return division
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getAccountKey() {
-    return accountKey;
+  public Integer getDivision() {
+    return division;
   }
 
-  public void setAccountKey(Integer accountKey) {
-    this.accountKey = accountKey;
+  public void setDivision(Integer division) {
+    this.division = division;
   }
 
-  public Division description(String description) {
-    this.description = description;
+  public Division name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get description
-   * @return description
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(example = "null", value = "")
-  public String getDescription() {
-    return description;
+  public String getName() {
+    return name;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public Division lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -233,15 +233,15 @@ public class Division implements Serializable {
         Objects.equals(this.lifeStart, division.lifeStart) &&
         Objects.equals(this.lifeEnd, division.lifeEnd) &&
         Objects.equals(this.wallet, division.wallet) &&
-        Objects.equals(this.accountKey, division.accountKey) &&
-        Objects.equals(this.description, division.description) &&
+        Objects.equals(this.division, division.division) &&
+        Objects.equals(this.name, division.name) &&
         Objects.equals(this.lifeStartDate, division.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, division.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, wallet, accountKey, description, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, wallet, division, name, lifeStartDate, lifeEndDate);
   }
 
 
@@ -255,8 +255,8 @@ public class Division implements Serializable {
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
     sb.append("    wallet: ").append(toIndentedString(wallet)).append("\n");
-    sb.append("    accountKey: ").append(toIndentedString(accountKey)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    division: ").append(toIndentedString(division)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

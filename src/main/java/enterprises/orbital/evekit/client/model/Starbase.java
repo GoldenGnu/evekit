@@ -41,29 +41,68 @@ public class Starbase implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("itemID")
-  private Long itemID = null;
-
-  @JsonProperty("locationID")
-  private Long locationID = null;
-
-  @JsonProperty("moonID")
-  private Integer moonID = null;
-
-  @JsonProperty("onlineTimestamp")
-  private Long onlineTimestamp = null;
-
-  @JsonProperty("state")
-  private Integer state = null;
-
-  @JsonProperty("stateTimestamp")
-  private Long stateTimestamp = null;
+  @JsonProperty("starbaseID")
+  private Long starbaseID = null;
 
   @JsonProperty("typeID")
   private Integer typeID = null;
 
-  @JsonProperty("standingOwnerID")
-  private Long standingOwnerID = null;
+  @JsonProperty("systemID")
+  private Integer systemID = null;
+
+  @JsonProperty("moonID")
+  private Integer moonID = null;
+
+  @JsonProperty("state")
+  private String state = null;
+
+  @JsonProperty("unanchorAt")
+  private Long unanchorAt = null;
+
+  @JsonProperty("reinforcedUntil")
+  private Long reinforcedUntil = null;
+
+  @JsonProperty("onlinedSince")
+  private Long onlinedSince = null;
+
+  @JsonProperty("fuelBayView")
+  private String fuelBayView = null;
+
+  @JsonProperty("fuelBayTake")
+  private String fuelBayTake = null;
+
+  @JsonProperty("anchor")
+  private String anchor = null;
+
+  @JsonProperty("unanchor")
+  private String unanchor = null;
+
+  @JsonProperty("online")
+  private String online = null;
+
+  @JsonProperty("offline")
+  private String offline = null;
+
+  @JsonProperty("allowCorporationMembers")
+  private Boolean allowCorporationMembers = false;
+
+  @JsonProperty("allowAllianceMembers")
+  private Boolean allowAllianceMembers = false;
+
+  @JsonProperty("useAllianceStandings")
+  private Boolean useAllianceStandings = false;
+
+  @JsonProperty("attackStandingThreshold")
+  private Float attackStandingThreshold = null;
+
+  @JsonProperty("attackSecurityStatusThreshold")
+  private Float attackSecurityStatusThreshold = null;
+
+  @JsonProperty("attackIfOtherSecurityStatusDropping")
+  private Boolean attackIfOtherSecurityStatusDropping = false;
+
+  @JsonProperty("attackIfAtWar")
+  private Boolean attackIfAtWar = false;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -71,11 +110,14 @@ public class Starbase implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  @JsonProperty("onlineTimestampDate")
-  private OffsetDateTime onlineTimestampDate = null;
+  @JsonProperty("unanchorAtDate")
+  private OffsetDateTime unanchorAtDate = null;
 
-  @JsonProperty("stateTimestampDate")
-  private OffsetDateTime stateTimestampDate = null;
+  @JsonProperty("reinforcedUntilDate")
+  private OffsetDateTime reinforcedUntilDate = null;
+
+  @JsonProperty("onlinedSinceDate")
+  private OffsetDateTime onlinedSinceDate = null;
 
   public Starbase cid(Long cid) {
     this.cid = cid;
@@ -149,112 +191,22 @@ public class Starbase implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public Starbase itemID(Long itemID) {
-    this.itemID = itemID;
+  public Starbase starbaseID(Long starbaseID) {
+    this.starbaseID = starbaseID;
     return this;
   }
 
    /**
-   * Get itemID
-   * @return itemID
+   * Get starbaseID
+   * @return starbaseID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getItemID() {
-    return itemID;
+  public Long getStarbaseID() {
+    return starbaseID;
   }
 
-  public void setItemID(Long itemID) {
-    this.itemID = itemID;
-  }
-
-  public Starbase locationID(Long locationID) {
-    this.locationID = locationID;
-    return this;
-  }
-
-   /**
-   * Get locationID
-   * @return locationID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getLocationID() {
-    return locationID;
-  }
-
-  public void setLocationID(Long locationID) {
-    this.locationID = locationID;
-  }
-
-  public Starbase moonID(Integer moonID) {
-    this.moonID = moonID;
-    return this;
-  }
-
-   /**
-   * Get moonID
-   * @return moonID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getMoonID() {
-    return moonID;
-  }
-
-  public void setMoonID(Integer moonID) {
-    this.moonID = moonID;
-  }
-
-  public Starbase onlineTimestamp(Long onlineTimestamp) {
-    this.onlineTimestamp = onlineTimestamp;
-    return this;
-  }
-
-   /**
-   * Get onlineTimestamp
-   * @return onlineTimestamp
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getOnlineTimestamp() {
-    return onlineTimestamp;
-  }
-
-  public void setOnlineTimestamp(Long onlineTimestamp) {
-    this.onlineTimestamp = onlineTimestamp;
-  }
-
-  public Starbase state(Integer state) {
-    this.state = state;
-    return this;
-  }
-
-   /**
-   * Get state
-   * @return state
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Integer getState() {
-    return state;
-  }
-
-  public void setState(Integer state) {
-    this.state = state;
-  }
-
-  public Starbase stateTimestamp(Long stateTimestamp) {
-    this.stateTimestamp = stateTimestamp;
-    return this;
-  }
-
-   /**
-   * Get stateTimestamp
-   * @return stateTimestamp
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getStateTimestamp() {
-    return stateTimestamp;
-  }
-
-  public void setStateTimestamp(Long stateTimestamp) {
-    this.stateTimestamp = stateTimestamp;
+  public void setStarbaseID(Long starbaseID) {
+    this.starbaseID = starbaseID;
   }
 
   public Starbase typeID(Integer typeID) {
@@ -275,22 +227,346 @@ public class Starbase implements Serializable {
     this.typeID = typeID;
   }
 
-  public Starbase standingOwnerID(Long standingOwnerID) {
-    this.standingOwnerID = standingOwnerID;
+  public Starbase systemID(Integer systemID) {
+    this.systemID = systemID;
     return this;
   }
 
    /**
-   * Get standingOwnerID
-   * @return standingOwnerID
+   * Get systemID
+   * @return systemID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getStandingOwnerID() {
-    return standingOwnerID;
+  public Integer getSystemID() {
+    return systemID;
   }
 
-  public void setStandingOwnerID(Long standingOwnerID) {
-    this.standingOwnerID = standingOwnerID;
+  public void setSystemID(Integer systemID) {
+    this.systemID = systemID;
+  }
+
+  public Starbase moonID(Integer moonID) {
+    this.moonID = moonID;
+    return this;
+  }
+
+   /**
+   * Get moonID
+   * @return moonID
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getMoonID() {
+    return moonID;
+  }
+
+  public void setMoonID(Integer moonID) {
+    this.moonID = moonID;
+  }
+
+  public Starbase state(String state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+  public Starbase unanchorAt(Long unanchorAt) {
+    this.unanchorAt = unanchorAt;
+    return this;
+  }
+
+   /**
+   * Get unanchorAt
+   * @return unanchorAt
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Long getUnanchorAt() {
+    return unanchorAt;
+  }
+
+  public void setUnanchorAt(Long unanchorAt) {
+    this.unanchorAt = unanchorAt;
+  }
+
+  public Starbase reinforcedUntil(Long reinforcedUntil) {
+    this.reinforcedUntil = reinforcedUntil;
+    return this;
+  }
+
+   /**
+   * Get reinforcedUntil
+   * @return reinforcedUntil
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Long getReinforcedUntil() {
+    return reinforcedUntil;
+  }
+
+  public void setReinforcedUntil(Long reinforcedUntil) {
+    this.reinforcedUntil = reinforcedUntil;
+  }
+
+  public Starbase onlinedSince(Long onlinedSince) {
+    this.onlinedSince = onlinedSince;
+    return this;
+  }
+
+   /**
+   * Get onlinedSince
+   * @return onlinedSince
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Long getOnlinedSince() {
+    return onlinedSince;
+  }
+
+  public void setOnlinedSince(Long onlinedSince) {
+    this.onlinedSince = onlinedSince;
+  }
+
+  public Starbase fuelBayView(String fuelBayView) {
+    this.fuelBayView = fuelBayView;
+    return this;
+  }
+
+   /**
+   * Get fuelBayView
+   * @return fuelBayView
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getFuelBayView() {
+    return fuelBayView;
+  }
+
+  public void setFuelBayView(String fuelBayView) {
+    this.fuelBayView = fuelBayView;
+  }
+
+  public Starbase fuelBayTake(String fuelBayTake) {
+    this.fuelBayTake = fuelBayTake;
+    return this;
+  }
+
+   /**
+   * Get fuelBayTake
+   * @return fuelBayTake
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getFuelBayTake() {
+    return fuelBayTake;
+  }
+
+  public void setFuelBayTake(String fuelBayTake) {
+    this.fuelBayTake = fuelBayTake;
+  }
+
+  public Starbase anchor(String anchor) {
+    this.anchor = anchor;
+    return this;
+  }
+
+   /**
+   * Get anchor
+   * @return anchor
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getAnchor() {
+    return anchor;
+  }
+
+  public void setAnchor(String anchor) {
+    this.anchor = anchor;
+  }
+
+  public Starbase unanchor(String unanchor) {
+    this.unanchor = unanchor;
+    return this;
+  }
+
+   /**
+   * Get unanchor
+   * @return unanchor
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getUnanchor() {
+    return unanchor;
+  }
+
+  public void setUnanchor(String unanchor) {
+    this.unanchor = unanchor;
+  }
+
+  public Starbase online(String online) {
+    this.online = online;
+    return this;
+  }
+
+   /**
+   * Get online
+   * @return online
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getOnline() {
+    return online;
+  }
+
+  public void setOnline(String online) {
+    this.online = online;
+  }
+
+  public Starbase offline(String offline) {
+    this.offline = offline;
+    return this;
+  }
+
+   /**
+   * Get offline
+   * @return offline
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public String getOffline() {
+    return offline;
+  }
+
+  public void setOffline(String offline) {
+    this.offline = offline;
+  }
+
+  public Starbase allowCorporationMembers(Boolean allowCorporationMembers) {
+    this.allowCorporationMembers = allowCorporationMembers;
+    return this;
+  }
+
+   /**
+   * Get allowCorporationMembers
+   * @return allowCorporationMembers
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getAllowCorporationMembers() {
+    return allowCorporationMembers;
+  }
+
+  public void setAllowCorporationMembers(Boolean allowCorporationMembers) {
+    this.allowCorporationMembers = allowCorporationMembers;
+  }
+
+  public Starbase allowAllianceMembers(Boolean allowAllianceMembers) {
+    this.allowAllianceMembers = allowAllianceMembers;
+    return this;
+  }
+
+   /**
+   * Get allowAllianceMembers
+   * @return allowAllianceMembers
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getAllowAllianceMembers() {
+    return allowAllianceMembers;
+  }
+
+  public void setAllowAllianceMembers(Boolean allowAllianceMembers) {
+    this.allowAllianceMembers = allowAllianceMembers;
+  }
+
+  public Starbase useAllianceStandings(Boolean useAllianceStandings) {
+    this.useAllianceStandings = useAllianceStandings;
+    return this;
+  }
+
+   /**
+   * Get useAllianceStandings
+   * @return useAllianceStandings
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getUseAllianceStandings() {
+    return useAllianceStandings;
+  }
+
+  public void setUseAllianceStandings(Boolean useAllianceStandings) {
+    this.useAllianceStandings = useAllianceStandings;
+  }
+
+  public Starbase attackStandingThreshold(Float attackStandingThreshold) {
+    this.attackStandingThreshold = attackStandingThreshold;
+    return this;
+  }
+
+   /**
+   * Get attackStandingThreshold
+   * @return attackStandingThreshold
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Float getAttackStandingThreshold() {
+    return attackStandingThreshold;
+  }
+
+  public void setAttackStandingThreshold(Float attackStandingThreshold) {
+    this.attackStandingThreshold = attackStandingThreshold;
+  }
+
+  public Starbase attackSecurityStatusThreshold(Float attackSecurityStatusThreshold) {
+    this.attackSecurityStatusThreshold = attackSecurityStatusThreshold;
+    return this;
+  }
+
+   /**
+   * Get attackSecurityStatusThreshold
+   * @return attackSecurityStatusThreshold
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Float getAttackSecurityStatusThreshold() {
+    return attackSecurityStatusThreshold;
+  }
+
+  public void setAttackSecurityStatusThreshold(Float attackSecurityStatusThreshold) {
+    this.attackSecurityStatusThreshold = attackSecurityStatusThreshold;
+  }
+
+  public Starbase attackIfOtherSecurityStatusDropping(Boolean attackIfOtherSecurityStatusDropping) {
+    this.attackIfOtherSecurityStatusDropping = attackIfOtherSecurityStatusDropping;
+    return this;
+  }
+
+   /**
+   * Get attackIfOtherSecurityStatusDropping
+   * @return attackIfOtherSecurityStatusDropping
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getAttackIfOtherSecurityStatusDropping() {
+    return attackIfOtherSecurityStatusDropping;
+  }
+
+  public void setAttackIfOtherSecurityStatusDropping(Boolean attackIfOtherSecurityStatusDropping) {
+    this.attackIfOtherSecurityStatusDropping = attackIfOtherSecurityStatusDropping;
+  }
+
+  public Starbase attackIfAtWar(Boolean attackIfAtWar) {
+    this.attackIfAtWar = attackIfAtWar;
+    return this;
+  }
+
+   /**
+   * Get attackIfAtWar
+   * @return attackIfAtWar
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getAttackIfAtWar() {
+    return attackIfAtWar;
+  }
+
+  public void setAttackIfAtWar(Boolean attackIfAtWar) {
+    this.attackIfAtWar = attackIfAtWar;
   }
 
   public Starbase lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -329,40 +605,58 @@ public class Starbase implements Serializable {
     this.lifeEndDate = lifeEndDate;
   }
 
-  public Starbase onlineTimestampDate(OffsetDateTime onlineTimestampDate) {
-    this.onlineTimestampDate = onlineTimestampDate;
+  public Starbase unanchorAtDate(OffsetDateTime unanchorAtDate) {
+    this.unanchorAtDate = unanchorAtDate;
     return this;
   }
 
    /**
-   * onlineTimestamp Date
-   * @return onlineTimestampDate
+   * unanchorAt Date
+   * @return unanchorAtDate
   **/
-  @ApiModelProperty(example = "null", value = "onlineTimestamp Date")
-  public OffsetDateTime getOnlineTimestampDate() {
-    return onlineTimestampDate;
+  @ApiModelProperty(example = "null", value = "unanchorAt Date")
+  public OffsetDateTime getUnanchorAtDate() {
+    return unanchorAtDate;
   }
 
-  public void setOnlineTimestampDate(OffsetDateTime onlineTimestampDate) {
-    this.onlineTimestampDate = onlineTimestampDate;
+  public void setUnanchorAtDate(OffsetDateTime unanchorAtDate) {
+    this.unanchorAtDate = unanchorAtDate;
   }
 
-  public Starbase stateTimestampDate(OffsetDateTime stateTimestampDate) {
-    this.stateTimestampDate = stateTimestampDate;
+  public Starbase reinforcedUntilDate(OffsetDateTime reinforcedUntilDate) {
+    this.reinforcedUntilDate = reinforcedUntilDate;
     return this;
   }
 
    /**
-   * stateTimestamp Date
-   * @return stateTimestampDate
+   * reinforcedUntil Date
+   * @return reinforcedUntilDate
   **/
-  @ApiModelProperty(example = "null", value = "stateTimestamp Date")
-  public OffsetDateTime getStateTimestampDate() {
-    return stateTimestampDate;
+  @ApiModelProperty(example = "null", value = "reinforcedUntil Date")
+  public OffsetDateTime getReinforcedUntilDate() {
+    return reinforcedUntilDate;
   }
 
-  public void setStateTimestampDate(OffsetDateTime stateTimestampDate) {
-    this.stateTimestampDate = stateTimestampDate;
+  public void setReinforcedUntilDate(OffsetDateTime reinforcedUntilDate) {
+    this.reinforcedUntilDate = reinforcedUntilDate;
+  }
+
+  public Starbase onlinedSinceDate(OffsetDateTime onlinedSinceDate) {
+    this.onlinedSinceDate = onlinedSinceDate;
+    return this;
+  }
+
+   /**
+   * onlinedSince Date
+   * @return onlinedSinceDate
+  **/
+  @ApiModelProperty(example = "null", value = "onlinedSince Date")
+  public OffsetDateTime getOnlinedSinceDate() {
+    return onlinedSinceDate;
+  }
+
+  public void setOnlinedSinceDate(OffsetDateTime onlinedSinceDate) {
+    this.onlinedSinceDate = onlinedSinceDate;
   }
 
 
@@ -379,23 +673,37 @@ public class Starbase implements Serializable {
         Objects.equals(this.eveKitVersion, starbase.eveKitVersion) &&
         Objects.equals(this.lifeStart, starbase.lifeStart) &&
         Objects.equals(this.lifeEnd, starbase.lifeEnd) &&
-        Objects.equals(this.itemID, starbase.itemID) &&
-        Objects.equals(this.locationID, starbase.locationID) &&
-        Objects.equals(this.moonID, starbase.moonID) &&
-        Objects.equals(this.onlineTimestamp, starbase.onlineTimestamp) &&
-        Objects.equals(this.state, starbase.state) &&
-        Objects.equals(this.stateTimestamp, starbase.stateTimestamp) &&
+        Objects.equals(this.starbaseID, starbase.starbaseID) &&
         Objects.equals(this.typeID, starbase.typeID) &&
-        Objects.equals(this.standingOwnerID, starbase.standingOwnerID) &&
+        Objects.equals(this.systemID, starbase.systemID) &&
+        Objects.equals(this.moonID, starbase.moonID) &&
+        Objects.equals(this.state, starbase.state) &&
+        Objects.equals(this.unanchorAt, starbase.unanchorAt) &&
+        Objects.equals(this.reinforcedUntil, starbase.reinforcedUntil) &&
+        Objects.equals(this.onlinedSince, starbase.onlinedSince) &&
+        Objects.equals(this.fuelBayView, starbase.fuelBayView) &&
+        Objects.equals(this.fuelBayTake, starbase.fuelBayTake) &&
+        Objects.equals(this.anchor, starbase.anchor) &&
+        Objects.equals(this.unanchor, starbase.unanchor) &&
+        Objects.equals(this.online, starbase.online) &&
+        Objects.equals(this.offline, starbase.offline) &&
+        Objects.equals(this.allowCorporationMembers, starbase.allowCorporationMembers) &&
+        Objects.equals(this.allowAllianceMembers, starbase.allowAllianceMembers) &&
+        Objects.equals(this.useAllianceStandings, starbase.useAllianceStandings) &&
+        Objects.equals(this.attackStandingThreshold, starbase.attackStandingThreshold) &&
+        Objects.equals(this.attackSecurityStatusThreshold, starbase.attackSecurityStatusThreshold) &&
+        Objects.equals(this.attackIfOtherSecurityStatusDropping, starbase.attackIfOtherSecurityStatusDropping) &&
+        Objects.equals(this.attackIfAtWar, starbase.attackIfAtWar) &&
         Objects.equals(this.lifeStartDate, starbase.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, starbase.lifeEndDate) &&
-        Objects.equals(this.onlineTimestampDate, starbase.onlineTimestampDate) &&
-        Objects.equals(this.stateTimestampDate, starbase.stateTimestampDate);
+        Objects.equals(this.unanchorAtDate, starbase.unanchorAtDate) &&
+        Objects.equals(this.reinforcedUntilDate, starbase.reinforcedUntilDate) &&
+        Objects.equals(this.onlinedSinceDate, starbase.onlinedSinceDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, itemID, locationID, moonID, onlineTimestamp, state, stateTimestamp, typeID, standingOwnerID, lifeStartDate, lifeEndDate, onlineTimestampDate, stateTimestampDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, starbaseID, typeID, systemID, moonID, state, unanchorAt, reinforcedUntil, onlinedSince, fuelBayView, fuelBayTake, anchor, unanchor, online, offline, allowCorporationMembers, allowAllianceMembers, useAllianceStandings, attackStandingThreshold, attackSecurityStatusThreshold, attackIfOtherSecurityStatusDropping, attackIfAtWar, lifeStartDate, lifeEndDate, unanchorAtDate, reinforcedUntilDate, onlinedSinceDate);
   }
 
 
@@ -408,18 +716,32 @@ public class Starbase implements Serializable {
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    itemID: ").append(toIndentedString(itemID)).append("\n");
-    sb.append("    locationID: ").append(toIndentedString(locationID)).append("\n");
-    sb.append("    moonID: ").append(toIndentedString(moonID)).append("\n");
-    sb.append("    onlineTimestamp: ").append(toIndentedString(onlineTimestamp)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    stateTimestamp: ").append(toIndentedString(stateTimestamp)).append("\n");
+    sb.append("    starbaseID: ").append(toIndentedString(starbaseID)).append("\n");
     sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
-    sb.append("    standingOwnerID: ").append(toIndentedString(standingOwnerID)).append("\n");
+    sb.append("    systemID: ").append(toIndentedString(systemID)).append("\n");
+    sb.append("    moonID: ").append(toIndentedString(moonID)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    unanchorAt: ").append(toIndentedString(unanchorAt)).append("\n");
+    sb.append("    reinforcedUntil: ").append(toIndentedString(reinforcedUntil)).append("\n");
+    sb.append("    onlinedSince: ").append(toIndentedString(onlinedSince)).append("\n");
+    sb.append("    fuelBayView: ").append(toIndentedString(fuelBayView)).append("\n");
+    sb.append("    fuelBayTake: ").append(toIndentedString(fuelBayTake)).append("\n");
+    sb.append("    anchor: ").append(toIndentedString(anchor)).append("\n");
+    sb.append("    unanchor: ").append(toIndentedString(unanchor)).append("\n");
+    sb.append("    online: ").append(toIndentedString(online)).append("\n");
+    sb.append("    offline: ").append(toIndentedString(offline)).append("\n");
+    sb.append("    allowCorporationMembers: ").append(toIndentedString(allowCorporationMembers)).append("\n");
+    sb.append("    allowAllianceMembers: ").append(toIndentedString(allowAllianceMembers)).append("\n");
+    sb.append("    useAllianceStandings: ").append(toIndentedString(useAllianceStandings)).append("\n");
+    sb.append("    attackStandingThreshold: ").append(toIndentedString(attackStandingThreshold)).append("\n");
+    sb.append("    attackSecurityStatusThreshold: ").append(toIndentedString(attackSecurityStatusThreshold)).append("\n");
+    sb.append("    attackIfOtherSecurityStatusDropping: ").append(toIndentedString(attackIfOtherSecurityStatusDropping)).append("\n");
+    sb.append("    attackIfAtWar: ").append(toIndentedString(attackIfAtWar)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
-    sb.append("    onlineTimestampDate: ").append(toIndentedString(onlineTimestampDate)).append("\n");
-    sb.append("    stateTimestampDate: ").append(toIndentedString(stateTimestampDate)).append("\n");
+    sb.append("    unanchorAtDate: ").append(toIndentedString(unanchorAtDate)).append("\n");
+    sb.append("    reinforcedUntilDate: ").append(toIndentedString(reinforcedUntilDate)).append("\n");
+    sb.append("    onlinedSinceDate: ").append(toIndentedString(onlinedSinceDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

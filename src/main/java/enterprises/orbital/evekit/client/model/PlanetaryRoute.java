@@ -19,6 +19,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -42,7 +44,7 @@ public class PlanetaryRoute implements Serializable {
   private Long lifeEnd = null;
 
   @JsonProperty("planetID")
-  private Long planetID = null;
+  private Integer planetID = null;
 
   @JsonProperty("routeID")
   private Long routeID = null;
@@ -56,26 +58,11 @@ public class PlanetaryRoute implements Serializable {
   @JsonProperty("contentTypeID")
   private Integer contentTypeID = null;
 
-  @JsonProperty("contentTypeName")
-  private String contentTypeName = null;
-
   @JsonProperty("quantity")
-  private Integer quantity = null;
+  private Float quantity = null;
 
-  @JsonProperty("waypoint1")
-  private Long waypoint1 = null;
-
-  @JsonProperty("waypoint2")
-  private Long waypoint2 = null;
-
-  @JsonProperty("waypoint3")
-  private Long waypoint3 = null;
-
-  @JsonProperty("waypoint4")
-  private Long waypoint4 = null;
-
-  @JsonProperty("waypoint5")
-  private Long waypoint5 = null;
+  @JsonProperty("waypoints")
+  private List<Long> waypoints = new ArrayList<Long>();
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -155,7 +142,7 @@ public class PlanetaryRoute implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public PlanetaryRoute planetID(Long planetID) {
+  public PlanetaryRoute planetID(Integer planetID) {
     this.planetID = planetID;
     return this;
   }
@@ -165,11 +152,11 @@ public class PlanetaryRoute implements Serializable {
    * @return planetID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getPlanetID() {
+  public Integer getPlanetID() {
     return planetID;
   }
 
-  public void setPlanetID(Long planetID) {
+  public void setPlanetID(Integer planetID) {
     this.planetID = planetID;
   }
 
@@ -245,25 +232,7 @@ public class PlanetaryRoute implements Serializable {
     this.contentTypeID = contentTypeID;
   }
 
-  public PlanetaryRoute contentTypeName(String contentTypeName) {
-    this.contentTypeName = contentTypeName;
-    return this;
-  }
-
-   /**
-   * Get contentTypeName
-   * @return contentTypeName
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getContentTypeName() {
-    return contentTypeName;
-  }
-
-  public void setContentTypeName(String contentTypeName) {
-    this.contentTypeName = contentTypeName;
-  }
-
-  public PlanetaryRoute quantity(Integer quantity) {
+  public PlanetaryRoute quantity(Float quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -273,102 +242,35 @@ public class PlanetaryRoute implements Serializable {
    * @return quantity
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Integer getQuantity() {
+  public Float getQuantity() {
     return quantity;
   }
 
-  public void setQuantity(Integer quantity) {
+  public void setQuantity(Float quantity) {
     this.quantity = quantity;
   }
 
-  public PlanetaryRoute waypoint1(Long waypoint1) {
-    this.waypoint1 = waypoint1;
+  public PlanetaryRoute waypoints(List<Long> waypoints) {
+    this.waypoints = waypoints;
+    return this;
+  }
+
+  public PlanetaryRoute addWaypointsItem(Long waypointsItem) {
+    this.waypoints.add(waypointsItem);
     return this;
   }
 
    /**
-   * Get waypoint1
-   * @return waypoint1
+   * Get waypoints
+   * @return waypoints
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getWaypoint1() {
-    return waypoint1;
+  public List<Long> getWaypoints() {
+    return waypoints;
   }
 
-  public void setWaypoint1(Long waypoint1) {
-    this.waypoint1 = waypoint1;
-  }
-
-  public PlanetaryRoute waypoint2(Long waypoint2) {
-    this.waypoint2 = waypoint2;
-    return this;
-  }
-
-   /**
-   * Get waypoint2
-   * @return waypoint2
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getWaypoint2() {
-    return waypoint2;
-  }
-
-  public void setWaypoint2(Long waypoint2) {
-    this.waypoint2 = waypoint2;
-  }
-
-  public PlanetaryRoute waypoint3(Long waypoint3) {
-    this.waypoint3 = waypoint3;
-    return this;
-  }
-
-   /**
-   * Get waypoint3
-   * @return waypoint3
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getWaypoint3() {
-    return waypoint3;
-  }
-
-  public void setWaypoint3(Long waypoint3) {
-    this.waypoint3 = waypoint3;
-  }
-
-  public PlanetaryRoute waypoint4(Long waypoint4) {
-    this.waypoint4 = waypoint4;
-    return this;
-  }
-
-   /**
-   * Get waypoint4
-   * @return waypoint4
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getWaypoint4() {
-    return waypoint4;
-  }
-
-  public void setWaypoint4(Long waypoint4) {
-    this.waypoint4 = waypoint4;
-  }
-
-  public PlanetaryRoute waypoint5(Long waypoint5) {
-    this.waypoint5 = waypoint5;
-    return this;
-  }
-
-   /**
-   * Get waypoint5
-   * @return waypoint5
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getWaypoint5() {
-    return waypoint5;
-  }
-
-  public void setWaypoint5(Long waypoint5) {
-    this.waypoint5 = waypoint5;
+  public void setWaypoints(List<Long> waypoints) {
+    this.waypoints = waypoints;
   }
 
   public PlanetaryRoute lifeStartDate(OffsetDateTime lifeStartDate) {
@@ -426,20 +328,15 @@ public class PlanetaryRoute implements Serializable {
         Objects.equals(this.sourcePinID, planetaryRoute.sourcePinID) &&
         Objects.equals(this.destinationPinID, planetaryRoute.destinationPinID) &&
         Objects.equals(this.contentTypeID, planetaryRoute.contentTypeID) &&
-        Objects.equals(this.contentTypeName, planetaryRoute.contentTypeName) &&
         Objects.equals(this.quantity, planetaryRoute.quantity) &&
-        Objects.equals(this.waypoint1, planetaryRoute.waypoint1) &&
-        Objects.equals(this.waypoint2, planetaryRoute.waypoint2) &&
-        Objects.equals(this.waypoint3, planetaryRoute.waypoint3) &&
-        Objects.equals(this.waypoint4, planetaryRoute.waypoint4) &&
-        Objects.equals(this.waypoint5, planetaryRoute.waypoint5) &&
+        Objects.equals(this.waypoints, planetaryRoute.waypoints) &&
         Objects.equals(this.lifeStartDate, planetaryRoute.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, planetaryRoute.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, planetID, routeID, sourcePinID, destinationPinID, contentTypeID, contentTypeName, quantity, waypoint1, waypoint2, waypoint3, waypoint4, waypoint5, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, planetID, routeID, sourcePinID, destinationPinID, contentTypeID, quantity, waypoints, lifeStartDate, lifeEndDate);
   }
 
 
@@ -457,13 +354,8 @@ public class PlanetaryRoute implements Serializable {
     sb.append("    sourcePinID: ").append(toIndentedString(sourcePinID)).append("\n");
     sb.append("    destinationPinID: ").append(toIndentedString(destinationPinID)).append("\n");
     sb.append("    contentTypeID: ").append(toIndentedString(contentTypeID)).append("\n");
-    sb.append("    contentTypeName: ").append(toIndentedString(contentTypeName)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-    sb.append("    waypoint1: ").append(toIndentedString(waypoint1)).append("\n");
-    sb.append("    waypoint2: ").append(toIndentedString(waypoint2)).append("\n");
-    sb.append("    waypoint3: ").append(toIndentedString(waypoint3)).append("\n");
-    sb.append("    waypoint4: ").append(toIndentedString(waypoint4)).append("\n");
-    sb.append("    waypoint5: ").append(toIndentedString(waypoint5)).append("\n");
+    sb.append("    waypoints: ").append(toIndentedString(waypoints)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

@@ -12,22 +12,20 @@ import enterprises.orbital.evekit.client.model.CorporationMedal;
 import enterprises.orbital.evekit.client.model.CorporationMemberMedal;
 import enterprises.orbital.evekit.client.model.CorporationSheet;
 import enterprises.orbital.evekit.client.model.CorporationTitle;
+import enterprises.orbital.evekit.client.model.CorporationTitleRole;
 import enterprises.orbital.evekit.client.model.CustomsOffice;
 import enterprises.orbital.evekit.client.model.Division;
 import enterprises.orbital.evekit.client.model.Facility;
 import enterprises.orbital.evekit.client.model.Fuel;
-import enterprises.orbital.evekit.client.model.MemberSecurity;
-import enterprises.orbital.evekit.client.model.MemberSecurityLog;
+import enterprises.orbital.evekit.client.model.Member;
+import enterprises.orbital.evekit.client.model.MemberLimit;
+import enterprises.orbital.evekit.client.model.MemberRole;
+import enterprises.orbital.evekit.client.model.MemberRoleHistory;
+import enterprises.orbital.evekit.client.model.MemberTitle;
 import enterprises.orbital.evekit.client.model.MemberTracking;
-import enterprises.orbital.evekit.client.model.Outpost;
-import enterprises.orbital.evekit.client.model.OutpostServiceDetail;
-import enterprises.orbital.evekit.client.model.Role;
-import enterprises.orbital.evekit.client.model.SecurityRole;
-import enterprises.orbital.evekit.client.model.SecurityTitle;
 import enterprises.orbital.evekit.client.model.ServiceError;
 import enterprises.orbital.evekit.client.model.Shareholder;
 import enterprises.orbital.evekit.client.model.Starbase;
-import enterprises.orbital.evekit.client.model.StarbaseDetail;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,11 +63,10 @@ public class CorporationApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param logTime Corporation container log time selector (optional, default to { any: true })
    * @param action Corporation container log action selector (optional, default to { any: true })
-   * @param actorID Corporation container log actor ID selector (optional, default to { any: true })
-   * @param actorName Corporation container log actor name selector (optional, default to { any: true })
-   * @param flag Corporation container log flag selector (optional, default to { any: true })
-   * @param itemID Corporation container log item ID selector (optional, default to { any: true })
-   * @param itemTypeID Corporation container log item type ID selector (optional, default to { any: true })
+   * @param characterID Corporation container log character ID selector (optional, default to { any: true })
+   * @param locationFlag Corporation container log location flag selector (optional, default to { any: true })
+   * @param containerID Corporation container log container ID selector (optional, default to { any: true })
+   * @param containerTypeID Corporation container log container type ID selector (optional, default to { any: true })
    * @param locationID Corporation container log location ID selector (optional, default to { any: true })
    * @param newConfiguration Corporation container log new configuration selector (optional, default to { any: true })
    * @param oldConfiguration Corporation container log old configuration selector (optional, default to { any: true })
@@ -79,7 +76,7 @@ public class CorporationApi {
    * @return List&lt;ContainerLog&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<ContainerLog> getContainerLogs(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String logTime, String action, String actorID, String actorName, String flag, String itemID, String itemTypeID, String locationID, String newConfiguration, String oldConfiguration, String passwordType, String quantity, String typeID) throws ApiException {
+  public List<ContainerLog> getContainerLogs(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String logTime, String action, String characterID, String locationFlag, String containerID, String containerTypeID, String locationID, String newConfiguration, String oldConfiguration, String passwordType, String quantity, String typeID) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -108,11 +105,10 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "logTime", logTime));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "action", action));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "actorID", actorID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "actorName", actorName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "flag", flag));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "itemID", itemID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "itemTypeID", itemTypeID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterID", characterID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationFlag", locationFlag));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "containerID", containerID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "containerTypeID", containerTypeID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationID", locationID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "newConfiguration", newConfiguration));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "oldConfiguration", oldConfiguration));
@@ -214,31 +210,26 @@ public class CorporationApi {
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param allianceID Corporation alliance ID selector (optional, default to { any: true })
-   * @param allianceName Corporation alliance name selector (optional, default to { any: true })
    * @param ceoID Corporation CEO ID selector (optional, default to { any: true })
-   * @param ceoName Corporation CEO name selector (optional, default to { any: true })
    * @param corporationID Corporation ID selector (optional, default to { any: true })
    * @param corporationName Corporation name selector (optional, default to { any: true })
    * @param description Corporation description selector (optional, default to { any: true })
-   * @param logoColor1 Corporation first logo color selector (optional, default to { any: true })
-   * @param logoColor2 Corporation second logo color selector (optional, default to { any: true })
-   * @param logoColor3 Corporation third logo color selector (optional, default to { any: true })
-   * @param logoGraphicID Corporation logo graphic ID selector (optional, default to { any: true })
-   * @param logoShape1 Corporation first logo shape selector (optional, default to { any: true })
-   * @param logoShape2 Corporation second logo shape selector (optional, default to { any: true })
-   * @param logoShape3 Corporation third logo shape selector (optional, default to { any: true })
    * @param memberCount Corporation member count selector (optional, default to { any: true })
-   * @param memberLimit Corporation member limit selector (optional, default to { any: true })
    * @param shares Corporation shares selector (optional, default to { any: true })
    * @param stationID Corporation station ID selector (optional, default to { any: true })
-   * @param stationName Corporation station name selector (optional, default to { any: true })
    * @param taxRate Corporation tax rate selector (optional, default to { any: true })
    * @param ticker Corporation ticker selector (optional, default to { any: true })
    * @param url Corporation URL selector (optional, default to { any: true })
+   * @param dateFounded Corporation founding date selector (optional, default to { any: true })
+   * @param creatorID Corporation creator ID selector (optional, default to { any: true })
+   * @param factionID Corporation faction ID selector (optional, default to { any: true })
+   * @param px64x64 Corporation 64x64 image URL selector (optional, default to { any: true })
+   * @param px128x128 Corporation 128x128 image URL selector (optional, default to { any: true })
+   * @param px256x256 Corporation 256x256 image URL selector (optional, default to { any: true })
    * @return List&lt;CorporationSheet&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<CorporationSheet> getCorporationSheet(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String allianceID, String allianceName, String ceoID, String ceoName, String corporationID, String corporationName, String description, String logoColor1, String logoColor2, String logoColor3, String logoGraphicID, String logoShape1, String logoShape2, String logoShape3, String memberCount, String memberLimit, String shares, String stationID, String stationName, String taxRate, String ticker, String url) throws ApiException {
+  public List<CorporationSheet> getCorporationSheet(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String allianceID, String ceoID, String corporationID, String corporationName, String description, String memberCount, String shares, String stationID, String taxRate, String ticker, String url, String dateFounded, String creatorID, String factionID, String px64x64, String px128x128, String px256x256) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -266,27 +257,22 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "allianceID", allianceID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "allianceName", allianceName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ceoID", ceoID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ceoName", ceoName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "corporationID", corporationID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "corporationName", corporationName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "description", description));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "logoColor1", logoColor1));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "logoColor2", logoColor2));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "logoColor3", logoColor3));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "logoGraphicID", logoGraphicID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "logoShape1", logoShape1));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "logoShape2", logoShape2));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "logoShape3", logoShape3));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "memberCount", memberCount));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "memberLimit", memberLimit));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "shares", shares));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "stationID", stationID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stationName", stationName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxRate", taxRate));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "ticker", ticker));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "url", url));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "dateFounded", dateFounded));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "creatorID", creatorID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "factionID", factionID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "px64x64", px64x64));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "px128x128", px128x128));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "px256x256", px256x256));
 
     
     
@@ -306,6 +292,75 @@ public class CorporationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Get corporation title roles
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param titleID Corporation title role ID selector (optional, default to { any: true })
+   * @param roleName Corporation title role name selector (optional, default to { any: true })
+   * @param grantable Corporation title role grantable selector (optional, default to { any: true })
+   * @param atHQ Corporation title role at HQ selector (optional, default to { any: true })
+   * @param atBase Corporation title role at base selector (optional, default to { any: true })
+   * @param atOther Corporation title role at other selector (optional, default to { any: true })
+   * @return List&lt;CorporationTitleRole&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<CorporationTitleRole> getCorporationTitleRoles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String titleID, String roleName, String grantable, String atHQ, String atBase, String atOther) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getCorporationTitleRoles");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getCorporationTitleRoles");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/corp/title_role".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "titleID", titleID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roleName", roleName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "grantable", grantable));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "atHQ", atHQ));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "atBase", atBase));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "atOther", atOther));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<CorporationTitleRole>> localVarReturnType = new GenericType<List<CorporationTitleRole>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Get corporation titles
    * 
    * @param accessKey Model access key (required)
@@ -316,18 +371,10 @@ public class CorporationApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param titleID Corporation title ID selector (optional, default to { any: true })
    * @param titleName Corporation title name selector (optional, default to { any: true })
-   * @param grantableRoles Corporation title grantable roles selector (optional, default to { any: true })
-   * @param grantableRolesAtBase Corporation title grantable roles at base selector (optional, default to { any: true })
-   * @param grantableRolesAtHQ Corporation title grantable roles at HQ selector (optional, default to { any: true })
-   * @param grantableRolesAtOther Corporation title grantable roles at other selector (optional, default to { any: true })
-   * @param roles Corporation title roles selector (optional, default to { any: true })
-   * @param rolesAtBase Corporation title roles at base selector (optional, default to { any: true })
-   * @param rolesAtHQ Corporation title roles at HQ selector (optional, default to { any: true })
-   * @param rolesAtOther Corporation title roles at other selector (optional, default to { any: true })
    * @return List&lt;CorporationTitle&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<CorporationTitle> getCorporationTitles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String titleID, String titleName, String grantableRoles, String grantableRolesAtBase, String grantableRolesAtHQ, String grantableRolesAtOther, String roles, String rolesAtBase, String rolesAtHQ, String rolesAtOther) throws ApiException {
+  public List<CorporationTitle> getCorporationTitles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String titleID, String titleName) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -356,14 +403,6 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "titleID", titleID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "titleName", titleName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "grantableRoles", grantableRoles));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "grantableRolesAtBase", grantableRolesAtBase));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "grantableRolesAtHQ", grantableRolesAtHQ));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "grantableRolesAtOther", grantableRolesAtOther));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roles", roles));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "rolesAtBase", rolesAtBase));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "rolesAtHQ", rolesAtHQ));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "rolesAtOther", rolesAtOther));
 
     
     
@@ -391,24 +430,24 @@ public class CorporationApi {
    * @param contid Continuation ID for paged results (optional, default to -1)
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param itemID Customs office item ID selector (optional, default to { any: true })
+   * @param officeID Customs office ID selector (optional, default to { any: true })
    * @param solarSystemID Customs office solar system ID selector (optional, default to { any: true })
-   * @param solarSystemName Customs office solar system name selector (optional, default to { any: true })
-   * @param reinforceHour Customs office reinforce hour selector (optional, default to { any: true })
+   * @param reinforceExitStart Customs office reinforce exit timer start selector (optional, default to { any: true })
+   * @param reinforceExitEnd Customs office reinforce exit timer end selector (optional, default to { any: true })
    * @param allowAlliance Customs office allow alliance selector (optional, default to { any: true })
    * @param allowStandings Customs office allow standings selector (optional, default to { any: true })
    * @param standingLevel Customs office standing level selector (optional, default to { any: true })
    * @param taxRateAlliance Customs office tax rate alliance selector (optional, default to { any: true })
    * @param taxRateCorp Customs office tax rate corporation selector (optional, default to { any: true })
-   * @param taxRateStandingHigh Customs office tax rate standing high selector (optional, default to { any: true })
+   * @param taxRateStandingExcellent Customs office tax rate standing excellent selector (optional, default to { any: true })
    * @param taxRateStandingGood Customs office tax rate standing good selector (optional, default to { any: true })
    * @param taxRateStandingNeutral Customs office tax rate standing neutral selector (optional, default to { any: true })
    * @param taxRateStandingBad Customs office tax rate standing bad selector (optional, default to { any: true })
-   * @param taxRateStandingHorrible Customs office tax rate standing horrible selector (optional, default to { any: true })
+   * @param taxRateStandingTerrible Customs office tax rate standing terrible selector (optional, default to { any: true })
    * @return List&lt;CustomsOffice&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<CustomsOffice> getCustomsOffices(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String solarSystemID, String solarSystemName, String reinforceHour, String allowAlliance, String allowStandings, String standingLevel, String taxRateAlliance, String taxRateCorp, String taxRateStandingHigh, String taxRateStandingGood, String taxRateStandingNeutral, String taxRateStandingBad, String taxRateStandingHorrible) throws ApiException {
+  public List<CustomsOffice> getCustomsOffices(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String officeID, String solarSystemID, String reinforceExitStart, String reinforceExitEnd, String allowAlliance, String allowStandings, String standingLevel, String taxRateAlliance, String taxRateCorp, String taxRateStandingExcellent, String taxRateStandingGood, String taxRateStandingNeutral, String taxRateStandingBad, String taxRateStandingTerrible) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -435,20 +474,20 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "itemID", itemID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "officeID", officeID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "solarSystemID", solarSystemID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "solarSystemName", solarSystemName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reinforceHour", reinforceHour));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reinforceExitStart", reinforceExitStart));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reinforceExitEnd", reinforceExitEnd));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "allowAlliance", allowAlliance));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "allowStandings", allowStandings));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "standingLevel", standingLevel));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxRateAlliance", taxRateAlliance));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxRateCorp", taxRateCorp));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxRateStandingHigh", taxRateStandingHigh));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxRateStandingExcellent", taxRateStandingExcellent));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxRateStandingGood", taxRateStandingGood));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxRateStandingNeutral", taxRateStandingNeutral));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxRateStandingBad", taxRateStandingBad));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxRateStandingHorrible", taxRateStandingHorrible));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxRateStandingTerrible", taxRateStandingTerrible));
 
     
     
@@ -477,12 +516,12 @@ public class CorporationApi {
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param wallet Division wallet indicator selector (optional, default to { any: true })
-   * @param accountKey Division account key selector (optional, default to { any: true })
-   * @param description Division description selector (optional, default to { any: true })
+   * @param division Division ID selector (optional, default to { any: true })
+   * @param name Division name selector (optional, default to { any: true })
    * @return List&lt;Division&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Division> getDivisions(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String wallet, String accountKey, String description) throws ApiException {
+  public List<Division> getDivisions(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String wallet, String division, String name) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -510,8 +549,8 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "wallet", wallet));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accountKey", accountKey));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "description", description));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "division", division));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
 
     
     
@@ -541,17 +580,11 @@ public class CorporationApi {
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param facilityID Facility ID selector (optional, default to { any: true })
    * @param typeID Facility type ID selector (optional, default to { any: true })
-   * @param typeName Facility type name selector (optional, default to { any: true })
    * @param solarSystemID Facility solar system ID selector (optional, default to { any: true })
-   * @param solarSystemName Facility solar system name selector (optional, default to { any: true })
-   * @param regionID Facility region ID selector (optional, default to { any: true })
-   * @param regionName Facility region name selector (optional, default to { any: true })
-   * @param starbaseModifier Facility starbase modifier selector (optional, default to { any: true })
-   * @param tax Facility tax selector (optional, default to { any: true })
    * @return List&lt;Facility&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Facility> getFacilities(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String facilityID, String typeID, String typeName, String solarSystemID, String solarSystemName, String regionID, String regionName, String starbaseModifier, String tax) throws ApiException {
+  public List<Facility> getFacilities(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String facilityID, String typeID, String solarSystemID) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -580,13 +613,7 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "facilityID", facilityID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeID", typeID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeName", typeName));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "solarSystemID", solarSystemID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "solarSystemName", solarSystemName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "regionID", regionID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "regionName", regionName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "starbaseModifier", starbaseModifier));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tax", tax));
 
     
     
@@ -614,13 +641,13 @@ public class CorporationApi {
    * @param contid Continuation ID for paged results (optional, default to -1)
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param itemID Fuel item ID selector (optional, default to { any: true })
+   * @param starbaseID Fuel starbase ID selector (optional, default to { any: true })
    * @param typeID Fuel type ID selector (optional, default to { any: true })
    * @param quantity Fuel quantity selector (optional, default to { any: true })
    * @return List&lt;Fuel&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Fuel> getFuel(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String typeID, String quantity) throws ApiException {
+  public List<Fuel> getFuel(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String starbaseID, String typeID, String quantity) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -647,7 +674,7 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "itemID", itemID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "starbaseID", starbaseID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeID", typeID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "quantity", quantity));
 
@@ -666,6 +693,65 @@ public class CorporationApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<Fuel>> localVarReturnType = new GenericType<List<Fuel>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get corporation member limit information
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param memberLimit Corporation member limit selector (optional, default to { any: true })
+   * @return List&lt;MemberLimit&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<MemberLimit> getMemberLimit(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String memberLimit) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getMemberLimit");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getMemberLimit");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/corp/member_limit".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "memberLimit", memberLimit));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<MemberLimit>> localVarReturnType = new GenericType<List<MemberLimit>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -738,7 +824,7 @@ public class CorporationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get corporation member security settings
+   * Get corporation member role history entries
    * 
    * @param accessKey Model access key (required)
    * @param accessCred Model access credential (required)
@@ -746,35 +832,30 @@ public class CorporationApi {
    * @param contid Continuation ID for paged results (optional, default to -1)
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param characterID Member security character ID selector (optional, default to { any: true })
-   * @param name Member security character name selector (optional, default to { any: true })
-   * @param grantableRoles Member security grantable roles selector (optional, default to { any: true })
-   * @param grantableRolesAtBase Member security grantable roles at base selector (optional, default to { any: true })
-   * @param grantableRolesAtHQ Member security grantable roles at HQ selector (optional, default to { any: true })
-   * @param grantableRolesAtOther Member security grantable roles at other selector (optional, default to { any: true })
-   * @param roles Member security roles selector (optional, default to { any: true })
-   * @param rolesAtBase Member security roles at base selector (optional, default to { any: true })
-   * @param rolesAtHQ Member security roles at HQ selector (optional, default to { any: true })
-   * @param rolesAtOther Member security roles at other selector (optional, default to { any: true })
-   * @param titles Member security titles selector (optional, default to { any: true })
-   * @return List&lt;MemberSecurity&gt;
+   * @param characterID Member role history character ID selector (optional, default to { any: true })
+   * @param changedAt Member role history change time selector (optional, default to { any: true })
+   * @param issuerID Member role history issuer ID selector (optional, default to { any: true })
+   * @param roleType Member role history role type selector (optional, default to { any: true })
+   * @param roleName Member role history roel name selector (optional, default to { any: true })
+   * @param old Member role history is old selector (optional, default to { any: true })
+   * @return List&lt;MemberRoleHistory&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<MemberSecurity> getMemberSecurity(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String characterID, String name, String grantableRoles, String grantableRolesAtBase, String grantableRolesAtHQ, String grantableRolesAtOther, String roles, String rolesAtBase, String rolesAtHQ, String rolesAtOther, String titles) throws ApiException {
+  public List<MemberRoleHistory> getMemberRoleHistory(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String characterID, String changedAt, String issuerID, String roleType, String roleName, String old) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
     if (accessKey == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getMemberSecurity");
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getMemberRoleHistory");
     }
     
     // verify the required parameter 'accessCred' is set
     if (accessCred == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getMemberSecurity");
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getMemberRoleHistory");
     }
     
     // create path and map variables
-    String localVarPath = "/ws/v1/corp/member_security".replaceAll("\\{format\\}","json");
+    String localVarPath = "/ws/v1/corp/member_role_history".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -788,16 +869,11 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterID", characterID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "grantableRoles", grantableRoles));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "grantableRolesAtBase", grantableRolesAtBase));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "grantableRolesAtHQ", grantableRolesAtHQ));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "grantableRolesAtOther", grantableRolesAtOther));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roles", roles));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "rolesAtBase", rolesAtBase));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "rolesAtHQ", rolesAtHQ));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "rolesAtOther", rolesAtOther));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "titles", titles));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "changedAt", changedAt));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "issuerID", issuerID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roleType", roleType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roleName", roleName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "old", old));
 
     
     
@@ -813,11 +889,11 @@ public class CorporationApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    GenericType<List<MemberSecurity>> localVarReturnType = new GenericType<List<MemberSecurity>>() {};
+    GenericType<List<MemberRoleHistory>> localVarReturnType = new GenericType<List<MemberRoleHistory>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get corporation member security log entries
+   * Get corporation member roles
    * 
    * @param accessKey Model access key (required)
    * @param accessCred Model access credential (required)
@@ -825,32 +901,30 @@ public class CorporationApi {
    * @param contid Continuation ID for paged results (optional, default to -1)
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param changeTime Member security log change time selector (optional, default to { any: true })
-   * @param changedCharacterID Member security log changed character ID selector (optional, default to { any: true })
-   * @param changedCharacterName Member security log changed character name selector (optional, default to { any: true })
-   * @param issuerID Member security log issuer ID selector (optional, default to { any: true })
-   * @param issuerName Member security log issuer name selector (optional, default to { any: true })
-   * @param roleLocationType Member security log role location type selector (optional, default to { any: true })
-   * @param oldRoles Member security log old roles selector (optional, default to { any: true })
-   * @param newRoles Member security log new roles selector (optional, default to { any: true })
-   * @return List&lt;MemberSecurityLog&gt;
+   * @param characterID Member role character ID selector (optional, default to { any: true })
+   * @param roleName Member role name selector (optional, default to { any: true })
+   * @param grantable Member role grantable selector (optional, default to { any: true })
+   * @param atHQ Member role at HQ selector (optional, default to { any: true })
+   * @param atBase Member role at base selector (optional, default to { any: true })
+   * @param atOther Member role at other selector (optional, default to { any: true })
+   * @return List&lt;MemberRole&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<MemberSecurityLog> getMemberSecurityLog(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String changeTime, String changedCharacterID, String changedCharacterName, String issuerID, String issuerName, String roleLocationType, String oldRoles, String newRoles) throws ApiException {
+  public List<MemberRole> getMemberRoles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String characterID, String roleName, String grantable, String atHQ, String atBase, String atOther) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
     if (accessKey == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getMemberSecurityLog");
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getMemberRoles");
     }
     
     // verify the required parameter 'accessCred' is set
     if (accessCred == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getMemberSecurityLog");
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getMemberRoles");
     }
     
     // create path and map variables
-    String localVarPath = "/ws/v1/corp/member_security_log".replaceAll("\\{format\\}","json");
+    String localVarPath = "/ws/v1/corp/member_role".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -863,14 +937,12 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "changeTime", changeTime));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "changedCharacterID", changedCharacterID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "changedCharacterName", changedCharacterName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "issuerID", issuerID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "issuerName", issuerName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roleLocationType", roleLocationType));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "oldRoles", oldRoles));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "newRoles", newRoles));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterID", characterID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roleName", roleName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "grantable", grantable));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "atHQ", atHQ));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "atBase", atBase));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "atOther", atOther));
 
     
     
@@ -886,7 +958,68 @@ public class CorporationApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    GenericType<List<MemberSecurityLog>> localVarReturnType = new GenericType<List<MemberSecurityLog>>() {};
+    GenericType<List<MemberRole>> localVarReturnType = new GenericType<List<MemberRole>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get corporation member titles
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param characterID Corporation member title character ID selector (optional, default to { any: true })
+   * @param titleID Corporation member title ID selector (optional, default to { any: true })
+   * @return List&lt;MemberTitle&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<MemberTitle> getMemberTitles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String characterID, String titleID) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getMemberTitles");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getMemberTitles");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/corp/member_title".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterID", characterID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "titleID", titleID));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<MemberTitle>> localVarReturnType = new GenericType<List<MemberTitle>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -899,23 +1032,16 @@ public class CorporationApi {
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param characterID Member character ID selector (optional, default to { any: true })
-   * @param base Member base selector (optional, default to { any: true })
    * @param baseID Member base ID selector (optional, default to { any: true })
-   * @param grantableRoles Member grantable roles selector (optional, default to { any: true })
-   * @param location Member location selector (optional, default to { any: true })
    * @param locationID Member location ID selector (optional, default to { any: true })
    * @param logoffDateTime Member logoff time selector (optional, default to { any: true })
    * @param logonDateTime Member logon time selector (optional, default to { any: true })
-   * @param name Member name selector (optional, default to { any: true })
-   * @param roles Member roles selector (optional, default to { any: true })
-   * @param shipType Member ship type selector (optional, default to { any: true })
    * @param shipTypeID Member ship type ID selector (optional, default to { any: true })
    * @param startDateTime Member start time selector (optional, default to { any: true })
-   * @param title Member title selector (optional, default to { any: true })
    * @return List&lt;MemberTracking&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<MemberTracking> getMemberTracking(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String characterID, String base, String baseID, String grantableRoles, String location, String locationID, String logoffDateTime, String logonDateTime, String name, String roles, String shipType, String shipTypeID, String startDateTime, String title) throws ApiException {
+  public List<MemberTracking> getMemberTracking(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String characterID, String baseID, String locationID, String logoffDateTime, String logonDateTime, String shipTypeID, String startDateTime) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -943,19 +1069,12 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterID", characterID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "base", base));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "baseID", baseID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "grantableRoles", grantableRoles));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "location", location));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationID", locationID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "logoffDateTime", logoffDateTime));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "logonDateTime", logonDateTime));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roles", roles));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "shipType", shipType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "shipTypeID", shipTypeID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "startDateTime", startDateTime));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "title", title));
 
     
     
@@ -975,7 +1094,7 @@ public class CorporationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get corporation outpost service detail
+   * Get corporation members
    * 
    * @param accessKey Model access key (required)
    * @param accessCred Model access credential (required)
@@ -983,30 +1102,25 @@ public class CorporationApi {
    * @param contid Continuation ID for paged results (optional, default to -1)
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param stationID Outpost service detail station ID selector (optional, default to { any: true })
-   * @param serviceName Outpost service detail service name selector (optional, default to { any: true })
-   * @param ownerID Outpost service owner ID selector (optional, default to { any: true })
-   * @param minStanding Outpost service minimum standing selector (optional, default to { any: true })
-   * @param surchargePerBadStanding Outpost service surcharge per bad standing selector (optional, default to { any: true })
-   * @param discountPerGoodStanding Outpost service discount per good standing selector (optional, default to { any: true })
-   * @return List&lt;OutpostServiceDetail&gt;
+   * @param characterID Corporation character ID selector (optional, default to { any: true })
+   * @return List&lt;Member&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<OutpostServiceDetail> getOutpostServiceDetails(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String stationID, String serviceName, String ownerID, String minStanding, String surchargePerBadStanding, String discountPerGoodStanding) throws ApiException {
+  public List<Member> getMembers(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String characterID) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
     if (accessKey == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getOutpostServiceDetails");
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getMembers");
     }
     
     // verify the required parameter 'accessCred' is set
     if (accessCred == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getOutpostServiceDetails");
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getMembers");
     }
     
     // create path and map variables
-    String localVarPath = "/ws/v1/corp/outpost_service_detail".replaceAll("\\{format\\}","json");
+    String localVarPath = "/ws/v1/corp/members".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1019,12 +1133,7 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stationID", stationID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "serviceName", serviceName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ownerID", ownerID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "minStanding", minStanding));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "surchargePerBadStanding", surchargePerBadStanding));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "discountPerGoodStanding", discountPerGoodStanding));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterID", characterID));
 
     
     
@@ -1040,275 +1149,7 @@ public class CorporationApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    GenericType<List<OutpostServiceDetail>> localVarReturnType = new GenericType<List<OutpostServiceDetail>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
-  /**
-   * Get corporation outposts
-   * 
-   * @param accessKey Model access key (required)
-   * @param accessCred Model access credential (required)
-   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
-   * @param contid Continuation ID for paged results (optional, default to -1)
-   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
-   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param stationID Outpost station ID selector (optional, default to { any: true })
-   * @param ownerID Outpost owner ID selector (optional, default to { any: true })
-   * @param stationName Outpost station name selector (optional, default to { any: true })
-   * @param solarSystemID Outpost solar system ID selector (optional, default to { any: true })
-   * @param dockingCostPerShipVolume Outpost docking cost per ship volume selector (optional, default to { any: true })
-   * @param officeRentalCost Outpost office rental cost selector (optional, default to { any: true })
-   * @param stationTypeID Outpost station type ID selector (optional, default to { any: true })
-   * @param reprocessingEfficiency Outpost reprocessing efficiency selector (optional, default to { any: true })
-   * @param reprocessingStationTake Outpost reprocessing station take selector (optional, default to { any: true })
-   * @param standingOwnerID Outpost standing owner ID selector (optional, default to { any: true })
-   * @param x Outpost x coordinate selector (optional, default to { any: true })
-   * @param y Outpost y coordinate selector (optional, default to { any: true })
-   * @param z Outpost z coordinate selector (optional, default to { any: true })
-   * @return List&lt;Outpost&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Outpost> getOutposts(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String stationID, String ownerID, String stationName, String solarSystemID, String dockingCostPerShipVolume, String officeRentalCost, String stationTypeID, String reprocessingEfficiency, String reprocessingStationTake, String standingOwnerID, String x, String y, String z) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'accessKey' is set
-    if (accessKey == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getOutposts");
-    }
-    
-    // verify the required parameter 'accessCred' is set
-    if (accessCred == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getOutposts");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/ws/v1/corp/outpost".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stationID", stationID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "ownerID", ownerID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stationName", stationName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "solarSystemID", solarSystemID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "dockingCostPerShipVolume", dockingCostPerShipVolume));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "officeRentalCost", officeRentalCost));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stationTypeID", stationTypeID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reprocessingEfficiency", reprocessingEfficiency));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reprocessingStationTake", reprocessingStationTake));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "standingOwnerID", standingOwnerID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "x", x));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "y", y));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "z", z));
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<List<Outpost>> localVarReturnType = new GenericType<List<Outpost>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
-  /**
-   * Get corporation title roles
-   * 
-   * @param accessKey Model access key (required)
-   * @param accessCred Model access credential (required)
-   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
-   * @param contid Continuation ID for paged results (optional, default to -1)
-   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
-   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param roleID Corporation tile role ID selector (optional, default to { any: true })
-   * @param roleDescription Corporation title role description selector (optional, default to { any: true })
-   * @param roleName Corporation title role name selector (optional, default to { any: true })
-   * @return List&lt;Role&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<Role> getRoles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String roleID, String roleDescription, String roleName) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'accessKey' is set
-    if (accessKey == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getRoles");
-    }
-    
-    // verify the required parameter 'accessCred' is set
-    if (accessCred == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getRoles");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/ws/v1/corp/role".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roleID", roleID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roleDescription", roleDescription));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roleName", roleName));
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<List<Role>> localVarReturnType = new GenericType<List<Role>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
-  /**
-   * Get corporation security roles
-   * 
-   * @param accessKey Model access key (required)
-   * @param accessCred Model access credential (required)
-   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
-   * @param contid Continuation ID for paged results (optional, default to -1)
-   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
-   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param roleID Security role ID selector (optional, default to { any: true })
-   * @param roleName Security role name selector (optional, default to { any: true })
-   * @return List&lt;SecurityRole&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<SecurityRole> getSecurityRoles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String roleID, String roleName) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'accessKey' is set
-    if (accessKey == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getSecurityRoles");
-    }
-    
-    // verify the required parameter 'accessCred' is set
-    if (accessCred == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getSecurityRoles");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/ws/v1/corp/security_role".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roleID", roleID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roleName", roleName));
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<List<SecurityRole>> localVarReturnType = new GenericType<List<SecurityRole>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
-  /**
-   * Get corporation security titles
-   * 
-   * @param accessKey Model access key (required)
-   * @param accessCred Model access credential (required)
-   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
-   * @param contid Continuation ID for paged results (optional, default to -1)
-   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
-   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param titleID Security title ID selector (optional, default to { any: true })
-   * @param titleName Security title name selector (optional, default to { any: true })
-   * @return List&lt;SecurityTitle&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<SecurityTitle> getSecurityTitles(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String titleID, String titleName) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'accessKey' is set
-    if (accessKey == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getSecurityTitles");
-    }
-    
-    // verify the required parameter 'accessCred' is set
-    if (accessCred == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getSecurityTitles");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/ws/v1/corp/security_title".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "titleID", titleID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "titleName", titleName));
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<List<SecurityTitle>> localVarReturnType = new GenericType<List<SecurityTitle>>() {};
+    GenericType<List<Member>> localVarReturnType = new GenericType<List<Member>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -1321,15 +1162,12 @@ public class CorporationApi {
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
    * @param shareholderID Shareholder ID selector (optional, default to { any: true })
-   * @param isCorporation Shareholder is corporation selector (optional, default to { any: true })
-   * @param shareholderCorporationID Shareholder corporation ID selector (optional, default to { any: true })
-   * @param shareholderCorporationName Shareholder corporation name selector (optional, default to { any: true })
-   * @param shareholderName Shareholder name selector (optional, default to { any: true })
+   * @param shareholderType Shareholder type selector (optional, default to { any: true })
    * @param shares Shareholder shares selector (optional, default to { any: true })
    * @return List&lt;Shareholder&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Shareholder> getShareholders(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String shareholderID, String isCorporation, String shareholderCorporationID, String shareholderCorporationName, String shareholderName, String shares) throws ApiException {
+  public List<Shareholder> getShareholders(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String shareholderID, String shareholderType, String shares) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -1357,10 +1195,7 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "shareholderID", shareholderID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "isCorporation", isCorporation));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "shareholderCorporationID", shareholderCorporationID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "shareholderCorporationName", shareholderCorporationName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "shareholderName", shareholderName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "shareholderType", shareholderType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "shares", shares));
 
     
@@ -1381,97 +1216,6 @@ public class CorporationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
-   * Get corporation starbase details
-   * 
-   * @param accessKey Model access key (required)
-   * @param accessCred Model access credential (required)
-   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
-   * @param contid Continuation ID for paged results (optional, default to -1)
-   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
-   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param itemID Starbase item ID selector (optional, default to { any: true })
-   * @param state Starbase details state selector (optional, default to { any: true })
-   * @param stateTimestamp Starbase details state timestamp selector (optional, default to { any: true })
-   * @param onlineTimestamp Starbase details online timestamp selector (optional, default to { any: true })
-   * @param usageFlags Starbase details usage flags selector (optional, default to { any: true })
-   * @param deployFlags Starbase details deploy flags selector (optional, default to { any: true })
-   * @param allowAllianceMembers Starbase details allow alliance members enabled selector (optional, default to { any: true })
-   * @param allowCorporationMembers Starbase details allow corporation members enabled selector (optional, default to { any: true })
-   * @param useStandingsFrom Starbase details standings from selector (optional, default to { any: true })
-   * @param onAggressionEnabled Starbase details on aggression enabled selector (optional, default to { any: true })
-   * @param onAggressionStanding Starbase details standing for aggression selector (optional, default to { any: true })
-   * @param onCorporationWarEnabled Starbase details on corporation war enabled selector (optional, default to { any: true })
-   * @param onCorporationWarStanding Starbase details standing for corporation war selector (optional, default to { any: true })
-   * @param onStandingDropEnabled Starbase details on standing drop enabled selector (optional, default to { any: true })
-   * @param onStandingDropStanding Starbase details standing for standing drop selector (optional, default to { any: true })
-   * @param onStatusDropEnabled Starbase details on status drop enabled selector (optional, default to { any: true })
-   * @param onStatusDropStanding Starbase details standing for status drop selector (optional, default to { any: true })
-   * @return List&lt;StarbaseDetail&gt;
-   * @throws ApiException if fails to make API call
-   */
-  public List<StarbaseDetail> getStarbaseDetails(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String state, String stateTimestamp, String onlineTimestamp, String usageFlags, String deployFlags, String allowAllianceMembers, String allowCorporationMembers, String useStandingsFrom, String onAggressionEnabled, String onAggressionStanding, String onCorporationWarEnabled, String onCorporationWarStanding, String onStandingDropEnabled, String onStandingDropStanding, String onStatusDropEnabled, String onStatusDropStanding) throws ApiException {
-    Object localVarPostBody = null;
-    
-    // verify the required parameter 'accessKey' is set
-    if (accessKey == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getStarbaseDetails");
-    }
-    
-    // verify the required parameter 'accessCred' is set
-    if (accessCred == null) {
-      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getStarbaseDetails");
-    }
-    
-    // create path and map variables
-    String localVarPath = "/ws/v1/corp/starbase_detail".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "itemID", itemID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "state", state));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stateTimestamp", stateTimestamp));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "onlineTimestamp", onlineTimestamp));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "usageFlags", usageFlags));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "deployFlags", deployFlags));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "allowAllianceMembers", allowAllianceMembers));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "allowCorporationMembers", allowCorporationMembers));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "useStandingsFrom", useStandingsFrom));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "onAggressionEnabled", onAggressionEnabled));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "onAggressionStanding", onAggressionStanding));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "onCorporationWarEnabled", onCorporationWarEnabled));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "onCorporationWarStanding", onCorporationWarStanding));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "onStandingDropEnabled", onStandingDropEnabled));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "onStandingDropStanding", onStandingDropStanding));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "onStatusDropEnabled", onStatusDropEnabled));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "onStatusDropStanding", onStatusDropStanding));
-
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
-    GenericType<List<StarbaseDetail>> localVarReturnType = new GenericType<List<StarbaseDetail>>() {};
-    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
-      }
-  /**
    * Get corporation starbases
    * 
    * @param accessKey Model access key (required)
@@ -1480,18 +1224,31 @@ public class CorporationApi {
    * @param contid Continuation ID for paged results (optional, default to -1)
    * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
    * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
-   * @param itemID Starbase item ID selector (optional, default to { any: true })
-   * @param locationID Starbase location ID selector (optional, default to { any: true })
-   * @param moonID Starbase moon ID selector (optional, default to { any: true })
-   * @param onlineTimestamp Starbase online timestamp selector (optional, default to { any: true })
-   * @param state Starbase state selector (optional, default to { any: true })
-   * @param stateTimestamp Starbase state timestamp selector (optional, default to { any: true })
+   * @param starbaseID Starbase ID selector (optional, default to { any: true })
    * @param typeID Starbase type ID selector (optional, default to { any: true })
-   * @param standingOwnerID Starbase standing owner ID selector (optional, default to { any: true })
+   * @param systemID Starbase system ID selector (optional, default to { any: true })
+   * @param moonID Starbase moon ID selector (optional, default to { any: true })
+   * @param state Starbase state selector (optional, default to { any: true })
+   * @param unanchorAt Starbase unanchor at timestamp selector (optional, default to { any: true })
+   * @param reinforcedUntil Starbase reinforced until timestamp selector (optional, default to { any: true })
+   * @param onlinedSince Starbase onlined since timestamp selector (optional, default to { any: true })
+   * @param fuelBayView Starbase fuel bay view selector (optional, default to { any: true })
+   * @param fuelBayTake Starbase fuel bay take selector (optional, default to { any: true })
+   * @param anchor Starbase anchor selector (optional, default to { any: true })
+   * @param unanchor Starbase unanchor selector (optional, default to { any: true })
+   * @param online Starbase online selector (optional, default to { any: true })
+   * @param offline Starbase offline selector (optional, default to { any: true })
+   * @param allowCorporationMembers Starbase allow corporation members selector (optional, default to { any: true })
+   * @param allowAllianceMembers Starbase allow alliance members selector (optional, default to { any: true })
+   * @param useAllianceStandings Starbase use alliance standings selector (optional, default to { any: true })
+   * @param attackStandingThreshold Starbase attack standing threshold selector (optional, default to { any: true })
+   * @param attackSecurityStatusThreshold Starbase attack security status threshold selector (optional, default to { any: true })
+   * @param attackIfOtherSecurityStatusDropping Starbase attack if other security status dropping selector (optional, default to { any: true })
+   * @param attackIfAtWar Starbase attack if at war selector (optional, default to { any: true })
    * @return List&lt;Starbase&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Starbase> getStarbases(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String locationID, String moonID, String onlineTimestamp, String state, String stateTimestamp, String typeID, String standingOwnerID) throws ApiException {
+  public List<Starbase> getStarbases(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String starbaseID, String typeID, String systemID, String moonID, String state, String unanchorAt, String reinforcedUntil, String onlinedSince, String fuelBayView, String fuelBayTake, String anchor, String unanchor, String online, String offline, String allowCorporationMembers, String allowAllianceMembers, String useAllianceStandings, String attackStandingThreshold, String attackSecurityStatusThreshold, String attackIfOtherSecurityStatusDropping, String attackIfAtWar) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -1518,14 +1275,27 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "itemID", itemID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationID", locationID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "moonID", moonID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "onlineTimestamp", onlineTimestamp));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "state", state));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stateTimestamp", stateTimestamp));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "starbaseID", starbaseID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeID", typeID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "standingOwnerID", standingOwnerID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "systemID", systemID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "moonID", moonID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "state", state));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "unanchorAt", unanchorAt));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reinforcedUntil", reinforcedUntil));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "onlinedSince", onlinedSince));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fuelBayView", fuelBayView));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fuelBayTake", fuelBayTake));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "anchor", anchor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "unanchor", unanchor));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "online", online));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offline", offline));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "allowCorporationMembers", allowCorporationMembers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "allowAllianceMembers", allowAllianceMembers));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "useAllianceStandings", useAllianceStandings));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attackStandingThreshold", attackStandingThreshold));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attackSecurityStatusThreshold", attackSecurityStatusThreshold));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attackIfOtherSecurityStatusDropping", attackIfOtherSecurityStatusDropping));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "attackIfAtWar", attackIfAtWar));
 
     
     
