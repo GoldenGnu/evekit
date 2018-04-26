@@ -46,6 +46,9 @@ public class KeyInfo implements Serializable {
   @JsonProperty("limit")
   private Long limit = null;
 
+  @JsonProperty("tokenValid")
+  private Boolean tokenValid = false;
+
   public KeyInfo keyType(String keyType) {
     this.keyType = keyType;
     return this;
@@ -154,6 +157,24 @@ public class KeyInfo implements Serializable {
     this.limit = limit;
   }
 
+  public KeyInfo tokenValid(Boolean tokenValid) {
+    this.tokenValid = tokenValid;
+    return this;
+  }
+
+   /**
+   * if true, then the ESI token associated with the synchronized account which owns this key is stillvalid.  Otherwise, the key is not valid and may need to be re-authorized
+   * @return tokenValid
+  **/
+  @ApiModelProperty(example = "null", value = "if true, then the ESI token associated with the synchronized account which owns this key is stillvalid.  Otherwise, the key is not valid and may need to be re-authorized")
+  public Boolean getTokenValid() {
+    return tokenValid;
+  }
+
+  public void setTokenValid(Boolean tokenValid) {
+    this.tokenValid = tokenValid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -169,12 +190,13 @@ public class KeyInfo implements Serializable {
         Objects.equals(this.entityID, keyInfo.entityID) &&
         Objects.equals(this.mask, keyInfo.mask) &&
         Objects.equals(this.expiry, keyInfo.expiry) &&
-        Objects.equals(this.limit, keyInfo.limit);
+        Objects.equals(this.limit, keyInfo.limit) &&
+        Objects.equals(this.tokenValid, keyInfo.tokenValid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyType, entityName, entityID, mask, expiry, limit);
+    return Objects.hash(keyType, entityName, entityID, mask, expiry, limit, tokenValid);
   }
 
 
@@ -189,6 +211,7 @@ public class KeyInfo implements Serializable {
     sb.append("    mask: ").append(toIndentedString(mask)).append("\n");
     sb.append("    expiry: ").append(toIndentedString(expiry)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    tokenValid: ").append(toIndentedString(tokenValid)).append("\n");
     sb.append("}");
     return sb.toString();
   }
