@@ -30,9 +30,14 @@ import enterprises.orbital.evekit.client.model.MemberRole;
 import enterprises.orbital.evekit.client.model.MemberRoleHistory;
 import enterprises.orbital.evekit.client.model.MemberTitle;
 import enterprises.orbital.evekit.client.model.MemberTracking;
+import enterprises.orbital.evekit.client.model.MiningExtraction;
+import enterprises.orbital.evekit.client.model.MiningObservation;
+import enterprises.orbital.evekit.client.model.MiningObserver;
 import enterprises.orbital.evekit.client.model.ServiceError;
 import enterprises.orbital.evekit.client.model.Shareholder;
 import enterprises.orbital.evekit.client.model.Starbase;
+import enterprises.orbital.evekit.client.model.Structure;
+import enterprises.orbital.evekit.client.model.StructureService;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -481,6 +486,83 @@ public class CorporationApiTest {
     }
     
     /**
+     * Get mining extractions information
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMiningExtractionsTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String moonID = null;
+        String structureID = null;
+        String extractionStartTime = null;
+        String chunkArrivalTime = null;
+        String naturalDecayTime = null;
+        List<MiningExtraction> response = api.getMiningExtractions(accessKey, accessCred, at, contid, maxresults, reverse, moonID, structureID, extractionStartTime, chunkArrivalTime, naturalDecayTime);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get mining observations information
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMiningObservationsTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String observerID = null;
+        String characterID = null;
+        String typeID = null;
+        String recordedCorporationID = null;
+        String quantity = null;
+        String lastUpdated = null;
+        List<MiningObservation> response = api.getMiningObservations(accessKey, accessCred, at, contid, maxresults, reverse, observerID, characterID, typeID, recordedCorporationID, quantity, lastUpdated);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get mining observers information
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMiningObserversTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String observerID = null;
+        String observerType = null;
+        String lastUpdated = null;
+        List<MiningObserver> response = api.getMiningObservers(accessKey, accessCred, at, contid, maxresults, reverse, observerID, observerType, lastUpdated);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get corporation shareholders
      *
      * 
@@ -542,6 +624,66 @@ public class CorporationApiTest {
         String attackIfOtherSecurityStatusDropping = null;
         String attackIfAtWar = null;
         List<Starbase> response = api.getStarbases(accessKey, accessCred, at, contid, maxresults, reverse, starbaseID, typeID, systemID, moonID, state, unanchorAt, reinforcedUntil, onlinedSince, fuelBayView, fuelBayTake, anchor, unanchor, online, offline, allowCorporationMembers, allowAllianceMembers, useAllianceStandings, attackStandingThreshold, attackSecurityStatusThreshold, attackIfOtherSecurityStatusDropping, attackIfAtWar);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get structure services
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getStructureServicesTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String structureID = null;
+        String name = null;
+        String state = null;
+        List<StructureService> response = api.getStructureServices(accessKey, accessCred, at, contid, maxresults, reverse, structureID, name, state);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get structures
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getStructuresTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String structureID = null;
+        String corporationID = null;
+        String fuelExpires = null;
+        String nextReinforceApply = null;
+        String nextReinforceHour = null;
+        String nextReinforceWeekday = null;
+        String profileID = null;
+        String reinforceHour = null;
+        String reinforceWeekday = null;
+        String state = null;
+        String stateTimerEnd = null;
+        String stateTimerStart = null;
+        String systemID = null;
+        String typeID = null;
+        String unanchorsAt = null;
+        List<Structure> response = api.getStructures(accessKey, accessCred, at, contid, maxresults, reverse, structureID, corporationID, fuelExpires, nextReinforceApply, nextReinforceHour, nextReinforceWeekday, profileID, reinforceHour, reinforceWeekday, state, stateTimerEnd, stateTimerStart, systemID, typeID, unanchorsAt);
 
         // TODO: test validations
     }

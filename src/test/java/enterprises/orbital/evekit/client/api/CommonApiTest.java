@@ -99,7 +99,8 @@ public class CommonApiTest {
         String quantity = null;
         String singleton = null;
         String blueprintType = null;
-        List<Asset> response = api.getAssets(accessKey, accessCred, at, contid, maxresults, reverse, itemID, locationID, locationType, locationFlag, typeID, quantity, singleton, blueprintType);
+        String blueprintCopy = null;
+        List<Asset> response = api.getAssets(accessKey, accessCred, at, contid, maxresults, reverse, itemID, locationID, locationType, locationFlag, typeID, quantity, singleton, blueprintType, blueprintCopy);
 
         // TODO: test validations
     }
@@ -413,9 +414,7 @@ public class CommonApiTest {
         String date = null;
         String refType = null;
         String firstPartyID = null;
-        String firstPartyType = null;
         String secondPartyID = null;
-        String secondPartyType = null;
         String argName1 = null;
         String argID1 = null;
         String amount = null;
@@ -423,19 +422,10 @@ public class CommonApiTest {
         String reason = null;
         String taxReceiverID = null;
         String taxAmount = null;
-        String locationID = null;
-        String transactionID = null;
-        String npcName = null;
-        String npcID = null;
-        String destroyedShipTypeID = null;
-        String characterID = null;
-        String corporationID = null;
-        String allianceID = null;
-        String jobID = null;
-        String contractID = null;
-        String systemID = null;
-        String planetID = null;
-        List<WalletJournal> response = api.getJournalEntries(accessKey, accessCred, at, contid, maxresults, reverse, division, refID, date, refType, firstPartyID, firstPartyType, secondPartyID, secondPartyType, argName1, argID1, amount, balance, reason, taxReceiverID, taxAmount, locationID, transactionID, npcName, npcID, destroyedShipTypeID, characterID, corporationID, allianceID, jobID, contractID, systemID, planetID);
+        String contextID = null;
+        String contextType = null;
+        String description = null;
+        List<WalletJournal> response = api.getJournalEntries(accessKey, accessCred, at, contid, maxresults, reverse, division, refID, date, refType, firstPartyID, secondPartyID, argName1, argID1, amount, balance, reason, taxReceiverID, taxAmount, contextID, contextType, description);
 
         // TODO: test validations
     }

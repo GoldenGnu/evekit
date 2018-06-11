@@ -23,9 +23,14 @@ import enterprises.orbital.evekit.client.model.MemberRole;
 import enterprises.orbital.evekit.client.model.MemberRoleHistory;
 import enterprises.orbital.evekit.client.model.MemberTitle;
 import enterprises.orbital.evekit.client.model.MemberTracking;
+import enterprises.orbital.evekit.client.model.MiningExtraction;
+import enterprises.orbital.evekit.client.model.MiningObservation;
+import enterprises.orbital.evekit.client.model.MiningObserver;
 import enterprises.orbital.evekit.client.model.ServiceError;
 import enterprises.orbital.evekit.client.model.Shareholder;
 import enterprises.orbital.evekit.client.model.Starbase;
+import enterprises.orbital.evekit.client.model.Structure;
+import enterprises.orbital.evekit.client.model.StructureService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1153,6 +1158,205 @@ public class CorporationApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Get mining extractions information
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param moonID Moon ID selector (optional, default to { any: true })
+   * @param structureID Structure ID selector (optional, default to { any: true })
+   * @param extractionStartTime Extraction start time selector (optional, default to { any: true })
+   * @param chunkArrivalTime Chunk arrival time selector (optional, default to { any: true })
+   * @param naturalDecayTime Natural decay time selector (optional, default to { any: true })
+   * @return List&lt;MiningExtraction&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<MiningExtraction> getMiningExtractions(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String moonID, String structureID, String extractionStartTime, String chunkArrivalTime, String naturalDecayTime) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getMiningExtractions");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getMiningExtractions");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/corp/mining_extractions".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "moonID", moonID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "structureID", structureID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "extractionStartTime", extractionStartTime));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "chunkArrivalTime", chunkArrivalTime));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "naturalDecayTime", naturalDecayTime));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<MiningExtraction>> localVarReturnType = new GenericType<List<MiningExtraction>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get mining observations information
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param observerID Observer ID selector (optional, default to { any: true })
+   * @param characterID Character ID selector (optional, default to { any: true })
+   * @param typeID Type ID selector (optional, default to { any: true })
+   * @param recordedCorporationID Recorded corporation ID selector (optional, default to { any: true })
+   * @param quantity Quantity selector (optional, default to { any: true })
+   * @param lastUpdated Last updated time selector (optional, default to { any: true })
+   * @return List&lt;MiningObservation&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<MiningObservation> getMiningObservations(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String observerID, String characterID, String typeID, String recordedCorporationID, String quantity, String lastUpdated) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getMiningObservations");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getMiningObservations");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/corp/mining_observations".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "observerID", observerID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterID", characterID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeID", typeID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "recordedCorporationID", recordedCorporationID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "quantity", quantity));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "lastUpdated", lastUpdated));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<MiningObservation>> localVarReturnType = new GenericType<List<MiningObservation>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get mining observers information
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param observerID Observer ID selector (optional, default to { any: true })
+   * @param observerType Observer type selector (optional, default to { any: true })
+   * @param lastUpdated Last updated time selector (optional, default to { any: true })
+   * @return List&lt;MiningObserver&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<MiningObserver> getMiningObservers(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String observerID, String observerType, String lastUpdated) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getMiningObservers");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getMiningObservers");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/corp/mining_observers".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "observerID", observerID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "observerType", observerType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "lastUpdated", lastUpdated));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<MiningObserver>> localVarReturnType = new GenericType<List<MiningObserver>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Get corporation shareholders
    * 
    * @param accessKey Model access key (required)
@@ -1312,6 +1516,156 @@ public class CorporationApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<Starbase>> localVarReturnType = new GenericType<List<Starbase>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get structure services
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param structureID Structure ID selector (optional, default to { any: true })
+   * @param name Structure service name selector (optional, default to { any: true })
+   * @param state Structure service state selector (optional, default to { any: true })
+   * @return List&lt;StructureService&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<StructureService> getStructureServices(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String structureID, String name, String state) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getStructureServices");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getStructureServices");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/corp/structure_services".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "structureID", structureID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "state", state));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<StructureService>> localVarReturnType = new GenericType<List<StructureService>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get structures
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param structureID Structure ID selector (optional, default to { any: true })
+   * @param corporationID Structure owning corporation ID selector (optional, default to { any: true })
+   * @param fuelExpires Structure fuel expires time selector (optional, default to { any: true })
+   * @param nextReinforceApply Structure next reinforce apply time selector (optional, default to { any: true })
+   * @param nextReinforceHour Structure next reinforce hour selector (optional, default to { any: true })
+   * @param nextReinforceWeekday Structure next reinforce weekday selector (optional, default to { any: true })
+   * @param profileID Structure profile ID selector (optional, default to { any: true })
+   * @param reinforceHour Structure reinforce hour selector (optional, default to { any: true })
+   * @param reinforceWeekday Structure reinforce weekday selector (optional, default to { any: true })
+   * @param state Structure state selector (optional, default to { any: true })
+   * @param stateTimerEnd Structure state timer end selector (optional, default to { any: true })
+   * @param stateTimerStart Structure state timer start selector (optional, default to { any: true })
+   * @param systemID Structure system ID selector (optional, default to { any: true })
+   * @param typeID Structure type ID selector (optional, default to { any: true })
+   * @param unanchorsAt Strcucture &#39;unanchors at&#39; time selector (optional, default to { any: true })
+   * @return List&lt;Structure&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Structure> getStructures(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String structureID, String corporationID, String fuelExpires, String nextReinforceApply, String nextReinforceHour, String nextReinforceWeekday, String profileID, String reinforceHour, String reinforceWeekday, String state, String stateTimerEnd, String stateTimerStart, String systemID, String typeID, String unanchorsAt) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getStructures");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getStructures");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/corp/structures".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "structureID", structureID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "corporationID", corporationID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fuelExpires", fuelExpires));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "nextReinforceApply", nextReinforceApply));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "nextReinforceHour", nextReinforceHour));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "nextReinforceWeekday", nextReinforceWeekday));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "profileID", profileID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reinforceHour", reinforceHour));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reinforceWeekday", reinforceWeekday));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "state", state));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stateTimerEnd", stateTimerEnd));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stateTimerStart", stateTimerStart));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "systemID", systemID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeID", typeID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "unanchorsAt", unanchorsAt));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<Structure>> localVarReturnType = new GenericType<List<Structure>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

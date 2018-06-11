@@ -64,6 +64,9 @@ public class MaskList implements Serializable {
   @JsonProperty("ACCESS_MARKET_ORDERS")
   private Long ACCESS_MARKET_ORDERS = null;
 
+  @JsonProperty("ACCESS_MINING_LEDGER")
+  private Long ACCESS_MINING_LEDGER = null;
+
   @JsonProperty("ACCESS_STANDINGS")
   private Long ACCESS_STANDINGS = null;
 
@@ -79,6 +82,9 @@ public class MaskList implements Serializable {
   @JsonProperty("ACCESS_CALENDAR_EVENT_ATTENDEES")
   private Long ACCESS_CALENDAR_EVENT_ATTENDEES = null;
 
+  @JsonProperty("ACCESS_CHARACTER_FLEETS")
+  private Long ACCESS_CHARACTER_FLEETS = null;
+
   @JsonProperty("ACCESS_CHARACTER_SHEET")
   private Long ACCESS_CHARACTER_SHEET = null;
 
@@ -87,6 +93,9 @@ public class MaskList implements Serializable {
 
   @JsonProperty("ACCESS_CONTACT_NOTIFICATIONS")
   private Long ACCESS_CONTACT_NOTIFICATIONS = null;
+
+  @JsonProperty("ACCESS_FITTINGS")
+  private Long ACCESS_FITTINGS = null;
 
   @JsonProperty("ACCESS_MAIL")
   private Long ACCESS_MAIL = null;
@@ -133,14 +142,14 @@ public class MaskList implements Serializable {
   @JsonProperty("ACCESS_MEMBER_TRACKING")
   private Long ACCESS_MEMBER_TRACKING = null;
 
-  @JsonProperty("ACCESS_OUTPOST_LIST")
-  private Long ACCESS_OUTPOST_LIST = null;
-
   @JsonProperty("ACCESS_SHAREHOLDERS")
   private Long ACCESS_SHAREHOLDERS = null;
 
   @JsonProperty("ACCESS_STARBASE_LIST")
   private Long ACCESS_STARBASE_LIST = null;
+
+  @JsonProperty("ACCESS_STRUCTURES")
+  private Long ACCESS_STRUCTURES = null;
 
   @JsonProperty("ACCESS_CORPORATION_TITLES")
   private Long ACCESS_CORPORATION_TITLES = null;
@@ -361,6 +370,24 @@ public class MaskList implements Serializable {
     this.ACCESS_MARKET_ORDERS = ACCESS_MARKET_ORDERS;
   }
 
+  public MaskList ACCESS_MINING_LEDGER(Long ACCESS_MINING_LEDGER) {
+    this.ACCESS_MINING_LEDGER = ACCESS_MINING_LEDGER;
+    return this;
+  }
+
+   /**
+   * access mining ledger
+   * @return ACCESS_MINING_LEDGER
+  **/
+  @ApiModelProperty(example = "null", value = "access mining ledger")
+  public Long getACCESSMININGLEDGER() {
+    return ACCESS_MINING_LEDGER;
+  }
+
+  public void setACCESSMININGLEDGER(Long ACCESS_MINING_LEDGER) {
+    this.ACCESS_MINING_LEDGER = ACCESS_MINING_LEDGER;
+  }
+
   public MaskList ACCESS_STANDINGS(Long ACCESS_STANDINGS) {
     this.ACCESS_STANDINGS = ACCESS_STANDINGS;
     return this;
@@ -451,6 +478,24 @@ public class MaskList implements Serializable {
     this.ACCESS_CALENDAR_EVENT_ATTENDEES = ACCESS_CALENDAR_EVENT_ATTENDEES;
   }
 
+  public MaskList ACCESS_CHARACTER_FLEETS(Long ACCESS_CHARACTER_FLEETS) {
+    this.ACCESS_CHARACTER_FLEETS = ACCESS_CHARACTER_FLEETS;
+    return this;
+  }
+
+   /**
+   * access character fleet information
+   * @return ACCESS_CHARACTER_FLEETS
+  **/
+  @ApiModelProperty(example = "null", value = "access character fleet information")
+  public Long getACCESSCHARACTERFLEETS() {
+    return ACCESS_CHARACTER_FLEETS;
+  }
+
+  public void setACCESSCHARACTERFLEETS(Long ACCESS_CHARACTER_FLEETS) {
+    this.ACCESS_CHARACTER_FLEETS = ACCESS_CHARACTER_FLEETS;
+  }
+
   public MaskList ACCESS_CHARACTER_SHEET(Long ACCESS_CHARACTER_SHEET) {
     this.ACCESS_CHARACTER_SHEET = ACCESS_CHARACTER_SHEET;
     return this;
@@ -503,6 +548,24 @@ public class MaskList implements Serializable {
 
   public void setACCESSCONTACTNOTIFICATIONS(Long ACCESS_CONTACT_NOTIFICATIONS) {
     this.ACCESS_CONTACT_NOTIFICATIONS = ACCESS_CONTACT_NOTIFICATIONS;
+  }
+
+  public MaskList ACCESS_FITTINGS(Long ACCESS_FITTINGS) {
+    this.ACCESS_FITTINGS = ACCESS_FITTINGS;
+    return this;
+  }
+
+   /**
+   * access character ship fittings
+   * @return ACCESS_FITTINGS
+  **/
+  @ApiModelProperty(example = "null", value = "access character ship fittings")
+  public Long getACCESSFITTINGS() {
+    return ACCESS_FITTINGS;
+  }
+
+  public void setACCESSFITTINGS(Long ACCESS_FITTINGS) {
+    this.ACCESS_FITTINGS = ACCESS_FITTINGS;
   }
 
   public MaskList ACCESS_MAIL(Long ACCESS_MAIL) {
@@ -775,24 +838,6 @@ public class MaskList implements Serializable {
     this.ACCESS_MEMBER_TRACKING = ACCESS_MEMBER_TRACKING;
   }
 
-  public MaskList ACCESS_OUTPOST_LIST(Long ACCESS_OUTPOST_LIST) {
-    this.ACCESS_OUTPOST_LIST = ACCESS_OUTPOST_LIST;
-    return this;
-  }
-
-   /**
-   * access corporation output list
-   * @return ACCESS_OUTPOST_LIST
-  **/
-  @ApiModelProperty(example = "null", value = "access corporation output list")
-  public Long getACCESSOUTPOSTLIST() {
-    return ACCESS_OUTPOST_LIST;
-  }
-
-  public void setACCESSOUTPOSTLIST(Long ACCESS_OUTPOST_LIST) {
-    this.ACCESS_OUTPOST_LIST = ACCESS_OUTPOST_LIST;
-  }
-
   public MaskList ACCESS_SHAREHOLDERS(Long ACCESS_SHAREHOLDERS) {
     this.ACCESS_SHAREHOLDERS = ACCESS_SHAREHOLDERS;
     return this;
@@ -827,6 +872,24 @@ public class MaskList implements Serializable {
 
   public void setACCESSSTARBASELIST(Long ACCESS_STARBASE_LIST) {
     this.ACCESS_STARBASE_LIST = ACCESS_STARBASE_LIST;
+  }
+
+  public MaskList ACCESS_STRUCTURES(Long ACCESS_STRUCTURES) {
+    this.ACCESS_STRUCTURES = ACCESS_STRUCTURES;
+    return this;
+  }
+
+   /**
+   * access corporation structures
+   * @return ACCESS_STRUCTURES
+  **/
+  @ApiModelProperty(example = "null", value = "access corporation structures")
+  public Long getACCESSSTRUCTURES() {
+    return ACCESS_STRUCTURES;
+  }
+
+  public void setACCESSSTRUCTURES(Long ACCESS_STRUCTURES) {
+    this.ACCESS_STRUCTURES = ACCESS_STRUCTURES;
   }
 
   public MaskList ACCESS_CORPORATION_TITLES(Long ACCESS_CORPORATION_TITLES) {
@@ -869,14 +932,17 @@ public class MaskList implements Serializable {
         Objects.equals(this.ACCESS_KILL_LOG, maskList.ACCESS_KILL_LOG) &&
         Objects.equals(this.ACCESS_LOCATIONS, maskList.ACCESS_LOCATIONS) &&
         Objects.equals(this.ACCESS_MARKET_ORDERS, maskList.ACCESS_MARKET_ORDERS) &&
+        Objects.equals(this.ACCESS_MINING_LEDGER, maskList.ACCESS_MINING_LEDGER) &&
         Objects.equals(this.ACCESS_STANDINGS, maskList.ACCESS_STANDINGS) &&
         Objects.equals(this.ACCESS_WALLET_JOURNAL, maskList.ACCESS_WALLET_JOURNAL) &&
         Objects.equals(this.ACCESS_WALLET_TRANSACTIONS, maskList.ACCESS_WALLET_TRANSACTIONS) &&
         Objects.equals(this.ALLOW_METADATA_CHANGES, maskList.ALLOW_METADATA_CHANGES) &&
         Objects.equals(this.ACCESS_CALENDAR_EVENT_ATTENDEES, maskList.ACCESS_CALENDAR_EVENT_ATTENDEES) &&
+        Objects.equals(this.ACCESS_CHARACTER_FLEETS, maskList.ACCESS_CHARACTER_FLEETS) &&
         Objects.equals(this.ACCESS_CHARACTER_SHEET, maskList.ACCESS_CHARACTER_SHEET) &&
         Objects.equals(this.ACCESS_CHAT_CHANNELS, maskList.ACCESS_CHAT_CHANNELS) &&
         Objects.equals(this.ACCESS_CONTACT_NOTIFICATIONS, maskList.ACCESS_CONTACT_NOTIFICATIONS) &&
+        Objects.equals(this.ACCESS_FITTINGS, maskList.ACCESS_FITTINGS) &&
         Objects.equals(this.ACCESS_MAIL, maskList.ACCESS_MAIL) &&
         Objects.equals(this.ACCESS_MAILING_LISTS, maskList.ACCESS_MAILING_LISTS) &&
         Objects.equals(this.ACCESS_MEDALS, maskList.ACCESS_MEDALS) &&
@@ -892,15 +958,15 @@ public class MaskList implements Serializable {
         Objects.equals(this.ACCESS_MEMBER_SECURITY, maskList.ACCESS_MEMBER_SECURITY) &&
         Objects.equals(this.ACCESS_MEMBER_SECURITY_LOG, maskList.ACCESS_MEMBER_SECURITY_LOG) &&
         Objects.equals(this.ACCESS_MEMBER_TRACKING, maskList.ACCESS_MEMBER_TRACKING) &&
-        Objects.equals(this.ACCESS_OUTPOST_LIST, maskList.ACCESS_OUTPOST_LIST) &&
         Objects.equals(this.ACCESS_SHAREHOLDERS, maskList.ACCESS_SHAREHOLDERS) &&
         Objects.equals(this.ACCESS_STARBASE_LIST, maskList.ACCESS_STARBASE_LIST) &&
+        Objects.equals(this.ACCESS_STRUCTURES, maskList.ACCESS_STRUCTURES) &&
         Objects.equals(this.ACCESS_CORPORATION_TITLES, maskList.ACCESS_CORPORATION_TITLES);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ACCESS_ACCOUNT_STATUS, ACCESS_ACCOUNT_BALANCE, ACCESS_ASSETS, ACCESS_CONTACT_LIST, ACCESS_BLUEPRINTS, ACCESS_BOOKMARKS, ACCESS_CONTRACTS, ACCESS_FAC_WAR_STATS, ACCESS_INDUSTRY_JOBS, ACCESS_KILL_LOG, ACCESS_LOCATIONS, ACCESS_MARKET_ORDERS, ACCESS_STANDINGS, ACCESS_WALLET_JOURNAL, ACCESS_WALLET_TRANSACTIONS, ALLOW_METADATA_CHANGES, ACCESS_CALENDAR_EVENT_ATTENDEES, ACCESS_CHARACTER_SHEET, ACCESS_CHAT_CHANNELS, ACCESS_CONTACT_NOTIFICATIONS, ACCESS_MAIL, ACCESS_MAILING_LISTS, ACCESS_MEDALS, ACCESS_NOTIFICATIONS, ACCESS_RESEARCH, ACCESS_SKILL_IN_TRAINING, ACCESS_SKILL_QUEUE, ACCESS_UPCOMING_CALENDAR_EVENTS, ACCESS_CONTAINER_LOG, ACCESS_CORPORATION_SHEET, ACCESS_CORPORATION_MEDALS, ACCESS_MEMBER_MEDALS, ACCESS_MEMBER_SECURITY, ACCESS_MEMBER_SECURITY_LOG, ACCESS_MEMBER_TRACKING, ACCESS_OUTPOST_LIST, ACCESS_SHAREHOLDERS, ACCESS_STARBASE_LIST, ACCESS_CORPORATION_TITLES);
+    return Objects.hash(ACCESS_ACCOUNT_STATUS, ACCESS_ACCOUNT_BALANCE, ACCESS_ASSETS, ACCESS_CONTACT_LIST, ACCESS_BLUEPRINTS, ACCESS_BOOKMARKS, ACCESS_CONTRACTS, ACCESS_FAC_WAR_STATS, ACCESS_INDUSTRY_JOBS, ACCESS_KILL_LOG, ACCESS_LOCATIONS, ACCESS_MARKET_ORDERS, ACCESS_MINING_LEDGER, ACCESS_STANDINGS, ACCESS_WALLET_JOURNAL, ACCESS_WALLET_TRANSACTIONS, ALLOW_METADATA_CHANGES, ACCESS_CALENDAR_EVENT_ATTENDEES, ACCESS_CHARACTER_FLEETS, ACCESS_CHARACTER_SHEET, ACCESS_CHAT_CHANNELS, ACCESS_CONTACT_NOTIFICATIONS, ACCESS_FITTINGS, ACCESS_MAIL, ACCESS_MAILING_LISTS, ACCESS_MEDALS, ACCESS_NOTIFICATIONS, ACCESS_RESEARCH, ACCESS_SKILL_IN_TRAINING, ACCESS_SKILL_QUEUE, ACCESS_UPCOMING_CALENDAR_EVENTS, ACCESS_CONTAINER_LOG, ACCESS_CORPORATION_SHEET, ACCESS_CORPORATION_MEDALS, ACCESS_MEMBER_MEDALS, ACCESS_MEMBER_SECURITY, ACCESS_MEMBER_SECURITY_LOG, ACCESS_MEMBER_TRACKING, ACCESS_SHAREHOLDERS, ACCESS_STARBASE_LIST, ACCESS_STRUCTURES, ACCESS_CORPORATION_TITLES);
   }
 
 
@@ -921,14 +987,17 @@ public class MaskList implements Serializable {
     sb.append("    ACCESS_KILL_LOG: ").append(toIndentedString(ACCESS_KILL_LOG)).append("\n");
     sb.append("    ACCESS_LOCATIONS: ").append(toIndentedString(ACCESS_LOCATIONS)).append("\n");
     sb.append("    ACCESS_MARKET_ORDERS: ").append(toIndentedString(ACCESS_MARKET_ORDERS)).append("\n");
+    sb.append("    ACCESS_MINING_LEDGER: ").append(toIndentedString(ACCESS_MINING_LEDGER)).append("\n");
     sb.append("    ACCESS_STANDINGS: ").append(toIndentedString(ACCESS_STANDINGS)).append("\n");
     sb.append("    ACCESS_WALLET_JOURNAL: ").append(toIndentedString(ACCESS_WALLET_JOURNAL)).append("\n");
     sb.append("    ACCESS_WALLET_TRANSACTIONS: ").append(toIndentedString(ACCESS_WALLET_TRANSACTIONS)).append("\n");
     sb.append("    ALLOW_METADATA_CHANGES: ").append(toIndentedString(ALLOW_METADATA_CHANGES)).append("\n");
     sb.append("    ACCESS_CALENDAR_EVENT_ATTENDEES: ").append(toIndentedString(ACCESS_CALENDAR_EVENT_ATTENDEES)).append("\n");
+    sb.append("    ACCESS_CHARACTER_FLEETS: ").append(toIndentedString(ACCESS_CHARACTER_FLEETS)).append("\n");
     sb.append("    ACCESS_CHARACTER_SHEET: ").append(toIndentedString(ACCESS_CHARACTER_SHEET)).append("\n");
     sb.append("    ACCESS_CHAT_CHANNELS: ").append(toIndentedString(ACCESS_CHAT_CHANNELS)).append("\n");
     sb.append("    ACCESS_CONTACT_NOTIFICATIONS: ").append(toIndentedString(ACCESS_CONTACT_NOTIFICATIONS)).append("\n");
+    sb.append("    ACCESS_FITTINGS: ").append(toIndentedString(ACCESS_FITTINGS)).append("\n");
     sb.append("    ACCESS_MAIL: ").append(toIndentedString(ACCESS_MAIL)).append("\n");
     sb.append("    ACCESS_MAILING_LISTS: ").append(toIndentedString(ACCESS_MAILING_LISTS)).append("\n");
     sb.append("    ACCESS_MEDALS: ").append(toIndentedString(ACCESS_MEDALS)).append("\n");
@@ -944,9 +1013,9 @@ public class MaskList implements Serializable {
     sb.append("    ACCESS_MEMBER_SECURITY: ").append(toIndentedString(ACCESS_MEMBER_SECURITY)).append("\n");
     sb.append("    ACCESS_MEMBER_SECURITY_LOG: ").append(toIndentedString(ACCESS_MEMBER_SECURITY_LOG)).append("\n");
     sb.append("    ACCESS_MEMBER_TRACKING: ").append(toIndentedString(ACCESS_MEMBER_TRACKING)).append("\n");
-    sb.append("    ACCESS_OUTPOST_LIST: ").append(toIndentedString(ACCESS_OUTPOST_LIST)).append("\n");
     sb.append("    ACCESS_SHAREHOLDERS: ").append(toIndentedString(ACCESS_SHAREHOLDERS)).append("\n");
     sb.append("    ACCESS_STARBASE_LIST: ").append(toIndentedString(ACCESS_STARBASE_LIST)).append("\n");
+    sb.append("    ACCESS_STRUCTURES: ").append(toIndentedString(ACCESS_STRUCTURES)).append("\n");
     sb.append("    ACCESS_CORPORATION_TITLES: ").append(toIndentedString(ACCESS_CORPORATION_TITLES)).append("\n");
     sb.append("}");
     return sb.toString();

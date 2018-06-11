@@ -16,6 +16,7 @@ package enterprises.orbital.evekit.client.api;
 import enterprises.orbital.evekit.client.ApiException;
 import enterprises.orbital.evekit.client.model.CalendarEventAttendee;
 import enterprises.orbital.evekit.client.model.CharacterContactNotification;
+import enterprises.orbital.evekit.client.model.CharacterFleet;
 import enterprises.orbital.evekit.client.model.CharacterLocation;
 import enterprises.orbital.evekit.client.model.CharacterMailMessage;
 import enterprises.orbital.evekit.client.model.CharacterMedal;
@@ -33,11 +34,20 @@ import enterprises.orbital.evekit.client.model.CharacterSkill;
 import enterprises.orbital.evekit.client.model.CharacterTitle;
 import enterprises.orbital.evekit.client.model.ChatChannel;
 import enterprises.orbital.evekit.client.model.ChatChannelMember;
+import enterprises.orbital.evekit.client.model.Fitting;
+import enterprises.orbital.evekit.client.model.FittingItem;
+import enterprises.orbital.evekit.client.model.FleetInfo;
+import enterprises.orbital.evekit.client.model.FleetMember;
+import enterprises.orbital.evekit.client.model.FleetSquad;
+import enterprises.orbital.evekit.client.model.FleetWing;
 import enterprises.orbital.evekit.client.model.Implant;
 import enterprises.orbital.evekit.client.model.JumpClone;
 import enterprises.orbital.evekit.client.model.JumpCloneImplant;
+import enterprises.orbital.evekit.client.model.LoyaltyPoints;
 import enterprises.orbital.evekit.client.model.MailLabel;
 import enterprises.orbital.evekit.client.model.MailingList;
+import enterprises.orbital.evekit.client.model.MiningLedger;
+import enterprises.orbital.evekit.client.model.Opportunity;
 import enterprises.orbital.evekit.client.model.PlanetaryColony;
 import enterprises.orbital.evekit.client.model.PlanetaryLink;
 import enterprises.orbital.evekit.client.model.PlanetaryPin;
@@ -137,6 +147,31 @@ public class CharacterApiTest {
         String hasPassword = null;
         String motd = null;
         List<ChatChannel> response = api.getChannels(accessKey, accessCred, at, contid, maxresults, reverse, channelID, ownerID, displayName, comparisonKey, hasPassword, motd);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get character fleets
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getCharacterFleetTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String fleetID = null;
+        String role = null;
+        String squadID = null;
+        String wingID = null;
+        List<CharacterFleet> response = api.getCharacterFleet(accessKey, accessCred, at, contid, maxresults, reverse, fleetID, role, squadID, wingID);
 
         // TODO: test validations
     }
@@ -255,6 +290,163 @@ public class CharacterApiTest {
     }
     
     /**
+     * Get character ship fitting items
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getFittingItemsTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String fittingID = null;
+        String typeID = null;
+        String flag = null;
+        String quantity = null;
+        List<FittingItem> response = api.getFittingItems(accessKey, accessCred, at, contid, maxresults, reverse, fittingID, typeID, flag, quantity);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get character ship fittings
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getFittingsTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String fittingID = null;
+        String name = null;
+        String description = null;
+        String shipTypeID = null;
+        List<Fitting> response = api.getFittings(accessKey, accessCred, at, contid, maxresults, reverse, fittingID, name, description, shipTypeID);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get fleet info
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getFleetInfoTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String fleetID = null;
+        String isFreeMove = null;
+        String isRegistered = null;
+        String isVoiceEnabled = null;
+        String motd = null;
+        List<FleetInfo> response = api.getFleetInfo(accessKey, accessCred, at, contid, maxresults, reverse, fleetID, isFreeMove, isRegistered, isVoiceEnabled, motd);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get fleet membership info
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getFleetMembersTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String fleetID = null;
+        String characterID = null;
+        String joinTime = null;
+        String role = null;
+        String roleName = null;
+        String shipTypeID = null;
+        String solarSystemID = null;
+        String squadID = null;
+        String stationID = null;
+        String takesFleetWarp = null;
+        String wingID = null;
+        List<FleetMember> response = api.getFleetMembers(accessKey, accessCred, at, contid, maxresults, reverse, fleetID, characterID, joinTime, role, roleName, shipTypeID, solarSystemID, squadID, stationID, takesFleetWarp, wingID);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get fleet squad info
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getFleetSquadsTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String fleetID = null;
+        String wingID = null;
+        String squadID = null;
+        String name = null;
+        List<FleetSquad> response = api.getFleetSquads(accessKey, accessCred, at, contid, maxresults, reverse, fleetID, wingID, squadID, name);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get fleet wing info
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getFleetWingsTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String fleetID = null;
+        String wingID = null;
+        String name = null;
+        List<FleetWing> response = api.getFleetWings(accessKey, accessCred, at, contid, maxresults, reverse, fleetID, wingID, name);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get character implants
      *
      * 
@@ -368,6 +560,29 @@ public class CharacterApiTest {
         String stationID = null;
         String structureID = null;
         List<CharacterLocation> response = api.getLocation(accessKey, accessCred, at, contid, maxresults, reverse, solarSystemID, stationID, structureID);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get character loyalty points
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getLoyaltyPointsTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String corporationID = null;
+        String loyaltyPoints = null;
+        List<LoyaltyPoints> response = api.getLoyaltyPoints(accessKey, accessCred, at, contid, maxresults, reverse, corporationID, loyaltyPoints);
 
         // TODO: test validations
     }
@@ -507,6 +722,31 @@ public class CharacterApiTest {
     }
     
     /**
+     * Get character mining ledger
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getMiningLedgerTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String date = null;
+        String solarSystemID = null;
+        String typeID = null;
+        String quantity = null;
+        List<MiningLedger> response = api.getMiningLedger(accessKey, accessCred, at, contid, maxresults, reverse, date, solarSystemID, typeID, quantity);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get character notifications (not bodies)
      *
      * 
@@ -555,6 +795,29 @@ public class CharacterApiTest {
         String lastLogout = null;
         String logins = null;
         List<CharacterOnline> response = api.getOnline(accessKey, accessCred, at, contid, maxresults, reverse, online, lastLogin, lastLogout, logins);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get opportunities
+     *
+     * 
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getOpportunitiesTest() throws ApiException {
+        Integer accessKey = null;
+        String accessCred = null;
+        String at = null;
+        Long contid = null;
+        Integer maxresults = null;
+        Boolean reverse = null;
+        String taskID = null;
+        String completedAt = null;
+        List<Opportunity> response = api.getOpportunities(accessKey, accessCred, at, contid, maxresults, reverse, taskID, completedAt);
 
         // TODO: test validations
     }

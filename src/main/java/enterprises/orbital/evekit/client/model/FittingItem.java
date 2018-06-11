@@ -26,7 +26,7 @@ import java.io.Serializable;
  */
 @ApiModel(description = "Model data common properties")
 
-public class Asset implements Serializable {
+public class FittingItem implements Serializable {
   private static final long serialVersionUID = 1L;
 
   @JsonProperty("cid")
@@ -41,32 +41,17 @@ public class Asset implements Serializable {
   @JsonProperty("lifeEnd")
   private Long lifeEnd = null;
 
-  @JsonProperty("itemID")
-  private Long itemID = null;
-
-  @JsonProperty("locationID")
-  private Long locationID = null;
-
-  @JsonProperty("locationType")
-  private String locationType = null;
-
-  @JsonProperty("locationFlag")
-  private String locationFlag = null;
+  @JsonProperty("fittingID")
+  private Integer fittingID = null;
 
   @JsonProperty("typeID")
   private Integer typeID = null;
 
+  @JsonProperty("flag")
+  private Integer flag = null;
+
   @JsonProperty("quantity")
   private Integer quantity = null;
-
-  @JsonProperty("singleton")
-  private Boolean singleton = false;
-
-  @JsonProperty("blueprintType")
-  private String blueprintType = null;
-
-  @JsonProperty("blueprintCopy")
-  private Boolean blueprintCopy = false;
 
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
@@ -74,7 +59,7 @@ public class Asset implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
-  public Asset cid(Long cid) {
+  public FittingItem cid(Long cid) {
     this.cid = cid;
     return this;
   }
@@ -92,7 +77,7 @@ public class Asset implements Serializable {
     this.cid = cid;
   }
 
-  public Asset eveKitVersion(Integer eveKitVersion) {
+  public FittingItem eveKitVersion(Integer eveKitVersion) {
     this.eveKitVersion = eveKitVersion;
     return this;
   }
@@ -110,7 +95,7 @@ public class Asset implements Serializable {
     this.eveKitVersion = eveKitVersion;
   }
 
-  public Asset lifeStart(Long lifeStart) {
+  public FittingItem lifeStart(Long lifeStart) {
     this.lifeStart = lifeStart;
     return this;
   }
@@ -128,7 +113,7 @@ public class Asset implements Serializable {
     this.lifeStart = lifeStart;
   }
 
-  public Asset lifeEnd(Long lifeEnd) {
+  public FittingItem lifeEnd(Long lifeEnd) {
     this.lifeEnd = lifeEnd;
     return this;
   }
@@ -146,79 +131,25 @@ public class Asset implements Serializable {
     this.lifeEnd = lifeEnd;
   }
 
-  public Asset itemID(Long itemID) {
-    this.itemID = itemID;
+  public FittingItem fittingID(Integer fittingID) {
+    this.fittingID = fittingID;
     return this;
   }
 
    /**
-   * Get itemID
-   * @return itemID
+   * Get fittingID
+   * @return fittingID
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getItemID() {
-    return itemID;
+  public Integer getFittingID() {
+    return fittingID;
   }
 
-  public void setItemID(Long itemID) {
-    this.itemID = itemID;
+  public void setFittingID(Integer fittingID) {
+    this.fittingID = fittingID;
   }
 
-  public Asset locationID(Long locationID) {
-    this.locationID = locationID;
-    return this;
-  }
-
-   /**
-   * Get locationID
-   * @return locationID
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Long getLocationID() {
-    return locationID;
-  }
-
-  public void setLocationID(Long locationID) {
-    this.locationID = locationID;
-  }
-
-  public Asset locationType(String locationType) {
-    this.locationType = locationType;
-    return this;
-  }
-
-   /**
-   * Get locationType
-   * @return locationType
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getLocationType() {
-    return locationType;
-  }
-
-  public void setLocationType(String locationType) {
-    this.locationType = locationType;
-  }
-
-  public Asset locationFlag(String locationFlag) {
-    this.locationFlag = locationFlag;
-    return this;
-  }
-
-   /**
-   * Get locationFlag
-   * @return locationFlag
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getLocationFlag() {
-    return locationFlag;
-  }
-
-  public void setLocationFlag(String locationFlag) {
-    this.locationFlag = locationFlag;
-  }
-
-  public Asset typeID(Integer typeID) {
+  public FittingItem typeID(Integer typeID) {
     this.typeID = typeID;
     return this;
   }
@@ -236,7 +167,25 @@ public class Asset implements Serializable {
     this.typeID = typeID;
   }
 
-  public Asset quantity(Integer quantity) {
+  public FittingItem flag(Integer flag) {
+    this.flag = flag;
+    return this;
+  }
+
+   /**
+   * Get flag
+   * @return flag
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getFlag() {
+    return flag;
+  }
+
+  public void setFlag(Integer flag) {
+    this.flag = flag;
+  }
+
+  public FittingItem quantity(Integer quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -254,61 +203,7 @@ public class Asset implements Serializable {
     this.quantity = quantity;
   }
 
-  public Asset singleton(Boolean singleton) {
-    this.singleton = singleton;
-    return this;
-  }
-
-   /**
-   * Get singleton
-   * @return singleton
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getSingleton() {
-    return singleton;
-  }
-
-  public void setSingleton(Boolean singleton) {
-    this.singleton = singleton;
-  }
-
-  public Asset blueprintType(String blueprintType) {
-    this.blueprintType = blueprintType;
-    return this;
-  }
-
-   /**
-   * Get blueprintType
-   * @return blueprintType
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public String getBlueprintType() {
-    return blueprintType;
-  }
-
-  public void setBlueprintType(String blueprintType) {
-    this.blueprintType = blueprintType;
-  }
-
-  public Asset blueprintCopy(Boolean blueprintCopy) {
-    this.blueprintCopy = blueprintCopy;
-    return this;
-  }
-
-   /**
-   * Get blueprintCopy
-   * @return blueprintCopy
-  **/
-  @ApiModelProperty(example = "null", value = "")
-  public Boolean getBlueprintCopy() {
-    return blueprintCopy;
-  }
-
-  public void setBlueprintCopy(Boolean blueprintCopy) {
-    this.blueprintCopy = blueprintCopy;
-  }
-
-  public Asset lifeStartDate(OffsetDateTime lifeStartDate) {
+  public FittingItem lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
   }
@@ -326,7 +221,7 @@ public class Asset implements Serializable {
     this.lifeStartDate = lifeStartDate;
   }
 
-  public Asset lifeEndDate(OffsetDateTime lifeEndDate) {
+  public FittingItem lifeEndDate(OffsetDateTime lifeEndDate) {
     this.lifeEndDate = lifeEndDate;
     return this;
   }
@@ -353,48 +248,38 @@ public class Asset implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Asset asset = (Asset) o;
-    return Objects.equals(this.cid, asset.cid) &&
-        Objects.equals(this.eveKitVersion, asset.eveKitVersion) &&
-        Objects.equals(this.lifeStart, asset.lifeStart) &&
-        Objects.equals(this.lifeEnd, asset.lifeEnd) &&
-        Objects.equals(this.itemID, asset.itemID) &&
-        Objects.equals(this.locationID, asset.locationID) &&
-        Objects.equals(this.locationType, asset.locationType) &&
-        Objects.equals(this.locationFlag, asset.locationFlag) &&
-        Objects.equals(this.typeID, asset.typeID) &&
-        Objects.equals(this.quantity, asset.quantity) &&
-        Objects.equals(this.singleton, asset.singleton) &&
-        Objects.equals(this.blueprintType, asset.blueprintType) &&
-        Objects.equals(this.blueprintCopy, asset.blueprintCopy) &&
-        Objects.equals(this.lifeStartDate, asset.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, asset.lifeEndDate);
+    FittingItem fittingItem = (FittingItem) o;
+    return Objects.equals(this.cid, fittingItem.cid) &&
+        Objects.equals(this.eveKitVersion, fittingItem.eveKitVersion) &&
+        Objects.equals(this.lifeStart, fittingItem.lifeStart) &&
+        Objects.equals(this.lifeEnd, fittingItem.lifeEnd) &&
+        Objects.equals(this.fittingID, fittingItem.fittingID) &&
+        Objects.equals(this.typeID, fittingItem.typeID) &&
+        Objects.equals(this.flag, fittingItem.flag) &&
+        Objects.equals(this.quantity, fittingItem.quantity) &&
+        Objects.equals(this.lifeStartDate, fittingItem.lifeStartDate) &&
+        Objects.equals(this.lifeEndDate, fittingItem.lifeEndDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, itemID, locationID, locationType, locationFlag, typeID, quantity, singleton, blueprintType, blueprintCopy, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, fittingID, typeID, flag, quantity, lifeStartDate, lifeEndDate);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Asset {\n");
+    sb.append("class FittingItem {\n");
     
     sb.append("    cid: ").append(toIndentedString(cid)).append("\n");
     sb.append("    eveKitVersion: ").append(toIndentedString(eveKitVersion)).append("\n");
     sb.append("    lifeStart: ").append(toIndentedString(lifeStart)).append("\n");
     sb.append("    lifeEnd: ").append(toIndentedString(lifeEnd)).append("\n");
-    sb.append("    itemID: ").append(toIndentedString(itemID)).append("\n");
-    sb.append("    locationID: ").append(toIndentedString(locationID)).append("\n");
-    sb.append("    locationType: ").append(toIndentedString(locationType)).append("\n");
-    sb.append("    locationFlag: ").append(toIndentedString(locationFlag)).append("\n");
+    sb.append("    fittingID: ").append(toIndentedString(fittingID)).append("\n");
     sb.append("    typeID: ").append(toIndentedString(typeID)).append("\n");
+    sb.append("    flag: ").append(toIndentedString(flag)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-    sb.append("    singleton: ").append(toIndentedString(singleton)).append("\n");
-    sb.append("    blueprintType: ").append(toIndentedString(blueprintType)).append("\n");
-    sb.append("    blueprintCopy: ").append(toIndentedString(blueprintCopy)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("}");

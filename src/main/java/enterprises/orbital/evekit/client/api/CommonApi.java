@@ -132,10 +132,11 @@ public class CommonApi {
    * @param quantity Asset quantity selector (optional, default to { any: true })
    * @param singleton Asset is singleton selector (optional, default to { any: true })
    * @param blueprintType Asset blueprint type selector (optional, default to { any: true })
+   * @param blueprintCopy Asset blueprint copy selector (optional, default to { any: true })
    * @return List&lt;Asset&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<Asset> getAssets(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String locationID, String locationType, String locationFlag, String typeID, String quantity, String singleton, String blueprintType) throws ApiException {
+  public List<Asset> getAssets(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String itemID, String locationID, String locationType, String locationFlag, String typeID, String quantity, String singleton, String blueprintType, String blueprintCopy) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -170,6 +171,7 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "quantity", quantity));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "singleton", singleton));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "blueprintType", blueprintType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "blueprintCopy", blueprintCopy));
 
     
     
@@ -913,9 +915,7 @@ public class CommonApi {
    * @param date Journal entry date selector (optional, default to { any: true })
    * @param refType Journal entry ref type selector (optional, default to { any: true })
    * @param firstPartyID Journal entry first party ID selector (optional, default to { any: true })
-   * @param firstPartyType Journal entry first party type selector (optional, default to { any: true })
    * @param secondPartyID Journal entry second party ID selector (optional, default to { any: true })
-   * @param secondPartyType Journal entry second party type selector (optional, default to { any: true })
    * @param argName1 Journal entry argument name selector (optional, default to { any: true })
    * @param argID1 Journal entry argument ID selector (optional, default to { any: true })
    * @param amount Journal entry amount selector (optional, default to { any: true })
@@ -923,22 +923,13 @@ public class CommonApi {
    * @param reason Journal entry reason selector (optional, default to { any: true })
    * @param taxReceiverID Journal entry tax receiver ID selector (optional, default to { any: true })
    * @param taxAmount Journal entry tax amount selector (optional, default to { any: true })
-   * @param locationID Location ID selector (optional, default to { any: true })
-   * @param transactionID Transaction ID selector (optional, default to { any: true })
-   * @param npcName NPC name selector (optional, default to { any: true })
-   * @param npcID NPC ID selector (optional, default to { any: true })
-   * @param destroyedShipTypeID Destroyed ship type ID selector (optional, default to { any: true })
-   * @param characterID Character ID selector (optional, default to { any: true })
-   * @param corporationID Corporation ID selector (optional, default to { any: true })
-   * @param allianceID Alliance ID selector (optional, default to { any: true })
-   * @param jobID Job ID selector (optional, default to { any: true })
-   * @param contractID Contract ID selector (optional, default to { any: true })
-   * @param systemID System ID selector (optional, default to { any: true })
-   * @param planetID Planet ID selector (optional, default to { any: true })
+   * @param contextID Context ID selector (optional, default to { any: true })
+   * @param contextType Context type selector (optional, default to { any: true })
+   * @param description Description selector (optional, default to { any: true })
    * @return List&lt;WalletJournal&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<WalletJournal> getJournalEntries(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String division, String refID, String date, String refType, String firstPartyID, String firstPartyType, String secondPartyID, String secondPartyType, String argName1, String argID1, String amount, String balance, String reason, String taxReceiverID, String taxAmount, String locationID, String transactionID, String npcName, String npcID, String destroyedShipTypeID, String characterID, String corporationID, String allianceID, String jobID, String contractID, String systemID, String planetID) throws ApiException {
+  public List<WalletJournal> getJournalEntries(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String division, String refID, String date, String refType, String firstPartyID, String secondPartyID, String argName1, String argID1, String amount, String balance, String reason, String taxReceiverID, String taxAmount, String contextID, String contextType, String description) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -970,9 +961,7 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "date", date));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "refType", refType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "firstPartyID", firstPartyID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "firstPartyType", firstPartyType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "secondPartyID", secondPartyID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "secondPartyType", secondPartyType));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "argName1", argName1));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "argID1", argID1));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "amount", amount));
@@ -980,18 +969,9 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "reason", reason));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxReceiverID", taxReceiverID));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "taxAmount", taxAmount));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "locationID", locationID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "transactionID", transactionID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "npcName", npcName));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "npcID", npcID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "destroyedShipTypeID", destroyedShipTypeID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterID", characterID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "corporationID", corporationID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "allianceID", allianceID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "jobID", jobID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contractID", contractID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "systemID", systemID));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "planetID", planetID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contextID", contextID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contextType", contextType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "description", description));
 
     
     

@@ -9,6 +9,7 @@ import javax.ws.rs.core.GenericType;
 
 import enterprises.orbital.evekit.client.model.CalendarEventAttendee;
 import enterprises.orbital.evekit.client.model.CharacterContactNotification;
+import enterprises.orbital.evekit.client.model.CharacterFleet;
 import enterprises.orbital.evekit.client.model.CharacterLocation;
 import enterprises.orbital.evekit.client.model.CharacterMailMessage;
 import enterprises.orbital.evekit.client.model.CharacterMedal;
@@ -26,11 +27,20 @@ import enterprises.orbital.evekit.client.model.CharacterSkill;
 import enterprises.orbital.evekit.client.model.CharacterTitle;
 import enterprises.orbital.evekit.client.model.ChatChannel;
 import enterprises.orbital.evekit.client.model.ChatChannelMember;
+import enterprises.orbital.evekit.client.model.Fitting;
+import enterprises.orbital.evekit.client.model.FittingItem;
+import enterprises.orbital.evekit.client.model.FleetInfo;
+import enterprises.orbital.evekit.client.model.FleetMember;
+import enterprises.orbital.evekit.client.model.FleetSquad;
+import enterprises.orbital.evekit.client.model.FleetWing;
 import enterprises.orbital.evekit.client.model.Implant;
 import enterprises.orbital.evekit.client.model.JumpClone;
 import enterprises.orbital.evekit.client.model.JumpCloneImplant;
+import enterprises.orbital.evekit.client.model.LoyaltyPoints;
 import enterprises.orbital.evekit.client.model.MailLabel;
 import enterprises.orbital.evekit.client.model.MailingList;
+import enterprises.orbital.evekit.client.model.MiningLedger;
+import enterprises.orbital.evekit.client.model.Opportunity;
 import enterprises.orbital.evekit.client.model.PlanetaryColony;
 import enterprises.orbital.evekit.client.model.PlanetaryLink;
 import enterprises.orbital.evekit.client.model.PlanetaryPin;
@@ -264,6 +274,71 @@ public class CharacterApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<ChatChannel>> localVarReturnType = new GenericType<List<ChatChannel>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get character fleets
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param fleetID Fleet ID selector (optional, default to { any: true })
+   * @param role Fleet role selector (optional, default to { any: true })
+   * @param squadID Fleet squad ID selector (optional, default to { any: true })
+   * @param wingID Fleet wing ID selector (optional, default to { any: true })
+   * @return List&lt;CharacterFleet&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<CharacterFleet> getCharacterFleet(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String fleetID, String role, String squadID, String wingID) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getCharacterFleet");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getCharacterFleet");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/char/char_fleet".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fleetID", fleetID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "role", role));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "squadID", squadID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "wingID", wingID));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<CharacterFleet>> localVarReturnType = new GenericType<List<CharacterFleet>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -550,6 +625,410 @@ public class CharacterApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<CharacterContactNotification>> localVarReturnType = new GenericType<List<CharacterContactNotification>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get character ship fitting items
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param fittingID Ship fitting item fitting ID selector (optional, default to { any: true })
+   * @param typeID Ship fitting item type ID selector (optional, default to { any: true })
+   * @param flag Ship fitting item flag selector (optional, default to { any: true })
+   * @param quantity Ship fitting item quantity selector (optional, default to { any: true })
+   * @return List&lt;FittingItem&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<FittingItem> getFittingItems(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String fittingID, String typeID, String flag, String quantity) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getFittingItems");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getFittingItems");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/char/fitting_items".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fittingID", fittingID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeID", typeID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "flag", flag));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "quantity", quantity));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<FittingItem>> localVarReturnType = new GenericType<List<FittingItem>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get character ship fittings
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param fittingID Ship fitting ID selector (optional, default to { any: true })
+   * @param name Ship fitting name selector (optional, default to { any: true })
+   * @param description Ship fitting description selector (optional, default to { any: true })
+   * @param shipTypeID Ship fitting ship type ID selector (optional, default to { any: true })
+   * @return List&lt;Fitting&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Fitting> getFittings(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String fittingID, String name, String description, String shipTypeID) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getFittings");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getFittings");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/char/fittings".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fittingID", fittingID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "description", description));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "shipTypeID", shipTypeID));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<Fitting>> localVarReturnType = new GenericType<List<Fitting>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get fleet info
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param fleetID Fleet ID selector (optional, default to { any: true })
+   * @param isFreeMove Fleet &#39;is free move&#39; selector (optional, default to { any: true })
+   * @param isRegistered Fleet &#39;is registered&#39; selector (optional, default to { any: true })
+   * @param isVoiceEnabled Fleet &#39;is voice enabled&#39; selector (optional, default to { any: true })
+   * @param motd Fleet message of the day selector (optional, default to { any: true })
+   * @return List&lt;FleetInfo&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<FleetInfo> getFleetInfo(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String fleetID, String isFreeMove, String isRegistered, String isVoiceEnabled, String motd) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getFleetInfo");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getFleetInfo");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/char/fleet_info".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fleetID", fleetID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "isFreeMove", isFreeMove));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "isRegistered", isRegistered));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "isVoiceEnabled", isVoiceEnabled));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "motd", motd));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<FleetInfo>> localVarReturnType = new GenericType<List<FleetInfo>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get fleet membership info
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param fleetID Fleet member fleet ID selector (optional, default to { any: true })
+   * @param characterID Fleet member character ID selector (optional, default to { any: true })
+   * @param joinTime Fleet member join time selector (optional, default to { any: true })
+   * @param role Fleet member role selector (optional, default to { any: true })
+   * @param roleName Fleet member role name selector (optional, default to { any: true })
+   * @param shipTypeID Fleet member ship type ID selector (optional, default to { any: true })
+   * @param solarSystemID Fleet member solar system ID selector (optional, default to { any: true })
+   * @param squadID Fleet member squad ID selector (optional, default to { any: true })
+   * @param stationID Fleet member station ID selector (optional, default to { any: true })
+   * @param takesFleetWarp Fleet member &#39;takes fleet warp&#39; selector (optional, default to { any: true })
+   * @param wingID Fleet member wing ID selector (optional, default to { any: true })
+   * @return List&lt;FleetMember&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<FleetMember> getFleetMembers(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String fleetID, String characterID, String joinTime, String role, String roleName, String shipTypeID, String solarSystemID, String squadID, String stationID, String takesFleetWarp, String wingID) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getFleetMembers");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getFleetMembers");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/char/fleet_members".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fleetID", fleetID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "characterID", characterID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "joinTime", joinTime));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "role", role));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "roleName", roleName));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "shipTypeID", shipTypeID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "solarSystemID", solarSystemID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "squadID", squadID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "stationID", stationID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "takesFleetWarp", takesFleetWarp));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "wingID", wingID));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<FleetMember>> localVarReturnType = new GenericType<List<FleetMember>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get fleet squad info
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param fleetID Fleet squad fleet ID selector (optional, default to { any: true })
+   * @param wingID Fleet squad wing ID selector (optional, default to { any: true })
+   * @param squadID Fleet squad ID selector (optional, default to { any: true })
+   * @param name Fleet squad name selector (optional, default to { any: true })
+   * @return List&lt;FleetSquad&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<FleetSquad> getFleetSquads(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String fleetID, String wingID, String squadID, String name) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getFleetSquads");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getFleetSquads");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/char/fleet_squads".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fleetID", fleetID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "wingID", wingID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "squadID", squadID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<FleetSquad>> localVarReturnType = new GenericType<List<FleetSquad>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get fleet wing info
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param fleetID Fleet wing fleet ID selector (optional, default to { any: true })
+   * @param wingID Fleet wing ID selector (optional, default to { any: true })
+   * @param name Fleet wing name selector (optional, default to { any: true })
+   * @return List&lt;FleetWing&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<FleetWing> getFleetWings(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String fleetID, String wingID, String name) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getFleetWings");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getFleetWings");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/char/fleet_wings".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fleetID", fleetID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "wingID", wingID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "name", name));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<FleetWing>> localVarReturnType = new GenericType<List<FleetWing>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -861,6 +1340,67 @@ public class CharacterApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<CharacterLocation>> localVarReturnType = new GenericType<List<CharacterLocation>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get character loyalty points
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param corporationID Corporation ID selector (optional, default to { any: true })
+   * @param loyaltyPoints Loyalty points selector (optional, default to { any: true })
+   * @return List&lt;LoyaltyPoints&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<LoyaltyPoints> getLoyaltyPoints(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String corporationID, String loyaltyPoints) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getLoyaltyPoints");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getLoyaltyPoints");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/char/loyalty_points".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "corporationID", corporationID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "loyaltyPoints", loyaltyPoints));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<LoyaltyPoints>> localVarReturnType = new GenericType<List<LoyaltyPoints>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
@@ -1207,6 +1747,71 @@ public class CharacterApi {
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**
+   * Get character mining ledger
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param date Date selector (optional, default to { any: true })
+   * @param solarSystemID Solar system ID selector (optional, default to { any: true })
+   * @param typeID Type ID selector (optional, default to { any: true })
+   * @param quantity Quantity selector (optional, default to { any: true })
+   * @return List&lt;MiningLedger&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<MiningLedger> getMiningLedger(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String date, String solarSystemID, String typeID, String quantity) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getMiningLedger");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getMiningLedger");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/char/mining_ledger".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "date", date));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "solarSystemID", solarSystemID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "typeID", typeID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "quantity", quantity));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<MiningLedger>> localVarReturnType = new GenericType<List<MiningLedger>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
    * Get character notifications (not bodies)
    * 
    * @param accessKey Model access key (required)
@@ -1340,6 +1945,67 @@ public class CharacterApi {
     String[] localVarAuthNames = new String[] {  };
 
     GenericType<List<CharacterOnline>> localVarReturnType = new GenericType<List<CharacterOnline>>() {};
+    return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+      }
+  /**
+   * Get opportunities
+   * 
+   * @param accessKey Model access key (required)
+   * @param accessCred Model access credential (required)
+   * @param at Model lifeline selector (defaults to current live data) (optional, default to { values: [ "9223372036854775806" ] })
+   * @param contid Continuation ID for paged results (optional, default to -1)
+   * @param maxresults Maximum number of results to retrieve (optional, default to 1000)
+   * @param reverse If true, page backwards (results less than contid) with results in descending order (by cid) (optional, default to false)
+   * @param taskID Opportunity task ID selector (optional, default to { any: true })
+   * @param completedAt Opportunity &#39;completed at&#39; time selector (optional, default to { any: true })
+   * @return List&lt;Opportunity&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<Opportunity> getOpportunities(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String taskID, String completedAt) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'accessKey' is set
+    if (accessKey == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessKey' when calling getOpportunities");
+    }
+    
+    // verify the required parameter 'accessCred' is set
+    if (accessCred == null) {
+      throw new ApiException(400, "Missing the required parameter 'accessCred' when calling getOpportunities");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/ws/v1/char/opportunities".replaceAll("\\{format\\}","json");
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessKey", accessKey));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "accessCred", accessCred));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "at", at));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "contid", contid));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "maxresults", maxresults));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "reverse", reverse));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "taskID", taskID));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "completedAt", completedAt));
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    GenericType<List<Opportunity>> localVarReturnType = new GenericType<List<Opportunity>>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
   /**

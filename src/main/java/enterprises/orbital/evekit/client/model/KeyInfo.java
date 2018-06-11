@@ -37,6 +37,18 @@ public class KeyInfo implements Serializable {
   @JsonProperty("entityID")
   private Long entityID = null;
 
+  @JsonProperty("charName")
+  private String charName = null;
+
+  @JsonProperty("charID")
+  private Integer charID = null;
+
+  @JsonProperty("corpName")
+  private String corpName = null;
+
+  @JsonProperty("corpID")
+  private Integer corpID = null;
+
   @JsonProperty("mask")
   private Long mask = null;
 
@@ -101,6 +113,78 @@ public class KeyInfo implements Serializable {
 
   public void setEntityID(Long entityID) {
     this.entityID = entityID;
+  }
+
+  public KeyInfo charName(String charName) {
+    this.charName = charName;
+    return this;
+  }
+
+   /**
+   * Character name
+   * @return charName
+  **/
+  @ApiModelProperty(example = "null", value = "Character name")
+  public String getCharName() {
+    return charName;
+  }
+
+  public void setCharName(String charName) {
+    this.charName = charName;
+  }
+
+  public KeyInfo charID(Integer charID) {
+    this.charID = charID;
+    return this;
+  }
+
+   /**
+   * Character ID
+   * @return charID
+  **/
+  @ApiModelProperty(example = "null", value = "Character ID")
+  public Integer getCharID() {
+    return charID;
+  }
+
+  public void setCharID(Integer charID) {
+    this.charID = charID;
+  }
+
+  public KeyInfo corpName(String corpName) {
+    this.corpName = corpName;
+    return this;
+  }
+
+   /**
+   * Corporation name
+   * @return corpName
+  **/
+  @ApiModelProperty(example = "null", value = "Corporation name")
+  public String getCorpName() {
+    return corpName;
+  }
+
+  public void setCorpName(String corpName) {
+    this.corpName = corpName;
+  }
+
+  public KeyInfo corpID(Integer corpID) {
+    this.corpID = corpID;
+    return this;
+  }
+
+   /**
+   * Corporation ID
+   * @return corpID
+  **/
+  @ApiModelProperty(example = "null", value = "Corporation ID")
+  public Integer getCorpID() {
+    return corpID;
+  }
+
+  public void setCorpID(Integer corpID) {
+    this.corpID = corpID;
   }
 
   public KeyInfo mask(Long mask) {
@@ -188,6 +272,10 @@ public class KeyInfo implements Serializable {
     return Objects.equals(this.keyType, keyInfo.keyType) &&
         Objects.equals(this.entityName, keyInfo.entityName) &&
         Objects.equals(this.entityID, keyInfo.entityID) &&
+        Objects.equals(this.charName, keyInfo.charName) &&
+        Objects.equals(this.charID, keyInfo.charID) &&
+        Objects.equals(this.corpName, keyInfo.corpName) &&
+        Objects.equals(this.corpID, keyInfo.corpID) &&
         Objects.equals(this.mask, keyInfo.mask) &&
         Objects.equals(this.expiry, keyInfo.expiry) &&
         Objects.equals(this.limit, keyInfo.limit) &&
@@ -196,7 +284,7 @@ public class KeyInfo implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyType, entityName, entityID, mask, expiry, limit, tokenValid);
+    return Objects.hash(keyType, entityName, entityID, charName, charID, corpName, corpID, mask, expiry, limit, tokenValid);
   }
 
 
@@ -208,6 +296,10 @@ public class KeyInfo implements Serializable {
     sb.append("    keyType: ").append(toIndentedString(keyType)).append("\n");
     sb.append("    entityName: ").append(toIndentedString(entityName)).append("\n");
     sb.append("    entityID: ").append(toIndentedString(entityID)).append("\n");
+    sb.append("    charName: ").append(toIndentedString(charName)).append("\n");
+    sb.append("    charID: ").append(toIndentedString(charID)).append("\n");
+    sb.append("    corpName: ").append(toIndentedString(corpName)).append("\n");
+    sb.append("    corpID: ").append(toIndentedString(corpID)).append("\n");
     sb.append("    mask: ").append(toIndentedString(mask)).append("\n");
     sb.append("    expiry: ").append(toIndentedString(expiry)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
