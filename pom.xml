@@ -5,7 +5,7 @@
 	<artifactId>evekit</artifactId>
 	<packaging>jar</packaging>
 	<name>evekit</name>
-	<version>4.2.1</version>
+	<version>4.2.1.1</version>
 	<url>https://github.com/swagger-api/swagger-codegen</url>
 	<description>Swagger Java</description>
 	<scm>

@@ -62,6 +62,9 @@ public class MarketOrder implements Serializable {
   @JsonProperty("issued")
   private Long issued = null;
 
+  @JsonProperty("issuedBy")
+  private Integer issuedBy = null;
+
   @JsonProperty("minVolume")
   private Integer minVolume = null;
 
@@ -300,6 +303,24 @@ public class MarketOrder implements Serializable {
 
   public void setIssued(Long issued) {
     this.issued = issued;
+  }
+
+  public MarketOrder issuedBy(Integer issuedBy) {
+    this.issuedBy = issuedBy;
+    return this;
+  }
+
+   /**
+   * Get issuedBy
+   * @return issuedBy
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Integer getIssuedBy() {
+    return issuedBy;
+  }
+
+  public void setIssuedBy(Integer issuedBy) {
+    this.issuedBy = issuedBy;
   }
 
   public MarketOrder minVolume(Integer minVolume) {
@@ -575,6 +596,7 @@ public class MarketOrder implements Serializable {
         Objects.equals(this.duration, marketOrder.duration) &&
         Objects.equals(this.escrow, marketOrder.escrow) &&
         Objects.equals(this.issued, marketOrder.issued) &&
+        Objects.equals(this.issuedBy, marketOrder.issuedBy) &&
         Objects.equals(this.minVolume, marketOrder.minVolume) &&
         Objects.equals(this.orderState, marketOrder.orderState) &&
         Objects.equals(this.price, marketOrder.price) &&
@@ -593,7 +615,7 @@ public class MarketOrder implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, orderID, walletDivision, bid, charID, duration, escrow, issued, minVolume, orderState, price, orderRange, typeID, volEntered, volRemaining, regionID, locationID, corp, lifeStartDate, lifeEndDate, issuedDate, accountKey);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, orderID, walletDivision, bid, charID, duration, escrow, issued, issuedBy, minVolume, orderState, price, orderRange, typeID, volEntered, volRemaining, regionID, locationID, corp, lifeStartDate, lifeEndDate, issuedDate, accountKey);
   }
 
 
@@ -613,6 +635,7 @@ public class MarketOrder implements Serializable {
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    escrow: ").append(toIndentedString(escrow)).append("\n");
     sb.append("    issued: ").append(toIndentedString(issued)).append("\n");
+    sb.append("    issuedBy: ").append(toIndentedString(issuedBy)).append("\n");
     sb.append("    minVolume: ").append(toIndentedString(minVolume)).append("\n");
     sb.append("    orderState: ").append(toIndentedString(orderState)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");

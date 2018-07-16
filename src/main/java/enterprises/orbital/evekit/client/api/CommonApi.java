@@ -426,7 +426,7 @@ public class CommonApi {
    * @param contactType Contact type selector (optional, default to { any: true })
    * @param inWatchlist Contact in watch list selector (optional, default to { any: true })
    * @param isBlocked Contact is blocked selector (optional, default to { any: true })
-   * @param labelID Contact label mask selector (optional, default to { any: true })
+   * @param labelID Contact label selector (optional, default to { any: true })
    * @return List&lt;Contact&gt;
    * @throws ApiException if fails to make API call
    */
@@ -1367,6 +1367,7 @@ public class CommonApi {
    * @param duration Market order duration selector (optional, default to { any: true })
    * @param escrow Market order escrow selector (optional, default to { any: true })
    * @param issued Market order issue date selector (optional, default to { any: true })
+   * @param issuedBy Market order issued by selector (optional, default to { any: true })
    * @param minVolume Market order min volume selector (optional, default to { any: true })
    * @param orderState Market order state selector (optional, default to { any: true })
    * @param price Market order price selector (optional, default to { any: true })
@@ -1380,7 +1381,7 @@ public class CommonApi {
    * @return List&lt;MarketOrder&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<MarketOrder> getMarketOrders(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String orderID, String walletDivision, String bid, String charID, String duration, String escrow, String issued, String minVolume, String orderState, String price, String orderRange, String typeID, String volEntered, String volRemaining, String regionID, String locationID, String isCorp) throws ApiException {
+  public List<MarketOrder> getMarketOrders(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String orderID, String walletDivision, String bid, String charID, String duration, String escrow, String issued, String issuedBy, String minVolume, String orderState, String price, String orderRange, String typeID, String volEntered, String volRemaining, String regionID, String locationID, String isCorp) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -1414,6 +1415,7 @@ public class CommonApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "duration", duration));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "escrow", escrow));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "issued", issued));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "issuedBy", issuedBy));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "minVolume", minVolume));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "orderState", orderState));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "price", price));

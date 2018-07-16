@@ -596,6 +596,7 @@ public class CommonApiTest {
         String duration = null;
         String escrow = null;
         String issued = null;
+        String issuedBy = null;
         String minVolume = null;
         String orderState = null;
         String price = null;
@@ -606,7 +607,7 @@ public class CommonApiTest {
         String regionID = null;
         String locationID = null;
         String isCorp = null;
-        List<MarketOrder> response = api.getMarketOrders(accessKey, accessCred, at, contid, maxresults, reverse, orderID, walletDivision, bid, charID, duration, escrow, issued, minVolume, orderState, price, orderRange, typeID, volEntered, volRemaining, regionID, locationID, isCorp);
+        List<MarketOrder> response = api.getMarketOrders(accessKey, accessCred, at, contid, maxresults, reverse, orderID, walletDivision, bid, charID, duration, escrow, issued, issuedBy, minVolume, orderState, price, orderRange, typeID, volEntered, volRemaining, regionID, locationID, isCorp);
 
         // TODO: test validations
     }

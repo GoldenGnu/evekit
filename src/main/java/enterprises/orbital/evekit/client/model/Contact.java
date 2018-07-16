@@ -19,6 +19,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -56,8 +58,8 @@ public class Contact implements Serializable {
   @JsonProperty("inWatchlist")
   private Boolean inWatchlist = false;
 
-  @JsonProperty("labelID")
-  private Long labelID = null;
+  @JsonProperty("labels")
+  private List<Long> labels = new ArrayList<Long>();
 
   @JsonProperty("blocked")
   private Boolean blocked = false;
@@ -230,22 +232,27 @@ public class Contact implements Serializable {
     this.inWatchlist = inWatchlist;
   }
 
-  public Contact labelID(Long labelID) {
-    this.labelID = labelID;
+  public Contact labels(List<Long> labels) {
+    this.labels = labels;
+    return this;
+  }
+
+  public Contact addLabelsItem(Long labelsItem) {
+    this.labels.add(labelsItem);
     return this;
   }
 
    /**
-   * Get labelID
-   * @return labelID
+   * Get labels
+   * @return labels
   **/
   @ApiModelProperty(example = "null", value = "")
-  public Long getLabelID() {
-    return labelID;
+  public List<Long> getLabels() {
+    return labels;
   }
 
-  public void setLabelID(Long labelID) {
-    this.labelID = labelID;
+  public void setLabels(List<Long> labels) {
+    this.labels = labels;
   }
 
   public Contact blocked(Boolean blocked) {
@@ -321,7 +328,7 @@ public class Contact implements Serializable {
         Objects.equals(this.standing, contact.standing) &&
         Objects.equals(this.contactType, contact.contactType) &&
         Objects.equals(this.inWatchlist, contact.inWatchlist) &&
-        Objects.equals(this.labelID, contact.labelID) &&
+        Objects.equals(this.labels, contact.labels) &&
         Objects.equals(this.blocked, contact.blocked) &&
         Objects.equals(this.lifeStartDate, contact.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, contact.lifeEndDate);
@@ -329,7 +336,7 @@ public class Contact implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, list, contactID, standing, contactType, inWatchlist, labelID, blocked, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, list, contactID, standing, contactType, inWatchlist, labels, blocked, lifeStartDate, lifeEndDate);
   }
 
 
@@ -347,7 +354,7 @@ public class Contact implements Serializable {
     sb.append("    standing: ").append(toIndentedString(standing)).append("\n");
     sb.append("    contactType: ").append(toIndentedString(contactType)).append("\n");
     sb.append("    inWatchlist: ").append(toIndentedString(inWatchlist)).append("\n");
-    sb.append("    labelID: ").append(toIndentedString(labelID)).append("\n");
+    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    blocked: ").append(toIndentedString(blocked)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
