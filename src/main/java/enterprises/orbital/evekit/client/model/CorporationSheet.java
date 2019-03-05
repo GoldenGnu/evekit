@@ -92,6 +92,9 @@ public class CorporationSheet implements Serializable {
   @JsonProperty("px256x256")
   private String px256x256 = null;
 
+  @JsonProperty("warEligible")
+  private Boolean warEligible = false;
+
   @JsonProperty("lifeStartDate")
   private OffsetDateTime lifeStartDate = null;
 
@@ -479,6 +482,24 @@ public class CorporationSheet implements Serializable {
     this.px256x256 = px256x256;
   }
 
+  public CorporationSheet warEligible(Boolean warEligible) {
+    this.warEligible = warEligible;
+    return this;
+  }
+
+   /**
+   * Get warEligible
+   * @return warEligible
+  **/
+  @ApiModelProperty(example = "null", value = "")
+  public Boolean getWarEligible() {
+    return warEligible;
+  }
+
+  public void setWarEligible(Boolean warEligible) {
+    this.warEligible = warEligible;
+  }
+
   public CorporationSheet lifeStartDate(OffsetDateTime lifeStartDate) {
     this.lifeStartDate = lifeStartDate;
     return this;
@@ -564,6 +585,7 @@ public class CorporationSheet implements Serializable {
         Objects.equals(this.px64x64, corporationSheet.px64x64) &&
         Objects.equals(this.px128x128, corporationSheet.px128x128) &&
         Objects.equals(this.px256x256, corporationSheet.px256x256) &&
+        Objects.equals(this.warEligible, corporationSheet.warEligible) &&
         Objects.equals(this.lifeStartDate, corporationSheet.lifeStartDate) &&
         Objects.equals(this.lifeEndDate, corporationSheet.lifeEndDate) &&
         Objects.equals(this.dateFoundedDate, corporationSheet.dateFoundedDate);
@@ -571,7 +593,7 @@ public class CorporationSheet implements Serializable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, allianceID, ceoID, corporationID, corporationName, description, memberCount, shares, stationID, taxRate, ticker, url, dateFounded, creatorID, factionID, px64x64, px128x128, px256x256, lifeStartDate, lifeEndDate, dateFoundedDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, allianceID, ceoID, corporationID, corporationName, description, memberCount, shares, stationID, taxRate, ticker, url, dateFounded, creatorID, factionID, px64x64, px128x128, px256x256, warEligible, lifeStartDate, lifeEndDate, dateFoundedDate);
   }
 
 
@@ -601,6 +623,7 @@ public class CorporationSheet implements Serializable {
     sb.append("    px64x64: ").append(toIndentedString(px64x64)).append("\n");
     sb.append("    px128x128: ").append(toIndentedString(px128x128)).append("\n");
     sb.append("    px256x256: ").append(toIndentedString(px256x256)).append("\n");
+    sb.append("    warEligible: ").append(toIndentedString(warEligible)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
     sb.append("    dateFoundedDate: ").append(toIndentedString(dateFoundedDate)).append("\n");

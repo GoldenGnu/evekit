@@ -147,7 +147,8 @@ public class CorporationApiTest {
         String px64x64 = null;
         String px128x128 = null;
         String px256x256 = null;
-        List<CorporationSheet> response = api.getCorporationSheet(accessKey, accessCred, at, contid, maxresults, reverse, allianceID, ceoID, corporationID, corporationName, description, memberCount, shares, stationID, taxRate, ticker, url, dateFounded, creatorID, factionID, px64x64, px128x128, px256x256);
+        String warEligible = null;
+        List<CorporationSheet> response = api.getCorporationSheet(accessKey, accessCred, at, contid, maxresults, reverse, allianceID, ceoID, corporationID, corporationName, description, memberCount, shares, stationID, taxRate, ticker, url, dateFounded, creatorID, factionID, px64x64, px128x128, px256x256, warEligible);
 
         // TODO: test validations
     }

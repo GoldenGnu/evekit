@@ -65,6 +65,9 @@ public class MemberRoleHistory implements Serializable {
   @JsonProperty("lifeEndDate")
   private OffsetDateTime lifeEndDate = null;
 
+  @JsonProperty("changedAtDate")
+  private OffsetDateTime changedAtDate = null;
+
   public MemberRoleHistory cid(Long cid) {
     this.cid = cid;
     return this;
@@ -281,6 +284,24 @@ public class MemberRoleHistory implements Serializable {
     this.lifeEndDate = lifeEndDate;
   }
 
+  public MemberRoleHistory changedAtDate(OffsetDateTime changedAtDate) {
+    this.changedAtDate = changedAtDate;
+    return this;
+  }
+
+   /**
+   * changedAt Date
+   * @return changedAtDate
+  **/
+  @ApiModelProperty(example = "null", value = "changedAt Date")
+  public OffsetDateTime getChangedAtDate() {
+    return changedAtDate;
+  }
+
+  public void setChangedAtDate(OffsetDateTime changedAtDate) {
+    this.changedAtDate = changedAtDate;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -302,12 +323,13 @@ public class MemberRoleHistory implements Serializable {
         Objects.equals(this.roleName, memberRoleHistory.roleName) &&
         Objects.equals(this.old, memberRoleHistory.old) &&
         Objects.equals(this.lifeStartDate, memberRoleHistory.lifeStartDate) &&
-        Objects.equals(this.lifeEndDate, memberRoleHistory.lifeEndDate);
+        Objects.equals(this.lifeEndDate, memberRoleHistory.lifeEndDate) &&
+        Objects.equals(this.changedAtDate, memberRoleHistory.changedAtDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, characterID, changedAt, issuerID, roleType, roleName, old, lifeStartDate, lifeEndDate);
+    return Objects.hash(cid, eveKitVersion, lifeStart, lifeEnd, characterID, changedAt, issuerID, roleType, roleName, old, lifeStartDate, lifeEndDate, changedAtDate);
   }
 
 
@@ -328,6 +350,7 @@ public class MemberRoleHistory implements Serializable {
     sb.append("    old: ").append(toIndentedString(old)).append("\n");
     sb.append("    lifeStartDate: ").append(toIndentedString(lifeStartDate)).append("\n");
     sb.append("    lifeEndDate: ").append(toIndentedString(lifeEndDate)).append("\n");
+    sb.append("    changedAtDate: ").append(toIndentedString(changedAtDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

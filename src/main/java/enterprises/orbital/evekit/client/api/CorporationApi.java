@@ -231,10 +231,11 @@ public class CorporationApi {
    * @param px64x64 Corporation 64x64 image URL selector (optional, default to { any: true })
    * @param px128x128 Corporation 128x128 image URL selector (optional, default to { any: true })
    * @param px256x256 Corporation 256x256 image URL selector (optional, default to { any: true })
+   * @param warEligible Corporation war eligible selector (optional, default to { any: true })
    * @return List&lt;CorporationSheet&gt;
    * @throws ApiException if fails to make API call
    */
-  public List<CorporationSheet> getCorporationSheet(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String allianceID, String ceoID, String corporationID, String corporationName, String description, String memberCount, String shares, String stationID, String taxRate, String ticker, String url, String dateFounded, String creatorID, String factionID, String px64x64, String px128x128, String px256x256) throws ApiException {
+  public List<CorporationSheet> getCorporationSheet(Integer accessKey, String accessCred, String at, Long contid, Integer maxresults, Boolean reverse, String allianceID, String ceoID, String corporationID, String corporationName, String description, String memberCount, String shares, String stationID, String taxRate, String ticker, String url, String dateFounded, String creatorID, String factionID, String px64x64, String px128x128, String px256x256, String warEligible) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'accessKey' is set
@@ -278,6 +279,7 @@ public class CorporationApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "px64x64", px64x64));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "px128x128", px128x128));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "px256x256", px256x256));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "warEligible", warEligible));
 
     
     
