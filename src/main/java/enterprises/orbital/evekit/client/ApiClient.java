@@ -136,7 +136,7 @@ public class ApiClient {
     /**
      * Set HTTP client
      *
-     * @param httpClient An instance of OkHttpClient
+     * @param newHttpClient An instance of OkHttpClient
      * @return Api Client
      */
     public ApiClient setHttpClient(OkHttpClient newHttpClient) {
