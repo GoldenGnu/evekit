@@ -4,7 +4,7 @@
   "invokerPackage":"enterprises.orbital.evekit.client",
   "apiPackage":"enterprises.orbital.evekit.client.api",
   "modelPackage":"enterprises.orbital.evekit.client.model",
-  "library":"jersey2",
+  "library":"okhttp-gson",
   "serializableModel":"true",
   "hideGenerationTimestamp":"true",
   "dateLibrary":"java8"

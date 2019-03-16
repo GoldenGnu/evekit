@@ -1,4 +1,4 @@
-rmdir /s /q %~dp0\src
-rmdir /s /q %~dp0\gradle
-java -jar swagger-codegen-cli.jar generate -i https://evekit-model.orbital.enterprises/api/swagger.json -l java -c config.json
+rmdir /s /q %~dp0src
+rmdir /s /q %~dp0gradle
+java -jar openapi-generator-cli.jar generate -i https://evekit-model.orbital.enterprises/api/swagger.json -g java -c config.json
 pause
