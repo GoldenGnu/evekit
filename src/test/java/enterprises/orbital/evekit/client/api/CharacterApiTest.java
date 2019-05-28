@@ -92,7 +92,7 @@ public class CharacterApiTest {
         String eventID = null;
         String characterID = null;
         String response = null;
-        List<CalendarEventAttendee> response = api.getCalendarEventAttendees(accessKey, accessCred, at, contid, maxresults, reverse, eventID, characterID, response);
+        List<CalendarEventAttendee> responses = api.getCalendarEventAttendees(accessKey, accessCred, at, contid, maxresults, reverse, eventID, characterID, response);
 
         // TODO: test validations
     }
@@ -1142,7 +1142,7 @@ public class CharacterApiTest {
         String response = null;
         String importance = null;
         String ownerType = null;
-        List<UpcomingCalendarEvent> response = api.getUpcomingCalendarEvents(accessKey, accessCred, at, contid, maxresults, reverse, duration, eventDate, eventID, eventText, eventTitle, ownerID, ownerName, response, importance, ownerType);
+        List<UpcomingCalendarEvent> responses = api.getUpcomingCalendarEvents(accessKey, accessCred, at, contid, maxresults, reverse, duration, eventDate, eventID, eventText, eventTitle, ownerID, ownerName, response, importance, ownerType);
 
         // TODO: test validations
     }
